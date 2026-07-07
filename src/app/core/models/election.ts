@@ -16,8 +16,9 @@ export interface Election {
   title: string;
   date: string; // ISO YYYY-MM-DD
   status: ElectionStatus;
-  legalRef: string;
-  sourceUrl: string;
+  predicted?: boolean; // dopočítaný odhad z cyklu (nie oficiálne vyhlásené)
+  legalRef: string | null;
+  sourceUrl: string | null;
 }
 
 export interface ElectionsFile {

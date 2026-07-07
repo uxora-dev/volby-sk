@@ -60,6 +60,12 @@
   overflow: hidden;
 
   &--muted { opacity: 0.72; }
+
+  &--est {
+    border-style: dashed;
+
+    .info-row > ion-icon:first-child { color: var(--app-muted); }
+  }
 }
 
 .info-row {

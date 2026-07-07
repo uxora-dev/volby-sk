@@ -18,29 +18,45 @@
         <div class="detail-hero__count">{{ e.date | relativeSk }}</div>
       </div>
 
+      @if (e.predicted) {
+        <div class="detail-info detail-info--est">
+          <div class="info-row">
+            <ion-icon name="information-circle-outline"></ion-icon>
+            <div>
+              <span class="info-row__k">Predpokladaný termín</span>
+              <span class="info-row__v">Odhad z pravidelného volebného cyklu — oficiálne bude vyhlásené neskôr.</span>
+            </div>
+          </div>
+        </div>
+      }
+
       <div class="detail-info">
         <div class="info-row">
           <ion-icon name="calendar-outline"></ion-icon>
           <div>
-            <span class="info-row__k">Termín konania</span>
+            <span class="info-row__k">{{ e.predicted ? 'Predpokladaný termín' : 'Termín konania' }}</span>
             <span class="info-row__v">{{ e.date | skDate }}</span>
           </div>
         </div>
-        <div class="info-row">
-          <ion-icon name="document-text-outline"></ion-icon>
-          <div>
-            <span class="info-row__k">Právny predpis</span>
-            <span class="info-row__v">{{ e.legalRef }}</span>
+        @if (e.legalRef) {
+          <div class="info-row">
+            <ion-icon name="document-text-outline"></ion-icon>
+            <div>
+              <span class="info-row__k">Právny predpis</span>
+              <span class="info-row__v">{{ e.legalRef }}</span>
+            </div>
           </div>
-        </div>
-        <a class="info-row info-row--link" [href]="e.sourceUrl" target="_blank" rel="noopener">
-          <ion-icon name="open-outline"></ion-icon>
-          <div>
-            <span class="info-row__k">Zdroj — Zbierka zákonov</span>
-            <span class="info-row__v">Otvoriť znenie rozhodnutia</span>
-          </div>
-          <ion-icon class="chev" name="chevron-forward"></ion-icon>
-        </a>
+        }
+        @if (e.sourceUrl) {
+          <a class="info-row info-row--link" [href]="e.sourceUrl" target="_blank" rel="noopener">
+            <ion-icon name="open-outline"></ion-icon>
+            <div>
+              <span class="info-row__k">Zdroj — Zbierka zákonov</span>
+              <span class="info-row__v">Otvoriť znenie rozhodnutia</span>
+            </div>
+            <ion-icon class="chev" name="chevron-forward"></ion-icon>
+          </a>
+        }
       </div>
 
       <div class="detail-info detail-info--muted">

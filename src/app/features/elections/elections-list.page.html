@@ -61,7 +61,12 @@
   } @else {
     <div class="cards stagger">
       @for (e of svc.visible(); track e.id) {
-        <a class="vote-card" [routerLink]="['/election', e.id]" [style.--type]="meta[e.type].color">
+        <a
+          class="vote-card"
+          [class.is-predicted]="e.predicted"
+          [routerLink]="['/election', e.id]"
+          [style.--type]="meta[e.type].color"
+        >
           <span class="vote-card__rail"></span>
           <div class="vote-card__body">
             <div class="vote-card__top">
@@ -70,13 +75,15 @@
               </span>
               <span
                 class="countdown"
-                [class.countdown--soon]="svc.segment() === 'upcoming'"
+                [class.countdown--soon]="svc.segment() === 'upcoming' && !e.predicted"
                 [class.countdown--past]="svc.segment() === 'past'"
+                [class.countdown--est]="e.predicted"
               >{{ e.date | relativeSk }}</span>
             </div>
             <h2 class="vote-card__title">{{ e.title }}</h2>
             <div class="vote-card__date">
               <ion-icon name="calendar-outline"></ion-icon>{{ e.date | skDate }}
+              @if (e.predicted) { <span class="est-tag">≈ predpokladané</span> }
             </div>
           </div>
         </a>

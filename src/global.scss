@@ -221,6 +221,36 @@ ion-segment-button {
   color: var(--app-muted);
   background: color-mix(in srgb, var(--ion-text-color) 8%, transparent);
 }
+.countdown--est {
+  color: var(--app-muted);
+  background: transparent;
+  border: 1px dashed color-mix(in srgb, var(--ion-text-color) 24%, transparent);
+}
+
+/* Predpokladaná (odhadovaná) voľba */
+.vote-card.is-predicted {
+  border-style: dashed;
+}
+.vote-card.is-predicted .vote-card__rail {
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--type) 0,
+    var(--type) 5px,
+    transparent 5px,
+    transparent 10px
+  );
+  opacity: 0.7;
+}
+.est-tag {
+  margin-inline-start: 8px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--app-muted);
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px dashed color-mix(in srgb, var(--ion-text-color) 26%, transparent);
+}
 
 /* Filter typov */
 .type-filter {

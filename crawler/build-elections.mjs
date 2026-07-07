@@ -131,6 +131,7 @@ const elections = [...byRef.values()]
     title: `${TYPE_LABEL[e.type]} ${e.electionDay.slice(0, 4)}`,
     date: e.electionDay,
     status: e.electionDay >= today ? "upcoming" : "past",
+    predicted: false,
     legalRef: e.ref,
     sourceUrl: e.sourceUrl,
   }))
@@ -138,7 +139,49 @@ const elections = [...byRef.values()]
   .filter((e, i, arr) => arr.findIndex(x => x.id === e.id) === i)
   .sort((a, b) => a.date.localeCompare(b.date));
 
-const output = { generatedAt: new Date().toISOString(), count: elections.length, elections };
+// --- Predpokladané budúce voľby (z pravidelných cyklov, ~10 rokov dopredu) ---
+// Oficiálne dáta kodačía vyhlásia; toto dopĺňa odhad. Referendá/doplňujúce sa nepredpovedajú.
+const CYCLE_YEARS = { parliamentary: 4, presidential: 5, european: 5, vuc: 5 };
+const HORIZON = new Date().getUTCFullYear() + 10;
+
+function predictFuture(official) {
+  // Základ = najnovšia oficiálna voľba daného typu (národné + VÚC nemajú doplňujúce, sú čisté).
+  const latest = {};
+  for (const e of official) {
+    if (CYCLE_YEARS[e.type] && (!latest[e.type] || e.date > latest[e.type])) latest[e.type] = e.date;
+  }
+  const preds = [];
+  const vucDates = [];
+  const push = (type, date) => preds.push({
+    id: `${type}-${date}`, type, scope: SCOPE[type],
+    title: `${TYPE_LABEL[type]} ${date.slice(0, 4)}`, date,
+    status: "upcoming", predicted: true, legalRef: null, sourceUrl: null,
+  });
+  for (const [type, step] of Object.entries(CYCLE_YEARS)) {
+    if (!latest[type]) continue;
+    let [y, m, d] = latest[type].split("-").map(Number);
+    while ((y += step) <= HORIZON) {
+      const date = `${y}-${String(m).padStart(2, "0")}-${String(d).padStart(2, "0")}`;
+      push(type, date);
+      if (type === "vuc") vucDates.push(date);
+    }
+  }
+  // Komunálne sú spojené so župnými → rovnaké budúce termíny.
+  for (const date of vucDates) push("municipal", date);
+  return preds;
+}
+
+const known = new Set(elections.map((e) => e.id));
+const predicted = predictFuture(elections).filter((p) => !known.has(p.id)); // oficiálne majú prednosť
+const all = [...elections, ...predicted].sort((a, b) => a.date.localeCompare(b.date));
+
+const output = {
+  generatedAt: new Date().toISOString(),
+  count: all.length,
+  official: elections.length,
+  predicted: predicted.length,
+  elections: all,
+};
 const fs = await import("node:fs");
 fs.writeFileSync(OUT, JSON.stringify(output, null, 2));
-process.stderr.write(`\n✓ zapísané ${elections.length} volieb do ${OUT}\n`);
+process.stderr.write(`\n✓ zapísané ${all.length} volieb (${elections.length} oficiálnych + ${predicted.length} predpokladaných) do ${OUT}\n`);
