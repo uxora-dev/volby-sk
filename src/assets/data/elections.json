@@ -1,7 +1,767 @@
 {
-  "generatedAt": "2026-07-07T11:30:27.439Z",
-  "count": 14,
+  "generatedAt": "2026-07-07T18:14:26.826Z",
+  "count": 90,
   "elections": [
+    {
+      "id": "referendum-2000-11-11",
+      "type": "referendum",
+      "scope": "national",
+      "title": "Referendum 2000",
+      "date": "2000-11-11",
+      "status": "past",
+      "legalRef": "286/2000 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2000/286/20000906.html"
+    },
+    {
+      "id": "municipal-2000-11-25",
+      "type": "municipal",
+      "scope": "municipal",
+      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2000",
+      "date": "2000-11-25",
+      "status": "past",
+      "legalRef": "102/2000 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2000/102/20000323.html"
+    },
+    {
+      "id": "municipal-2001-04-07",
+      "type": "municipal",
+      "scope": "municipal",
+      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2001",
+      "date": "2001-04-07",
+      "status": "past",
+      "legalRef": "1/2001 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2001/1/20010104.html"
+    },
+    {
+      "id": "municipal-2001-06-30",
+      "type": "municipal",
+      "scope": "municipal",
+      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2001",
+      "date": "2001-06-30",
+      "status": "past",
+      "legalRef": "144/2001 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2001/144/20010424.html"
+    },
+    {
+      "id": "vuc-2001-12-01",
+      "type": "vuc",
+      "scope": "regional",
+      "title": "Voľby do orgánov samosprávnych krajov (župné) 2001",
+      "date": "2001-12-01",
+      "status": "past",
+      "legalRef": "320/2001 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2001/320/20010823.html"
+    },
+    {
+      "id": "municipal-2002-04-13",
+      "type": "municipal",
+      "scope": "municipal",
+      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2002",
+      "date": "2002-04-13",
+      "status": "past",
+      "legalRef": "7/2002 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2002/7/20020112.html"
+    },
+    {
+      "id": "municipal-2002-06-29",
+      "type": "municipal",
+      "scope": "municipal",
+      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2002",
+      "date": "2002-06-29",
+      "status": "past",
+      "legalRef": "220/2002 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2002/220/20020430.html"
+    },
+    {
+      "id": "parliamentary-2002-09-21",
+      "type": "parliamentary",
+      "scope": "national",
+      "title": "Voľby do NR SR 2002",
+      "date": "2002-09-21",
+      "status": "past",
+      "legalRef": "279/2002 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2002/279/20020613.html"
+    },
+    {
+      "id": "municipal-2002-12-07",
+      "type": "municipal",
+      "scope": "municipal",
+      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2002",
+      "date": "2002-12-07",
+      "status": "past",
+      "legalRef": "508/2002 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2002/508/20020829.html"
+    },
+    {
+      "id": "municipal-2003-04-05",
+      "type": "municipal",
+      "scope": "municipal",
+      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2003",
+      "date": "2003-04-05",
+      "status": "past",
+      "legalRef": "687/2002 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2002/687/20021219.html"
+    },
+    {
+      "id": "referendum-2003-05-16",
+      "type": "referendum",
+      "scope": "national",
+      "title": "Referendum 2003",
+      "date": "2003-05-16",
+      "status": "past",
+      "legalRef": "49/2003 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2003/49/20030218.html"
+    },
+    {
+      "id": "municipal-2003-05-31",
+      "type": "municipal",
+      "scope": "municipal",
+      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2003",
+      "date": "2003-05-31",
+      "status": "past",
+      "legalRef": "38/2003 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2003/38/20030214.html"
+    },
+    {
+      "id": "municipal-2003-09-27",
+      "type": "municipal",
+      "scope": "municipal",
+      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2003",
+      "date": "2003-09-27",
+      "status": "past",
+      "legalRef": "128/2003 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2003/128/20030416.html"
+    },
+    {
+      "id": "municipal-2004-03-13",
+      "type": "municipal",
+      "scope": "municipal",
+      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2004",
+      "date": "2004-03-13",
+      "status": "past",
+      "legalRef": "508/2003 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2003/508/20031209.html"
+    },
+    {
+      "id": "presidential-2004-04-03",
+      "type": "presidential",
+      "scope": "national",
+      "title": "Voľby prezidenta SR 2004",
+      "date": "2004-04-03",
+      "status": "past",
+      "legalRef": "1/2004 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2004/1/20040109.html"
+    },
+    {
+      "id": "european-2004-06-13",
+      "type": "european",
+      "scope": "national",
+      "title": "Voľby do Európskeho parlamentu 2004",
+      "date": "2004-06-13",
+      "status": "past",
+      "legalRef": "124/2004 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2004/124/20040312.html"
+    },
+    {
+      "id": "municipal-2004-09-18",
+      "type": "municipal",
+      "scope": "municipal",
+      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2004",
+      "date": "2004-09-18",
+      "status": "past",
+      "legalRef": "321/2004 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2004/321/20040522.html"
+    },
+    {
+      "id": "municipal-2005-05-28",
+      "type": "municipal",
+      "scope": "municipal",
+      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2005",
+      "date": "2005-05-28",
+      "status": "past",
+      "legalRef": "37/2005 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2005/37/20050211.html"
+    },
+    {
+      "id": "municipal-2005-10-22",
+      "type": "municipal",
+      "scope": "municipal",
+      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2005",
+      "date": "2005-10-22",
+      "status": "past",
+      "legalRef": "324/2005 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2005/324/20050722.html"
+    },
+    {
+      "id": "vuc-2005-11-26",
+      "type": "vuc",
+      "scope": "regional",
+      "title": "Voľby do orgánov samosprávnych krajov (župné) 2005",
+      "date": "2005-11-26",
+      "status": "past",
+      "legalRef": "235/2005 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2005/235/20050609.html"
+    },
+    {
+      "id": "municipal-2006-03-25",
+      "type": "municipal",
+      "scope": "municipal",
+      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2006",
+      "date": "2006-03-25",
+      "status": "past",
+      "legalRef": "492/2005 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2005/492/20051105.html"
+    },
+    {
+      "id": "municipal-2006-04-08",
+      "type": "municipal",
+      "scope": "municipal",
+      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2006",
+      "date": "2006-04-08",
+      "status": "past",
+      "legalRef": "22/2006 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2006/22/20060118.html"
+    },
+    {
+      "id": "municipal-2006-05-13",
+      "type": "municipal",
+      "scope": "municipal",
+      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2006",
+      "date": "2006-05-13",
+      "status": "past",
+      "legalRef": "59/2006 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2006/59/20060208.html"
+    },
+    {
+      "id": "parliamentary-2006-06-17",
+      "type": "parliamentary",
+      "scope": "national",
+      "title": "Voľby do NR SR 2006",
+      "date": "2006-06-17",
+      "status": "past",
+      "legalRef": "89/2006 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2006/89/20060216.html"
+    },
+    {
+      "id": "municipal-2006-07-08",
+      "type": "municipal",
+      "scope": "municipal",
+      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2006",
+      "date": "2006-07-08",
+      "status": "past",
+      "legalRef": "171/2006 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2006/171/20060330.html"
+    },
+    {
+      "id": "municipal-2006-08-26",
+      "type": "municipal",
+      "scope": "municipal",
+      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2006",
+      "date": "2006-08-26",
+      "status": "past",
+      "legalRef": "287/2006 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2006/287/20060524.html"
+    },
+    {
+      "id": "parliamentary-2006-09-16",
+      "type": "parliamentary",
+      "scope": "national",
+      "title": "Voľby do NR SR 2006",
+      "date": "2006-09-16",
+      "status": "past",
+      "legalRef": "62/2006 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2006/62/20060208.html"
+    },
+    {
+      "id": "municipal-2006-12-02",
+      "type": "municipal",
+      "scope": "municipal",
+      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2006",
+      "date": "2006-12-02",
+      "status": "past",
+      "legalRef": "63/2006 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2006/63/20060209.html"
+    },
+    {
+      "id": "municipal-2007-05-19",
+      "type": "municipal",
+      "scope": "municipal",
+      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2007",
+      "date": "2007-05-19",
+      "status": "past",
+      "legalRef": "622/2006 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2006/622/20061209.html"
+    },
+    {
+      "id": "municipal-2007-10-27",
+      "type": "municipal",
+      "scope": "municipal",
+      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2007",
+      "date": "2007-10-27",
+      "status": "past",
+      "legalRef": "240/2007 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2007/240/20070525.html"
+    },
+    {
+      "id": "municipal-2008-03-15",
+      "type": "municipal",
+      "scope": "municipal",
+      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2008",
+      "date": "2008-03-15",
+      "status": "past",
+      "legalRef": "495/2007 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2007/495/20071107.html"
+    },
+    {
+      "id": "municipal-2008-06-21",
+      "type": "municipal",
+      "scope": "municipal",
+      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2008",
+      "date": "2008-06-21",
+      "status": "past",
+      "legalRef": "96/2008 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2008/96/20080320.html"
+    },
+    {
+      "id": "municipal-2008-11-22",
+      "type": "municipal",
+      "scope": "municipal",
+      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2008",
+      "date": "2008-11-22",
+      "status": "past",
+      "legalRef": "332/2008 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2008/332/20080823.html"
+    },
+    {
+      "id": "presidential-2009-03-21",
+      "type": "presidential",
+      "scope": "national",
+      "title": "Voľby prezidenta SR 2009",
+      "date": "2009-03-21",
+      "status": "past",
+      "legalRef": "1/2009 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2009/1/20090108.html"
+    },
+    {
+      "id": "municipal-2009-04-25",
+      "type": "municipal",
+      "scope": "municipal",
+      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2009",
+      "date": "2009-04-25",
+      "status": "past",
+      "legalRef": "3/2009 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2009/3/20090108.html"
+    },
+    {
+      "id": "european-2009-06-06",
+      "type": "european",
+      "scope": "national",
+      "title": "Voľby do Európskeho parlamentu 2009",
+      "date": "2009-06-06",
+      "status": "past",
+      "legalRef": "2/2009 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2009/2/20090108.html"
+    },
+    {
+      "id": "vuc-2009-11-14",
+      "type": "vuc",
+      "scope": "regional",
+      "title": "Voľby do orgánov samosprávnych krajov (župné) 2009",
+      "date": "2009-11-14",
+      "status": "past",
+      "legalRef": "272/2009 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2009/272/20090703.html"
+    },
+    {
+      "id": "municipal-2010-01-16",
+      "type": "municipal",
+      "scope": "municipal",
+      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2010",
+      "date": "2010-01-16",
+      "status": "past",
+      "legalRef": "397/2009 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2009/397/20091015.html"
+    },
+    {
+      "id": "municipal-2010-05-29",
+      "type": "municipal",
+      "scope": "municipal",
+      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2010",
+      "date": "2010-05-29",
+      "status": "past",
+      "legalRef": "25/2010 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2010/25/20100128.html"
+    },
+    {
+      "id": "parliamentary-2010-06-12",
+      "type": "parliamentary",
+      "scope": "national",
+      "title": "Voľby do NR SR 2010",
+      "date": "2010-06-12",
+      "status": "past",
+      "legalRef": "36/2010 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2010/36/20100204.html"
+    },
+    {
+      "id": "referendum-2010-09-18",
+      "type": "referendum",
+      "scope": "national",
+      "title": "Referendum 2010",
+      "date": "2010-09-18",
+      "status": "past",
+      "legalRef": "311/2010 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2010/311/20100706.html"
+    },
+    {
+      "id": "municipal-2010-11-27",
+      "type": "municipal",
+      "scope": "municipal",
+      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2010",
+      "date": "2010-11-27",
+      "status": "past",
+      "legalRef": "225/2010 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2010/225/20100525.html"
+    },
+    {
+      "id": "municipal-2011-03-12",
+      "type": "municipal",
+      "scope": "municipal",
+      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2011",
+      "date": "2011-03-12",
+      "status": "past",
+      "legalRef": "463/2010 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2010/463/20101209.html"
+    },
+    {
+      "id": "municipal-2011-06-25",
+      "type": "municipal",
+      "scope": "municipal",
+      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2011",
+      "date": "2011-06-25",
+      "status": "past",
+      "legalRef": "80/2011 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2011/80/20110325.html"
+    },
+    {
+      "id": "municipal-2011-11-05",
+      "type": "municipal",
+      "scope": "municipal",
+      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2011",
+      "date": "2011-11-05",
+      "status": "past",
+      "legalRef": "205/2011 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2011/205/20110702.html"
+    },
+    {
+      "id": "parliamentary-2012-03-10",
+      "type": "parliamentary",
+      "scope": "national",
+      "title": "Voľby do NR SR 2012",
+      "date": "2012-03-10",
+      "status": "past",
+      "legalRef": "347/2011 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2011/347/20111022.html"
+    },
+    {
+      "id": "municipal-2012-03-31",
+      "type": "municipal",
+      "scope": "municipal",
+      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2012",
+      "date": "2012-03-31",
+      "status": "past",
+      "legalRef": "401/2011 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2011/401/20111117.html"
+    },
+    {
+      "id": "municipal-2012-10-27",
+      "type": "municipal",
+      "scope": "municipal",
+      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2012",
+      "date": "2012-10-27",
+      "status": "past",
+      "legalRef": "132/2012 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2012/132/20120413.html"
+    },
+    {
+      "id": "municipal-2013-03-09",
+      "type": "municipal",
+      "scope": "municipal",
+      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2013",
+      "date": "2013-03-09",
+      "status": "past",
+      "legalRef": "331/2012 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2012/331/20121109.html"
+    },
+    {
+      "id": "municipal-2013-06-29",
+      "type": "municipal",
+      "scope": "municipal",
+      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2013",
+      "date": "2013-06-29",
+      "status": "past",
+      "legalRef": "49/2013 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2013/49/20130321.html"
+    },
+    {
+      "id": "vuc-2013-11-09",
+      "type": "vuc",
+      "scope": "regional",
+      "title": "Voľby do orgánov samosprávnych krajov (župné) 2013",
+      "date": "2013-11-09",
+      "status": "past",
+      "legalRef": "191/2013 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2013/191/20130710.html"
+    },
+    {
+      "id": "municipal-2014-01-25",
+      "type": "municipal",
+      "scope": "municipal",
+      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2014",
+      "date": "2014-01-25",
+      "status": "past",
+      "legalRef": "192/2013 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2013/192/20130710.html"
+    },
+    {
+      "id": "presidential-2014-03-15",
+      "type": "presidential",
+      "scope": "national",
+      "title": "Voľby prezidenta SR 2014",
+      "date": "2014-03-15",
+      "status": "past",
+      "legalRef": "430/2013 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2013/430/20131219.html"
+    },
+    {
+      "id": "european-2014-05-24",
+      "type": "european",
+      "scope": "national",
+      "title": "Voľby do Európskeho parlamentu 2014",
+      "date": "2014-05-24",
+      "status": "past",
+      "legalRef": "431/2013 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2013/431/20131219.html"
+    },
+    {
+      "id": "municipal-2014-06-21",
+      "type": "municipal",
+      "scope": "municipal",
+      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2014",
+      "date": "2014-06-21",
+      "status": "past",
+      "legalRef": "18/2014 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2014/18/20140207.html"
+    },
+    {
+      "id": "municipal-2014-11-15",
+      "type": "municipal",
+      "scope": "municipal",
+      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2014",
+      "date": "2014-11-15",
+      "status": "past",
+      "legalRef": "191/2014 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2014/191/20140709.html"
+    },
+    {
+      "id": "referendum-2015-02-07",
+      "type": "referendum",
+      "scope": "national",
+      "title": "Referendum 2015",
+      "date": "2015-02-07",
+      "status": "past",
+      "legalRef": "320/2014 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2014/320/20141127.html"
+    },
+    {
+      "id": "municipal-2015-06-13",
+      "type": "municipal",
+      "scope": "municipal",
+      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2015",
+      "date": "2015-06-13",
+      "status": "past",
+      "legalRef": "45/2015 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2015/45/20150312.html"
+    },
+    {
+      "id": "municipal-2015-10-24",
+      "type": "municipal",
+      "scope": "municipal",
+      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2015",
+      "date": "2015-10-24",
+      "status": "past",
+      "legalRef": "138/2015 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2015/138/20150620.html"
+    },
+    {
+      "id": "parliamentary-2016-03-05",
+      "type": "parliamentary",
+      "scope": "national",
+      "title": "Voľby do NR SR 2016",
+      "date": "2016-03-05",
+      "status": "past",
+      "legalRef": "307/2015 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2015/307/20151112.html"
+    },
+    {
+      "id": "municipal-2016-04-09",
+      "type": "municipal",
+      "scope": "municipal",
+      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2016",
+      "date": "2016-04-09",
+      "status": "past",
+      "legalRef": "291/2015 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2015/291/20151103.html"
+    },
+    {
+      "id": "municipal-2016-11-05",
+      "type": "municipal",
+      "scope": "municipal",
+      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2016",
+      "date": "2016-11-05",
+      "status": "past",
+      "legalRef": "160/2016 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2016/160/20160421.html"
+    },
+    {
+      "id": "municipal-2017-04-08",
+      "type": "municipal",
+      "scope": "municipal",
+      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2017",
+      "date": "2017-04-08",
+      "status": "past",
+      "legalRef": "304/2016 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2016/304/20161118.html"
+    },
+    {
+      "id": "municipal-2017-10-14",
+      "type": "municipal",
+      "scope": "municipal",
+      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2017",
+      "date": "2017-10-14",
+      "status": "past",
+      "legalRef": "91/2017 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2017/91/20170421.html"
+    },
+    {
+      "id": "vuc-2017-11-04",
+      "type": "vuc",
+      "scope": "regional",
+      "title": "Voľby do orgánov samosprávnych krajov (župné) 2017",
+      "date": "2017-11-04",
+      "status": "past",
+      "legalRef": "166/2017 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2017/166/20170628.html"
+    },
+    {
+      "id": "municipal-2018-01-27",
+      "type": "municipal",
+      "scope": "municipal",
+      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2018",
+      "date": "2018-01-27",
+      "status": "past",
+      "legalRef": "255/2017 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2017/255/20171024.html"
+    },
+    {
+      "id": "municipal-2018-11-10",
+      "type": "municipal",
+      "scope": "municipal",
+      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2018",
+      "date": "2018-11-10",
+      "status": "past",
+      "legalRef": "203/2018 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2018/203/20180710.html"
+    },
+    {
+      "id": "presidential-2019-03-16",
+      "type": "presidential",
+      "scope": "national",
+      "title": "Voľby prezidenta SR 2019",
+      "date": "2019-03-16",
+      "status": "past",
+      "legalRef": "8/2019 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2019/8/20190110.html"
+    },
+    {
+      "id": "municipal-2019-04-13",
+      "type": "municipal",
+      "scope": "municipal",
+      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2019",
+      "date": "2019-04-13",
+      "status": "past",
+      "legalRef": "349/2018 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2018/349/20181210.html"
+    },
+    {
+      "id": "european-2019-05-25",
+      "type": "european",
+      "scope": "national",
+      "title": "Voľby do Európskeho parlamentu 2019",
+      "date": "2019-05-25",
+      "status": "past",
+      "legalRef": "28/2019 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2019/28/20190204.html"
+    },
+    {
+      "id": "municipal-2019-09-21",
+      "type": "municipal",
+      "scope": "municipal",
+      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2019",
+      "date": "2019-09-21",
+      "status": "past",
+      "legalRef": "128/2019 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2019/128/20190515.html"
+    },
+    {
+      "id": "parliamentary-2020-02-29",
+      "type": "parliamentary",
+      "scope": "national",
+      "title": "Voľby do NR SR 2020",
+      "date": "2020-02-29",
+      "status": "past",
+      "legalRef": "351/2019 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2019/351/20191105.html"
+    },
+    {
+      "id": "municipal-2020-10-03",
+      "type": "municipal",
+      "scope": "municipal",
+      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2020",
+      "date": "2020-10-03",
+      "status": "past",
+      "legalRef": "334/2019 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2019/334/20191016.html"
+    },
+    {
+      "id": "municipal-2021-05-15",
+      "type": "municipal",
+      "scope": "municipal",
+      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2021",
+      "date": "2021-05-15",
+      "status": "past",
+      "legalRef": "297/2020 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2020/297/20201029.html"
+    },
+    {
+      "id": "municipal-2021-10-23",
+      "type": "municipal",
+      "scope": "municipal",
+      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2021",
+      "date": "2021-10-23",
+      "status": "past",
+      "legalRef": "235/2021 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2021/235/20210610.html"
+    },
+    {
+      "id": "municipal-2022-03-19",
+      "type": "municipal",
+      "scope": "municipal",
+      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2022",
+      "date": "2022-03-19",
+      "status": "past",
+      "legalRef": "426/2021 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2021/426/20211123.html"
+    },
     {
       "id": "vuc-2022-10-29",
       "type": "vuc",
