@@ -1,0 +1,86 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>Voľby SK</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/settings" aria-label="Nastavenia">
+        <ion-icon slot="icon-only" name="settings-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-segment
+      [value]="svc.segment()"
+      [disabled]="svc.yearFilter() !== 'all'"
+      (ionChange)="onSegment($event.detail.value)"
+    >
+      <ion-segment-button value="upcoming"><ion-label>Nadchádzajúce</ion-label></ion-segment-button>
+      <ion-segment-button value="past"><ion-label>Minulé</ion-label></ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <div class="type-filter">
+    <button class="filter-chip" [class.is-active]="svc.typeFilter() === 'all'" (click)="setType('all')">Všetky</button>
+    @for (t of types; track t) {
+      <button
+        class="filter-chip"
+        [class.is-active]="svc.typeFilter() === t"
+        [style.--chip]="meta[t].color"
+        (click)="setType(t)"
+      >
+        <ion-icon [name]="meta[t].icon" [style.color]="meta[t].color"></ion-icon>{{ meta[t].short }}
+      </button>
+    }
+  </div>
+
+  @if (svc.availableYears().length > 1) {
+    <div class="year-filter">
+      <button class="year-chip" [class.is-active]="svc.yearFilter() === 'all'" (click)="setYear('all')">
+        Všetky roky
+      </button>
+      @for (y of svc.availableYears(); track y) {
+        <button class="year-chip" [class.is-active]="svc.yearFilter() === y" (click)="setYear(y)">{{ y }}</button>
+      }
+    </div>
+  }
+
+  @if (svc.loading()) {
+    <div class="state"><ion-spinner name="dots"></ion-spinner></div>
+  } @else if (svc.error()) {
+    <div class="state">
+      <ion-note color="danger">Nepodarilo sa načítať voľby.</ion-note>
+      <ion-button fill="clear" (click)="svc.load()">Skúsiť znova</ion-button>
+    </div>
+  } @else if (svc.visible().length === 0) {
+    <div class="state"><ion-note>Žiadne voľby v tejto kategórii.</ion-note></div>
+  } @else {
+    <div class="cards stagger">
+      @for (e of svc.visible(); track e.id) {
+        <a class="vote-card" [routerLink]="['/election', e.id]" [style.--type]="meta[e.type].color">
+          <span class="vote-card__rail"></span>
+          <div class="vote-card__body">
+            <div class="vote-card__top">
+              <span class="type-pill">
+                <ion-icon [name]="meta[e.type].icon"></ion-icon>{{ meta[e.type].short }}
+              </span>
+              <span
+                class="countdown"
+                [class.countdown--soon]="svc.segment() === 'upcoming'"
+                [class.countdown--past]="svc.segment() === 'past'"
+              >{{ e.date | relativeSk }}</span>
+            </div>
+            <h2 class="vote-card__title">{{ e.title }}</h2>
+            <div class="vote-card__date">
+              <ion-icon name="calendar-outline"></ion-icon>{{ e.date | skDate }}
+            </div>
+          </div>
+        </a>
+      }
+    </div>
+  }
+</ion-content>

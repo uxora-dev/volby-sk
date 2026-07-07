@@ -1,0 +1,146 @@
+{
+  "generatedAt": "2026-07-07T11:30:27.439Z",
+  "count": 14,
+  "elections": [
+    {
+      "id": "vuc-2022-10-29",
+      "type": "vuc",
+      "scope": "regional",
+      "title": "Voľby do orgánov samosprávnych krajov (župné) 2022",
+      "date": "2022-10-29",
+      "status": "past",
+      "legalRef": "209/2022 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2022/209/20220610.html"
+    },
+    {
+      "id": "referendum-2023-01-21",
+      "type": "referendum",
+      "scope": "national",
+      "title": "Referendum 2023",
+      "date": "2023-01-21",
+      "status": "past",
+      "legalRef": "362/2022 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2022/362/20221104.html"
+    },
+    {
+      "id": "municipal-2023-03-25",
+      "type": "municipal",
+      "scope": "municipal",
+      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2023",
+      "date": "2023-03-25",
+      "status": "past",
+      "legalRef": "384/2022 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2022/384/20221124.html"
+    },
+    {
+      "id": "municipal-2023-09-09",
+      "type": "municipal",
+      "scope": "municipal",
+      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2023",
+      "date": "2023-09-09",
+      "status": "past",
+      "legalRef": "138/2023 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2023/138/20230425.html"
+    },
+    {
+      "id": "parliamentary-2023-09-30",
+      "type": "parliamentary",
+      "scope": "national",
+      "title": "Voľby do NR SR 2023",
+      "date": "2023-09-30",
+      "status": "past",
+      "legalRef": "204/2023 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2023/204/20230609.html"
+    },
+    {
+      "id": "municipal-2024-02-10",
+      "type": "municipal",
+      "scope": "municipal",
+      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2024",
+      "date": "2024-02-10",
+      "status": "past",
+      "legalRef": "387/2023 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2023/387/20231004.html"
+    },
+    {
+      "id": "presidential-2024-03-23",
+      "type": "presidential",
+      "scope": "national",
+      "title": "Voľby prezidenta SR 2024",
+      "date": "2024-03-23",
+      "status": "past",
+      "legalRef": "1/2024 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2024/1/20240109.html"
+    },
+    {
+      "id": "european-2024-06-08",
+      "type": "european",
+      "scope": "national",
+      "title": "Voľby do Európskeho parlamentu 2024",
+      "date": "2024-06-08",
+      "status": "past",
+      "legalRef": "12/2024 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2024/12/20240210.html"
+    },
+    {
+      "id": "municipal-2024-10-05",
+      "type": "municipal",
+      "scope": "municipal",
+      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2024",
+      "date": "2024-10-05",
+      "status": "past",
+      "legalRef": "29/2024 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2024/29/20240301.html"
+    },
+    {
+      "id": "municipal-2025-03-15",
+      "type": "municipal",
+      "scope": "municipal",
+      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2025",
+      "date": "2025-03-15",
+      "status": "past",
+      "legalRef": "285/2024 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2024/285/20241105.html"
+    },
+    {
+      "id": "municipal-2025-09-06",
+      "type": "municipal",
+      "scope": "municipal",
+      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2025",
+      "date": "2025-09-06",
+      "status": "past",
+      "legalRef": "68/2025 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2025/68/20250410.html"
+    },
+    {
+      "id": "municipal-2026-03-21",
+      "type": "municipal",
+      "scope": "municipal",
+      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2026",
+      "date": "2026-03-21",
+      "status": "past",
+      "legalRef": "262/2025 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2025/262/20251010.html"
+    },
+    {
+      "id": "referendum-2026-07-04",
+      "type": "referendum",
+      "scope": "national",
+      "title": "Referendum 2026",
+      "date": "2026-07-04",
+      "status": "past",
+      "legalRef": "60/2026 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2026/60/20260421.html"
+    },
+    {
+      "id": "vuc-2026-10-24",
+      "type": "vuc",
+      "scope": "regional",
+      "title": "Voľby do orgánov samosprávnych krajov (župné) 2026",
+      "date": "2026-10-24",
+      "status": "upcoming",
+      "legalRef": "145/2026 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2026/145/20260624.html"
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+.detail {
+  padding-bottom: calc(32px + var(--ion-safe-area-bottom, 0px));
+}
+
+.detail-hero {
+  position: relative;
+  margin: 4px 16px 18px;
+  padding: 32px 24px 26px;
+  border-radius: var(--app-radius);
+  text-align: center;
+  overflow: hidden;
+  border: 1px solid var(--app-border);
+  background:
+    radial-gradient(130% 95% at 50% -25%, color-mix(in srgb, var(--type) 28%, transparent), transparent 70%),
+    var(--app-surface);
+  box-shadow: var(--app-shadow);
+}
+
+.detail-hero__badge {
+  width: 76px;
+  height: 76px;
+  margin: 0 auto 16px;
+  border-radius: 22px;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  background: linear-gradient(150deg, var(--type), color-mix(in srgb, var(--type) 60%, #000));
+  box-shadow: 0 16px 32px -12px color-mix(in srgb, var(--type) 65%, transparent);
+
+  ion-icon { font-size: 37px; }
+}
+
+.detail-hero .type-pill {
+  margin-bottom: 14px;
+}
+
+.detail-hero__title {
+  font-size: 1.72rem;
+  line-height: 1.12;
+  font-weight: 600;
+  margin: 6px 0 16px;
+}
+
+.detail-hero__count {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 7px 16px;
+  border-radius: 999px;
+  color: var(--type);
+  background: color-mix(in srgb, var(--type) 14%, transparent);
+}
+
+.detail-info {
+  margin: 0 16px 16px;
+  background: var(--app-surface);
+  border: 1px solid var(--app-border);
+  border-radius: var(--app-radius);
+  box-shadow: var(--app-shadow);
+  overflow: hidden;
+
+  &--muted { opacity: 0.72; }
+}
+
+.info-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 15px 17px;
+  text-decoration: none;
+  color: inherit;
+
+  & + .info-row { border-top: 1px solid var(--app-border); }
+
+  > ion-icon:first-child {
+    font-size: 1.35rem;
+    color: var(--type);
+    flex: 0 0 auto;
+  }
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+    min-width: 0;
+  }
+
+  &--link:active { background: color-mix(in srgb, var(--type) 7%, transparent); }
+  .chev { color: var(--app-muted); font-size: 1.05rem; flex: 0 0 auto; }
+}
+
+.info-row__k {
+  font-size: 0.74rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--app-muted);
+}
+
+.info-row__v {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 64px 24px;
+  text-align: center;
+}

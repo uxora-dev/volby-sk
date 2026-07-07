@@ -1,0 +1,11 @@
+{
+  "name": "volby-sk-crawler",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Crawler volebných termínov zo Zbierky zákonov (Slov-lex) + FCM push sender. Beží v GitHub Actions, žiadne závislosti.",
+  "scripts": {
+    "build": "node build-elections.mjs",
+    "notify": "node send-notifications.mjs"
+  }
+}

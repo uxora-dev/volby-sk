@@ -1,0 +1,334 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+/**
+ * Ionic Dark Mode
+ * -----------------------------------------------------
+ * For more info, please see:
+ * https://ionicframework.com/docs/theming/dark-mode
+ */
+
+/* @import "@ionic/angular/css/palettes/dark.always.css"; */
+/* @import "@ionic/angular/css/palettes/dark.class.css"; */
+@import "@ionic/angular/css/palettes/dark.system.css";
+
+/* =========================================================================
+   Voľby SK — civic-editorial dizajn
+   ========================================================================= */
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+h1, h2, h3, .u-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+}
+
+/* Atmosféra pozadia + jemné zrno */
+ion-content {
+  --background:
+    radial-gradient(1200px 520px at 100% -8%, rgba(217, 72, 43, 0.07), transparent 60%),
+    radial-gradient(900px 520px at -12% 2%, rgba(47, 109, 176, 0.08), transparent 55%),
+    var(--ion-background-color);
+}
+@media (prefers-color-scheme: dark) {
+  ion-content {
+    --background:
+      radial-gradient(1200px 520px at 100% -8%, rgba(255, 106, 65, 0.1), transparent 60%),
+      radial-gradient(900px 520px at -12% 2%, rgba(95, 150, 216, 0.12), transparent 55%),
+      var(--ion-background-color);
+  }
+}
+
+ion-app::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0.028;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Toolbar: sklo + serifový titul */
+ion-toolbar {
+  --border-width: 0 !important;
+  --border-color: transparent;
+  backdrop-filter: saturate(1.4) blur(18px);
+  -webkit-backdrop-filter: saturate(1.4) blur(18px);
+}
+ion-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+ion-back-button,
+ion-toolbar ion-button {
+  --color: var(--ion-text-color);
+}
+
+/* List header */
+ion-list-header ion-label {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--app-muted);
+}
+
+/* Segment ako moderná pilulka */
+ion-segment {
+  --background: color-mix(in srgb, var(--ion-text-color) 7%, transparent);
+  border-radius: 999px;
+  padding: 4px;
+  margin: 4px 0 2px;
+}
+ion-segment-button {
+  --indicator-color: var(--app-surface);
+  --border-radius: 999px;
+  --color: var(--app-muted);
+  --color-checked: var(--ion-text-color);
+  --indicator-box-shadow: var(--app-shadow);
+  min-height: 38px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-transform: none;
+}
+
+/* ---- Karta voľby ---- */
+.vote-card {
+  display: flex;
+  gap: 0;
+  position: relative;
+  overflow: hidden;
+  background: var(--app-surface);
+  border: 1px solid var(--app-border);
+  border-radius: var(--app-radius);
+  box-shadow: var(--app-shadow);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.25s cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+  animation: cardIn 0.55s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.vote-card:active {
+  transform: scale(0.985);
+}
+@media (hover: hover) {
+  .vote-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--app-shadow-lg);
+    border-color: color-mix(in srgb, var(--type) 45%, var(--app-border));
+  }
+}
+.vote-card__rail {
+  flex: 0 0 6px;
+  background: linear-gradient(to bottom, var(--type), color-mix(in srgb, var(--type) 60%, transparent));
+}
+.vote-card__body {
+  flex: 1;
+  padding: 15px 17px 16px;
+  min-width: 0;
+}
+.vote-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 11px;
+}
+.vote-card__title {
+  font-size: 1.14rem;
+  line-height: 1.2;
+  font-weight: 600;
+  margin: 0 0 9px;
+}
+.vote-card__date {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--app-muted);
+}
+.vote-card__date ion-icon {
+  font-size: 1rem;
+  color: var(--type);
+}
+
+/* Pilulka typu */
+.type-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 11px 5px 9px;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--type);
+  background: color-mix(in srgb, var(--type) 13%, transparent);
+}
+.type-pill ion-icon {
+  font-size: 0.95rem;
+}
+
+/* Countdown badge */
+.countdown {
+  flex: 0 0 auto;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  padding: 5px 11px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.countdown--soon {
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+.countdown--past {
+  color: var(--app-muted);
+  background: color-mix(in srgb, var(--ion-text-color) 8%, transparent);
+}
+
+/* Filter typov */
+.type-filter {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 12px 16px 6px;
+  scrollbar-width: none;
+}
+.type-filter::-webkit-scrollbar {
+  display: none;
+}
+.filter-chip {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  border: 1.5px solid var(--app-border);
+  background: var(--app-surface);
+  color: var(--app-muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.filter-chip ion-icon {
+  font-size: 1rem;
+}
+.filter-chip.is-active {
+  color: var(--chip, var(--ion-text-color));
+  border-color: color-mix(in srgb, var(--chip, var(--ion-text-color)) 55%, transparent);
+  background: color-mix(in srgb, var(--chip, var(--ion-text-color)) 12%, transparent);
+}
+
+/* Filter rokov — ľahší, editorial (serif) */
+.year-filter {
+  display: flex;
+  gap: 7px;
+  overflow-x: auto;
+  padding: 2px 16px 6px;
+  scrollbar-width: none;
+}
+.year-filter::-webkit-scrollbar {
+  display: none;
+}
+.year-chip {
+  flex: 0 0 auto;
+  font-family: var(--font-display);
+  font-size: 0.92rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  padding: 5px 14px;
+  border-radius: 999px;
+  border: 1.5px solid transparent;
+  background: transparent;
+  color: var(--app-muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.year-chip.is-active {
+  color: var(--ion-text-color);
+  border-color: var(--app-border);
+  background: var(--app-surface);
+  box-shadow: var(--app-shadow);
+}
+
+/* Vstupná animácia so staggerom */
+@keyframes cardIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+.stagger > * {
+  animation: cardIn 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.stagger > *:nth-child(1) { animation-delay: 0.02s; }
+.stagger > *:nth-child(2) { animation-delay: 0.06s; }
+.stagger > *:nth-child(3) { animation-delay: 0.1s; }
+.stagger > *:nth-child(4) { animation-delay: 0.14s; }
+.stagger > *:nth-child(5) { animation-delay: 0.18s; }
+.stagger > *:nth-child(6) { animation-delay: 0.22s; }
+.stagger > *:nth-child(7) { animation-delay: 0.26s; }
+.stagger > *:nth-child(8) { animation-delay: 0.3s; }
+.stagger > *:nth-child(n + 9) { animation-delay: 0.34s; }
+
+/* Karty v nastaveniach */
+ion-list.settings-group {
+  background: var(--app-surface);
+  border: 1px solid var(--app-border);
+  border-radius: var(--app-radius);
+  box-shadow: var(--app-shadow);
+  overflow: hidden;
+  margin: 10px 16px 18px;
+  padding: 4px 0;
+}
+ion-list.settings-group ion-item {
+  --background: transparent;
+  --border-color: var(--app-border);
+  --padding-start: 16px;
+  --inner-padding-end: 12px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vote-card,
+  .stagger > * {
+    animation: none;
+  }
+}

@@ -1,0 +1,42 @@
+[
+  {
+    "code": "banskabystrica",
+    "name": "Banskobystrický kraj",
+    "topic": "vuc_banskabystrica"
+  },
+  {
+    "code": "bratislava",
+    "name": "Bratislavský kraj",
+    "topic": "vuc_bratislava"
+  },
+  {
+    "code": "kosice",
+    "name": "Košický kraj",
+    "topic": "vuc_kosice"
+  },
+  {
+    "code": "nitra",
+    "name": "Nitriansky kraj",
+    "topic": "vuc_nitra"
+  },
+  {
+    "code": "presov",
+    "name": "Prešovský kraj",
+    "topic": "vuc_presov"
+  },
+  {
+    "code": "trencin",
+    "name": "Trenčiansky kraj",
+    "topic": "vuc_trencin"
+  },
+  {
+    "code": "trnava",
+    "name": "Trnavský kraj",
+    "topic": "vuc_trnava"
+  },
+  {
+    "code": "zilina",
+    "name": "Žilinský kraj",
+    "topic": "vuc_zilina"
+  }
+]

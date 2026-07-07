@@ -1,0 +1,167 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Nastavenia</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- Hlavný vypínač -->
+  <ion-list class="settings-group">
+    <ion-item>
+      <ion-icon slot="start" name="notifications-outline"></ion-icon>
+      <ion-toggle
+        [checked]="s().notificationsEnabled"
+        (ionChange)="toggleNotifications($event.detail.checked)"
+      >
+        <ion-label>
+          <h2>Notifikácie</h2>
+          <p>Zapnúť push upozornenia na voľby</p>
+        </ion-label>
+      </ion-toggle>
+    </ion-item>
+    @if (s().notificationsEnabled && notifications.permission() === 'denied') {
+      <ion-item lines="none">
+        <ion-note color="danger">
+          Systémové povolenie na notifikácie je zamietnuté. Povoľte ho v nastaveniach zariadenia.
+        </ion-note>
+      </ion-item>
+    }
+  </ion-list>
+
+  <!-- Celoštátne -->
+  <ion-list class="settings-group">
+    <ion-list-header><ion-label>Celoštátne voľby</ion-label></ion-list-header>
+    @for (t of nationalTypes; track t) {
+      <ion-item>
+        <ion-icon slot="start" [name]="meta[t].icon" [style.color]="meta[t].color"></ion-icon>
+        <ion-toggle
+          [disabled]="!s().notificationsEnabled"
+          [checked]="s().national[t]"
+          (ionChange)="settings.setNational(t, $event.detail.checked)"
+        >
+          {{ label(t) }}
+        </ion-toggle>
+      </ion-item>
+    }
+  </ion-list>
+
+  <!-- Lokalita -->
+  <ion-list class="settings-group">
+    <ion-list-header><ion-label>Moja lokalita</ion-label></ion-list-header>
+
+    <ion-item>
+      <ion-icon slot="start" name="map"></ion-icon>
+      <ion-select
+        label="Kraj"
+        placeholder="Vyberte kraj"
+        [value]="s().regionCode"
+        (ionChange)="settings.patch({ regionCode: $event.detail.value })"
+      >
+        @for (r of loc.regions(); track r.code) {
+          <ion-select-option [value]="r.code">{{ r.name }}</ion-select-option>
+        }
+      </ion-select>
+    </ion-item>
+
+    <ion-item button detail (click)="openMunicipalityPicker()">
+      <ion-icon slot="start" name="home"></ion-icon>
+      <ion-label>Obec</ion-label>
+      <ion-note slot="end">{{ s().municipality?.name || 'Vyberte obec' }}</ion-note>
+    </ion-item>
+    @if (s().municipality) {
+      <ion-item button detail="false" (click)="clearMunicipality()">
+        <ion-label color="medium">Zrušiť výber obce</ion-label>
+      </ion-item>
+    }
+
+    <ion-item>
+      <ion-icon slot="start" name="map" [style.color]="meta['vuc'].color"></ion-icon>
+      <ion-toggle
+        [disabled]="!s().notificationsEnabled"
+        [checked]="s().regionalEnabled"
+        (ionChange)="settings.patch({ regionalEnabled: $event.detail.checked })"
+      >
+        Župné voľby (VÚC)
+      </ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-icon slot="start" name="home" [style.color]="meta['municipal'].color"></ion-icon>
+      <ion-toggle
+        [disabled]="!s().notificationsEnabled"
+        [checked]="s().municipalEnabled"
+        (ionChange)="settings.patch({ municipalEnabled: $event.detail.checked })"
+      >
+        Komunálne voľby
+      </ion-toggle>
+    </ion-item>
+  </ion-list>
+
+  <!-- Pripomienky -->
+  <ion-list class="settings-group">
+    <ion-list-header><ion-label>Pripomienky</ion-label></ion-list-header>
+    <ion-item>
+      <ion-toggle
+        [disabled]="!s().notificationsEnabled"
+        [checked]="s().reminders.d7"
+        (ionChange)="settings.setReminder('d7', $event.detail.checked)"
+      >7 dní vopred</ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-toggle
+        [disabled]="!s().notificationsEnabled"
+        [checked]="s().reminders.d1"
+        (ionChange)="settings.setReminder('d1', $event.detail.checked)"
+      >1 deň vopred</ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-toggle
+        [disabled]="!s().notificationsEnabled"
+        [checked]="s().reminders.d0"
+        (ionChange)="settings.setReminder('d0', $event.detail.checked)"
+      >V deň volieb</ion-toggle>
+    </ion-item>
+  </ion-list>
+
+  <ion-note class="privacy">
+    Voľba lokality aj nastavenia ostávajú len na tomto zariadení. Neukladáme žiadne osobné údaje.
+  </ion-note>
+
+  <!-- Modálny výber obce -->
+  <ion-modal [isOpen]="pickerOpen()" (didDismiss)="pickerOpen.set(false)">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Vyberte obec</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="pickerOpen.set(false)">Zavrieť</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+        <ion-toolbar>
+          <ion-searchbar
+            placeholder="Hľadať obec"
+            [debounce]="150"
+            [value]="query()"
+            (ionInput)="query.set($event.detail.value ?? '')"
+          ></ion-searchbar>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-list>
+          @for (m of results(); track m.id) {
+            <ion-item button (click)="chooseMunicipality(m)">
+              <ion-label>
+                {{ m.name }}
+                <p>{{ m.district }} · {{ regionNameOf(m.region) }}</p>
+              </ion-label>
+            </ion-item>
+          } @empty {
+            <ion-item lines="none"><ion-label color="medium">Žiadna obec nenájdená.</ion-label></ion-item>
+          }
+        </ion-list>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+</ion-content>

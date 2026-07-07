@@ -1,0 +1,7 @@
+{
+  "name": "volby-sk",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

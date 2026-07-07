@@ -1,0 +1,54 @@
+name: Crawl volieb + push
+
+# Beží raz denne a manuálne. Zadarmo (GitHub Actions), bez Firebase Blaze.
+on:
+  schedule:
+    - cron: "20 5 * * *"   # 05:20 UTC denne
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: crawl
+  cancel-in-progress: false
+
+jobs:
+  crawl:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    env:
+      PAGES_ELECTIONS_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/elections.json
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Vygeneruj elections.json
+        run: |
+          mkdir -p public
+          node crawler/build-elections.mjs --out public/elections.json
+          cat public/elections.json | head -c 400; echo
+
+      - name: Detekuj zmeny a pošli FCM push
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+        run: |
+          node crawler/send-notifications.mjs \
+            --new public/elections.json \
+            --published-url "$PAGES_ELECTIONS_URL"
+
+      - name: Priprav Pages artefakt
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+
+      - name: Publikuj na GitHub Pages
+        id: deploy
+        uses: actions/deploy-pages@v4

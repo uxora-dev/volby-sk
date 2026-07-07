@@ -1,0 +1,62 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" text="Späť"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  @if (election(); as e) {
+    <div class="detail" [style.--type]="meta[e.type].color">
+      <div class="detail-hero">
+        <div class="detail-hero__badge">
+          <ion-icon [name]="meta[e.type].icon"></ion-icon>
+        </div>
+        <span class="type-pill">{{ meta[e.type].short }}</span>
+        <h1 class="detail-hero__title">{{ e.title }}</h1>
+        <div class="detail-hero__count">{{ e.date | relativeSk }}</div>
+      </div>
+
+      <div class="detail-info">
+        <div class="info-row">
+          <ion-icon name="calendar-outline"></ion-icon>
+          <div>
+            <span class="info-row__k">Termín konania</span>
+            <span class="info-row__v">{{ e.date | skDate }}</span>
+          </div>
+        </div>
+        <div class="info-row">
+          <ion-icon name="document-text-outline"></ion-icon>
+          <div>
+            <span class="info-row__k">Právny predpis</span>
+            <span class="info-row__v">{{ e.legalRef }}</span>
+          </div>
+        </div>
+        <a class="info-row info-row--link" [href]="e.sourceUrl" target="_blank" rel="noopener">
+          <ion-icon name="open-outline"></ion-icon>
+          <div>
+            <span class="info-row__k">Zdroj — Zbierka zákonov</span>
+            <span class="info-row__v">Otvoriť znenie rozhodnutia</span>
+          </div>
+          <ion-icon class="chev" name="chevron-forward"></ion-icon>
+        </a>
+      </div>
+
+      <div class="detail-info detail-info--muted">
+        <div class="info-row">
+          <ion-icon name="notifications-outline"></ion-icon>
+          <div>
+            <span class="info-row__k">Pripomienka</span>
+            <span class="info-row__v">Notifikácie pribudnú v ďalšej fáze</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  } @else {
+    <div class="state">
+      <ion-note>Voľba sa nenašla.</ion-note>
+      <ion-button fill="clear" routerLink="/">Späť na zoznam</ion-button>
+    </div>
+  }
+</ion-content>

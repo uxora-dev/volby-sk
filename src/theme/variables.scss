@@ -1,0 +1,88 @@
+// Voľby SK — civic-editorial téma
+// Paleta: papierovo-atramentová základňa, 6 harmonizovaných farieb typov volieb,
+// display serif (Fraunces) + UI grotesk (Hanken Grotesk). Plný light + dark režim.
+
+:root {
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --ion-font-family: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  // — Základňa (light) —
+  --ion-background-color: #f4f1e9;
+  --ion-background-color-rgb: 244, 241, 233;
+  --ion-text-color: #1b1e26;
+  --ion-text-color-rgb: 27, 30, 38;
+
+  --app-surface: #ffffff;
+  --app-surface-2: #fbf9f3;
+  --app-border: rgba(27, 30, 38, 0.1);
+  --app-muted: #6b7180;
+  --app-shadow: 0 1px 2px rgba(27, 30, 38, 0.05), 0 12px 28px -16px rgba(27, 30, 38, 0.22);
+  --app-shadow-lg: 0 30px 60px -28px rgba(27, 30, 38, 0.42);
+
+  --app-radius: 20px;
+  --app-radius-sm: 13px;
+
+  // — Interaktívna (ink) primárna —
+  --ion-color-primary: #1f2a44;
+  --ion-color-primary-rgb: 31, 42, 68;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #1b2540;
+  --ion-color-primary-tint: #39435c;
+
+  // — Signálny akcent (naliehavosť / countdown) —
+  --accent: #d9482b;
+  --accent-contrast: #ffffff;
+  --accent-soft: rgba(217, 72, 43, 0.12);
+
+  // — Farby typov volieb (adaptívne v dark režime) —
+  --type-parliamentary: #2f6db0;
+  --type-presidential: #9b4d8f;
+  --type-referendum: #c2872a;
+  --type-european: #2b9a88;
+  --type-vuc: #c65f35;
+  --type-municipal: #64707f;
+
+  // — Ionic povrchy —
+  --ion-toolbar-background: rgba(244, 241, 233, 0.82);
+  --ion-item-background: var(--app-surface);
+  --ion-card-background: var(--app-surface);
+  --ion-border-color: var(--app-border);
+  --ion-item-border-color: var(--app-border);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ion-background-color: #0f1117;
+    --ion-background-color-rgb: 15, 17, 23;
+    --ion-text-color: #eceef2;
+    --ion-text-color-rgb: 236, 238, 242;
+
+    --app-surface: #191c25;
+    --app-surface-2: #14171e;
+    --app-border: rgba(255, 255, 255, 0.09);
+    --app-muted: #9aa1ad;
+    --app-shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 14px 34px -16px rgba(0, 0, 0, 0.66);
+    --app-shadow-lg: 0 34px 70px -28px rgba(0, 0, 0, 0.8);
+
+    // ink -> krémová v tme (toggly/segment sú svetlé, prémiový pocit)
+    --ion-color-primary: #ece7db;
+    --ion-color-primary-rgb: 236, 231, 219;
+    --ion-color-primary-contrast: #1b1e26;
+    --ion-color-primary-contrast-rgb: 27, 30, 38;
+    --ion-color-primary-shade: #cfcabf;
+    --ion-color-primary-tint: #efeae0;
+
+    --accent: #ff6a41;
+    --accent-soft: rgba(255, 106, 65, 0.16);
+
+    --type-parliamentary: #5f96d8;
+    --type-presidential: #c87ab9;
+    --type-referendum: #e2b25c;
+    --type-european: #4ec4b0;
+    --type-vuc: #e58256;
+    --type-municipal: #98a2b4;
+
+    --ion-toolbar-background: rgba(15, 17, 23, 0.78);
+  }
+}
