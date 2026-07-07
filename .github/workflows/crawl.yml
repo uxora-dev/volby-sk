@@ -33,7 +33,7 @@ jobs:
       - name: Vygeneruj elections.json
         run: |
           mkdir -p public
-          node crawler/build-elections.mjs --out public/elections.json
+          node crawler/build-elections.mjs --from 2022 --out public/elections.json
           cat public/elections.json | head -c 400; echo
 
       - name: Detekuj zmeny a pošli FCM push
