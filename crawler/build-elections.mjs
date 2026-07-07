@@ -27,10 +27,18 @@ const TO = parseInt(opt("--to", String(nowYear + 1)), 10);
 
 const stripTags = (s) => s.replace(/<[^>]+>/g, " ").replace(/&nbsp;/g, " ").replace(/\s+/g, " ").trim();
 
-async function get(url) {
-  const r = await fetch(url, { headers: { "User-Agent": UA } });
-  if (!r.ok) throw new Error(`HTTP ${r.status} ${url}`);
-  return r.text();
+async function get(url, retries = 3) {
+  for (let attempt = 0; ; attempt++) {
+    try {
+      const r = await fetch(url, { headers: { "User-Agent": UA } });
+      if (r.status === 404) throw new Error(`HTTP 404 ${url}`); // rok/predpis neexistuje — neopakuj
+      if (!r.ok) throw new Error(`HTTP ${r.status} ${url}`);
+      return r.text();
+    } catch (e) {
+      if (attempt >= retries || /HTTP 404/.test(e.message)) throw e;
+      await new Promise((res) => setTimeout(res, 400 * (attempt + 1))); // prechodná chyba — skús znova
+    }
+  }
 }
 
 function classify(title) {
@@ -48,7 +56,9 @@ const SCOPE = { parliamentary: "national", presidential: "national", european: "
 
 function isElectionAnnouncement(title) {
   const t = title.toLowerCase();
-  return /rozhodnutie (predsedu národnej rady|prezident)/.test(t) && /o vyhlásení (volieb|referenda|nových volieb)/.test(t);
+  // Pozn.: staršie prezidentské = "o vyhlásení voľby prezidenta" (nie "volieb").
+  return /rozhodnutie (predsedu národnej rady|prezident)/.test(t) &&
+    /o vyhlásení (volieb|voľby|referenda|nových volieb)/.test(t);
 }
 const isAmendment = (title) => /ktorým sa mení/i.test(title);
 
