@@ -30,6 +30,9 @@ jobs:
         with:
           node-version: "20"
 
+      - name: Nainštaluj pdftotext (parsovanie príloh s obcami)
+        run: sudo apt-get update && sudo apt-get install -y poppler-utils
+
       - name: Vygeneruj elections.json
         run: |
           mkdir -p public

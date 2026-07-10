@@ -251,6 +251,15 @@ ion-segment-button {
   border-radius: 999px;
   border: 1px dashed color-mix(in srgb, var(--ion-text-color) 26%, transparent);
 }
+.muni-count {
+  margin-inline-start: 8px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--type);
+  padding: 2px 9px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--type) 12%, transparent);
+}
 
 /* Filter typov */
 .type-filter {

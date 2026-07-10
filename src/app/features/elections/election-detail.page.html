@@ -30,6 +30,22 @@
         </div>
       }
 
+      @if (e.subtype === 'byelection') {
+        <div class="detail-info" [class.detail-info--mine]="affectsMyObec()">
+          <div class="info-row">
+            <ion-icon name="home"></ion-icon>
+            <div>
+              <span class="info-row__k">Doplňujúca voľba</span>
+              @if (affectsMyObec()) {
+                <span class="info-row__v">Vo vašej obci ({{ settings.settings().municipality?.name }}) sa konajú voľby.</span>
+              } @else {
+                <span class="info-row__v">Koná sa v {{ e.municipalityCount }} obciach.</span>
+              }
+            </div>
+          </div>
+        </div>
+      }
+
       <div class="detail-info">
         <div class="info-row">
           <ion-icon name="calendar-outline"></ion-icon>

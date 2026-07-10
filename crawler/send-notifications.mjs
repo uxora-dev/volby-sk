@@ -25,7 +25,10 @@ function topicsFor(e) {
     case "referendum":    return ["elections_referendum"];
     case "european":      return ["elections_european"];
     case "vuc":           return VUC_TOPICS; // VÚC voľby sú vo všetkých krajoch naraz
-    case "municipal":     return []; // TODO Fáza 4: cieliť podľa obcí z prílohy rozhodnutia
+    case "municipal":
+      // Doplňujúce → len dotknuté obce; riadne/neznáme → celoštátna téma.
+      if (e.subtype === "byelection") return (e.municipalityIds || []).map((id) => `obec_${id}`);
+      return ["elections_municipal"];
     default:              return [];
   }
 }
@@ -46,6 +49,7 @@ const today = new Date().toISOString().slice(0, 10);
 const changes = [];
 for (const e of next.elections) {
   if (e.status !== "upcoming") continue;              // notifikuj len budúce
+  if (e.predicted) continue;                          // predpokladané odhady neposielame
   const old = prevById.get(e.id);
   if (!old) changes.push({ e, kind: "new" });
   else if (old.date !== e.date) changes.push({ e, kind: "moved", from: old.date });

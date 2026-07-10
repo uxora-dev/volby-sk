@@ -18,8 +18,10 @@ export function topicsForSettings(s: AppSettings): string[] {
     if (s.national[t]) topics.push(`elections_${t}`);
   }
   if (s.regionalEnabled && s.regionCode) topics.push(`vuc_${s.regionCode}`);
-  // Pozn.: dočasné id obce; oficiálny kód obce sa zosúladí vo Fáze 4.
-  if (s.municipalEnabled && s.municipality) topics.push(`obec_${s.municipality.id}`);
+  if (s.municipalEnabled) {
+    topics.push('elections_municipal'); // riadne komunálne (celoštátne)
+    if (s.municipality) topics.push(`obec_${s.municipality.id}`); // doplňujúce v mojej obci
+  }
   return topics;
 }
 

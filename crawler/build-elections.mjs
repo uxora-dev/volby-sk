@@ -4,6 +4,11 @@
 //
 // Použitie:  node build-elections.mjs [--out elections.json] [--from 2022] [--to 2027]
 
+import { execFileSync } from "node:child_process";
+import { writeFileSync, unlinkSync, readFileSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
+
 const UA = "Mozilla/5.0 (VolbySK crawler; kontakt: jur.vanko@gmail.com)";
 const MONTHS = {
   "januára": 1, "februára": 2, "marca": 3, "apríla": 4, "mája": 5, "júna": 6,
@@ -103,6 +108,74 @@ async function crawlYear(year) {
   return found;
 }
 
+// --- PDF prílohy (zoznam obcí pri komunálnych voľbách) ---
+const PDF_RECENT_DAYS = 760; // PDF sťahujeme len pre nedávne/budúce komunálne (efektivita)
+const REGULAR_THRESHOLD = 400; // ≥ toľko obcí = riadne (celoštátne) komunálne, inak doplňujúce
+
+function pdfUrlFromSource(sourceUrl) {
+  const m = sourceUrl && sourceUrl.match(/\/ZZ\/(\d{4})\/(\d+)\/(\d{8})\.html$/);
+  if (!m) return null;
+  const [, y, num, date8] = m;
+  return `https://static.slov-lex.sk/pdf/SK/ZZ/${y}/${num}/ZZ_${y}_${num}_${date8}.pdf`;
+}
+
+async function pdfText(pdfUrl) {
+  const res = await fetch(pdfUrl, { headers: { "User-Agent": UA } }).catch(() => null);
+  if (!res || !res.ok) return null;
+  const buf = Buffer.from(await res.arrayBuffer());
+  const tmp = join(tmpdir(), `vsk_${Date.now()}_${Math.random().toString(36).slice(2)}.pdf`);
+  try {
+    writeFileSync(tmp, buf);
+    return execFileSync("pdftotext", ["-layout", tmp, "-"], { encoding: "utf8", maxBuffer: 32 * 1024 * 1024 });
+  } catch {
+    return null; // pdftotext nedostupný alebo chyba
+  } finally {
+    try { unlinkSync(tmp); } catch { /* ignore */ }
+  }
+}
+
+// Názvy obcí zo "Zoznam obcí" v prílohe č. 1.
+function parseObceNames(text) {
+  const start = text.indexOf("ZOZNAM OBCÍ");
+  if (start < 0) return [];
+  const end = text.indexOf("Príloha č. 2", start);
+  const seg = text.slice(start, end < 0 ? undefined : end);
+  const names = [];
+  for (const line of seg.split("\n")) {
+    const m = line.match(/^\s*(.+?)\s{2,}(?:poslanec|poslanci|starosta)\b/);
+    if (m) names.push(m[1].trim());
+  }
+  return names;
+}
+
+// Index názov -> [id] z datasetu obcí (na spárovanie prílohy s topic obec_<id>).
+let _munIndex = null;
+function municipalityIndex() {
+  if (_munIndex) return _munIndex;
+  _munIndex = new Map();
+  try {
+    const url = new URL("../src/assets/data/municipalities.json", import.meta.url);
+    const data = JSON.parse(readFileSync(url, "utf8"));
+    for (const m of data.municipalities) {
+      const key = m.name.toLowerCase();
+      if (!_munIndex.has(key)) _munIndex.set(key, []);
+      _munIndex.get(key).push(m.id);
+    }
+  } catch { /* dataset nenájdený */ }
+  return _munIndex;
+}
+
+// Spáruje názvy na id; viacznačné (rovnaký názov vo viac obciach) preskočí = žiadne falošné notifikácie.
+function matchObecIds(names) {
+  const idx = municipalityIndex();
+  const ids = [];
+  for (const n of names) {
+    const hits = idx.get(n.toLowerCase());
+    if (hits && hits.length === 1) ids.push(hits[0]);
+  }
+  return [...new Set(ids)].sort((a, b) => a - b);
+}
+
 // --- main ---
 const raw = [];
 for (let y = FROM; y <= TO; y++) {
@@ -122,21 +195,65 @@ for (const a of raw.filter(r => r.amendment)) {
 }
 
 const today = new Date().toISOString().slice(0, 10);
-const elections = [...byRef.values()]
-  .filter(e => e.electionDay && e.type !== "unknown")
-  .map(e => ({
-    id: `${e.type}-${e.electionDay}`,
-    type: e.type,
-    scope: SCOPE[e.type],
-    title: `${TYPE_LABEL[e.type]} ${e.electionDay.slice(0, 4)}`,
-    date: e.electionDay,
-    status: e.electionDay >= today ? "upcoming" : "past",
-    predicted: false,
-    legalRef: e.ref,
-    sourceUrl: e.sourceUrl,
-  }))
-  // dedup podľa id (viac obecných rozhodnutí na rovnaký deň = jedna položka)
-  .filter((e, i, arr) => arr.findIndex(x => x.id === e.id) === i)
+const recentCutoff = new Date(Date.now() - PDF_RECENT_DAYS * 86400000).toISOString().slice(0, 10);
+const decisions = [...byRef.values()].filter(e => e.electionDay && e.type !== "unknown");
+
+const baseEntry = (e) => ({
+  id: `${e.type}-${e.electionDay}`,
+  type: e.type,
+  scope: SCOPE[e.type],
+  title: `${TYPE_LABEL[e.type]} ${e.electionDay.slice(0, 4)}`,
+  date: e.electionDay,
+  status: e.electionDay >= today ? "upcoming" : "past",
+  predicted: false,
+  legalRef: e.ref,
+  sourceUrl: e.sourceUrl,
+});
+
+// Nemunicipálne: jedna položka na id (typ-dátum)
+const seen = new Set();
+const nonMunEntries = [];
+for (const e of decisions.filter(e => e.type !== "municipal")) {
+  const id = `${e.type}-${e.electionDay}`;
+  if (seen.has(id)) continue;
+  seen.add(id);
+  nonMunEntries.push(baseEntry(e));
+}
+
+// Municipálne: zoskup podľa dátumu, z prílohy zisti obce a rozlíš riadne/doplňujúce
+const munByDate = new Map();
+for (const e of decisions.filter(e => e.type === "municipal")) {
+  if (!munByDate.has(e.electionDay)) munByDate.set(e.electionDay, []);
+  munByDate.get(e.electionDay).push(e);
+}
+const munEntries = [];
+for (const [date, decs] of munByDate) {
+  const year = date.slice(0, 4);
+  const base = { ...baseEntry(decs[0]), title: `${TYPE_LABEL.municipal} ${year}`, subtype: "unknown" };
+  if (date >= recentCutoff) {
+    process.stderr.write(`  · komunálne ${date}: čítam prílohy (${decs.length}) ... `);
+    const names = new Set();
+    for (const d of decs) {
+      const url = pdfUrlFromSource(d.sourceUrl);
+      const txt = url ? await pdfText(url) : null;
+      if (txt) for (const n of parseObceNames(txt)) names.add(n);
+    }
+    const count = names.size;
+    process.stderr.write(`${count} obcí\n`);
+    if (count >= REGULAR_THRESHOLD) {
+      munEntries.push({ ...base, subtype: "regular", title: `Komunálne voľby ${year}` });
+    } else if (count > 0) {
+      const ids = matchObecIds([...names]);
+      munEntries.push({ ...base, subtype: "byelection", title: `Doplňujúce komunálne voľby ${year}`, municipalityCount: count, municipalityIds: ids });
+    } else {
+      munEntries.push(base); // prílohu sa nepodarilo prečítať
+    }
+  } else {
+    munEntries.push(base);
+  }
+}
+
+const elections = [...nonMunEntries, ...munEntries]
   .sort((a, b) => a.date.localeCompare(b.date));
 
 // --- Predpokladané budúce voľby (z pravidelných cyklov, ~10 rokov dopredu) ---

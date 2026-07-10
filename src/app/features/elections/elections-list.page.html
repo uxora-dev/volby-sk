@@ -84,6 +84,9 @@
             <div class="vote-card__date">
               <ion-icon name="calendar-outline"></ion-icon>{{ e.date | skDate }}
               @if (e.predicted) { <span class="est-tag">≈ predpokladané</span> }
+              @if (e.subtype === 'byelection' && e.municipalityCount) {
+                <span class="muni-count">{{ e.municipalityCount }} obcí</span>
+              }
             </div>
           </div>
         </a>

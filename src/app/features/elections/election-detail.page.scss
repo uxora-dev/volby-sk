@@ -66,6 +66,14 @@
 
     .info-row > ion-icon:first-child { color: var(--app-muted); }
   }
+
+  &--mine {
+    border-color: var(--accent);
+    background: var(--accent-soft);
+
+    .info-row > ion-icon:first-child,
+    .info-row__v { color: var(--accent); }
+  }
 }
 
 .info-row {

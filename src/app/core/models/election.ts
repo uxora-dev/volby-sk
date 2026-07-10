@@ -17,6 +17,9 @@ export interface Election {
   date: string; // ISO YYYY-MM-DD
   status: ElectionStatus;
   predicted?: boolean; // dopočítaný odhad z cyklu (nie oficiálne vyhlásené)
+  subtype?: 'regular' | 'byelection' | 'unknown'; // pri komunálnych: riadne vs doplňujúce
+  municipalityCount?: number; // počet obcí pri doplňujúcich voľbách
+  municipalityIds?: number[]; // dotknuté obce (na cielenie obec_<id>)
   legalRef: string | null;
   sourceUrl: string | null;
 }

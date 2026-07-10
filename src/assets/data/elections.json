@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-07T18:25:09.859Z",
+  "generatedAt": "2026-07-10T14:02:15.526Z",
   "count": 101,
   "official": 90,
   "predicted": 11,
@@ -24,7 +24,8 @@
       "status": "past",
       "predicted": false,
       "legalRef": "102/2000 Z. z.",
-      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2000/102/20000323.html"
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2000/102/20000323.html",
+      "subtype": "unknown"
     },
     {
       "id": "municipal-2001-04-07",
@@ -35,7 +36,8 @@
       "status": "past",
       "predicted": false,
       "legalRef": "1/2001 Z. z.",
-      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2001/1/20010104.html"
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2001/1/20010104.html",
+      "subtype": "unknown"
     },
     {
       "id": "municipal-2001-06-30",
@@ -46,7 +48,8 @@
       "status": "past",
       "predicted": false,
       "legalRef": "144/2001 Z. z.",
-      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2001/144/20010424.html"
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2001/144/20010424.html",
+      "subtype": "unknown"
     },
     {
       "id": "vuc-2001-12-01",
@@ -68,7 +71,8 @@
       "status": "past",
       "predicted": false,
       "legalRef": "7/2002 Z. z.",
-      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2002/7/20020112.html"
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2002/7/20020112.html",
+      "subtype": "unknown"
     },
     {
       "id": "municipal-2002-06-29",
@@ -79,7 +83,8 @@
       "status": "past",
       "predicted": false,
       "legalRef": "220/2002 Z. z.",
-      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2002/220/20020430.html"
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2002/220/20020430.html",
+      "subtype": "unknown"
     },
     {
       "id": "parliamentary-2002-09-21",
@@ -101,7 +106,8 @@
       "status": "past",
       "predicted": false,
       "legalRef": "508/2002 Z. z.",
-      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2002/508/20020829.html"
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2002/508/20020829.html",
+      "subtype": "unknown"
     },
     {
       "id": "municipal-2003-04-05",
@@ -112,7 +118,8 @@
       "status": "past",
       "predicted": false,
       "legalRef": "687/2002 Z. z.",
-      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2002/687/20021219.html"
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2002/687/20021219.html",
+      "subtype": "unknown"
     },
     {
       "id": "referendum-2003-05-16",
@@ -134,7 +141,8 @@
       "status": "past",
       "predicted": false,
       "legalRef": "38/2003 Z. z.",
-      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2003/38/20030214.html"
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2003/38/20030214.html",
+      "subtype": "unknown"
     },
     {
       "id": "municipal-2003-09-27",
@@ -145,7 +153,8 @@
       "status": "past",
       "predicted": false,
       "legalRef": "128/2003 Z. z.",
-      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2003/128/20030416.html"
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2003/128/20030416.html",
+      "subtype": "unknown"
     },
     {
       "id": "municipal-2004-03-13",
@@ -156,7 +165,8 @@
       "status": "past",
       "predicted": false,
       "legalRef": "508/2003 Z. z.",
-      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2003/508/20031209.html"
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2003/508/20031209.html",
+      "subtype": "unknown"
     },
     {
       "id": "presidential-2004-04-03",
@@ -189,7 +199,8 @@
       "status": "past",
       "predicted": false,
       "legalRef": "321/2004 Z. z.",
-      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2004/321/20040522.html"
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2004/321/20040522.html",
+      "subtype": "unknown"
     },
     {
       "id": "municipal-2005-05-28",
@@ -200,7 +211,8 @@
       "status": "past",
       "predicted": false,
       "legalRef": "37/2005 Z. z.",
-      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2005/37/20050211.html"
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2005/37/20050211.html",
+      "subtype": "unknown"
     },
     {
       "id": "municipal-2005-10-22",
@@ -211,7 +223,8 @@
       "status": "past",
       "predicted": false,
       "legalRef": "324/2005 Z. z.",
-      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2005/324/20050722.html"
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2005/324/20050722.html",
+      "subtype": "unknown"
     },
     {
       "id": "vuc-2005-11-26",
@@ -233,7 +246,8 @@
       "status": "past",
       "predicted": false,
       "legalRef": "492/2005 Z. z.",
-      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2005/492/20051105.html"
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2005/492/20051105.html",
+      "subtype": "unknown"
     },
     {
       "id": "municipal-2006-04-08",
@@ -244,7 +258,8 @@
       "status": "past",
       "predicted": false,
       "legalRef": "22/2006 Z. z.",
-      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2006/22/20060118.html"
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2006/22/20060118.html",
+      "subtype": "unknown"
     },
     {
       "id": "municipal-2006-05-13",
@@ -255,7 +270,8 @@
       "status": "past",
       "predicted": false,
       "legalRef": "59/2006 Z. z.",
-      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2006/59/20060208.html"
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2006/59/20060208.html",
+      "subtype": "unknown"
     },
     {
       "id": "parliamentary-2006-06-17",
@@ -277,7 +293,8 @@
       "status": "past",
       "predicted": false,
       "legalRef": "171/2006 Z. z.",
-      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2006/171/20060330.html"
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2006/171/20060330.html",
+      "subtype": "unknown"
     },
     {
       "id": "municipal-2006-08-26",
@@ -288,7 +305,8 @@
       "status": "past",
       "predicted": false,
       "legalRef": "287/2006 Z. z.",
-      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2006/287/20060524.html"
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2006/287/20060524.html",
+      "subtype": "unknown"
     },
     {
       "id": "parliamentary-2006-09-16",
@@ -310,7 +328,8 @@
       "status": "past",
       "predicted": false,
       "legalRef": "63/2006 Z. z.",
-      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2006/63/20060209.html"
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2006/63/20060209.html",
+      "subtype": "unknown"
     },
     {
       "id": "municipal-2007-05-19",
@@ -321,7 +340,8 @@
       "status": "past",
       "predicted": false,
       "legalRef": "622/2006 Z. z.",
-      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2006/622/20061209.html"
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2006/622/20061209.html",
+      "subtype": "unknown"
     },
     {
       "id": "municipal-2007-10-27",
@@ -332,7 +352,8 @@
       "status": "past",
       "predicted": false,
       "legalRef": "240/2007 Z. z.",
-      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2007/240/20070525.html"
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2007/240/20070525.html",
+      "subtype": "unknown"
     },
     {
       "id": "municipal-2008-03-15",
@@ -343,7 +364,8 @@
       "status": "past",
       "predicted": false,
       "legalRef": "495/2007 Z. z.",
-      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2007/495/20071107.html"
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2007/495/20071107.html",
+      "subtype": "unknown"
     },
     {
       "id": "municipal-2008-06-21",
@@ -354,7 +376,8 @@
       "status": "past",
       "predicted": false,
       "legalRef": "96/2008 Z. z.",
-      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2008/96/20080320.html"
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2008/96/20080320.html",
+      "subtype": "unknown"
     },
     {
       "id": "municipal-2008-11-22",
@@ -365,7 +388,8 @@
       "status": "past",
       "predicted": false,
       "legalRef": "332/2008 Z. z.",
-      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2008/332/20080823.html"
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2008/332/20080823.html",
+      "subtype": "unknown"
     },
     {
       "id": "presidential-2009-03-21",
@@ -387,7 +411,8 @@
       "status": "past",
       "predicted": false,
       "legalRef": "3/2009 Z. z.",
-      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2009/3/20090108.html"
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2009/3/20090108.html",
+      "subtype": "unknown"
     },
     {
       "id": "european-2009-06-06",
@@ -420,7 +445,8 @@
       "status": "past",
       "predicted": false,
       "legalRef": "397/2009 Z. z.",
-      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2009/397/20091015.html"
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2009/397/20091015.html",
+      "subtype": "unknown"
     },
     {
       "id": "municipal-2010-05-29",
@@ -431,7 +457,8 @@
       "status": "past",
       "predicted": false,
       "legalRef": "25/2010 Z. z.",
-      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2010/25/20100128.html"
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2010/25/20100128.html",
+      "subtype": "unknown"
     },
     {
       "id": "parliamentary-2010-06-12",
@@ -464,7 +491,8 @@
       "status": "past",
       "predicted": false,
       "legalRef": "225/2010 Z. z.",
-      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2010/225/20100525.html"
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2010/225/20100525.html",
+      "subtype": "unknown"
     },
     {
       "id": "municipal-2011-03-12",
@@ -475,7 +503,8 @@
       "status": "past",
       "predicted": false,
       "legalRef": "463/2010 Z. z.",
-      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2010/463/20101209.html"
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2010/463/20101209.html",
+      "subtype": "unknown"
     },
     {
       "id": "municipal-2011-06-25",
@@ -486,7 +515,8 @@
       "status": "past",
       "predicted": false,
       "legalRef": "80/2011 Z. z.",
-      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2011/80/20110325.html"
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2011/80/20110325.html",
+      "subtype": "unknown"
     },
     {
       "id": "municipal-2011-11-05",
@@ -497,7 +527,8 @@
       "status": "past",
       "predicted": false,
       "legalRef": "205/2011 Z. z.",
-      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2011/205/20110702.html"
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2011/205/20110702.html",
+      "subtype": "unknown"
     },
     {
       "id": "parliamentary-2012-03-10",
@@ -519,7 +550,8 @@
       "status": "past",
       "predicted": false,
       "legalRef": "401/2011 Z. z.",
-      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2011/401/20111117.html"
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2011/401/20111117.html",
+      "subtype": "unknown"
     },
     {
       "id": "municipal-2012-10-27",
@@ -530,7 +562,8 @@
       "status": "past",
       "predicted": false,
       "legalRef": "132/2012 Z. z.",
-      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2012/132/20120413.html"
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2012/132/20120413.html",
+      "subtype": "unknown"
     },
     {
       "id": "municipal-2013-03-09",
@@ -541,7 +574,8 @@
       "status": "past",
       "predicted": false,
       "legalRef": "331/2012 Z. z.",
-      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2012/331/20121109.html"
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2012/331/20121109.html",
+      "subtype": "unknown"
     },
     {
       "id": "municipal-2013-06-29",
@@ -552,7 +586,8 @@
       "status": "past",
       "predicted": false,
       "legalRef": "49/2013 Z. z.",
-      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2013/49/20130321.html"
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2013/49/20130321.html",
+      "subtype": "unknown"
     },
     {
       "id": "vuc-2013-11-09",
@@ -574,7 +609,8 @@
       "status": "past",
       "predicted": false,
       "legalRef": "192/2013 Z. z.",
-      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2013/192/20130710.html"
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2013/192/20130710.html",
+      "subtype": "unknown"
     },
     {
       "id": "presidential-2014-03-15",
@@ -607,7 +643,8 @@
       "status": "past",
       "predicted": false,
       "legalRef": "18/2014 Z. z.",
-      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2014/18/20140207.html"
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2014/18/20140207.html",
+      "subtype": "unknown"
     },
     {
       "id": "municipal-2014-11-15",
@@ -618,7 +655,8 @@
       "status": "past",
       "predicted": false,
       "legalRef": "191/2014 Z. z.",
-      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2014/191/20140709.html"
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2014/191/20140709.html",
+      "subtype": "unknown"
     },
     {
       "id": "referendum-2015-02-07",
@@ -640,7 +678,8 @@
       "status": "past",
       "predicted": false,
       "legalRef": "45/2015 Z. z.",
-      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2015/45/20150312.html"
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2015/45/20150312.html",
+      "subtype": "unknown"
     },
     {
       "id": "municipal-2015-10-24",
@@ -651,7 +690,8 @@
       "status": "past",
       "predicted": false,
       "legalRef": "138/2015 Z. z.",
-      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2015/138/20150620.html"
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2015/138/20150620.html",
+      "subtype": "unknown"
     },
     {
       "id": "parliamentary-2016-03-05",
@@ -673,7 +713,8 @@
       "status": "past",
       "predicted": false,
       "legalRef": "291/2015 Z. z.",
-      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2015/291/20151103.html"
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2015/291/20151103.html",
+      "subtype": "unknown"
     },
     {
       "id": "municipal-2016-11-05",
@@ -684,7 +725,8 @@
       "status": "past",
       "predicted": false,
       "legalRef": "160/2016 Z. z.",
-      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2016/160/20160421.html"
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2016/160/20160421.html",
+      "subtype": "unknown"
     },
     {
       "id": "municipal-2017-04-08",
@@ -695,7 +737,8 @@
       "status": "past",
       "predicted": false,
       "legalRef": "304/2016 Z. z.",
-      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2016/304/20161118.html"
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2016/304/20161118.html",
+      "subtype": "unknown"
     },
     {
       "id": "municipal-2017-10-14",
@@ -706,7 +749,8 @@
       "status": "past",
       "predicted": false,
       "legalRef": "91/2017 Z. z.",
-      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2017/91/20170421.html"
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2017/91/20170421.html",
+      "subtype": "unknown"
     },
     {
       "id": "vuc-2017-11-04",
@@ -728,7 +772,8 @@
       "status": "past",
       "predicted": false,
       "legalRef": "255/2017 Z. z.",
-      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2017/255/20171024.html"
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2017/255/20171024.html",
+      "subtype": "unknown"
     },
     {
       "id": "municipal-2018-11-10",
@@ -739,7 +784,8 @@
       "status": "past",
       "predicted": false,
       "legalRef": "203/2018 Z. z.",
-      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2018/203/20180710.html"
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2018/203/20180710.html",
+      "subtype": "unknown"
     },
     {
       "id": "presidential-2019-03-16",
@@ -761,7 +807,8 @@
       "status": "past",
       "predicted": false,
       "legalRef": "349/2018 Z. z.",
-      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2018/349/20181210.html"
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2018/349/20181210.html",
+      "subtype": "unknown"
     },
     {
       "id": "european-2019-05-25",
@@ -783,7 +830,8 @@
       "status": "past",
       "predicted": false,
       "legalRef": "128/2019 Z. z.",
-      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2019/128/20190515.html"
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2019/128/20190515.html",
+      "subtype": "unknown"
     },
     {
       "id": "parliamentary-2020-02-29",
@@ -805,7 +853,8 @@
       "status": "past",
       "predicted": false,
       "legalRef": "334/2019 Z. z.",
-      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2019/334/20191016.html"
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2019/334/20191016.html",
+      "subtype": "unknown"
     },
     {
       "id": "municipal-2021-05-15",
@@ -816,7 +865,8 @@
       "status": "past",
       "predicted": false,
       "legalRef": "297/2020 Z. z.",
-      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2020/297/20201029.html"
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2020/297/20201029.html",
+      "subtype": "unknown"
     },
     {
       "id": "municipal-2021-10-23",
@@ -827,7 +877,8 @@
       "status": "past",
       "predicted": false,
       "legalRef": "235/2021 Z. z.",
-      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2021/235/20210610.html"
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2021/235/20210610.html",
+      "subtype": "unknown"
     },
     {
       "id": "municipal-2022-03-19",
@@ -838,7 +889,8 @@
       "status": "past",
       "predicted": false,
       "legalRef": "426/2021 Z. z.",
-      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2021/426/20211123.html"
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2021/426/20211123.html",
+      "subtype": "unknown"
     },
     {
       "id": "vuc-2022-10-29",
@@ -871,7 +923,8 @@
       "status": "past",
       "predicted": false,
       "legalRef": "384/2022 Z. z.",
-      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2022/384/20221124.html"
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2022/384/20221124.html",
+      "subtype": "unknown"
     },
     {
       "id": "municipal-2023-09-09",
@@ -882,7 +935,8 @@
       "status": "past",
       "predicted": false,
       "legalRef": "138/2023 Z. z.",
-      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2023/138/20230425.html"
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2023/138/20230425.html",
+      "subtype": "unknown"
     },
     {
       "id": "parliamentary-2023-09-30",
@@ -904,7 +958,8 @@
       "status": "past",
       "predicted": false,
       "legalRef": "387/2023 Z. z.",
-      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2023/387/20231004.html"
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2023/387/20231004.html",
+      "subtype": "unknown"
     },
     {
       "id": "presidential-2024-03-23",
@@ -932,45 +987,182 @@
       "id": "municipal-2024-10-05",
       "type": "municipal",
       "scope": "municipal",
-      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2024",
+      "title": "Doplňujúce komunálne voľby 2024",
       "date": "2024-10-05",
       "status": "past",
       "predicted": false,
       "legalRef": "29/2024 Z. z.",
-      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2024/29/20240301.html"
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2024/29/20240301.html",
+      "subtype": "byelection",
+      "municipalityCount": 42,
+      "municipalityIds": [
+        6,
+        304,
+        637,
+        728,
+        764,
+        787,
+        1137,
+        1157,
+        1295,
+        1530,
+        1692,
+        1768,
+        1778,
+        1817,
+        1875,
+        1904,
+        1928,
+        2031,
+        2051,
+        2053,
+        2296,
+        2309,
+        2530,
+        2644,
+        2654,
+        2855,
+        2888,
+        3276,
+        3373,
+        3521,
+        3544,
+        3626,
+        3725,
+        4048,
+        4117,
+        4155
+      ]
     },
     {
       "id": "municipal-2025-03-15",
       "type": "municipal",
       "scope": "municipal",
-      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2025",
+      "title": "Doplňujúce komunálne voľby 2025",
       "date": "2025-03-15",
       "status": "past",
       "predicted": false,
       "legalRef": "285/2024 Z. z.",
-      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2024/285/20241105.html"
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2024/285/20241105.html",
+      "subtype": "byelection",
+      "municipalityCount": 31,
+      "municipalityIds": [
+        6,
+        87,
+        178,
+        334,
+        390,
+        744,
+        755,
+        835,
+        1414,
+        1630,
+        1692,
+        1981,
+        2241,
+        2837,
+        3086,
+        3132,
+        3276,
+        3763,
+        3848,
+        3868,
+        3892,
+        4046,
+        4164,
+        4197
+      ]
     },
     {
       "id": "municipal-2025-09-06",
       "type": "municipal",
       "scope": "municipal",
-      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2025",
+      "title": "Doplňujúce komunálne voľby 2025",
       "date": "2025-09-06",
       "status": "past",
       "predicted": false,
       "legalRef": "68/2025 Z. z.",
-      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2025/68/20250410.html"
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2025/68/20250410.html",
+      "subtype": "byelection",
+      "municipalityCount": 44,
+      "municipalityIds": [
+        1,
+        6,
+        288,
+        325,
+        440,
+        560,
+        587,
+        633,
+        643,
+        728,
+        744,
+        835,
+        1121,
+        1209,
+        1414,
+        1651,
+        1814,
+        1834,
+        1874,
+        2031,
+        2110,
+        2241,
+        2311,
+        2460,
+        2880,
+        2935,
+        2984,
+        3045,
+        3060,
+        3200,
+        3276,
+        3588,
+        3687,
+        3774,
+        3822,
+        3988,
+        4197
+      ]
     },
     {
       "id": "municipal-2026-03-21",
       "type": "municipal",
       "scope": "municipal",
-      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2026",
+      "title": "Doplňujúce komunálne voľby 2026",
       "date": "2026-03-21",
       "status": "past",
       "predicted": false,
       "legalRef": "262/2025 Z. z.",
-      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2025/262/20251010.html"
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2025/262/20251010.html",
+      "subtype": "byelection",
+      "municipalityCount": 30,
+      "municipalityIds": [
+        6,
+        215,
+        269,
+        288,
+        557,
+        744,
+        756,
+        835,
+        1100,
+        1121,
+        1418,
+        1443,
+        1495,
+        1834,
+        1874,
+        2071,
+        2296,
+        3068,
+        3227,
+        3276,
+        3588,
+        3774,
+        3988,
+        4011
+      ]
     },
     {
       "id": "referendum-2026-07-04",
