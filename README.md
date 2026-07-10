@@ -94,5 +94,5 @@ npx ionic capacitor run android # na emulátore/zariadení
 - [x] **Fáza 1** — zoznam volieb (segment nadchádzajúce/minulé, filter typov, **filter rokov** odvodený z dát) + detail; číta `elections.json`. **Standalone Angular** (signal/service-based, tenké komponenty). Civic-editorial dizajn (Fraunces + Hanken Grotesk, light+dark).
 - [x] **Fáza 2** — nastavenia: master toggle, 4 celoštátne toggly, výber kraja (8 VÚC) + obce (4208 obcí, vyhľadávateľný modal), župné/komunálne toggly, pripomienky. Lokálne cez `@capacitor/preferences`. Číselník generuje `crawler/build-municipalities.mjs`.
 - [x] **Fáza 3** — FCM integrácia (`@capacitor-firebase/messaging`): `NotificationsService` reaktívne (signal + effect) zosúlaďuje topic subscriptions s nastaveniami; master toggle žiada systémové povolenie. Web bezpečne loguje zámer (subscribeToTopic nie je na webe). **Reálny push sa testuje až na natíve s Firebase configom** (viď nižšie).
-- [ ] **Fáza 4** — parsovanie prílohy rozhodnutí → doplňujúce voľby na úrovni obce
+- [x] **Fáza 4** — doplňujúce voľby na úrovni obce: crawler parsuje PDF prílohy (`pdftotext`), rozlíši riadne vs doplňujúce a spáruje obce; témy `elections_municipal` (riadne) + `obec_<id>` (doplňujúce). CI má `poppler-utils`.
 - [ ] **Fáza 5** — onboarding, privacy stránka, ladenie
