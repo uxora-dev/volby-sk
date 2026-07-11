@@ -1,0 +1,100 @@
+{
+  "id": "parliamentary-1994-10-01",
+  "type": "parliamentary",
+  "date": "1994-10-01",
+  "turnout": {
+    "pct": 75.65,
+    "eligible": null,
+    "voted": null
+  },
+  "parties": [
+    {
+      "name": "Hnutie za demokratické Slovensko",
+      "abbr": "HZDS",
+      "votes": 0,
+      "pct": 34.97,
+      "seats": 61,
+      "inParliament": true
+    },
+    {
+      "name": "Spoločná voľba",
+      "abbr": "Sp. voľba",
+      "votes": 0,
+      "pct": 10.42,
+      "seats": 18,
+      "inParliament": true
+    },
+    {
+      "name": "Maďarská koalícia",
+      "abbr": "MK",
+      "votes": 0,
+      "pct": 10.18,
+      "seats": 17,
+      "inParliament": true
+    },
+    {
+      "name": "Kresťanskodemokratické hnutie",
+      "abbr": "KDH",
+      "votes": 0,
+      "pct": 10.08,
+      "seats": 17,
+      "inParliament": true
+    },
+    {
+      "name": "Demokratická únia Slovenska (1994)",
+      "abbr": "DEÚS",
+      "votes": 0,
+      "pct": 8.57,
+      "seats": 15,
+      "inParliament": true
+    },
+    {
+      "name": "Združenie robotníkov Slovenska",
+      "abbr": "ZRS",
+      "votes": 0,
+      "pct": 7.35,
+      "seats": 13,
+      "inParliament": true
+    },
+    {
+      "name": "Slovenská národná strana (1990)",
+      "abbr": "SNS",
+      "votes": 0,
+      "pct": 5.4,
+      "seats": 9,
+      "inParliament": true
+    },
+    {
+      "name": "Demokratická strana (1989 – 2006)",
+      "abbr": "DS",
+      "votes": 0,
+      "pct": 3.42,
+      "seats": 0,
+      "inParliament": false
+    },
+    {
+      "name": "Komunistická strana Slovenska (1992)",
+      "abbr": "KSS",
+      "votes": 0,
+      "pct": 2.72,
+      "seats": 0,
+      "inParliament": false
+    },
+    {
+      "name": "Kresťanská sociálna únia",
+      "abbr": "KSÚ",
+      "votes": 0,
+      "pct": 2.05,
+      "seats": 0,
+      "inParliament": false
+    }
+  ],
+  "winner": {
+    "name": "Hnutie za demokratické Slovensko",
+    "abbr": "HZDS",
+    "pct": 34.97
+  },
+  "source": "https://sk.wikipedia.org/wiki/Vo%C4%BEby%20do%20N%C3%A1rodnej%20rady%20Slovenskej%20republiky%20v%20roku%201994",
+  "sourceLabel": "Wikipédia",
+  "generatedAt": "2026-07-11T21:49:31.518Z"
+}

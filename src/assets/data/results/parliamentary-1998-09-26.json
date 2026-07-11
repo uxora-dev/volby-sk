@@ -1,0 +1,84 @@
+{
+  "id": "parliamentary-1998-09-26",
+  "type": "parliamentary",
+  "date": "1998-09-26",
+  "turnout": {
+    "pct": 84.25,
+    "eligible": null,
+    "voted": null
+  },
+  "parties": [
+    {
+      "name": "Hnutie za demokratické Slovensko",
+      "abbr": "HZDS",
+      "votes": 0,
+      "pct": 27,
+      "seats": 43,
+      "inParliament": true
+    },
+    {
+      "name": "Slovenská demokratická koalícia",
+      "abbr": "SDK",
+      "votes": 0,
+      "pct": 26.33,
+      "seats": 42,
+      "inParliament": true
+    },
+    {
+      "name": "Strana demokratickej ľavice (1990)",
+      "abbr": "SDĽ",
+      "votes": 0,
+      "pct": 14.66,
+      "seats": 23,
+      "inParliament": true
+    },
+    {
+      "name": "Strana maďarskej komunity – Magyar Közösség Pártja",
+      "abbr": "SMK – MPK",
+      "votes": 0,
+      "pct": 9.12,
+      "seats": 15,
+      "inParliament": true
+    },
+    {
+      "name": "Slovenská národná strana (1990)",
+      "abbr": "SNS",
+      "votes": 0,
+      "pct": 9.07,
+      "seats": 14,
+      "inParliament": true
+    },
+    {
+      "name": "Strana občianskeho porozumenia",
+      "abbr": "SOP",
+      "votes": 0,
+      "pct": 8.01,
+      "seats": 13,
+      "inParliament": true
+    },
+    {
+      "name": "Komunistická strana Slovenska (1992)",
+      "abbr": "KSS",
+      "votes": 0,
+      "pct": 2.79,
+      "seats": 0,
+      "inParliament": false
+    },
+    {
+      "name": "Združenie robotníkov Slovenska",
+      "abbr": "ZRS",
+      "votes": 0,
+      "pct": 1.3,
+      "seats": 0,
+      "inParliament": false
+    }
+  ],
+  "winner": {
+    "name": "Hnutie za demokratické Slovensko",
+    "abbr": "HZDS",
+    "pct": 27
+  },
+  "source": "https://sk.wikipedia.org/wiki/Vo%C4%BEby%20do%20N%C3%A1rodnej%20rady%20Slovenskej%20republiky%20v%20roku%201998",
+  "sourceLabel": "Wikipédia",
+  "generatedAt": "2026-07-11T21:49:33.009Z"
+}

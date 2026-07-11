@@ -1,0 +1,65 @@
+{
+  "id": "presidential-1999-05-15",
+  "type": "presidential",
+  "date": "1999-05-15",
+  "turnout": {
+    "pct": 75.45,
+    "eligible": null,
+    "voted": null
+  },
+  "parties": [],
+  "rounds": [
+    {
+      "round": 1,
+      "turnout": 73.89,
+      "candidates": [
+        {
+          "name": "R. Schuster",
+          "pct": 47.37
+        },
+        {
+          "name": "V. Mečiar",
+          "pct": 37.23
+        },
+        {
+          "name": "M. Vášáryová",
+          "pct": 6.6
+        },
+        {
+          "name": "I. Mjartan",
+          "pct": 3.59
+        },
+        {
+          "name": "J. Slota",
+          "pct": 2.5
+        },
+        {
+          "name": "B. Zala",
+          "pct": 1
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "turnout": 75.45,
+      "candidates": [
+        {
+          "name": "R. Schuster",
+          "pct": 57.18
+        },
+        {
+          "name": "V. Mečiar",
+          "pct": 42.81
+        }
+      ]
+    }
+  ],
+  "winner": {
+    "name": "R. Schuster",
+    "abbr": "R. Schuster",
+    "pct": 57.18
+  },
+  "source": "https://sk.wikipedia.org/wiki/Vo%C4%BEba%20prezidenta%20Slovenskej%20republiky%20v%20roku%201999",
+  "sourceLabel": "Wikipédia",
+  "generatedAt": "2026-07-11T21:49:33.309Z"
+}

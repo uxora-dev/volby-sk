@@ -83,6 +83,23 @@ function parseWikiParty(s) {
 // Kurátorované mandáty pre roky, kde ich Wikipédia infobox/legenda nemá (2002, 2006).
 // Faktické verejné výsledky (súčet = 150). % sa berie z infoboxu, mandáty odtiaľto.
 const CURATED_SEATS = {
+  '1994': [
+    { m: ['hzds'], seats: 61 },
+    { m: ['spoločná voľba', 'sp. voľba'], seats: 18 },
+    { m: ['maďar'], seats: 17 },
+    { m: ['kresťanskodemokratické', 'kdh'], seats: 17 },
+    { m: ['demokratická únia', 'deús'], seats: 15 },
+    { m: ['robotníkov', 'zrs'], seats: 13 },
+    { m: ['slovenská národná', 'sns'], seats: 9 },
+  ],
+  '1998': [
+    { m: ['hzds'], seats: 43 },
+    { m: ['demokratická koalícia', 'sdk'], seats: 42 },
+    { m: ['demokratickej ľavice', 'sdľ'], seats: 23 },
+    { m: ['maďar', 'smk'], seats: 15 },
+    { m: ['slovenská národná', 'sns'], seats: 14 },
+    { m: ['občianskeho porozumenia', 'sop'], seats: 13 },
+  ],
   '2002': [
     { m: ['hzds', 'demokratické slovensko'], seats: 36 },
     { m: ['sdkú', 'demokratická a kresťanská'], seats: 28 },
