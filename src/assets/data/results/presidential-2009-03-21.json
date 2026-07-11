@@ -1,0 +1,63 @@
+{
+  "id": "presidential-2009-03-21",
+  "type": "presidential",
+  "date": "2009-03-21",
+  "turnout": {
+    "pct": 43.63,
+    "eligible": null,
+    "voted": null
+  },
+  "parties": [],
+  "rounds": [
+    {
+      "round": 1,
+      "turnout": 43.63,
+      "candidates": [
+        {
+          "name": "I. Gašparovič",
+          "pct": 46.7
+        },
+        {
+          "name": "I. Radičová",
+          "pct": 38.05
+        },
+        {
+          "name": "F. Mikloško",
+          "pct": 5.41
+        },
+        {
+          "name": "Z. Martináková",
+          "pct": 5.12
+        },
+        {
+          "name": "M. Melník",
+          "pct": 2.45
+        },
+        {
+          "name": "D. Bollová",
+          "pct": 1.13
+        },
+        {
+          "name": "M. Sidor",
+          "pct": 1.11
+        },
+        {
+          "name": "I. Gašparovič",
+          "pct": 55.53
+        },
+        {
+          "name": "I. Radičová",
+          "pct": 44.46
+        }
+      ]
+    }
+  ],
+  "winner": {
+    "name": "I. Gašparovič",
+    "abbr": "I. Gašparovič",
+    "pct": 55.53
+  },
+  "source": "https://sk.wikipedia.org/wiki/Vo%C4%BEba%20prezidenta%20Slovenskej%20republiky%20v%20roku%202009",
+  "sourceLabel": "Wikipédia",
+  "generatedAt": "2026-07-11T16:13:47.601Z"
+}

@@ -237,6 +237,38 @@
   margin-inline-end: 7px;
   vertical-align: middle;
 }
+
+/* prezidentské — kolá s kandidátmi */
+.round + .round {
+  margin-top: 18px;
+}
+.round__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 11px;
+}
+.round__label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--app-muted);
+}
+.bar-row--cand {
+  grid-template-columns: 96px 1fr 62px;
+}
+.bar-row--cand .bar-fill {
+  background: color-mix(in srgb, var(--type) 45%, transparent);
+}
+.bar-row--cand.is-winner .bar-fill {
+  background: var(--type);
+}
+.bar-row--cand.is-winner .bar-row__name {
+  color: var(--type);
+  font-weight: 700;
+}
 .bar-row__pct {
   font-size: 0.82rem;
   font-weight: 600;

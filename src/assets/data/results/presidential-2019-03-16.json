@@ -1,0 +1,65 @@
+{
+  "id": "presidential-2019-03-16",
+  "type": "presidential",
+  "date": "2019-03-16",
+  "turnout": {
+    "pct": 41.7,
+    "eligible": null,
+    "voted": null
+  },
+  "parties": [],
+  "rounds": [
+    {
+      "round": 1,
+      "turnout": 48.74,
+      "candidates": [
+        {
+          "name": "Z. Čaputová",
+          "pct": 40.57
+        },
+        {
+          "name": "M. Šefčovič",
+          "pct": 18.66
+        },
+        {
+          "name": "Š. Harabin",
+          "pct": 14.34
+        },
+        {
+          "name": "M. Kotleba",
+          "pct": 10.39
+        },
+        {
+          "name": "F. Mikloško",
+          "pct": 5.72
+        },
+        {
+          "name": "B. Bugár",
+          "pct": 3.1
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "turnout": 41.7,
+      "candidates": [
+        {
+          "name": "Z. Čaputová",
+          "pct": 58.4
+        },
+        {
+          "name": "M. Šefčovič",
+          "pct": 41.59
+        }
+      ]
+    }
+  ],
+  "winner": {
+    "name": "Z. Čaputová",
+    "abbr": "Z. Čaputová",
+    "pct": 58.4
+  },
+  "source": "https://sk.wikipedia.org/wiki/Vo%C4%BEba%20prezidenta%20Slovenskej%20republiky%20v%20roku%202019",
+  "sourceLabel": "Wikipédia",
+  "generatedAt": "2026-07-11T16:13:50.640Z"
+}

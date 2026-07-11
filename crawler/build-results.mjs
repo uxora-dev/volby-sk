@@ -129,17 +129,63 @@ async function fetchResultWiki(election) {
   };
 }
 
+// Prezidentské výsledky z Wikipédie — dve kolá kandidátov (šablóny bar percent,
+// oddelené riadkom "ostatní"; 1. kolo = pred ním, 2. kolo = za ním).
+async function fetchPresidentialWiki(election) {
+  if (election.type !== "presidential") return null;
+  const year = election.date.slice(0, 4);
+  const title = `Voľba prezidenta Slovenskej republiky v roku ${year}`;
+  const api = `https://sk.wikipedia.org/w/api.php?action=parse&page=${encodeURIComponent(title)}&prop=wikitext&format=json&formatversion=2&section=0`;
+  const w = (await getJson(api))?.parse?.wikitext;
+  if (!w) return null;
+
+  const entries = [];
+  for (const m of w.matchAll(/\{\{bar percent\|(.+?)\}\}/g)) {
+    const block = m[1];
+    const linkM = block.match(/\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/);
+    const rawName = linkM ? (linkM[2] || linkM[1]) : block.split("|")[0];
+    const name = rawName.replace(/'''/g, "").trim();
+    const pctM = block.match(/([\d]+[,.]\d+)\s*%/);
+    if (!pctM) continue;
+    const ostatni = /^ostatn/i.test(name) || (!linkM && /ostatn/i.test(block));
+    entries.push({ name, pct: parseFloat(pctM[1].replace(",", ".")), ostatni });
+  }
+  if (!entries.length) return null;
+
+  const oi = entries.findIndex((e) => e.ostatni);
+  const round1 = (oi >= 0 ? entries.slice(0, oi) : entries.filter((e) => !e.ostatni));
+  const rest = oi >= 0 ? entries.slice(oi + 1).filter((e) => !e.ostatni) : [];
+  const round2 = rest.length ? rest : null;
+  if (!round1.length) return null;
+
+  const turnouts = [...w.matchAll(/účas[ťt][^\n]{0,30}?([\d]{1,2}[,.]\d+)\s*%/gi)].map((m) => parseFloat(m[1].replace(",", ".")));
+  const rounds = [{ round: 1, turnout: turnouts[0] ?? null, candidates: round1.map((e) => ({ name: e.name, pct: e.pct })) }];
+  if (round2) rounds.push({ round: 2, turnout: turnouts[1] ?? null, candidates: round2.map((e) => ({ name: e.name, pct: e.pct })) });
+
+  const decisive = [...(round2 || round1)].sort((a, b) => b.pct - a.pct)[0];
+  return {
+    id: election.id, type: "presidential", date: election.date,
+    turnout: { pct: (round2 ? turnouts[1] : turnouts[0]) ?? null, eligible: null, voted: null },
+    parties: [], rounds,
+    winner: { name: decisive.name, abbr: decisive.name, pct: decisive.pct },
+    source: `https://sk.wikipedia.org/wiki/${encodeURIComponent(title)}`,
+    sourceLabel: "Wikipédia", generatedAt: new Date().toISOString(),
+  };
+}
+
 // --- main ---
 const { elections } = JSON.parse(fs.readFileSync(ELECTIONS, "utf8"));
 const today = new Date().toISOString().slice(0, 10);
-const past = elections.filter((e) => !e.predicted && e.date < today && PORTAL[e.type]);
+const RESULT_TYPES = new Set(["parliamentary", "european", "presidential"]);
+const past = elections.filter((e) => !e.predicted && e.date < today && RESULT_TYPES.has(e.type));
 
 fs.mkdirSync(DIR, { recursive: true });
 const generated = [];
 for (const e of past) {
   process.stderr.write(`# ${e.id} ... `);
   let res = await fetchResult(e).catch(() => null);
-  if (!res) res = await fetchResultWiki(e).catch(() => null); // starší formát → Wikipédia
+  if (!res) res = await fetchResultWiki(e).catch(() => null); // parlamentné → Wikipédia
+  if (!res) res = await fetchPresidentialWiki(e).catch(() => null); // prezidentské → Wikipédia
   if (res) {
     fs.writeFileSync(path.join(DIR, `${e.id}.json`), JSON.stringify(res, null, 2));
     generated.push(e.id);

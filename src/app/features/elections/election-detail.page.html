@@ -50,39 +50,64 @@
         <div class="detail-info results">
           <div class="results__head">
             <span class="info-row__k">Výsledky volieb</span>
-            @if (r.turnout.pct !== null) {
+            @if (r.turnout.pct !== null && !r.rounds) {
               <span class="turnout">Účasť {{ r.turnout.pct.toFixed(2).replace('.', ',') }} %</span>
             }
           </div>
-          <div class="bars">
-            @for (p of inParliament(); track $index) {
-              <div class="bar-row bar-row--seated" [class.is-winner]="$index === 0" [style.--bar]="color(p)">
-                <span class="bar-row__name"><i class="pdot" [style.background]="color(p)"></i>{{ p.abbr || p.name }}</span>
-                <div class="bar-track">
-                  <div class="bar-fill" [style.width.%]="(p.pct / maxPct()) * 100"></div>
+
+          @if (r.rounds) {
+            @for (rd of roundsDesc(); track rd.round) {
+              <div class="round">
+                <div class="round__head">
+                  <span class="round__label">{{ rd.round }}. kolo</span>
+                  @if (rd.turnout !== null) {
+                    <span class="turnout">Účasť {{ rd.turnout.toFixed(2).replace('.', ',') }} %</span>
+                  }
                 </div>
-                <span class="bar-row__seats">{{ p.seats }}</span>
-                <span class="bar-row__pct">{{ p.pct.toFixed(2).replace('.', ',') }} %</span>
+                <div class="bars">
+                  @for (c of rd.candidates; track $index) {
+                    <div class="bar-row bar-row--cand" [class.is-winner]="c.name === r.winner.name">
+                      <span class="bar-row__name">{{ c.name }}</span>
+                      <div class="bar-track">
+                        <div class="bar-fill" [style.width.%]="(c.pct / rd.candidates[0].pct) * 100"></div>
+                      </div>
+                      <span class="bar-row__pct">{{ c.pct.toFixed(2).replace('.', ',') }} %</span>
+                    </div>
+                  }
+                </div>
               </div>
             }
-          </div>
-
-          @if (outParliament().length) {
-            <div class="results__divider"><span>Nedostali sa do parlamentu</span></div>
-            <div class="bars bars--out">
-              @for (p of outParliament(); track $index) {
-                <div class="bar-row">
+          } @else {
+            <div class="bars">
+              @for (p of inParliament(); track $index) {
+                <div class="bar-row bar-row--seated" [class.is-winner]="$index === 0" [style.--bar]="color(p)">
                   <span class="bar-row__name"><i class="pdot" [style.background]="color(p)"></i>{{ p.abbr || p.name }}</span>
                   <div class="bar-track">
                     <div class="bar-fill" [style.width.%]="(p.pct / maxPct()) * 100"></div>
                   </div>
+                  <span class="bar-row__seats">{{ p.seats }}</span>
                   <span class="bar-row__pct">{{ p.pct.toFixed(2).replace('.', ',') }} %</span>
                 </div>
               }
             </div>
-          }
 
-          <div class="results__legend">číslo pri strane = počet kresiel (spolu 150)</div>
+            @if (outParliament().length) {
+              <div class="results__divider"><span>Nedostali sa do parlamentu</span></div>
+              <div class="bars bars--out">
+                @for (p of outParliament(); track $index) {
+                  <div class="bar-row">
+                    <span class="bar-row__name"><i class="pdot" [style.background]="color(p)"></i>{{ p.abbr || p.name }}</span>
+                    <div class="bar-track">
+                      <div class="bar-fill" [style.width.%]="(p.pct / maxPct()) * 100"></div>
+                    </div>
+                    <span class="bar-row__pct">{{ p.pct.toFixed(2).replace('.', ',') }} %</span>
+                  </div>
+                }
+              </div>
+            }
+
+            <div class="results__legend">číslo pri strane = počet kresiel (spolu 150)</div>
+          }
           <a class="results__src" [href]="r.source" target="_blank" rel="noopener">Zdroj: {{ r.sourceLabel || 'Štatistický úrad SR' }}</a>
         </div>
       }

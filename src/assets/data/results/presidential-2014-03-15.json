@@ -1,0 +1,65 @@
+{
+  "id": "presidential-2014-03-15",
+  "type": "presidential",
+  "date": "2014-03-15",
+  "turnout": {
+    "pct": 50.48,
+    "eligible": null,
+    "voted": null
+  },
+  "parties": [],
+  "rounds": [
+    {
+      "round": 1,
+      "turnout": 43.4,
+      "candidates": [
+        {
+          "name": "R. Fico",
+          "pct": 28
+        },
+        {
+          "name": "A. Kiska",
+          "pct": 24
+        },
+        {
+          "name": "R. Procházka",
+          "pct": 21.24
+        },
+        {
+          "name": "M. Kňažko",
+          "pct": 12.86
+        },
+        {
+          "name": "G. Bárdos",
+          "pct": 5.1
+        },
+        {
+          "name": "P. Hrušovský",
+          "pct": 3.33
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "turnout": 50.48,
+      "candidates": [
+        {
+          "name": "A. Kiska",
+          "pct": 59.38
+        },
+        {
+          "name": "R. Fico",
+          "pct": 40.61
+        }
+      ]
+    }
+  ],
+  "winner": {
+    "name": "A. Kiska",
+    "abbr": "A. Kiska",
+    "pct": 59.38
+  },
+  "source": "https://sk.wikipedia.org/wiki/Vo%C4%BEba%20prezidenta%20Slovenskej%20republiky%20v%20roku%202014",
+  "sourceLabel": "Wikipédia",
+  "generatedAt": "2026-07-11T16:13:49.474Z"
+}

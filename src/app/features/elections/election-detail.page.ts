@@ -53,6 +53,12 @@ export class ElectionDetailPage {
   protected readonly outParliament = computed(() => this.resultData()?.parties.filter((p) => !p.inParliament) ?? []);
   protected readonly maxPct = computed(() => this.resultData()?.parties[0]?.pct ?? 100);
 
+  /** Prezidentské kolá zostupne (2. kolo hore — je rozhodujúce). */
+  protected readonly roundsDesc = computed(() => {
+    const r = this.resultData()?.rounds;
+    return r ? [...r].sort((a, b) => b.round - a.round) : [];
+  });
+
   /** Brand farba strany (z Wikidata mapy), fallback na farbu typu voľby. */
   protected color(p: ResultParty): string {
     return partyColor(p) ?? 'var(--type)';

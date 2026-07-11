@@ -1,0 +1,65 @@
+{
+  "id": "presidential-2004-04-03",
+  "type": "presidential",
+  "date": "2004-04-03",
+  "turnout": {
+    "pct": 43.5,
+    "eligible": null,
+    "voted": null
+  },
+  "parties": [],
+  "rounds": [
+    {
+      "round": 1,
+      "turnout": 47.94,
+      "candidates": [
+        {
+          "name": "V. Mečiar",
+          "pct": 32.73
+        },
+        {
+          "name": "I. Gašparovič",
+          "pct": 22.28
+        },
+        {
+          "name": "E. Kukan",
+          "pct": 22.09
+        },
+        {
+          "name": "R. Schuster",
+          "pct": 7.42
+        },
+        {
+          "name": "F. Mikloško",
+          "pct": 6.51
+        },
+        {
+          "name": "M. Bútora",
+          "pct": 6.51
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "turnout": 43.5,
+      "candidates": [
+        {
+          "name": "I. Gašparovič",
+          "pct": 59.91
+        },
+        {
+          "name": "V. Mečiar",
+          "pct": 40.08
+        }
+      ]
+    }
+  ],
+  "winner": {
+    "name": "I. Gašparovič",
+    "abbr": "I. Gašparovič",
+    "pct": 59.91
+  },
+  "source": "https://sk.wikipedia.org/wiki/Vo%C4%BEba%20prezidenta%20Slovenskej%20republiky%20v%20roku%202004",
+  "sourceLabel": "Wikipédia",
+  "generatedAt": "2026-07-11T16:13:45.755Z"
+}

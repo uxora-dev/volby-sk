@@ -1,0 +1,65 @@
+{
+  "id": "presidential-2024-03-23",
+  "type": "presidential",
+  "date": "2024-03-23",
+  "turnout": {
+    "pct": 61.14,
+    "eligible": null,
+    "voted": null
+  },
+  "parties": [],
+  "rounds": [
+    {
+      "round": 1,
+      "turnout": 51.91,
+      "candidates": [
+        {
+          "name": "I. Korčok",
+          "pct": 42.51
+        },
+        {
+          "name": "P. Pellegrini",
+          "pct": 37.02
+        },
+        {
+          "name": "Š. Harabin",
+          "pct": 11.73
+        },
+        {
+          "name": "K. Forró",
+          "pct": 2.9
+        },
+        {
+          "name": "I. Matovič",
+          "pct": 2.18
+        },
+        {
+          "name": "J. Kubiš",
+          "pct": 2.03
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "turnout": 61.14,
+      "candidates": [
+        {
+          "name": "P. Pellegrini",
+          "pct": 53.12
+        },
+        {
+          "name": "I. Korčok",
+          "pct": 46.87
+        }
+      ]
+    }
+  ],
+  "winner": {
+    "name": "P. Pellegrini",
+    "abbr": "P. Pellegrini",
+    "pct": 53.12
+  },
+  "source": "https://sk.wikipedia.org/wiki/Vo%C4%BEba%20prezidenta%20Slovenskej%20republiky%20v%20roku%202024",
+  "sourceLabel": "Wikipédia",
+  "generatedAt": "2026-07-11T16:13:51.278Z"
+}
