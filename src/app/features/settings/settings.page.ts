@@ -40,6 +40,16 @@ export class SettingsPage {
     return code ? VUC_LEADERS[code] ?? null : null;
   });
 
+  /** Starosta/primátor vybranej obce (komunálne 2022). */
+  protected readonly starosta = computed(() => {
+    const m = this.s().municipality;
+    return m ? this.loc.mayor(m.id) : null;
+  });
+
+  constructor() {
+    this.loc.loadMayors();
+  }
+
   // Stav modálneho výberu obce
   protected readonly pickerOpen = signal(false);
   protected readonly query = signal('');

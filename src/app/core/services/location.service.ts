@@ -14,7 +14,9 @@ export class LocationService {
 
   private readonly _regions = signal<Region[]>([]);
   private readonly _municipalities = signal<Municipality[]>([]);
+  private readonly _mayors = signal<Record<string, string>>({});
   private municipalitiesRequested = false;
+  private mayorsRequested = false;
 
   readonly regions = this._regions.asReadonly();
   readonly municipalities = this._municipalities.asReadonly();
@@ -29,6 +31,19 @@ export class LocationService {
     this.http
       .get<MunicipalitiesFile>('assets/data/municipalities.json')
       .subscribe((d) => this._municipalities.set(d?.municipalities ?? []));
+  }
+
+  loadMayors(): void {
+    if (this.mayorsRequested) return;
+    this.mayorsRequested = true;
+    this.http
+      .get<{ mayors: Record<string, string> }>('assets/data/mayors.json')
+      .subscribe((d) => this._mayors.set(d?.mayors ?? {}));
+  }
+
+  /** Zvolený starosta/primátor obce (komunálne 2022), alebo null. */
+  mayor(id: number): string | null {
+    return this._mayors()[id] ?? null;
   }
 
   /** Filter obcí podľa kraja + textu, orezané na `limit` položiek. */

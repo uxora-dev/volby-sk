@@ -82,6 +82,15 @@
       <ion-label>Obec</ion-label>
       <ion-note slot="end">{{ s().municipality?.name || 'Vyberte obec' }}</ion-note>
     </ion-item>
+    @if (starosta()) {
+      <ion-item class="zupan">
+        <ion-icon slot="start" name="person" [style.color]="meta['municipal'].color"></ion-icon>
+        <ion-label>
+          <p>Váš starosta / primátor (2022)</p>
+          <h3>{{ starosta() }}</h3>
+        </ion-label>
+      </ion-item>
+    }
     @if (s().municipality) {
       <ion-item button detail="false" class="clear-obec" (click)="clearMunicipality()">
         <ion-icon slot="start" name="close-circle"></ion-icon>
