@@ -1,0 +1,100 @@
+{
+  "id": "parliamentary-2002-09-21",
+  "type": "parliamentary",
+  "date": "2002-09-21",
+  "turnout": {
+    "pct": 70.07,
+    "eligible": null,
+    "voted": null
+  },
+  "parties": [
+    {
+      "name": "Hnutie za demokratické Slovensko",
+      "abbr": "HZDS",
+      "votes": 0,
+      "pct": 19.5,
+      "seats": 36,
+      "inParliament": true
+    },
+    {
+      "name": "Slovenská demokratická a kresťanská únia",
+      "abbr": "SDKÚ",
+      "votes": 0,
+      "pct": 15.09,
+      "seats": 28,
+      "inParliament": true
+    },
+    {
+      "name": "SMER",
+      "abbr": "SMER",
+      "votes": 0,
+      "pct": 13.46,
+      "seats": 25,
+      "inParliament": true
+    },
+    {
+      "name": "Strana maďarskej komunity – Magyar Közösség Pártja",
+      "abbr": "SMK – MPK",
+      "votes": 0,
+      "pct": 11.16,
+      "seats": 20,
+      "inParliament": true
+    },
+    {
+      "name": "Kresťanskodemokratické hnutie",
+      "abbr": "KDH",
+      "votes": 0,
+      "pct": 8.25,
+      "seats": 15,
+      "inParliament": true
+    },
+    {
+      "name": "Aliancia nového občana",
+      "abbr": "ANO",
+      "votes": 0,
+      "pct": 8.01,
+      "seats": 15,
+      "inParliament": true
+    },
+    {
+      "name": "Komunistická strana Slovenska (1992)",
+      "abbr": "KSS",
+      "votes": 0,
+      "pct": 6.32,
+      "seats": 11,
+      "inParliament": true
+    },
+    {
+      "name": "Pravá Slovenská národná strana (2001 – 2005)",
+      "abbr": "Pravá SNS",
+      "votes": 0,
+      "pct": 3.65,
+      "seats": 0,
+      "inParliament": false
+    },
+    {
+      "name": "Slovenská národná strana (1990)",
+      "abbr": "SNS",
+      "votes": 0,
+      "pct": 3.32,
+      "seats": 0,
+      "inParliament": false
+    },
+    {
+      "name": "Hnutie za demokraciu",
+      "abbr": "HZD",
+      "votes": 0,
+      "pct": 3.28,
+      "seats": 0,
+      "inParliament": false
+    }
+  ],
+  "winner": {
+    "name": "Hnutie za demokratické Slovensko",
+    "abbr": "HZDS",
+    "pct": 19.5
+  },
+  "source": "https://sk.wikipedia.org/wiki/Vo%C4%BEby%20do%20N%C3%A1rodnej%20rady%20Slovenskej%20republiky%20v%20roku%202002",
+  "sourceLabel": "Wikipédia",
+  "generatedAt": "2026-07-11T20:53:35.166Z"
+}

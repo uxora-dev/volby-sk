@@ -80,6 +80,36 @@ function parseWikiParty(s) {
   return { name: m[1].trim(), label: (m[2] || m[1]).trim() };
 }
 
+// Kurátorované mandáty pre roky, kde ich Wikipédia infobox/legenda nemá (2002, 2006).
+// Faktické verejné výsledky (súčet = 150). % sa berie z infoboxu, mandáty odtiaľto.
+const CURATED_SEATS = {
+  '2002': [
+    { m: ['hzds', 'demokratické slovensko'], seats: 36 },
+    { m: ['sdkú', 'demokratická a kresťanská'], seats: 28 },
+    { m: ['smer'], seats: 25 },
+    { m: ['smk', 'maďar'], seats: 20 },
+    { m: ['kdh', 'kresťanskodemokratické'], seats: 15 },
+    { m: ['ano', 'nového občana'], seats: 15 },
+    { m: ['kss', 'komunistická'], seats: 11 },
+  ],
+  '2006': [
+    { m: ['smer'], seats: 50 },
+    { m: ['sdkú', 'demokratická a kresťanská'], seats: 31 },
+    { m: ['sns', 'slovenská národná'], seats: 20 },
+    { m: ['smk', 'maďar'], seats: 20 },
+    { m: ['hzds', 'demokratické slovensko'], seats: 15 },
+    { m: ['kdh', 'kresťanskodemokratické'], seats: 14 },
+  ],
+};
+function curatedSeatsFor(year, party) {
+  const list = CURATED_SEATS[year];
+  if (!list) return 0;
+  const abbr = (party.abbr || '').toLowerCase();
+  const name = (party.name || '').toLowerCase();
+  for (const e of list) if (e.m.some((k) => abbr.includes(k) || name.includes(k))) return e.seats;
+  return 0;
+}
+
 async function fetchResultWiki(election) {
   if (election.type !== "parliamentary") return null;
   const year = election.date.slice(0, 4);
@@ -107,8 +137,6 @@ async function fetchResultWiki(election) {
     seatsByLabel.set(parseWikiParty(m[1]).label, Number(m[2]));
   }
   if (!pctByLabel.size) return null;
-  // bez mandátov (staršie infoboxy) by vznikol mylný dojem "nikto v parlamente" → vynechať
-  if (![...seatsByLabel.values()].some((s) => s > 0)) return null;
 
   const turnoutM = w.match(/účas[ťt][^\n]{0,30}?([\d]{1,2}[,.]\d+)\s*%/i);
   const parties = [...pctByLabel.entries()]
@@ -117,6 +145,15 @@ async function fetchResultWiki(election) {
       return { name: nameByLabel.get(label) || label, abbr: label, votes: 0, pct, seats, inParliament: seats > 0 };
     })
     .sort((a, b) => b.pct - a.pct);
+
+  // Roky bez legenda-mandátov (2002/2006): doplň kurátorované; bez mandátov nezobrazuj
+  if (!parties.some((p) => p.seats > 0)) {
+    if (!CURATED_SEATS[year]) return null; // inak mylný dojem "nikto v parlamente"
+    for (const p of parties) {
+      p.seats = curatedSeatsFor(year, p);
+      p.inParliament = p.seats > 0;
+    }
+  }
 
   return {
     id: election.id, type: election.type, date: election.date,

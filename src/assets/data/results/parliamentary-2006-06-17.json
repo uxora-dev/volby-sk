@@ -1,0 +1,92 @@
+{
+  "id": "parliamentary-2006-06-17",
+  "type": "parliamentary",
+  "date": "2006-06-17",
+  "turnout": {
+    "pct": 54.67,
+    "eligible": null,
+    "voted": null
+  },
+  "parties": [
+    {
+      "name": "SMER – sociálna demokracia",
+      "abbr": "SMER – SD",
+      "votes": 0,
+      "pct": 29.14,
+      "seats": 50,
+      "inParliament": true
+    },
+    {
+      "name": "Slovenská demokratická a kresťanská únia – Demokratická strana",
+      "abbr": "SDKÚ – DS",
+      "votes": 0,
+      "pct": 18.35,
+      "seats": 31,
+      "inParliament": true
+    },
+    {
+      "name": "Slovenská národná strana (1990)",
+      "abbr": "SNS",
+      "votes": 0,
+      "pct": 11.73,
+      "seats": 20,
+      "inParliament": true
+    },
+    {
+      "name": "Strana maďarskej komunity – Magyar Közösség Pártja",
+      "abbr": "SMK – MPK",
+      "votes": 0,
+      "pct": 11.68,
+      "seats": 20,
+      "inParliament": true
+    },
+    {
+      "name": "Ľudová strana – Hnutie za demokratické Slovensko",
+      "abbr": "ĽS – HZDS",
+      "votes": 0,
+      "pct": 8.79,
+      "seats": 15,
+      "inParliament": true
+    },
+    {
+      "name": "Kresťanskodemokratické hnutie",
+      "abbr": "KDH",
+      "votes": 0,
+      "pct": 8.31,
+      "seats": 14,
+      "inParliament": true
+    },
+    {
+      "name": "Komunistická strana Slovenska (1992)",
+      "abbr": "KSS",
+      "votes": 0,
+      "pct": 3.88,
+      "seats": 0,
+      "inParliament": false
+    },
+    {
+      "name": "Slobodné fórum",
+      "abbr": "SF",
+      "votes": 0,
+      "pct": 3.47,
+      "seats": 0,
+      "inParliament": false
+    },
+    {
+      "name": "Aliancia nového občana",
+      "abbr": "ANO",
+      "votes": 0,
+      "pct": 1.42,
+      "seats": 0,
+      "inParliament": false
+    }
+  ],
+  "winner": {
+    "name": "SMER – sociálna demokracia",
+    "abbr": "SMER – SD",
+    "pct": 29.14
+  },
+  "source": "https://sk.wikipedia.org/wiki/Vo%C4%BEby%20do%20N%C3%A1rodnej%20rady%20Slovenskej%20republiky%20v%20roku%202006",
+  "sourceLabel": "Wikipédia",
+  "generatedAt": "2026-07-11T20:53:36.252Z"
+}
