@@ -220,16 +220,26 @@ for (const e of decisions.filter(e => e.type !== "municipal")) {
   nonMunEntries.push(baseEntry(e));
 }
 
-// Municipálne: zoskup podľa dátumu, z prílohy zisti obce a rozlíš riadne/doplňujúce
+// Municipálne: zoskup podľa dátumu, z prílohy zisti obce a rozlíš riadne/doplňujúce.
+// Spojené voľby (obce + kraje jedným rozhodnutím) sú klasifikované ako vuc — zahrň ich aj sem.
+const isCombined = (e) => e.type === "vuc" && /samosprávy obcí/i.test(e.title || "");
 const munByDate = new Map();
-for (const e of decisions.filter(e => e.type === "municipal")) {
+for (const e of decisions.filter((e) => e.type === "municipal" || isCombined(e))) {
   if (!munByDate.has(e.electionDay)) munByDate.set(e.electionDay, []);
   munByDate.get(e.electionDay).push(e);
 }
 const munEntries = [];
 for (const [date, decs] of munByDate) {
   const year = date.slice(0, 4);
-  const base = { ...baseEntry(decs[0]), title: `${TYPE_LABEL.municipal} ${year}`, subtype: "unknown" };
+  // Vynúť municipal (decs[0] môže byť spojené vuc rozhodnutie → baseEntry by dal vuc id/typ)
+  const base = {
+    ...baseEntry(decs[0]),
+    id: `municipal-${date}`,
+    type: "municipal",
+    scope: "municipal",
+    title: `${TYPE_LABEL.municipal} ${year}`,
+    subtype: "unknown",
+  };
   if (date >= recentCutoff) {
     process.stderr.write(`  · komunálne ${date}: čítam prílohy (${decs.length}) ... `);
     const names = new Set();

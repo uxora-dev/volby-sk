@@ -7,6 +7,7 @@ import {
 import { ElectionsService } from '../../core/services/elections.service';
 import { SettingsService } from '../../core/services/settings.service';
 import { ResultsService } from '../../core/services/results.service';
+import { LocationService } from '../../core/services/location.service';
 import { TYPE_META } from '../../core/models/election';
 import { ElectionResult, ResultParty } from '../../core/models/result';
 import { partyColor } from '../../core/models/party-brand';
@@ -28,6 +29,19 @@ export class ElectionDetailPage {
   private readonly svc = inject(ElectionsService);
   protected readonly settings = inject(SettingsService);
   private readonly results = inject(ResultsService);
+  private readonly loc = inject(LocationService);
+
+  constructor() {
+    this.loc.loadMayors();
+  }
+
+  /** Zvolený starosta/primátor vo vybranej obci — pri komunálnych voľbách 2022. */
+  protected readonly obecMayor = computed(() => {
+    const e = this.election();
+    const m = this.settings.settings().municipality;
+    if (!e || e.type !== 'municipal' || e.date !== '2022-10-29' || !m) return null;
+    return this.loc.mayor(m.id);
+  });
 
   /** Naviazané z route parametra :id cez withComponentInputBinding(). */
   readonly id = input.required<string>();

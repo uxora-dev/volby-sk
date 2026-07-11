@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-10T14:02:15.526Z",
-  "count": 101,
-  "official": 90,
+  "generatedAt": "2026-07-11T21:29:02.908Z",
+  "count": 103,
+  "official": 92,
   "predicted": 11,
   "elections": [
     {
@@ -904,6 +904,18 @@
       "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2022/209/20220610.html"
     },
     {
+      "id": "municipal-2022-10-29",
+      "type": "municipal",
+      "scope": "municipal",
+      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2022",
+      "date": "2022-10-29",
+      "status": "past",
+      "predicted": false,
+      "legalRef": "209/2022 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2022/209/20220610.html",
+      "subtype": "unknown"
+    },
+    {
       "id": "referendum-2023-01-21",
       "type": "referendum",
       "scope": "national",
@@ -1185,6 +1197,18 @@
       "predicted": false,
       "legalRef": "145/2026 Z. z.",
       "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2026/145/20260624.html"
+    },
+    {
+      "id": "municipal-2026-10-24",
+      "type": "municipal",
+      "scope": "municipal",
+      "title": "Voľby do orgánov samosprávy obcí (komunálne) 2026",
+      "date": "2026-10-24",
+      "status": "upcoming",
+      "predicted": false,
+      "legalRef": "145/2026 Z. z.",
+      "sourceUrl": "https://static.slov-lex.sk/static/SK/ZZ/2026/145/20260624.html",
+      "subtype": "unknown"
     },
     {
       "id": "parliamentary-2027-09-30",

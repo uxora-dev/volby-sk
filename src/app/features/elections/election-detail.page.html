@@ -46,6 +46,18 @@
         </div>
       }
 
+      @if (obecMayor(); as mayor) {
+        <div class="detail-info detail-info--mine">
+          <div class="info-row">
+            <ion-icon name="person"></ion-icon>
+            <div>
+              <span class="info-row__k">Vo vašej obci ({{ settings.settings().municipality?.name }})</span>
+              <span class="info-row__v">Zvolený starosta / primátor: {{ mayor }}</span>
+            </div>
+          </div>
+        </div>
+      }
+
       @if (resultData(); as r) {
         <div class="detail-info results">
           <div class="results__head">
