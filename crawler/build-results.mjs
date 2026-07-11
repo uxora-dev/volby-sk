@@ -72,6 +72,63 @@ async function fetchResult(election) {
   };
 }
 
+// Historické parlamentné výsledky z Wikipédie (staršie ako ŠÚSR /json/, ~pred 2020).
+// Faktické dáta z šablón {{bar percent}} (strana + %) a {{legenda}} (strana + mandáty).
+function parseWikiParty(s) {
+  const m = s.match(/\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/);
+  if (!m) return { label: s.replace(/[[\]']/g, "").trim(), name: s.replace(/[[\]']/g, "").trim() };
+  return { name: m[1].trim(), label: (m[2] || m[1]).trim() };
+}
+
+async function fetchResultWiki(election) {
+  if (election.type !== "parliamentary") return null;
+  const year = election.date.slice(0, 4);
+  const title = `Voľby do Národnej rady Slovenskej republiky v roku ${year}`;
+  // len section 0 (infobox súhrn) — konzistentné a presné; celý článok má viac šablón a mýli parse
+  const api = `https://sk.wikipedia.org/w/api.php?action=parse&page=${encodeURIComponent(title)}&prop=wikitext&format=json&formatversion=2&section=0`;
+  const j = await getJson(api);
+  const w = j?.parse?.wikitext;
+  if (!w) return null;
+
+  // Pozor: wikilink [[Full|Display]] obsahuje '|', preto berieme celý blok a z neho
+  // vytiahneme prvý wikilink (strana) a % (číslo s desatinnou čiarkou pred %).
+  const pctByLabel = new Map();
+  const nameByLabel = new Map();
+  for (const m of w.matchAll(/\{\{bar percent\|(.+?)\}\}/g)) {
+    const { label, name } = parseWikiParty(m[1]);
+    if (/ostatn|iné strany|\bgraf\b|\|/i.test(label)) continue; // preskoč "ostatní" a artefakty
+    const pctM = m[1].match(/([\d]+[,.]\d+)\s*%/);
+    if (!pctM) continue;
+    const pct = parseFloat(pctM[1].replace(",", "."));
+    if (label && Number.isFinite(pct) && !pctByLabel.has(label)) { pctByLabel.set(label, pct); nameByLabel.set(label, name); }
+  }
+  const seatsByLabel = new Map();
+  for (const m of w.matchAll(/\{\{legenda\|.*?(\[\[.+?\]\]).*?\((\d+)\)\s*\}\}/g)) {
+    seatsByLabel.set(parseWikiParty(m[1]).label, Number(m[2]));
+  }
+  if (!pctByLabel.size) return null;
+  // bez mandátov (staršie infoboxy) by vznikol mylný dojem "nikto v parlamente" → vynechať
+  if (![...seatsByLabel.values()].some((s) => s > 0)) return null;
+
+  const turnoutM = w.match(/účas[ťt][^\n]{0,30}?([\d]{1,2}[,.]\d+)\s*%/i);
+  const parties = [...pctByLabel.entries()]
+    .map(([label, pct]) => {
+      const seats = seatsByLabel.get(label) ?? 0;
+      return { name: nameByLabel.get(label) || label, abbr: label, votes: 0, pct, seats, inParliament: seats > 0 };
+    })
+    .sort((a, b) => b.pct - a.pct);
+
+  return {
+    id: election.id, type: election.type, date: election.date,
+    turnout: { pct: turnoutM ? parseFloat(turnoutM[1].replace(",", ".")) : null, eligible: null, voted: null },
+    parties,
+    winner: { name: parties[0].name, abbr: parties[0].abbr, pct: parties[0].pct },
+    source: `https://sk.wikipedia.org/wiki/${encodeURIComponent(title)}`,
+    sourceLabel: "Wikipédia",
+    generatedAt: new Date().toISOString(),
+  };
+}
+
 // --- main ---
 const { elections } = JSON.parse(fs.readFileSync(ELECTIONS, "utf8"));
 const today = new Date().toISOString().slice(0, 10);
@@ -81,7 +138,8 @@ fs.mkdirSync(DIR, { recursive: true });
 const generated = [];
 for (const e of past) {
   process.stderr.write(`# ${e.id} ... `);
-  const res = await fetchResult(e).catch(() => null);
+  let res = await fetchResult(e).catch(() => null);
+  if (!res) res = await fetchResultWiki(e).catch(() => null); // starší formát → Wikipédia
   if (res) {
     fs.writeFileSync(path.join(DIR, `${e.id}.json`), JSON.stringify(res, null, 2));
     generated.push(e.id);

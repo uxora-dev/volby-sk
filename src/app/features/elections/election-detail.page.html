@@ -83,7 +83,7 @@
           }
 
           <div class="results__legend">číslo pri strane = počet kresiel (spolu 150)</div>
-          <a class="results__src" [href]="r.source" target="_blank" rel="noopener">Zdroj: Štatistický úrad SR</a>
+          <a class="results__src" [href]="r.source" target="_blank" rel="noopener">Zdroj: {{ r.sourceLabel || 'Štatistický úrad SR' }}</a>
         </div>
       }
 

@@ -1,0 +1,92 @@
+{
+  "id": "parliamentary-2012-03-10",
+  "type": "parliamentary",
+  "date": "2012-03-10",
+  "turnout": {
+    "pct": 59.11,
+    "eligible": null,
+    "voted": null
+  },
+  "parties": [
+    {
+      "name": "SMER – sociálna demokracia",
+      "abbr": "SMER – SD",
+      "votes": 0,
+      "pct": 44.41,
+      "seats": 83,
+      "inParliament": true
+    },
+    {
+      "name": "Kresťanskodemokratické hnutie",
+      "abbr": "KDH",
+      "votes": 0,
+      "pct": 8.82,
+      "seats": 16,
+      "inParliament": true
+    },
+    {
+      "name": "OBYČAJNÍ ĽUDIA a nezávislé osobnosti",
+      "abbr": "OĽANO",
+      "votes": 0,
+      "pct": 8.55,
+      "seats": 16,
+      "inParliament": true
+    },
+    {
+      "name": "MOST – HÍD",
+      "abbr": "MOST – HÍD",
+      "votes": 0,
+      "pct": 6.89,
+      "seats": 13,
+      "inParliament": true
+    },
+    {
+      "name": "Slovenská demokratická a kresťanská únia – Demokratická strana",
+      "abbr": "SDKÚ – DS",
+      "votes": 0,
+      "pct": 6.09,
+      "seats": 11,
+      "inParliament": true
+    },
+    {
+      "name": "Sloboda a Solidarita",
+      "abbr": "SaS",
+      "votes": 0,
+      "pct": 5.88,
+      "seats": 11,
+      "inParliament": true
+    },
+    {
+      "name": "Slovenská národná strana (1990)",
+      "abbr": "SNS",
+      "votes": 0,
+      "pct": 4.55,
+      "seats": 0,
+      "inParliament": false
+    },
+    {
+      "name": "Strana maďarskej komunity – Magyar Közösség Pártja",
+      "abbr": "SMK – MKP",
+      "votes": 0,
+      "pct": 4.28,
+      "seats": 0,
+      "inParliament": false
+    },
+    {
+      "name": "99 % – občiansky hlas",
+      "abbr": "99%",
+      "votes": 0,
+      "pct": 1.58,
+      "seats": 0,
+      "inParliament": false
+    }
+  ],
+  "winner": {
+    "name": "SMER – sociálna demokracia",
+    "abbr": "SMER – SD",
+    "pct": 44.41
+  },
+  "source": "https://sk.wikipedia.org/wiki/Vo%C4%BEby%20do%20N%C3%A1rodnej%20rady%20Slovenskej%20republiky%20v%20roku%202012",
+  "sourceLabel": "Wikipédia",
+  "generatedAt": "2026-07-11T16:04:00.549Z"
+}

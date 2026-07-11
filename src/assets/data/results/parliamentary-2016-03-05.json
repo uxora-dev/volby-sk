@@ -1,0 +1,100 @@
+{
+  "id": "parliamentary-2016-03-05",
+  "type": "parliamentary",
+  "date": "2016-03-05",
+  "turnout": {
+    "pct": 59.82,
+    "eligible": null,
+    "voted": null
+  },
+  "parties": [
+    {
+      "name": "SMER – sociálna demokracia",
+      "abbr": "SMER – SD",
+      "votes": 0,
+      "pct": 28.28,
+      "seats": 49,
+      "inParliament": true
+    },
+    {
+      "name": "Sloboda a Solidarita",
+      "abbr": "SaS",
+      "votes": 0,
+      "pct": 12.1,
+      "seats": 21,
+      "inParliament": true
+    },
+    {
+      "name": "OBYČAJNÍ ĽUDIA a nezávislé osobnosti",
+      "abbr": "OĽANO",
+      "votes": 0,
+      "pct": 11.02,
+      "seats": 19,
+      "inParliament": true
+    },
+    {
+      "name": "Slovenská národná strana (1990)",
+      "abbr": "SNS",
+      "votes": 0,
+      "pct": 8.64,
+      "seats": 15,
+      "inParliament": true
+    },
+    {
+      "name": "Kotlebovci – Ľudová strana Naše Slovensko",
+      "abbr": "Kot. – ĽSNS",
+      "votes": 0,
+      "pct": 8.04,
+      "seats": 14,
+      "inParliament": true
+    },
+    {
+      "name": "SME RODINA",
+      "abbr": "SME RODINA",
+      "votes": 0,
+      "pct": 6.62,
+      "seats": 11,
+      "inParliament": true
+    },
+    {
+      "name": "MOST – HÍD",
+      "abbr": "MOST – HÍD",
+      "votes": 0,
+      "pct": 6.5,
+      "seats": 11,
+      "inParliament": true
+    },
+    {
+      "name": "SLOVENSKÁ KONZERVATÍVNA STRANA",
+      "abbr": "#SIEŤ",
+      "votes": 0,
+      "pct": 5.6,
+      "seats": 10,
+      "inParliament": true
+    },
+    {
+      "name": "Kresťanskodemokratické hnutie",
+      "abbr": "KDH",
+      "votes": 0,
+      "pct": 4.94,
+      "seats": 0,
+      "inParliament": false
+    },
+    {
+      "name": "Strana maďarskej komunity – Magyar Közösség Pártja",
+      "abbr": "SMK – MPK",
+      "votes": 0,
+      "pct": 4.04,
+      "seats": 0,
+      "inParliament": false
+    }
+  ],
+  "winner": {
+    "name": "SMER – sociálna demokracia",
+    "abbr": "SMER – SD",
+    "pct": 28.28
+  },
+  "source": "https://sk.wikipedia.org/wiki/Vo%C4%BEby%20do%20N%C3%A1rodnej%20rady%20Slovenskej%20republiky%20v%20roku%202016",
+  "sourceLabel": "Wikipédia",
+  "generatedAt": "2026-07-11T16:04:01.166Z"
+}

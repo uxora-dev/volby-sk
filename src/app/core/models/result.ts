@@ -15,4 +15,5 @@ export interface ElectionResult {
   parties: ResultParty[];
   winner: { name: string; abbr: string; pct: number };
   source: string;
+  sourceLabel?: string;
 }
