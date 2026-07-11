@@ -380,6 +380,10 @@ ion-toggle {
   --handle-background-checked: #fff;
   --handle-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.28);
 }
+/* Aktívny (zapnutý) toggle = success zelený track */
+ion-toggle.toggle-checked::part(track) {
+  background: var(--ion-color-success, #2dd36f);
+}
 
 @media (prefers-reduced-motion: reduce) {
   .vote-card,
