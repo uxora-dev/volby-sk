@@ -1,0 +1,26 @@
+{
+  "id": "referendum-2026-07-04",
+  "type": "referendum",
+  "date": "2026-07-04",
+  "turnout": {
+    "pct": 16.13,
+    "eligible": null,
+    "voted": null
+  },
+  "parties": [],
+  "referendum": {
+    "topic": "Obnovenie Úradu špeciálnej prokuratúry a NAKA (2 otázky)",
+    "questionCount": 2,
+    "valid": false,
+    "yesPct": null,
+    "resultText": "Referendum neplatné pre nízku účasť (potrebná účasť najmenej 50 %)"
+  },
+  "winner": {
+    "name": "Neplatné",
+    "abbr": "Neplatné",
+    "pct": 16.13
+  },
+  "source": "https://sk.wikipedia.org/wiki/Referendum%20na%20Slovensku%20v%20roku%202026",
+  "sourceLabel": "Wikipédia",
+  "generatedAt": "2026-07-11T21:03:21.720Z"
+}

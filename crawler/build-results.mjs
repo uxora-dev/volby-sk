@@ -210,10 +210,65 @@ async function fetchPresidentialWiki(election) {
   };
 }
 
+// Referendá — z Wikipédie: účasť, platnosť (kvórum 50 %), podiel ÁNO. Téma („o čo šlo")
+// je stručný faktický súhrn (referendá mali 1 – 6 otázok rôznych formátov).
+const REFERENDUM_TOPICS = {
+  '2000': 'Predčasné parlamentné voľby (skrátenie volebného obdobia NR SR)',
+  '2003': 'Vstup Slovenska do Európskej únie',
+  '2004': 'Predčasné parlamentné voľby',
+  '2010': 'Balík 6 otázok (napr. zrušenie koncesionárskych poplatkov, zníženie počtu poslancov, obmedzenie imunity)',
+  '2015': 'Ochrana rodiny – 3 otázky (manželstvo muža a ženy, adopcie, sexuálna výchova detí)',
+  '2023': 'Umožnenie predčasných volieb skrátením volebného obdobia',
+  '2026': 'Obnovenie Úradu špeciálnej prokuratúry a NAKA (2 otázky)',
+};
+
+async function fetchReferendumWiki(election) {
+  if (election.type !== 'referendum') return null;
+  const year = election.date.slice(0, 4);
+  const title = `Referendum na Slovensku v roku ${year}`;
+  const api = `https://sk.wikipedia.org/w/api.php?action=parse&page=${encodeURIComponent(title)}&prop=wikitext&format=json&formatversion=2&section=0`;
+  const w = (await getJson(api))?.parse?.wikitext;
+  if (!w) return null;
+
+  const param = (name) => {
+    const m = w.match(new RegExp('\\|\\s*' + name + '\\s*=\\s*([^\\n]+)'));
+    return m ? m[1].trim() : null;
+  };
+  // Účasť z úvodu článku (spoľahlivé pre všetky roky), fallback na infobox.
+  const exApi = `https://sk.wikipedia.org/w/api.php?action=query&prop=extracts&exintro&explaintext&titles=${encodeURIComponent(title)}&format=json&formatversion=2`;
+  const ex = (await getJson(exApi))?.query?.pages?.[0]?.extract || '';
+  const tmEx = ex.match(/účas[ťt]\s*bola\s*([\d]{1,2}[,.]\d+)\s*%/i);
+  const tmIb = (param('účasť') || '').match(/([\d]{1,2}[,.]\d+)\s*%/);
+  const turnout = tmEx ? parseFloat(tmEx[1].replace(',', '.')) : tmIb ? parseFloat(tmIb[1].replace(',', '.')) : null;
+  const vysledok = (param('výsledok') || '').replace(/\[\[([^\]|]*\|)?([^\]]+)\]\]/g, '$2').trim();
+  // Platnosť = kvórum účasti 50 %; ak účasť neznáma, z textu úvodu.
+  const valid = turnout != null ? turnout >= 50 : /\bplatné\b/i.test(ex) && !/neplatné/i.test(ex);
+  if (turnout == null && !/platné|neplatné/i.test(ex)) return null; // nevieme určiť → nezobraz
+  const qCount = parseInt(param('počet kandidátov') || '1', 10) || 1;
+  const yesM = w.match(/ÁNO[^\d{]*\{\{[^|]*\|([\d.,]+)/i) || w.match(/ÁNO[^\d]*([\d.,]+)/i);
+  const yesPct = yesM ? parseFloat(yesM[1].replace(',', '.')) : null;
+
+  return {
+    id: election.id, type: 'referendum', date: election.date,
+    turnout: { pct: turnout, eligible: null, voted: null },
+    parties: [],
+    referendum: {
+      topic: REFERENDUM_TOPICS[year] || null,
+      questionCount: qCount,
+      valid,
+      yesPct: qCount === 1 ? yesPct : null,
+      resultText: vysledok || (valid ? 'Referendum platné' : 'Referendum neplatné pre nízku účasť (kvórum 50 %)'),
+    },
+    winner: { name: valid ? 'Platné' : 'Neplatné', abbr: valid ? 'Platné' : 'Neplatné', pct: turnout ?? 0 },
+    source: `https://sk.wikipedia.org/wiki/${encodeURIComponent(title)}`,
+    sourceLabel: 'Wikipédia', generatedAt: new Date().toISOString(),
+  };
+}
+
 // --- main ---
 const { elections } = JSON.parse(fs.readFileSync(ELECTIONS, "utf8"));
 const today = new Date().toISOString().slice(0, 10);
-const RESULT_TYPES = new Set(["parliamentary", "european", "presidential"]);
+const RESULT_TYPES = new Set(["parliamentary", "european", "presidential", "referendum"]);
 const past = elections.filter((e) => !e.predicted && e.date < today && RESULT_TYPES.has(e.type));
 
 fs.mkdirSync(DIR, { recursive: true });
@@ -223,6 +278,7 @@ for (const e of past) {
   let res = await fetchResult(e).catch(() => null);
   if (!res) res = await fetchResultWiki(e).catch(() => null); // parlamentné → Wikipédia
   if (!res) res = await fetchPresidentialWiki(e).catch(() => null); // prezidentské → Wikipédia
+  if (!res) res = await fetchReferendumWiki(e).catch(() => null); // referendum → Wikipédia
   if (res) {
     fs.writeFileSync(path.join(DIR, `${e.id}.json`), JSON.stringify(res, null, 2));
     generated.push(e.id);

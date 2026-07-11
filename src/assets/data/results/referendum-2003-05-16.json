@@ -1,0 +1,26 @@
+{
+  "id": "referendum-2003-05-16",
+  "type": "referendum",
+  "date": "2003-05-16",
+  "turnout": {
+    "pct": 52.15,
+    "eligible": null,
+    "voted": null
+  },
+  "parties": [],
+  "referendum": {
+    "topic": "Vstup Slovenska do Európskej únie",
+    "questionCount": 1,
+    "valid": true,
+    "yesPct": 92.46,
+    "resultText": "Referendum platné, vstup Slovenska do EÚ"
+  },
+  "winner": {
+    "name": "Platné",
+    "abbr": "Platné",
+    "pct": 52.15
+  },
+  "source": "https://sk.wikipedia.org/wiki/Referendum%20na%20Slovensku%20v%20roku%202003",
+  "sourceLabel": "Wikipédia",
+  "generatedAt": "2026-07-11T21:03:14.431Z"
+}

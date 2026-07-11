@@ -25,6 +25,13 @@ export interface ElectionResult {
   turnout: { pct: number | null; eligible: number | null; voted: number | null };
   parties: ResultParty[];
   rounds?: PresidentialRound[]; // prezidentské — kolá s kandidátmi
+  referendum?: {
+    topic: string | null;
+    questionCount: number;
+    valid: boolean;
+    yesPct: number | null;
+    resultText: string;
+  };
   winner: { name: string; abbr: string; pct: number };
   source: string;
   sourceLabel?: string;

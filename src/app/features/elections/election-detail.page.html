@@ -50,12 +50,38 @@
         <div class="detail-info results">
           <div class="results__head">
             <span class="info-row__k">Výsledky volieb</span>
-            @if (r.turnout.pct !== null && !r.rounds) {
+            @if (r.turnout.pct !== null && !r.rounds && !r.referendum) {
               <span class="turnout">Účasť {{ r.turnout.pct.toFixed(2).replace('.', ',') }} %</span>
             }
           </div>
 
-          @if (r.rounds) {
+          @if (r.referendum; as ref) {
+            <div class="ref">
+              <div class="ref-status" [class.ref-status--valid]="ref.valid">
+                {{ ref.valid ? 'PLATNÉ' : 'NEPLATNÉ' }}
+              </div>
+              @if (ref.topic) {
+                <div class="ref-topic">
+                  <span class="info-row__k">O čo šlo</span>
+                  <p>{{ ref.topic }}</p>
+                </div>
+              }
+              @if (r.turnout.pct !== null) {
+                <div class="ref-stat">
+                  <span>Účasť</span>
+                  <strong>{{ r.turnout.pct.toFixed(2).replace('.', ',') }} %</strong>
+                  <span class="ref-quorum">z potrebných 50 %</span>
+                </div>
+              }
+              @if (ref.valid && ref.yesPct !== null) {
+                <div class="ref-stat">
+                  <span>Hlasovalo ÁNO</span>
+                  <strong>{{ ref.yesPct.toFixed(2).replace('.', ',') }} %</strong>
+                </div>
+              }
+              <p class="ref-note">{{ ref.resultText }}</p>
+            </div>
+          } @else if (r.rounds) {
             @for (rd of roundsDesc(); track rd.round) {
               <div class="round">
                 <div class="round__head">

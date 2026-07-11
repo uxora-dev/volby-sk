@@ -1,0 +1,26 @@
+{
+  "id": "referendum-2015-02-07",
+  "type": "referendum",
+  "date": "2015-02-07",
+  "turnout": {
+    "pct": 21.41,
+    "eligible": null,
+    "voted": null
+  },
+  "parties": [],
+  "referendum": {
+    "topic": "Ochrana rodiny – 3 otázky (manželstvo muža a ženy, adopcie, sexuálna výchova detí)",
+    "questionCount": 3,
+    "valid": false,
+    "yesPct": null,
+    "resultText": "Referendum neplatné pre nízku účasť (potrebná bola účasť najmenej 50 %)"
+  },
+  "winner": {
+    "name": "Neplatné",
+    "abbr": "Neplatné",
+    "pct": 21.41
+  },
+  "source": "https://sk.wikipedia.org/wiki/Referendum%20na%20Slovensku%20v%20roku%202015",
+  "sourceLabel": "Wikipédia",
+  "generatedAt": "2026-07-11T21:03:19.353Z"
+}

@@ -1,0 +1,26 @@
+{
+  "id": "referendum-2023-01-21",
+  "type": "referendum",
+  "date": "2023-01-21",
+  "turnout": {
+    "pct": 27.25,
+    "eligible": null,
+    "voted": null
+  },
+  "parties": [],
+  "referendum": {
+    "topic": "Umožnenie predčasných volieb skrátením volebného obdobia",
+    "questionCount": 1,
+    "valid": false,
+    "yesPct": 97.51,
+    "resultText": "Referendum neplatné pre nízku účasť (potrebná účasť najmenej 50 %)"
+  },
+  "winner": {
+    "name": "Neplatné",
+    "abbr": "Neplatné",
+    "pct": 27.25
+  },
+  "source": "https://sk.wikipedia.org/wiki/Referendum%20na%20Slovensku%20v%20roku%202023",
+  "sourceLabel": "Wikipédia",
+  "generatedAt": "2026-07-11T21:03:20.862Z"
+}

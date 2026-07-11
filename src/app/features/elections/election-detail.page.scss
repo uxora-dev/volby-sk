@@ -282,6 +282,63 @@
   color: var(--app-muted);
   text-decoration: none;
 }
+
+/* referendum */
+.ref-status {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: 0.03em;
+  padding: 6px 18px;
+  border-radius: 999px;
+  color: var(--app-muted);
+  background: color-mix(in srgb, var(--ion-text-color) 9%, transparent);
+  margin-bottom: 15px;
+}
+.ref-status--valid {
+  color: var(--ion-color-success, #2dd36f);
+  background: color-mix(in srgb, var(--ion-color-success, #2dd36f) 15%, transparent);
+}
+.ref-topic {
+  margin-bottom: 6px;
+}
+.ref-topic p {
+  margin: 3px 0 0;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.35;
+}
+.ref-stat {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 9px 0;
+  border-top: 1px solid var(--app-border);
+  margin-top: 10px;
+}
+.ref-stat:first-of-type {
+  margin-top: 14px;
+}
+.ref-stat > span:first-child {
+  flex: 1;
+  color: var(--app-muted);
+  font-size: 0.9rem;
+}
+.ref-stat strong {
+  font-size: 1.05rem;
+  font-variant-numeric: tabular-nums;
+}
+.ref-quorum {
+  font-size: 0.74rem;
+  color: var(--app-muted);
+}
+.ref-note {
+  margin: 13px 0 0;
+  font-size: 0.85rem;
+  color: var(--app-muted);
+  line-height: 1.4;
+}
 @keyframes barGrow {
   from { width: 0; }
 }
