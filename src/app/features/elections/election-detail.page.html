@@ -56,8 +56,8 @@
           </div>
           <div class="bars">
             @for (p of inParliament(); track $index) {
-              <div class="bar-row bar-row--seated" [class.is-winner]="$index === 0">
-                <span class="bar-row__name">{{ p.abbr || p.name }}</span>
+              <div class="bar-row bar-row--seated" [class.is-winner]="$index === 0" [style.--bar]="color(p)">
+                <span class="bar-row__name"><i class="pdot" [style.background]="color(p)"></i>{{ p.abbr || p.name }}</span>
                 <div class="bar-track">
                   <div class="bar-fill" [style.width.%]="(p.pct / maxPct()) * 100"></div>
                 </div>
@@ -72,7 +72,7 @@
             <div class="bars bars--out">
               @for (p of outParliament(); track $index) {
                 <div class="bar-row">
-                  <span class="bar-row__name">{{ p.abbr || p.name }}</span>
+                  <span class="bar-row__name"><i class="pdot" [style.background]="color(p)"></i>{{ p.abbr || p.name }}</span>
                   <div class="bar-track">
                     <div class="bar-fill" [style.width.%]="(p.pct / maxPct()) * 100"></div>
                   </div>

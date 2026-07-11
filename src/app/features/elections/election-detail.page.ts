@@ -8,7 +8,8 @@ import { ElectionsService } from '../../core/services/elections.service';
 import { SettingsService } from '../../core/services/settings.service';
 import { ResultsService } from '../../core/services/results.service';
 import { TYPE_META } from '../../core/models/election';
-import { ElectionResult } from '../../core/models/result';
+import { ElectionResult, ResultParty } from '../../core/models/result';
+import { partyColor } from '../../core/models/party-brand';
 import { RelativeSkPipe, SkDatePipe } from '../../shared/pipes/election.pipes';
 
 const todayStr = () => new Date().toISOString().slice(0, 10);
@@ -51,4 +52,9 @@ export class ElectionDetailPage {
   protected readonly inParliament = computed(() => this.resultData()?.parties.filter((p) => p.inParliament) ?? []);
   protected readonly outParliament = computed(() => this.resultData()?.parties.filter((p) => !p.inParliament) ?? []);
   protected readonly maxPct = computed(() => this.resultData()?.parties[0]?.pct ?? 100);
+
+  /** Brand farba strany (z Wikidata mapy), fallback na farbu typu voľby. */
+  protected color(p: ResultParty): string {
+    return partyColor(p) ?? 'var(--type)';
+  }
 }
