@@ -1,0 +1,180 @@
+{
+  "id": "european-2024-06-08",
+  "type": "european",
+  "date": "2024-06-08",
+  "turnout": {
+    "pct": 34.38,
+    "eligible": 4377093,
+    "voted": 1505176
+  },
+  "parties": [
+    {
+      "name": "Progresívne Slovensko",
+      "abbr": "PS",
+      "votes": 410844,
+      "pct": 27.81,
+      "color": "#0065B3"
+    },
+    {
+      "name": "SMER - sociálna demokracia",
+      "abbr": "SMER - SD",
+      "votes": 365794,
+      "pct": 24.76,
+      "color": "#0065B3"
+    },
+    {
+      "name": "REPUBLIKA",
+      "abbr": "REPUBLIKA",
+      "votes": 185137,
+      "pct": 12.53,
+      "color": "#0065B3"
+    },
+    {
+      "name": "HLAS - sociálna demokracia",
+      "abbr": "HLAS - SD",
+      "votes": 106076,
+      "pct": 7.18,
+      "color": "#0065B3"
+    },
+    {
+      "name": "Kresťanskodemokratické hnutie",
+      "abbr": "KDH",
+      "votes": 105602,
+      "pct": 7.14,
+      "color": "#0065B3"
+    },
+    {
+      "name": "Sloboda a Solidarita",
+      "abbr": "SaS",
+      "votes": 72703,
+      "pct": 4.92,
+      "color": "#949494"
+    },
+    {
+      "name": "Demokrati",
+      "abbr": "Demokrati",
+      "votes": 69204,
+      "pct": 4.68,
+      "color": "#949494"
+    },
+    {
+      "name": "Magyar Szövetség - Maďarská aliancia",
+      "abbr": "SZÖVETSÉG - ALIANCIA",
+      "votes": 57350,
+      "pct": 3.88,
+      "color": "#949494"
+    },
+    {
+      "name": "SLOVENSKO, ZA ĽUDÍ",
+      "abbr": "SLOVENSKO, ZA ĽUDÍ",
+      "votes": 29385,
+      "pct": 1.98,
+      "color": "#949494"
+    },
+    {
+      "name": "Slovenská národná strana",
+      "abbr": "SNS",
+      "votes": 28102,
+      "pct": 1.9,
+      "color": "#949494"
+    },
+    {
+      "name": "ZDRAVÝ ROZUM",
+      "abbr": "ZR",
+      "votes": 13867,
+      "pct": 0.93,
+      "color": "#949494"
+    },
+    {
+      "name": "Kresťanská únia",
+      "abbr": "KÚ",
+      "votes": 9313,
+      "pct": 0.63,
+      "color": "#949494"
+    },
+    {
+      "name": "Kotlebovci - Ľudová strana Naše Slovensko",
+      "abbr": "ĽSNS",
+      "votes": 7103,
+      "pct": 0.48,
+      "color": "#949494"
+    },
+    {
+      "name": "Slovenský PATRIOT",
+      "abbr": "PATRIOT",
+      "votes": 5412,
+      "pct": 0.36,
+      "color": "#949494"
+    },
+    {
+      "name": "Komunistická strana Slovenska",
+      "abbr": "KSS",
+      "votes": 2232,
+      "pct": 0.15,
+      "color": "#949494"
+    },
+    {
+      "name": "Volt Slovensko",
+      "abbr": "Volt SK",
+      "votes": 1923,
+      "pct": 0.13,
+      "color": "#949494"
+    },
+    {
+      "name": "Socialisti.sk",
+      "abbr": "Socialisti",
+      "votes": 1800,
+      "pct": 0.12,
+      "color": "#949494"
+    },
+    {
+      "name": "SRDCE vlastenci a dôchodcovia - SLOVENSKÁ NÁRODNÁ JEDNOTA",
+      "abbr": "SRDCE - SNJ",
+      "votes": 1274,
+      "pct": 0.08,
+      "color": "#949494"
+    },
+    {
+      "name": "MySlovensko",
+      "abbr": "MySlovensko",
+      "votes": 1214,
+      "pct": 0.08,
+      "color": "#949494"
+    },
+    {
+      "name": "Spájame Občanov Slovenska - SOSK",
+      "abbr": "SOSK",
+      "votes": 1143,
+      "pct": 0.07,
+      "color": "#949494"
+    },
+    {
+      "name": "SPOLOČNE OBČANIA SLOVENSKA",
+      "abbr": "SOS",
+      "votes": 588,
+      "pct": 0.03,
+      "color": "#949494"
+    },
+    {
+      "name": "Slovenská ľudová strana Andreja Hlinku",
+      "abbr": "SĽS",
+      "votes": 486,
+      "pct": 0.03,
+      "color": "#949494"
+    },
+    {
+      "name": "SDKÚ - DS - Slovenská demokratická a kresťanská únia - Demokratická strana",
+      "abbr": "SDKÚ - DS",
+      "votes": 416,
+      "pct": 0.02,
+      "color": "#949494"
+    }
+  ],
+  "winner": {
+    "name": "Progresívne Slovensko",
+    "abbr": "PS",
+    "pct": 27.81
+  },
+  "source": "https://volby.statistics.sk/ep/ep2024/sk/",
+  "generatedAt": "2026-07-11T10:53:16.689Z"
+}

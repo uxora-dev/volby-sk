@@ -1,0 +1,194 @@
+{
+  "id": "parliamentary-2023-09-30",
+  "type": "parliamentary",
+  "date": "2023-09-30",
+  "turnout": {
+    "pct": 68.51,
+    "eligible": 4388872,
+    "voted": 3007123
+  },
+  "parties": [
+    {
+      "name": "SMER - sociálna demokracia",
+      "abbr": "SMER - SD",
+      "votes": 681017,
+      "pct": 22.94,
+      "color": "#0065B3"
+    },
+    {
+      "name": "Progresívne Slovensko",
+      "abbr": "PS",
+      "votes": 533136,
+      "pct": 17.96,
+      "color": "#0065B3"
+    },
+    {
+      "name": "HLAS - sociálna demokracia",
+      "abbr": "HLAS - SD",
+      "votes": 436415,
+      "pct": 14.7,
+      "color": "#0065B3"
+    },
+    {
+      "name": "OĽANO A PRIATELIA: OBYČAJNÍ ĽUDIA (OĽANO), NEZÁVISLÍ KANDIDÁTI (NEKA), NOVA, SLOBODNÍ A ZODPOVEDNÍ, PAČIVALE ROMA, MAGYAR SZÍVEK a Kresťanská únia a ZA ĽUDÍ",
+      "abbr": "OĽANO A PRIATELIA, KÚ a ZA ĽUDÍ",
+      "votes": 264137,
+      "pct": 8.89,
+      "color": "#0065B3"
+    },
+    {
+      "name": "Kresťanskodemokratické hnutie",
+      "abbr": "KDH",
+      "votes": 202515,
+      "pct": 6.82,
+      "color": "#0065B3"
+    },
+    {
+      "name": "Sloboda a Solidarita",
+      "abbr": "SaS",
+      "votes": 187645,
+      "pct": 6.32,
+      "color": "#0065B3"
+    },
+    {
+      "name": "Slovenská národná strana",
+      "abbr": "SNS",
+      "votes": 166995,
+      "pct": 5.62,
+      "color": "#0065B3"
+    },
+    {
+      "name": "REPUBLIKA",
+      "abbr": "REPUBLIKA",
+      "votes": 141099,
+      "pct": 4.75,
+      "color": "#949494"
+    },
+    {
+      "name": "SZÖVETSÉG - Magyarok. Nemzetiségek. Regiók. | ALIANCIA - Maďari. Národnosti. Regióny",
+      "abbr": "SZÖVETSÉG - ALIANCIA",
+      "votes": 130183,
+      "pct": 4.38,
+      "color": "#949494"
+    },
+    {
+      "name": "Demokrati",
+      "abbr": "Demokrati",
+      "votes": 87006,
+      "pct": 2.93,
+      "color": "#949494"
+    },
+    {
+      "name": "SME RODINA",
+      "abbr": "SME RODINA",
+      "votes": 65673,
+      "pct": 2.21,
+      "color": "#949494"
+    },
+    {
+      "name": "Kotlebovci - Ľudová strana Naše Slovensko",
+      "abbr": "ĽSNS",
+      "votes": 25003,
+      "pct": 0.84,
+      "color": "#949494"
+    },
+    {
+      "name": "Komunistická strana Slovenska",
+      "abbr": "KSS",
+      "votes": 9867,
+      "pct": 0.33,
+      "color": "#949494"
+    },
+    {
+      "name": "Pirátska strana - Slovensko",
+      "abbr": "Piráti",
+      "votes": 9358,
+      "pct": 0.31,
+      "color": "#949494"
+    },
+    {
+      "name": "Modrí, Most - Híd",
+      "abbr": "MM",
+      "votes": 7935,
+      "pct": 0.26,
+      "color": "#949494"
+    },
+    {
+      "name": "Maďarské fórum, Občianski demokrati Slovenska, Za regióny, Rómska koalícia, Demokratická strana",
+      "abbr": "MF, ODS, ZR, RK, DS",
+      "votes": 3486,
+      "pct": 0.11,
+      "color": "#949494"
+    },
+    {
+      "name": "MySlovensko",
+      "abbr": "MySlovensko",
+      "votes": 2786,
+      "pct": 0.09,
+      "color": "#949494"
+    },
+    {
+      "name": "KARMA",
+      "abbr": "KARMA",
+      "votes": 2407,
+      "pct": 0.08,
+      "color": "#949494"
+    },
+    {
+      "name": "SPOLOČNE OBČANIA SLOVENSKA",
+      "abbr": "SOS",
+      "votes": 2401,
+      "pct": 0.08,
+      "color": "#949494"
+    },
+    {
+      "name": "SRDCE vlastenci a dôchodcovia - SLOVENSKÁ NÁRODNÁ JEDNOTA",
+      "abbr": "SRDCE - SNJ",
+      "votes": 2315,
+      "pct": 0.07,
+      "color": "#949494"
+    },
+    {
+      "name": "PRINCÍP",
+      "abbr": "PRINCÍP",
+      "votes": 1817,
+      "pct": 0.06,
+      "color": "#949494"
+    },
+    {
+      "name": "SPRAVODLIVOSŤ",
+      "abbr": "SPRAVODLIVOSŤ",
+      "votes": 1335,
+      "pct": 0.04,
+      "color": "#949494"
+    },
+    {
+      "name": "Slovenské Hnutie Obrody",
+      "abbr": "SHO",
+      "votes": 1332,
+      "pct": 0.04,
+      "color": "#949494"
+    },
+    {
+      "name": "Vlastenecký blok",
+      "abbr": "VB",
+      "votes": 1262,
+      "pct": 0.04,
+      "color": "#949494"
+    },
+    {
+      "name": "SDKÚ - DS - Slovenská demokratická a kresťanská únia - Demokratická strana",
+      "abbr": "SDKÚ - DS",
+      "votes": 771,
+      "pct": 0.02,
+      "color": "#949494"
+    }
+  ],
+  "winner": {
+    "name": "SMER - sociálna demokracia",
+    "abbr": "SMER - SD",
+    "pct": 22.94
+  },
+  "source": "https://volby.statistics.sk/nrsr/nrsr2023/sk/",
+  "generatedAt": "2026-07-11T10:53:16.669Z"
+}

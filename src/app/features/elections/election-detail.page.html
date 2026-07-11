@@ -46,6 +46,29 @@
         </div>
       }
 
+      @if (resultData(); as r) {
+        <div class="detail-info results">
+          <div class="results__head">
+            <span class="info-row__k">Výsledky volieb</span>
+            @if (r.turnout.pct !== null) {
+              <span class="turnout">Účasť {{ r.turnout.pct.toFixed(2).replace('.', ',') }} %</span>
+            }
+          </div>
+          <div class="bars">
+            @for (p of topParties(); track $index) {
+              <div class="bar-row" [class.is-winner]="$index === 0">
+                <span class="bar-row__name">{{ p.abbr || p.name }}</span>
+                <div class="bar-track">
+                  <div class="bar-fill" [style.width.%]="(p.pct / topParties()[0].pct) * 100"></div>
+                </div>
+                <span class="bar-row__pct">{{ p.pct.toFixed(2).replace('.', ',') }} %</span>
+              </div>
+            }
+          </div>
+          <a class="results__src" [href]="r.source" target="_blank" rel="noopener">Zdroj: Štatistický úrad SR</a>
+        </div>
+      }
+
       <div class="detail-info">
         <div class="info-row">
           <ion-icon name="calendar-outline"></ion-icon>

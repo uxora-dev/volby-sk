@@ -125,3 +125,74 @@
   padding: 64px 24px;
   text-align: center;
 }
+
+/* Výsledky — graf strán */
+.results {
+  padding: 15px 17px 16px;
+}
+.results__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.turnout {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--type);
+}
+.bars {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.bar-row {
+  display: grid;
+  grid-template-columns: 84px 1fr 58px;
+  align-items: center;
+  gap: 10px;
+}
+.bar-row__name {
+  font-size: 0.82rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--app-muted);
+}
+.bar-track {
+  height: 11px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--type) 12%, transparent);
+  overflow: hidden;
+}
+.bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--type) 50%, transparent);
+  animation: barGrow 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.bar-row.is-winner .bar-fill {
+  background: var(--type);
+}
+.bar-row.is-winner .bar-row__name {
+  color: var(--type);
+  font-weight: 700;
+}
+.bar-row__pct {
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.results__src {
+  display: inline-block;
+  margin-top: 14px;
+  font-size: 0.78rem;
+  color: var(--app-muted);
+  text-decoration: none;
+}
+@keyframes barGrow {
+  from { width: 0; }
+}
