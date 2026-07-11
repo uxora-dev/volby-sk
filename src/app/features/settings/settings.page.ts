@@ -11,6 +11,7 @@ import { NotificationsService } from '../../core/services/notifications.service'
 import { NATIONAL_TYPES, NationalType } from '../../core/models/settings';
 import { Municipality } from '../../core/models/location';
 import { TYPE_META } from '../../core/models/election';
+import { VUC_LEADERS } from '../../core/models/vuc-leaders';
 
 @Component({
   selector: 'app-settings',
@@ -32,6 +33,12 @@ export class SettingsPage {
   protected readonly nationalTypes = NATIONAL_TYPES;
 
   protected readonly s = this.settings.settings;
+
+  /** Župan zvoleného kraja (VÚC 2022). */
+  protected readonly zupan = computed(() => {
+    const code = this.s().regionCode;
+    return code ? VUC_LEADERS[code] ?? null : null;
+  });
 
   // Stav modálneho výberu obce
   protected readonly pickerOpen = signal(false);

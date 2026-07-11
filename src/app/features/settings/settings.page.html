@@ -67,6 +67,15 @@
         }
       </ion-select>
     </ion-item>
+    @if (zupan()) {
+      <ion-item class="zupan">
+        <ion-icon slot="start" name="person" [style.color]="meta['vuc'].color"></ion-icon>
+        <ion-label>
+          <p>Váš župan (VÚC 2022)</p>
+          <h3>{{ zupan() }}</h3>
+        </ion-label>
+      </ion-item>
+    }
 
     <ion-item button detail (click)="openMunicipalityPicker()">
       <ion-icon slot="start" name="home"></ion-icon>
