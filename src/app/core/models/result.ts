@@ -7,6 +7,15 @@ export interface ResultParty {
   inParliament: boolean;
 }
 
+export interface ResultSummary {
+  type: string;
+  turnout: number | null;
+  winnerAbbr: string;
+  winnerName: string;
+  winnerPct: number;
+  valid?: boolean;
+}
+
 export interface ResultCandidate {
   name: string;
   pct: number;

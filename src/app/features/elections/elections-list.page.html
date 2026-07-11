@@ -89,6 +89,28 @@
                 <span class="muni-count">{{ e.municipalityCount }} obcí</span>
               }
             </div>
+
+            @if (winner(e); as w) {
+              <div class="card-result">
+                <span class="card-result__k">Zvíťazil</span>
+                <span class="card-result__v">{{ w.name }}</span>
+                <span class="card-result__pct">{{ w.pct.toFixed(2).replace('.', ',') }} %</span>
+              </div>
+            }
+            @if (refInfo(e); as ri) {
+              <div class="card-result">
+                <span class="ref-pill" [class.ref-pill--valid]="ri.valid">{{ ri.valid ? 'Platné' : 'Neplatné' }}</span>
+                @if (ri.turnout !== null) {
+                  <span class="card-result__pct">účasť {{ ri.turnout.toFixed(2).replace('.', ',') }} %</span>
+                }
+              </div>
+            }
+            @if (localWinner(e); as lw) {
+              <div class="card-result">
+                <span class="card-result__k">{{ lw.role }}</span>
+                <span class="card-result__v">{{ lw.name }}</span>
+              </div>
+            }
           </div>
         </a>
       }

@@ -290,6 +290,7 @@ const past = elections.filter((e) => !e.predicted && e.date < today && RESULT_TY
 
 fs.mkdirSync(DIR, { recursive: true });
 const generated = [];
+const summaries = {};
 for (const e of past) {
   process.stderr.write(`# ${e.id} ... `);
   let res = await fetchResult(e).catch(() => null);
@@ -299,11 +300,19 @@ for (const e of past) {
   if (res) {
     fs.writeFileSync(path.join(DIR, `${e.id}.json`), JSON.stringify(res, null, 2));
     generated.push(e.id);
+    summaries[e.id] = {
+      type: res.type,
+      turnout: res.turnout.pct,
+      winnerAbbr: res.winner.abbr,
+      winnerName: res.winner.name,
+      winnerPct: res.winner.pct,
+      ...(res.referendum ? { valid: res.referendum.valid } : {}),
+    };
     process.stderr.write(`✓ účasť ${res.turnout.pct}%, víťaz ${res.winner.abbr} ${res.winner.pct}%\n`);
   } else {
     process.stderr.write(`— výsledky nedostupné (starší formát)\n`);
   }
 }
-// index (zoznam id, ktoré majú výsledky) — appka vie dopredu, čo je k dispozícii
-fs.writeFileSync(path.join(DIR, "index.json"), JSON.stringify({ generatedAt: new Date().toISOString(), ids: generated }));
+// index: id s výsledkami + kompaktné súhrny (víťaz, účasť, platnosť) pre karty v zozname
+fs.writeFileSync(path.join(DIR, "index.json"), JSON.stringify({ generatedAt: new Date().toISOString(), ids: generated, summaries }));
 process.stderr.write(`\n✓ ${generated.length} výsledkov do ${DIR}\n`);

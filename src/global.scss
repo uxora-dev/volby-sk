@@ -264,6 +264,50 @@ ion-segment-button {
   background: color-mix(in srgb, var(--type) 12%, transparent);
 }
 
+/* výsledok na karte (víťaz / platnosť / župan-starosta) */
+.card-result {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-top: 10px;
+  padding-top: 9px;
+  border-top: 1px solid var(--app-border);
+  font-size: 0.86rem;
+}
+.card-result__k {
+  color: var(--app-muted);
+  font-size: 0.78rem;
+  flex: 0 0 auto;
+}
+.card-result__v {
+  font-weight: 700;
+  color: var(--type);
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.card-result__pct {
+  margin-inline-start: auto;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--app-muted);
+  flex: 0 0 auto;
+}
+.ref-pill {
+  font-size: 0.76rem;
+  font-weight: 700;
+  padding: 2px 11px;
+  border-radius: 999px;
+  color: var(--app-muted);
+  background: color-mix(in srgb, var(--ion-text-color) 9%, transparent);
+  flex: 0 0 auto;
+}
+.ref-pill--valid {
+  color: var(--ion-color-success, #2dd36f);
+  background: color-mix(in srgb, var(--ion-color-success, #2dd36f) 15%, transparent);
+}
+
 /* Filter typov */
 .type-filter {
   display: flex;

@@ -7,7 +7,11 @@ import {
 } from '@ionic/angular/standalone';
 
 import { ElectionsService, Segment, TypeFilter, YearFilter } from '../../core/services/elections.service';
-import { ELECTION_TYPES, TYPE_META } from '../../core/models/election';
+import { ResultsService } from '../../core/services/results.service';
+import { SettingsService } from '../../core/services/settings.service';
+import { LocationService } from '../../core/services/location.service';
+import { ELECTION_TYPES, TYPE_META, Election } from '../../core/models/election';
+import { VUC_LEADERS } from '../../core/models/vuc-leaders';
 import { RelativeSkPipe, SkDatePipe } from '../../shared/pipes/election.pipes';
 
 @Component({
@@ -23,8 +27,43 @@ import { RelativeSkPipe, SkDatePipe } from '../../shared/pipes/election.pipes';
 })
 export class ElectionsListPage {
   protected readonly svc = inject(ElectionsService);
+  private readonly results = inject(ResultsService);
+  private readonly settings = inject(SettingsService);
+  private readonly loc = inject(LocationService);
   protected readonly meta = TYPE_META;
   protected readonly types = ELECTION_TYPES;
+
+  constructor() {
+    this.loc.loadMayors();
+  }
+
+  /** Víťaz na karte minulých parlamentných/prezidentských (euro necháme bez — #5). */
+  protected winner(e: Election): { name: string; pct: number } | null {
+    if (e.type !== 'parliamentary' && e.type !== 'presidential') return null;
+    const s = this.results.summary(e.id);
+    return s ? { name: e.type === 'presidential' ? s.winnerName : s.winnerAbbr, pct: s.winnerPct } : null;
+  }
+
+  /** Platnosť + účasť referenda na karte. */
+  protected refInfo(e: Election): { valid: boolean; turnout: number | null } | null {
+    if (e.type !== 'referendum') return null;
+    const s = this.results.summary(e.id);
+    return s ? { valid: !!s.valid, turnout: s.turnout } : null;
+  }
+
+  /** Personalizovaný lokálny víťaz (župan/starosta) — pri VÚC/komunálnych 2022. */
+  protected localWinner(e: Election): { role: string; name: string } | null {
+    const set = this.settings.settings();
+    if (e.type === 'vuc' && e.date === '2022-10-29' && set.regionCode) {
+      const z = VUC_LEADERS[set.regionCode];
+      return z ? { role: 'Váš župan', name: z } : null;
+    }
+    if (e.type === 'municipal' && e.date === '2022-10-29' && set.municipality) {
+      const m = this.loc.mayor(set.municipality.id);
+      return m ? { role: 'Váš starosta', name: m } : null;
+    }
+    return null;
+  }
 
   protected onSegment(value: string | number | undefined): void {
     this.svc.segment.set(value as Segment);

@@ -2,7 +2,7 @@ import { Injectable, Signal, inject, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError, of } from 'rxjs';
 
-import { ElectionResult } from '../models/result';
+import { ElectionResult, ResultSummary } from '../models/result';
 import { environment } from '../../../environments/environment';
 
 const BUNDLED = 'assets/data/results';
@@ -18,17 +18,26 @@ const BASE = environment.electionsUrl
 export class ResultsService {
   private readonly http = inject(HttpClient);
   private readonly _available = signal<Set<string>>(new Set());
+  private readonly _summaries = signal<Record<string, ResultSummary>>({});
   private readonly cache = new Map<string, ReturnType<typeof signal<ElectionResult | null | undefined>>>();
 
   constructor() {
     this.http
-      .get<{ ids: string[] }>(`${BASE}/index.json`)
-      .pipe(catchError(() => of({ ids: [] as string[] })))
-      .subscribe((i) => this._available.set(new Set(i.ids)));
+      .get<{ ids: string[]; summaries?: Record<string, ResultSummary> }>(`${BASE}/index.json`)
+      .pipe(catchError(() => of({ ids: [] as string[], summaries: {} })))
+      .subscribe((i) => {
+        this._available.set(new Set(i.ids));
+        this._summaries.set(i.summaries ?? {});
+      });
   }
 
   has(id: string): boolean {
     return this._available().has(id);
+  }
+
+  /** Kompaktný súhrn výsledku (víťaz, účasť, platnosť) pre karty v zozname. */
+  summary(id: string): ResultSummary | null {
+    return this._summaries()[id] ?? null;
   }
 
   /** Signál s výsledkom: undefined = načítava sa, null = nie sú, objekt = dáta. */
