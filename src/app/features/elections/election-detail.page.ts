@@ -48,5 +48,7 @@ export class ElectionDetailPage {
     return this.results.get(e.id)();
   });
 
-  protected readonly topParties = computed(() => this.resultData()?.parties.slice(0, 8) ?? []);
+  protected readonly inParliament = computed(() => this.resultData()?.parties.filter((p) => p.inParliament) ?? []);
+  protected readonly outParliament = computed(() => this.resultData()?.parties.filter((p) => !p.inParliament) ?? []);
+  protected readonly maxPct = computed(() => this.resultData()?.parties[0]?.pct ?? 100);
 }

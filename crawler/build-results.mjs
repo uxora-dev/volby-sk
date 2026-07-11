@@ -33,12 +33,29 @@ async function fetchResult(election) {
   if (!build) return null;
   const year = election.date.slice(0, 4);
   const base = `https://volby.statistics.sk/${build(year)}/json`;
-  const [tab01, graph] = await Promise.all([getJson(`${base}/tab01.json`), getJson(`${base}/graph01a.json`)]);
+  const [tab01, graph, seatsGraph] = await Promise.all([
+    getJson(`${base}/tab01.json`),
+    getJson(`${base}/graph01a.json`),
+    getJson(`${base}/graph02a.json`), // mandáty (kreslá) — len strany v parlamente
+  ]);
   if (!tab01 || !graph || !graph.length) return null;
+
+  // mapa strana -> počet mandátov (podľa skratky aj názvu)
+  const seatsBy = new Map();
+  for (const s of seatsGraph || []) {
+    const seats = Number(s.y) || 0;
+    if (s.skratka) seatsBy.set(String(s.skratka).toLowerCase(), seats);
+    if (s.nazov) seatsBy.set(String(s.nazov).toLowerCase(), seats);
+  }
+  const seatsOf = (p) =>
+    seatsBy.get(String(p.skratka).toLowerCase()) ?? seatsBy.get(String(p.nazov).toLowerCase()) ?? 0;
 
   const t = tab01[0] || {};
   const parties = graph
-    .map((p) => ({ name: p.nazov, abbr: p.skratka, votes: p.y, pct: p.c01, color: p.gcolor || null }))
+    .map((p) => {
+      const seats = seatsOf(p);
+      return { name: p.nazov, abbr: p.skratka, votes: p.y, pct: p.c01, seats, inParliament: seats > 0 };
+    })
     .filter((p) => p.name && Number.isFinite(p.pct))
     .sort((a, b) => b.pct - a.pct);
   if (!parties.length) return null;

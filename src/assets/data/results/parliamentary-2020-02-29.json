@@ -13,168 +13,192 @@
       "abbr": "OĽANO",
       "votes": 721166,
       "pct": 25.02,
-      "color": "#6E5BA7"
+      "seats": 53,
+      "inParliament": true
     },
     {
       "name": "SMER - sociálna demokracia",
       "abbr": "SMER - SD",
       "votes": 527172,
       "pct": 18.29,
-      "color": "#B93161"
+      "seats": 38,
+      "inParliament": true
     },
     {
       "name": "SME RODINA",
       "abbr": "SME RODINA",
       "votes": 237531,
       "pct": 8.24,
-      "color": "#34BCC6"
+      "seats": 17,
+      "inParliament": true
     },
     {
       "name": "Kotlebovci - Ľudová strana Naše Slovensko",
       "abbr": "ĽSNS",
       "votes": 229660,
       "pct": 7.97,
-      "color": "#2B9A9A"
+      "seats": 17,
+      "inParliament": true
     },
     {
       "name": "Koalícia Progresívne Slovensko a SPOLU - občianska demokracia",
       "abbr": "Koalícia PS a SPOLU",
       "votes": 200780,
       "pct": 6.96,
-      "color": "#B0B1B3"
+      "seats": 0,
+      "inParliament": false
     },
     {
       "name": "Sloboda a Solidarita",
       "abbr": "SaS",
       "votes": 179246,
       "pct": 6.22,
-      "color": "#CDD130"
+      "seats": 13,
+      "inParliament": true
     },
     {
       "name": "ZA ĽUDÍ",
       "abbr": "ZA ĽUDÍ",
       "votes": 166325,
       "pct": 5.77,
-      "color": "#0E93BA"
+      "seats": 12,
+      "inParliament": true
     },
     {
       "name": "Kresťanskodemokratické hnutie",
       "abbr": "KDH",
       "votes": 134099,
       "pct": 4.65,
-      "color": "#B0B1B3"
+      "seats": 0,
+      "inParliament": false
     },
     {
       "name": "Magyar Közösségi Összefogás - Maďarská komunitná spolupatričnosť",
       "abbr": "MKÖ - MKS",
       "votes": 112662,
       "pct": 3.9,
-      "color": "#B0B1B3"
+      "seats": 0,
+      "inParliament": false
     },
     {
       "name": "Slovenská národná strana",
       "abbr": "SNS",
       "votes": 91171,
       "pct": 3.16,
-      "color": "#B0B1B3"
+      "seats": 0,
+      "inParliament": false
     },
     {
       "name": "DOBRÁ VOĽBA",
       "abbr": "DOBRÁ VOĽBA",
       "votes": 88220,
       "pct": 3.06,
-      "color": "#B0B1B3"
+      "seats": 0,
+      "inParliament": false
     },
     {
       "name": "VLASŤ",
       "abbr": "VLASŤ",
       "votes": 84507,
       "pct": 2.93,
-      "color": "#B0B1B3"
+      "seats": 0,
+      "inParliament": false
     },
     {
       "name": "MOST - HÍD",
       "abbr": "MOST - HÍD",
       "votes": 59174,
       "pct": 2.05,
-      "color": "#B0B1B3"
+      "seats": 0,
+      "inParliament": false
     },
     {
       "name": "Socialisti.sk",
       "abbr": "Socialisti.sk",
       "votes": 15925,
       "pct": 0.55,
-      "color": "#B0B1B3"
+      "seats": 0,
+      "inParliament": false
     },
     {
       "name": "MÁME TOHO DOSŤ !",
       "abbr": "MÁME TOHO DOSŤ!",
       "votes": 9260,
       "pct": 0.32,
-      "color": "#B0B1B3"
+      "seats": 0,
+      "inParliament": false
     },
     {
       "name": "Slovenská ľudová strana Andreja Hlinku",
       "abbr": "SĽS",
       "votes": 8191,
       "pct": 0.28,
-      "color": "#B0B1B3"
+      "seats": 0,
+      "inParliament": false
     },
     {
       "name": "Demokratická strana",
       "abbr": "DS",
       "votes": 4194,
       "pct": 0.14,
-      "color": "#B0B1B3"
+      "seats": 0,
+      "inParliament": false
     },
     {
       "name": "SOLIDARITA - Hnutie pracujúcej chudoby",
       "abbr": "SOLIDARITA",
       "votes": 3296,
       "pct": 0.11,
-      "color": "#B0B1B3"
+      "seats": 0,
+      "inParliament": false
     },
     {
       "name": "STAROSTOVIA A NEZÁVISLÍ KANDIDÁTI",
       "abbr": "STANK",
       "votes": 2018,
       "pct": 0.07,
-      "color": "#B0B1B3"
+      "seats": 0,
+      "inParliament": false
     },
     {
       "name": "Slovenské Hnutie Obrody",
       "abbr": "SHO",
       "votes": 1966,
       "pct": 0.06,
-      "color": "#B0B1B3"
+      "seats": 0,
+      "inParliament": false
     },
     {
       "name": "HLAS ĽUDU",
       "abbr": "HLAS ĽUDU",
       "votes": 1887,
       "pct": 0.06,
-      "color": "#B0B1B3"
+      "seats": 0,
+      "inParliament": false
     },
     {
       "name": "Práca slovenského národa",
       "abbr": "PSN",
       "votes": 1261,
       "pct": 0.04,
-      "color": "#B0B1B3"
+      "seats": 0,
+      "inParliament": false
     },
     {
       "name": "99 % - občiansky hlas",
       "abbr": "99 %",
       "votes": 991,
       "pct": 0.03,
-      "color": "#B0B1B3"
+      "seats": 0,
+      "inParliament": false
     },
     {
       "name": "Slovenská liga",
       "abbr": "Slovenská liga",
       "votes": 809,
       "pct": 0.02,
-      "color": "#B0B1B3"
+      "seats": 0,
+      "inParliament": false
     }
   ],
   "winner": {
@@ -183,5 +207,5 @@
     "pct": 25.02
   },
   "source": "https://volby.statistics.sk/nrsr/nrsr2020/sk/",
-  "generatedAt": "2026-07-11T10:53:16.629Z"
+  "generatedAt": "2026-07-11T11:11:14.037Z"
 }

@@ -153,12 +153,59 @@
   align-items: center;
   gap: 10px;
 }
+.bar-row--seated {
+  grid-template-columns: 84px 1fr 34px 58px;
+}
 .bar-row__name {
   font-size: 0.82rem;
   font-weight: 600;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: var(--app-muted);
+}
+.bar-row__seats {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--type);
+  background: color-mix(in srgb, var(--type) 14%, transparent);
+  border-radius: 999px;
+  padding: 2px 0;
+  font-variant-numeric: tabular-nums;
+}
+
+/* strany mimo parlamentu — tlmené a kompaktné */
+.bars--out {
+  gap: 7px;
+  opacity: 0.62;
+  filter: grayscale(0.4);
+}
+.bars--out .bar-track { height: 8px; }
+.bars--out .bar-fill { background: color-mix(in srgb, var(--ion-text-color) 30%, transparent); }
+.bars--out .bar-row__name { font-weight: 500; }
+
+.results__divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 16px 0 12px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--app-muted);
+}
+.results__divider::before,
+.results__divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--app-border);
+}
+.results__legend {
+  margin-top: 14px;
+  font-size: 0.76rem;
   color: var(--app-muted);
 }
 .bar-track {

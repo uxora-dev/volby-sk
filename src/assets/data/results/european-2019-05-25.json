@@ -13,217 +13,248 @@
       "abbr": "Koalícia PS a SPOLU",
       "votes": 198255,
       "pct": 20.11,
-      "color": "#E0522B"
+      "seats": 0,
+      "inParliament": false
     },
     {
       "name": "SMER - sociálna demokracia",
       "abbr": "SMER-SD",
       "votes": 154996,
       "pct": 15.72,
-      "color": "#F79130"
+      "seats": 0,
+      "inParliament": false
     },
     {
       "name": "Kotleba - Ľudová strana Naše Slovensko",
       "abbr": "ĽS Naše Slovensko",
       "votes": 118995,
       "pct": 12.07,
-      "color": "#FFCF01"
+      "seats": 0,
+      "inParliament": false
     },
     {
       "name": "Kresťanskodemokratické hnutie",
       "abbr": "KDH",
       "votes": 95588,
       "pct": 9.69,
-      "color": "#97B23D"
+      "seats": 0,
+      "inParliament": false
     },
     {
       "name": "Sloboda a Solidarita",
       "abbr": "SaS",
       "votes": 94839,
       "pct": 9.62,
-      "color": "#D5DE4F"
+      "seats": 0,
+      "inParliament": false
     },
     {
       "name": "OBYČAJNÍ ĽUDIA a nezávislé osobnosti (OĽANO)",
       "abbr": "OĽANO",
       "votes": 51834,
       "pct": 5.25,
-      "color": "#34BCC6"
+      "seats": 0,
+      "inParliament": false
     },
     {
       "name": "Strana maďarskej komunity - Magyar Közösség Pártja",
       "abbr": "SMK-MKP",
       "votes": 48929,
       "pct": 4.96,
-      "color": "#B0B1B3"
+      "seats": 0,
+      "inParliament": false
     },
     {
       "name": "Slovenská národná strana",
       "abbr": "SNS",
       "votes": 40330,
       "pct": 4.09,
-      "color": "#B0B1B3"
+      "seats": 0,
+      "inParliament": false
     },
     {
       "name": "Kresťanská únia",
       "abbr": "Kresťanská únia",
       "votes": 37974,
       "pct": 3.85,
-      "color": "#B0B1B3"
+      "seats": 0,
+      "inParliament": false
     },
     {
       "name": "SME RODINA - Boris Kollár",
       "abbr": "SME RODINA",
       "votes": 31840,
       "pct": 3.23,
-      "color": "#B0B1B3"
+      "seats": 0,
+      "inParliament": false
     },
     {
       "name": "MOST - HÍD",
       "abbr": "MOST - HÍD",
       "votes": 25562,
       "pct": 2.59,
-      "color": "#B0B1B3"
+      "seats": 0,
+      "inParliament": false
     },
     {
       "name": "Kresťanská demokracia - život a prosperita",
       "abbr": "KDŽP",
       "votes": 20374,
       "pct": 2.06,
-      "color": "#B0B1B3"
+      "seats": 0,
+      "inParliament": false
     },
     {
       "name": "KOREKTÚRA - Andrej Hryc",
       "abbr": "KAH",
       "votes": 8460,
       "pct": 0.85,
-      "color": "#B0B1B3"
+      "seats": 0,
+      "inParliament": false
     },
     {
       "name": "Strana zelených Slovenska",
       "abbr": "SZS",
       "votes": 7845,
       "pct": 0.79,
-      "color": "#B0B1B3"
+      "seats": 0,
+      "inParliament": false
     },
     {
       "name": "NÁRODNÁ KOALÍCIA",
       "abbr": "NÁRODNÁ KOALÍCIA",
       "votes": 7145,
       "pct": 0.72,
-      "color": "#B0B1B3"
+      "seats": 0,
+      "inParliament": false
     },
     {
       "name": "Koalícia Komunistická strana Slovenska, VZDOR - strana práce",
       "abbr": "Koalícia KSS, VZDOR",
       "votes": 6199,
       "pct": 0.62,
-      "color": "#B0B1B3"
+      "seats": 0,
+      "inParliament": false
     },
     {
       "name": "DOMA DOBRE",
       "abbr": "DOMA DOBRE",
       "votes": 6124,
       "pct": 0.62,
-      "color": "#B0B1B3"
+      "seats": 0,
+      "inParliament": false
     },
     {
       "name": "Demokratická strana",
       "abbr": "DS",
       "votes": 5092,
       "pct": 0.51,
-      "color": "#B0B1B3"
+      "seats": 0,
+      "inParliament": false
     },
     {
       "name": "DOPRAVA",
       "abbr": "DOPRAVA",
       "votes": 3998,
       "pct": 0.4,
-      "color": "#B0B1B3"
+      "seats": 0,
+      "inParliament": false
     },
     {
       "name": "STAROSTOVIA A NEZÁVISLÍ KANDIDÁTI",
       "abbr": "STAN",
       "votes": 2976,
       "pct": 0.3,
-      "color": "#B0B1B3"
+      "seats": 0,
+      "inParliament": false
     },
     {
       "name": "Slovenská ľudová strana Andreja Hlinku",
       "abbr": "SĽS",
       "votes": 2953,
       "pct": 0.29,
-      "color": "#B0B1B3"
+      "seats": 0,
+      "inParliament": false
     },
     {
       "name": "Strana práce",
       "abbr": "SP",
       "votes": 2657,
       "pct": 0.26,
-      "color": "#B0B1B3"
+      "seats": 0,
+      "inParliament": false
     },
     {
       "name": "Maďarská kresťanskodemokratická aliancia - Magyar Kereszténydemokrata Szövetség",
       "abbr": "MKDA-MKDSZ",
       "votes": 2270,
       "pct": 0.23,
-      "color": "#B0B1B3"
+      "seats": 0,
+      "inParliament": false
     },
     {
       "name": "PRIAMA DEMOKRACIA",
       "abbr": "PD",
       "votes": 2222,
       "pct": 0.22,
-      "color": "#B0B1B3"
+      "seats": 0,
+      "inParliament": false
     },
     {
       "name": "HLAS ĽUDU",
       "abbr": "HLAS ĽUDU",
       "votes": 2101,
       "pct": 0.21,
-      "color": "#B0B1B3"
+      "seats": 0,
+      "inParliament": false
     },
     {
       "name": "NAJ - Nezávislosť a Jednota",
       "abbr": "NAJ",
       "votes": 2016,
       "pct": 0.2,
-      "color": "#B0B1B3"
+      "seats": 0,
+      "inParliament": false
     },
     {
       "name": "EURÓPSKA DEMOKRATICKÁ STRANA",
       "abbr": "EDS",
       "votes": 1452,
       "pct": 0.14,
-      "color": "#B0B1B3"
+      "seats": 0,
+      "inParliament": false
     },
     {
       "name": "Strana tolerancie a spolunažívania",
       "abbr": "STS",
       "votes": 918,
       "pct": 0.09,
-      "color": "#B0B1B3"
+      "seats": 0,
+      "inParliament": false
     },
     {
       "name": "SLOVENSKÁ NÁRODNÁ JEDNOTA - strana vlastencov",
       "abbr": "SNJ-sv",
       "votes": 621,
       "pct": 0.06,
-      "color": "#B0B1B3"
+      "seats": 0,
+      "inParliament": false
     },
     {
       "name": "SLOVENSKÁ KONZERVATÍVNA STRANA",
       "abbr": "SKS",
       "votes": 603,
       "pct": 0.06,
-      "color": "#B0B1B3"
+      "seats": 0,
+      "inParliament": false
     },
     {
       "name": "Strana rómskej koalície - SRK",
       "abbr": "SRK",
       "votes": 512,
       "pct": 0.05,
-      "color": "#B0B1B3"
+      "seats": 0,
+      "inParliament": false
     }
   ],
   "winner": {
@@ -232,5 +263,5 @@
     "pct": 20.11
   },
   "source": "https://volby.statistics.sk/ep/ep2019/sk/",
-  "generatedAt": "2026-07-11T10:53:16.597Z"
+  "generatedAt": "2026-07-11T11:11:14.015Z"
 }

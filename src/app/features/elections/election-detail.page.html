@@ -55,16 +55,34 @@
             }
           </div>
           <div class="bars">
-            @for (p of topParties(); track $index) {
-              <div class="bar-row" [class.is-winner]="$index === 0">
+            @for (p of inParliament(); track $index) {
+              <div class="bar-row bar-row--seated" [class.is-winner]="$index === 0">
                 <span class="bar-row__name">{{ p.abbr || p.name }}</span>
                 <div class="bar-track">
-                  <div class="bar-fill" [style.width.%]="(p.pct / topParties()[0].pct) * 100"></div>
+                  <div class="bar-fill" [style.width.%]="(p.pct / maxPct()) * 100"></div>
                 </div>
+                <span class="bar-row__seats">{{ p.seats }}</span>
                 <span class="bar-row__pct">{{ p.pct.toFixed(2).replace('.', ',') }} %</span>
               </div>
             }
           </div>
+
+          @if (outParliament().length) {
+            <div class="results__divider"><span>Nedostali sa do parlamentu</span></div>
+            <div class="bars bars--out">
+              @for (p of outParliament(); track $index) {
+                <div class="bar-row">
+                  <span class="bar-row__name">{{ p.abbr || p.name }}</span>
+                  <div class="bar-track">
+                    <div class="bar-fill" [style.width.%]="(p.pct / maxPct()) * 100"></div>
+                  </div>
+                  <span class="bar-row__pct">{{ p.pct.toFixed(2).replace('.', ',') }} %</span>
+                </div>
+              }
+            </div>
+          }
+
+          <div class="results__legend">číslo pri strane = počet kresiel (spolu 150)</div>
           <a class="results__src" [href]="r.source" target="_blank" rel="noopener">Zdroj: Štatistický úrad SR</a>
         </div>
       }

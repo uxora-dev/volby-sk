@@ -3,7 +3,8 @@ export interface ResultParty {
   abbr: string;
   votes: number;
   pct: number;
-  color: string | null;
+  seats: number;
+  inParliament: boolean;
 }
 
 export interface ElectionResult {
