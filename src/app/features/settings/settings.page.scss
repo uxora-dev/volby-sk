@@ -1,3 +1,15 @@
+.clear-obec {
+  --color: var(--accent);
+
+  ion-icon,
+  ion-label {
+    color: var(--accent);
+  }
+  ion-label {
+    font-weight: 600;
+  }
+}
+
 .privacy {
   display: block;
   padding: 4px 24px 32px;

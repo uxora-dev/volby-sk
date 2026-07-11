@@ -107,12 +107,13 @@ ion-list-header ion-label {
   color: var(--app-muted);
 }
 
-/* Segment ako moderná pilulka */
+/* Segment ako moderná pilulka (ios mód — plný indikátor, žiadne podčiarknutie) */
 ion-segment {
   --background: color-mix(in srgb, var(--ion-text-color) 7%, transparent);
   border-radius: 999px;
   padding: 4px;
-  margin: 4px 0 2px;
+  margin: 8px 16px 4px;
+  width: auto;
 }
 ion-segment-button {
   --indicator-color: var(--app-surface);
@@ -120,6 +121,8 @@ ion-segment-button {
   --color: var(--app-muted);
   --color-checked: var(--ion-text-color);
   --indicator-box-shadow: var(--app-shadow);
+  --padding-top: 0;
+  --padding-bottom: 0;
   min-height: 38px;
   font-weight: 600;
   letter-spacing: 0.01em;
@@ -363,6 +366,19 @@ ion-list.settings-group ion-item {
   --border-color: var(--app-border);
   --padding-start: 16px;
   --inner-padding-end: 12px;
+}
+/* posledná položka v karte bez spodnej čiary */
+ion-list.settings-group ion-item:last-of-type {
+  --border-width: 0;
+  --inner-border-width: 0;
+}
+
+/* Toggle — ios mód = plný farebný track, jednoznačne viditeľný active stav */
+ion-toggle {
+  --background: color-mix(in srgb, var(--ion-text-color) 16%, transparent);
+  --handle-background: #fff;
+  --handle-background-checked: #fff;
+  --handle-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.28);
 }
 
 @media (prefers-reduced-motion: reduce) {

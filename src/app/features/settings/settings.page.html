@@ -13,6 +13,7 @@
     <ion-item>
       <ion-icon slot="start" name="notifications-outline"></ion-icon>
       <ion-toggle
+        mode="ios"
         [checked]="s().notificationsEnabled"
         (ionChange)="toggleNotifications($event.detail.checked)"
       >
@@ -38,6 +39,7 @@
       <ion-item>
         <ion-icon slot="start" [name]="meta[t].icon" [style.color]="meta[t].color"></ion-icon>
         <ion-toggle
+        mode="ios"
           [disabled]="!s().notificationsEnabled"
           [checked]="s().national[t]"
           (ionChange)="settings.setNational(t, $event.detail.checked)"
@@ -72,14 +74,16 @@
       <ion-note slot="end">{{ s().municipality?.name || 'Vyberte obec' }}</ion-note>
     </ion-item>
     @if (s().municipality) {
-      <ion-item button detail="false" (click)="clearMunicipality()">
-        <ion-label color="medium">Zrušiť výber obce</ion-label>
+      <ion-item button detail="false" class="clear-obec" (click)="clearMunicipality()">
+        <ion-icon slot="start" name="close-circle"></ion-icon>
+        <ion-label>Zrušiť výber obce</ion-label>
       </ion-item>
     }
 
     <ion-item>
       <ion-icon slot="start" name="map" [style.color]="meta['vuc'].color"></ion-icon>
       <ion-toggle
+        mode="ios"
         [disabled]="!s().notificationsEnabled"
         [checked]="s().regionalEnabled"
         (ionChange)="settings.patch({ regionalEnabled: $event.detail.checked })"
@@ -90,6 +94,7 @@
     <ion-item>
       <ion-icon slot="start" name="home" [style.color]="meta['municipal'].color"></ion-icon>
       <ion-toggle
+        mode="ios"
         [disabled]="!s().notificationsEnabled"
         [checked]="s().municipalEnabled"
         (ionChange)="settings.patch({ municipalEnabled: $event.detail.checked })"
@@ -104,6 +109,7 @@
     <ion-list-header><ion-label>Pripomienky</ion-label></ion-list-header>
     <ion-item>
       <ion-toggle
+        mode="ios"
         [disabled]="!s().notificationsEnabled"
         [checked]="s().reminders.d7"
         (ionChange)="settings.setReminder('d7', $event.detail.checked)"
@@ -111,6 +117,7 @@
     </ion-item>
     <ion-item>
       <ion-toggle
+        mode="ios"
         [disabled]="!s().notificationsEnabled"
         [checked]="s().reminders.d1"
         (ionChange)="settings.setReminder('d1', $event.detail.checked)"
@@ -118,6 +125,7 @@
     </ion-item>
     <ion-item>
       <ion-toggle
+        mode="ios"
         [disabled]="!s().notificationsEnabled"
         [checked]="s().reminders.d0"
         (ionChange)="settings.setReminder('d0', $event.detail.checked)"

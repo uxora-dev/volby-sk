@@ -9,6 +9,7 @@
   </ion-toolbar>
   <ion-toolbar>
     <ion-segment
+      mode="ios"
       [value]="svc.segment()"
       [disabled]="svc.yearFilter() !== 'all'"
       (ionChange)="onSegment($event.detail.value)"
