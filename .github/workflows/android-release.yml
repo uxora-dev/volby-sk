@@ -1,0 +1,93 @@
+name: Android release → Google Play
+
+# Zostaví podpísaný AAB a nahrá ho do Google Play.
+# Spustí sa pushnutím tagu verzie (napr. v1.0.1) alebo ručne (workflow_dispatch).
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+    inputs:
+      versionName:
+        description: "Názov verzie (napr. 1.0.1)"
+        required: true
+        default: "1.0.0"
+      track:
+        description: "Play track"
+        required: true
+        default: "internal"
+        type: choice
+        options: [internal, alpha, beta, production]
+
+concurrency:
+  group: android-release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # potrebné na počítanie commitov (versionCode)
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: "temurin"
+          java-version: "21"
+
+      - name: Odvoď verziu
+        id: ver
+        run: |
+          if [ "${{ github.event_name }}" = "push" ]; then
+            NAME="${GITHUB_REF_NAME#v}"
+          else
+            NAME="${{ github.event.inputs.versionName }}"
+          fi
+          echo "name=$NAME" >> "$GITHUB_OUTPUT"
+          echo "code=$(git rev-list --count HEAD)" >> "$GITHUB_OUTPUT"
+          echo "Verzia $NAME (versionCode $(git rev-list --count HEAD))"
+
+      - name: Nainštaluj závislosti
+        run: npm ci
+
+      - name: Zostav web (Angular) a synchronizuj Capacitor
+        run: |
+          npm run build
+          npx cap sync android
+
+      - name: Obnov google-services.json
+        run: printf '%s' "$GOOGLE_SERVICES_JSON" > android/app/google-services.json
+        env:
+          GOOGLE_SERVICES_JSON: ${{ secrets.GOOGLE_SERVICES_JSON }}
+
+      - name: Priprav upload keystore
+        run: echo "$ANDROID_KEYSTORE_BASE64" | base64 -d > "$RUNNER_TEMP/upload.keystore"
+        env:
+          ANDROID_KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+
+      - name: Zostav podpísaný AAB
+        working-directory: android
+        run: ./gradlew bundleRelease --no-daemon
+        env:
+          ANDROID_VERSION_NAME: ${{ steps.ver.outputs.name }}
+          ANDROID_VERSION_CODE: ${{ steps.ver.outputs.code }}
+          ANDROID_KEYSTORE_FILE: ${{ runner.temp }}/upload.keystore
+          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+
+      - name: Nahraj do Google Play
+        uses: r0adkll/upload-google-play@v1
+        with:
+          serviceAccountJsonPlainText: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}
+          packageName: sk.volby.app
+          releaseFiles: android/app/build/outputs/bundle/release/app-release.aab
+          track: ${{ github.event.inputs.track || 'internal' }}
+          status: completed
+          releaseName: ${{ steps.ver.outputs.name }} (${{ steps.ver.outputs.code }})
