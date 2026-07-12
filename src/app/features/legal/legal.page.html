@@ -1,0 +1,28 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/settings" text="Späť"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ content().title }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  @if (content(); as c) {
+    <article class="legal">
+      <h1 class="legal__title">{{ c.title }}</h1>
+      <p class="legal__effective">{{ c.effective }}</p>
+      @if (c.intro) {
+        <p class="legal__intro">{{ c.intro }}</p>
+      }
+      @for (s of c.sections; track $index) {
+        <section class="legal__section">
+          <h2 class="legal__h">{{ s.h }}</h2>
+          @for (para of s.p; track $index) {
+            <p class="legal__p">{{ para }}</p>
+          }
+        </section>
+      }
+    </article>
+  }
+</ion-content>

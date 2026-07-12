@@ -1,0 +1,119 @@
+.ob {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 22px 24px calc(22px + env(safe-area-inset-bottom));
+  background:
+    radial-gradient(120% 70% at 50% -10%, color-mix(in srgb, var(--ob-accent) 20%, transparent), transparent 70%);
+  transition: background 0.5s ease;
+}
+
+.ob__skip {
+  align-self: flex-end;
+  background: none;
+  border: 0;
+  padding: 8px 4px;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--app-muted);
+  cursor: pointer;
+}
+
+.ob__stage {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 8px;
+}
+
+.ob__badge {
+  width: 92px;
+  height: 92px;
+  border-radius: 26px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 18px;
+  color: #fff;
+  background: linear-gradient(150deg, var(--ob-accent), color-mix(in srgb, var(--ob-accent) 60%, #000));
+  box-shadow: 0 20px 40px -14px color-mix(in srgb, var(--ob-accent) 65%, transparent);
+  transition: background 0.5s ease, box-shadow 0.5s ease;
+
+  ion-icon { font-size: 46px; }
+}
+
+.ob__title {
+  font-family: var(--font-display);
+  font-size: 1.85rem;
+  line-height: 1.15;
+  font-weight: 600;
+  margin: 4px 12px 0;
+}
+
+.ob__text {
+  font-size: 1.02rem;
+  line-height: 1.5;
+  color: var(--app-muted);
+  max-width: 30ch;
+  margin: 6px 0 0;
+}
+
+.ob__notif {
+  margin-top: 22px;
+  width: 100%;
+  max-width: 320px;
+
+  ion-button { --background: var(--ob-accent); --box-shadow: none; }
+}
+.ob__notif-done {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ob-accent);
+  margin: 0;
+
+  ion-icon { font-size: 1.25rem; }
+}
+
+.ob__link {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ob-accent);
+  text-decoration: none;
+}
+
+.ob__footer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ob__dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+.ob__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--ion-text-color) 18%, transparent);
+  transition: width 0.3s ease, background 0.3s ease;
+}
+.ob__dot--on {
+  width: 26px;
+  background: var(--ob-accent);
+}
+
+.ob__nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.ob__spacer { width: 1px; }

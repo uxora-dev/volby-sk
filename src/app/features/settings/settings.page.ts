@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import {
   IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonBackButton, IonButton,
   IonList, IonListHeader, IonItem, IonLabel, IonIcon, IonToggle, IonNote, IonSelect,
@@ -17,6 +18,7 @@ import { VUC_LEADERS } from '../../core/models/vuc-leaders';
   selector: 'app-settings',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
+    RouterLink,
     IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonBackButton, IonButton,
     IonList, IonListHeader, IonItem, IonLabel, IonIcon, IonToggle, IonNote, IonSelect,
     IonSelectOption, IonModal, IonSearchbar,

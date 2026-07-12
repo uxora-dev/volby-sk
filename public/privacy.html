@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Voľby SK — Ochrana súkromia</title>
+<style>
+  :root { color-scheme: light dark; --bg:#f4f1e9; --fg:#1b1e26; --muted:#6b7180; --border:rgba(27,30,38,.12); --accent:#2f6db0; }
+  @media (prefers-color-scheme: dark){ :root{ --bg:#0f1117; --fg:#eceef2; --muted:#9aa1ad; --border:rgba(255,255,255,.1); --accent:#5f96d8; } }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; }
+  main { max-width:720px; margin:0 auto; padding:40px 22px 64px; }
+  .kicker { font-size:.8rem; letter-spacing:.12em; text-transform:uppercase; color:var(--accent); font-weight:700; }
+  h1 { font-size:2rem; line-height:1.15; margin:6px 0 4px; }
+  .eff { color:var(--muted); font-size:.9rem; margin:0 0 20px; }
+  .intro { font-size:1.08rem; }
+  h2 { font-size:1.08rem; margin:28px 0 8px; }
+  p { margin:0 0 10px; color:color-mix(in srgb, var(--fg) 85%, transparent); }
+  a { color:var(--accent); }
+  footer { margin-top:40px; padding-top:16px; border-top:1px solid var(--border); color:var(--muted); font-size:.9rem; }
+</style>
+</head>
+<body>
+<main>
+  <div class="kicker">Voľby SK</div>
+  <h1>Ochrana súkromia</h1>
+  <p class="eff">Účinné od 12. júla 2026</p>
+
+  <p class="intro">Voľby SK je navrhnutá tak, aby fungovala s minimom údajov. Nevyžaduje prihlásenie, nepristupuje k tvojej polohe a neukladá tvoje osobné údaje na našich serveroch.</p>
+
+  <h2>Prevádzkovateľ</h2>
+  <p>Aplikáciu Voľby SK prevádzkuje Uxora s.r.o. Otázky k súkromiu posielaj na <a href="mailto:juraj.vanko@uxora.sk">juraj.vanko@uxora.sk</a>.</p>
+
+  <h2>Čo spracúvame</h2>
+  <p>Nastavenia v aplikácii (vybrané typy volieb, kraj, obec, pripomienky) sú uložené len lokálne na tvojom zariadení. Neposielajú sa nám a neopúšťajú zariadenie.</p>
+  <p>Push notifikácie (Firebase Cloud Messaging od spoločnosti Google): na doručovanie upozornení sa tvoje zariadenie prihlasuje na „témy" (napr. typ voľby, kraj, obec). Na doručenie Google spracúva technický identifikátor zariadenia a zoznam tém. Nie sú prepojené s tvojím menom ani účtom — aplikácia žiadny účet nemá.</p>
+  <p>Poznámka: prihlásenie na tému konkrétneho kraja alebo obce technicky vidí poskytovateľ doručovania (Google), nie je však spojené s tvojou identitou. Upozornenia môžeš kedykoľvek vypnúť — vtedy sa z tém odhlásime.</p>
+  <p>Údaje o voľbách sa sťahujú ako statické súbory z GitHub Pages. Ide o jednosmerné čítanie; neposielame pri tom žiadne tvoje údaje.</p>
+
+  <h2>Čo nespracúvame</h2>
+  <p>Žiadne prihlásenie ani používateľský účet. Žiadna poloha ani GPS — kraj a obec si vyberáš ručne. Žiadna analytika, reklama ani sledovanie správania. Žiadne meno, e-mail, telefón ani iné priamo identifikujúce údaje.</p>
+
+  <h2>Poskytovatelia</h2>
+  <p>Google (Firebase Cloud Messaging) — doručovanie push notifikácií; riadi sa zásadami spoločnosti Google.</p>
+  <p>GitHub (GitHub Pages) — hosting statických údajov o voľbách; pri sťahovaní spracúva bežné technické logy (napr. IP adresu) ako každý webový server.</p>
+
+  <h2>Uchovávanie a tvoje práva</h2>
+  <p>Nastavenia zostávajú na tvojom zariadení, kým ich nezmeníš alebo aplikáciu neodinštaluješ; odinštalovaním sa vymažú.</p>
+  <p>Keďže na serveroch nespracúvame tvoje osobné údaje, väčšinu ochrany napĺňaš priamo — vypnutím notifikácií a vymazaním či odinštalovaním aplikácie. S otázkami podľa GDPR sa obráť na <a href="mailto:juraj.vanko@uxora.sk">juraj.vanko@uxora.sk</a>.</p>
+
+  <h2>Deti a zmeny</h2>
+  <p>Aplikácia nie je určená deťom a cielene od nich nezbiera údaje.</p>
+  <p>Tieto zásady môžeme aktualizovať; zmeny zverejníme s novým dátumom účinnosti.</p>
+
+  <footer>
+    Uxora s.r.o. · <a href="mailto:juraj.vanko@uxora.sk">juraj.vanko@uxora.sk</a> · <a href="terms.html">Podmienky používania</a>
+  </footer>
+</main>
+</body>
+</html>

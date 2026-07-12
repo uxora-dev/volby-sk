@@ -1,0 +1,43 @@
+.legal {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 8px 20px calc(32px + env(safe-area-inset-bottom));
+}
+
+.legal__title {
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  line-height: 1.12;
+  font-weight: 600;
+  margin: 8px 0 4px;
+}
+
+.legal__effective {
+  font-size: 0.85rem;
+  color: var(--app-muted);
+  margin: 0 0 18px;
+}
+
+.legal__intro {
+  font-size: 1.05rem;
+  line-height: 1.55;
+  margin: 0 0 8px;
+}
+
+.legal__section {
+  margin-top: 22px;
+}
+
+.legal__h {
+  font-size: 1.02rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  margin: 0 0 8px;
+}
+
+.legal__p {
+  font-size: 0.97rem;
+  line-height: 1.6;
+  color: color-mix(in srgb, var(--ion-text-color) 82%, transparent);
+  margin: 0 0 10px;
+}

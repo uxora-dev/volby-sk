@@ -14,13 +14,24 @@ export class SettingsService {
   private readonly _settings = signal<AppSettings>(DEFAULT_SETTINGS);
   readonly settings = this._settings.asReadonly();
 
+  /** Vyrieši sa po načítaní nastavení z úložiska — guardy naň čakajú (bez blikania). */
+  private resolveReady!: () => void;
+  readonly ready = new Promise<void>((r) => (this.resolveReady = r));
+
   constructor() {
     void this.load();
   }
 
   private async load(): Promise<void> {
-    const { value } = await Preferences.get({ key: KEY });
-    if (!value) return;
+    try {
+      const { value } = await Preferences.get({ key: KEY });
+      if (value) this.applyStored(value);
+    } finally {
+      this.resolveReady();
+    }
+  }
+
+  private applyStored(value: string): void {
     try {
       const parsed = JSON.parse(value) as Partial<AppSettings>;
       this._settings.set({

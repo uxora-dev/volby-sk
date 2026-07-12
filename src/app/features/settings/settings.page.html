@@ -155,6 +155,26 @@
     Voľba lokality aj nastavenia ostávajú len na tomto zariadení. Neukladáme žiadne osobné údaje.
   </ion-note>
 
+  <!-- O aplikácii + právne -->
+  <ion-list class="settings-group">
+    <ion-list-header><ion-label>O aplikácii</ion-label></ion-list-header>
+    <ion-item button detail routerLink="/privacy">
+      <ion-icon slot="start" name="lock-closed-outline"></ion-icon>
+      <ion-label>Ochrana súkromia</ion-label>
+    </ion-item>
+    <ion-item button detail routerLink="/terms">
+      <ion-icon slot="start" name="document-text-outline"></ion-icon>
+      <ion-label>Podmienky používania</ion-label>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-icon slot="start" name="information-circle-outline"></ion-icon>
+      <ion-label>
+        <p>Prevádzkovateľ</p>
+        <h3>Uxora s.r.o.</h3>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
   <!-- Modálny výber obce -->
   <ion-modal [isOpen]="pickerOpen()" (didDismiss)="pickerOpen.set(false)">
     <ng-template>

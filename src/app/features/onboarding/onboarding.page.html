@@ -1,0 +1,49 @@
+<ion-content [fullscreen]="true">
+  <div class="ob" [style.--ob-accent]="step().accent">
+    <button class="ob__skip" (click)="skip()" type="button">Preskočiť</button>
+
+    <div class="ob__stage">
+      <div class="ob__badge">
+        <ion-icon [name]="step().icon"></ion-icon>
+      </div>
+      <h1 class="ob__title">{{ step().title }}</h1>
+      <p class="ob__text">{{ step().text }}</p>
+
+      @if (isNotifStep()) {
+        <div class="ob__notif">
+          @if (notifAsked()) {
+            <p class="ob__notif-done"><ion-icon name="checkmark-circle"></ion-icon> Nastavené — doladíš v nastaveniach.</p>
+          } @else {
+            <ion-button expand="block" (click)="enableNotifications()">
+              <ion-icon slot="start" name="notifications"></ion-icon>
+              Zapnúť upozornenia
+            </ion-button>
+          }
+        </div>
+      }
+
+      @if (index() === 1) {
+        <a class="ob__link" routerLink="/privacy">Zásady ochrany súkromia</a>
+      }
+    </div>
+
+    <div class="ob__footer">
+      <div class="ob__dots">
+        @for (s of steps; track $index) {
+          <span class="ob__dot" [class.ob__dot--on]="$index === index()"></span>
+        }
+      </div>
+      <div class="ob__nav">
+        @if (index() > 0) {
+          <ion-button fill="clear" (click)="back()">Späť</ion-button>
+        } @else {
+          <span class="ob__spacer"></span>
+        }
+        <ion-button (click)="next()">
+          {{ isLast() ? 'Začať' : 'Ďalej' }}
+          @if (!isLast()) { <ion-icon slot="end" name="arrow-forward"></ion-icon> }
+        </ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>

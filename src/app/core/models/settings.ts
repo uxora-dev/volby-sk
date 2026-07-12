@@ -8,6 +8,7 @@ export interface AppSettings {
   regionalEnabled: boolean; // župné (VÚC)
   municipalEnabled: boolean; // komunálne
   reminders: { d7: boolean; d1: boolean; d0: boolean };
+  onboarded: boolean; // dokončený úvodný sprievodca (prvé spustenie)
 }
 
 export const NATIONAL_TYPES: NationalType[] = ['parliamentary', 'presidential', 'referendum', 'european'];
@@ -20,4 +21,5 @@ export const DEFAULT_SETTINGS: AppSettings = {
   regionalEnabled: true,
   municipalEnabled: true,
   reminders: { d7: true, d1: true, d0: false },
+  onboarded: false,
 };
