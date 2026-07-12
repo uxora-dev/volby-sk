@@ -347,6 +347,67 @@
   color: var(--type);
 }
 
+/* váš kraj — plný zoznam kandidátov na predsedu */
+.region-row--full {
+  gap: 10px;
+}
+.cands {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  margin-top: 2px;
+}
+.cand-row {
+  display: grid;
+  grid-template-columns: 1fr 64px;
+  align-items: center;
+  column-gap: 12px;
+  row-gap: 5px;
+}
+.cand-row__id {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+.cand-row__name {
+  font-size: 0.92rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+.cand-row.is-winner .cand-row__name {
+  font-weight: 700;
+  color: var(--type);
+}
+.cand-row__party {
+  font-size: 0.7rem;
+  color: var(--app-muted);
+  line-height: 1.15;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.cand-row__pct {
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  color: var(--app-muted);
+}
+.cand-row.is-winner .cand-row__pct {
+  color: var(--type);
+}
+.cand-row .bar-track {
+  grid-column: 1 / -1;
+  height: 8px;
+}
+.cand-row .bar-fill {
+  background: color-mix(in srgb, var(--type) 40%, transparent);
+}
+.cand-row.is-winner .bar-fill {
+  background: var(--type);
+}
+
 /* referendum */
 .ref-status {
   display: inline-block;

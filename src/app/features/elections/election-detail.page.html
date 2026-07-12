@@ -96,24 +96,48 @@
           } @else if (r.regions) {
             <div class="regions">
               @for (reg of regionResults(); track reg.code) {
-                <div class="region-row" [class.region-row--mine]="reg.code === myRegionCode()">
-                  <div class="region-row__head">
-                    <span class="region-row__kraj">{{ reg.name }}</span>
-                    @if (reg.code === myRegionCode()) {
+                @if (reg.code === myRegionCode() && reg.candidates; as cands) {
+                  <div class="region-row region-row--mine region-row--full">
+                    <div class="region-row__head">
+                      <span class="region-row__kraj">{{ reg.name }}</span>
                       <span class="region-row__tag">Váš kraj</span>
-                    }
+                    </div>
+                    <div class="cands">
+                      @for (c of cands; track $index) {
+                        <div class="cand-row" [class.is-winner]="c.winner">
+                          <div class="cand-row__id">
+                            <span class="cand-row__name">{{ c.name }}</span>
+                            @if (c.party) { <span class="cand-row__party">{{ c.party }}</span> }
+                          </div>
+                          <div class="bar-track">
+                            <div class="bar-fill" [style.width.%]="(c.pct / cands[0].pct) * 100"></div>
+                          </div>
+                          <span class="cand-row__pct">{{ c.pct.toFixed(2).replace('.', ',') }} %</span>
+                        </div>
+                      }
+                    </div>
                   </div>
-                  <div class="region-row__winner">
-                    <span class="region-row__name">{{ reg.winner }}</span>
-                    <span class="region-row__pct">{{ reg.pct.toFixed(2).replace('.', ',') }} %</span>
+                } @else {
+                  <div class="region-row">
+                    <div class="region-row__head">
+                      <span class="region-row__kraj">{{ reg.name }}</span>
+                    </div>
+                    <div class="region-row__winner">
+                      <span class="region-row__name">{{ reg.winner }}</span>
+                      <span class="region-row__pct">{{ reg.pct.toFixed(2).replace('.', ',') }} %</span>
+                    </div>
+                    <div class="bar-track">
+                      <div class="bar-fill" [style.width.%]="reg.pct"></div>
+                    </div>
                   </div>
-                  <div class="bar-track">
-                    <div class="bar-fill" [style.width.%]="reg.pct"></div>
-                  </div>
-                </div>
+                }
               }
             </div>
-            <div class="results__legend">zvolený predseda (župan) za každý kraj · % = podiel víťaza v kraji</div>
+            @if (myRegionCode()) {
+              <div class="results__legend">váš kraj: všetci kandidáti na predsedu · ostatné kraje: zvolený predseda</div>
+            } @else {
+              <div class="results__legend">zvolený predseda (župan) za každý kraj · vyberte si kraj v nastaveniach pre zoznam kandidátov</div>
+            }
           } @else if (r.rounds) {
             @for (rd of roundsDesc(); track rd.round) {
               <div class="round">

@@ -1,0 +1,736 @@
+{
+  "id": "vuc-2017-11-04",
+  "type": "vuc",
+  "date": "2017-11-04",
+  "turnout": {
+    "pct": null,
+    "eligible": null,
+    "voted": null
+  },
+  "parties": [],
+  "regions": [
+    {
+      "code": "bratislava",
+      "name": "Bratislavský kraj",
+      "winner": "Juraj Droba",
+      "pct": 20.42,
+      "votes": 36864,
+      "candidates": [
+        {
+          "name": "Juraj Droba",
+          "party": "SaS, OBYČAJNÍ ĽUDIA a nezávislé osobnosti (OĽANO), SMK-MKP, NOVA, OKS, Zmena zdola, DÚ",
+          "pct": 20.42,
+          "votes": 36864,
+          "winner": true
+        },
+        {
+          "name": "Rudolf Kusý",
+          "party": "NEKA",
+          "pct": 18.55,
+          "votes": 33489,
+          "winner": false
+        },
+        {
+          "name": "Milan Ftáčnik",
+          "party": "NEKA",
+          "pct": 17.52,
+          "votes": 31638,
+          "winner": false
+        },
+        {
+          "name": "Ján Mrva",
+          "party": "NEKA",
+          "pct": 15.97,
+          "votes": 28842,
+          "winner": false
+        },
+        {
+          "name": "Pavol Frešo",
+          "party": "NEKA",
+          "pct": 10.88,
+          "votes": 19640,
+          "winner": false
+        },
+        {
+          "name": "Daniel Krajcer",
+          "party": "MOST - HÍD, SKOK - ELD, SZ",
+          "pct": 7.72,
+          "votes": 13934,
+          "winner": false
+        },
+        {
+          "name": "Ľubomír Huďo",
+          "party": "NEKA",
+          "pct": 3.35,
+          "votes": 6063,
+          "winner": false
+        },
+        {
+          "name": "Jozef Uhler",
+          "party": "NEKA",
+          "pct": 2.19,
+          "votes": 3954,
+          "winner": false
+        },
+        {
+          "name": "Natália Hanulíková",
+          "party": "SZS",
+          "pct": 0.8,
+          "votes": 1444,
+          "winner": false
+        },
+        {
+          "name": "Martin Jakubec",
+          "party": "NEKA",
+          "pct": 0.67,
+          "votes": 1219,
+          "winner": false
+        },
+        {
+          "name": "Lukáš Parízek",
+          "party": "SNS",
+          "pct": 0.38,
+          "votes": 702,
+          "winner": false
+        },
+        {
+          "name": "Rastislav Blaško",
+          "party": "NEKA",
+          "pct": 0.34,
+          "votes": 631,
+          "winner": false
+        },
+        {
+          "name": "Jalal Suleiman",
+          "party": "KSS",
+          "pct": 0.3,
+          "votes": 548,
+          "winner": false
+        },
+        {
+          "name": "Jozef Danko",
+          "party": "NEKA",
+          "pct": 0.29,
+          "votes": 525,
+          "winner": false
+        },
+        {
+          "name": "Andrej Trnovec",
+          "party": "Slovenská ľudová strana (SĽS)",
+          "pct": 0.25,
+          "votes": 454,
+          "winner": false
+        },
+        {
+          "name": "Milan Lopašovský",
+          "party": "STRANA MODERNÉHO SLOVENSKA (SMS)",
+          "pct": 0.1,
+          "votes": 182,
+          "winner": false
+        },
+        {
+          "name": "Marián Leinerovič",
+          "party": "NP",
+          "pct": 0.1,
+          "votes": 181,
+          "winner": false
+        },
+        {
+          "name": "Ľubomír Kolárik",
+          "party": "SZSZO",
+          "pct": 0.09,
+          "votes": 180,
+          "winner": false
+        }
+      ]
+    },
+    {
+      "code": "trnava",
+      "name": "Trnavský kraj",
+      "winner": "Jozef Viskupič",
+      "pct": 42.9,
+      "votes": 48584,
+      "candidates": [
+        {
+          "name": "Jozef Viskupič",
+          "party": "OBYČAJNÍ ĽUDIA a nezávislé osobnosti (OĽANO), SaS, KDH, OKS, Zmena zdola, DÚ",
+          "pct": 42.9,
+          "votes": 48584,
+          "winner": true
+        },
+        {
+          "name": "Tibor Mikuš",
+          "party": "NEKA",
+          "pct": 30.55,
+          "votes": 34601,
+          "winner": false
+        },
+        {
+          "name": "József Berényi",
+          "party": "SMK-MKP",
+          "pct": 17.14,
+          "votes": 19414,
+          "winner": false
+        },
+        {
+          "name": "Konrád Rigó",
+          "party": "MOST - HÍD",
+          "pct": 5.61,
+          "votes": 6362,
+          "winner": false
+        },
+        {
+          "name": "Márius Novák",
+          "party": "NP",
+          "pct": 2,
+          "votes": 2268,
+          "winner": false
+        },
+        {
+          "name": "Jaroslav Cehlárik",
+          "party": "NEKA",
+          "pct": 1.76,
+          "votes": 2000,
+          "winner": false
+        }
+      ]
+    },
+    {
+      "code": "trencin",
+      "name": "Trenčiansky kraj",
+      "winner": "Jaroslav Baška",
+      "pct": 49.98,
+      "votes": 62807,
+      "candidates": [
+        {
+          "name": "Jaroslav Baška",
+          "party": "SMER-SD, SNS, MOST - HÍD, SZ",
+          "pct": 49.98,
+          "votes": 62807,
+          "winner": true
+        },
+        {
+          "name": "Renáta Kaščáková",
+          "party": "SaS, OBYČAJNÍ ĽUDIA a nezávislé osobnosti (OĽANO), KDH, OKS, NOVA, Zmena zdola, DÚ",
+          "pct": 25.13,
+          "votes": 31580,
+          "winner": false
+        },
+        {
+          "name": "Štefan Škultéty",
+          "party": "NEKA",
+          "pct": 13.85,
+          "votes": 17403,
+          "winner": false
+        },
+        {
+          "name": "Petra Hajšelová",
+          "party": "SME RODINA - Boris Kollár",
+          "pct": 4.8,
+          "votes": 6032,
+          "winner": false
+        },
+        {
+          "name": "Ferdinand Vavrík",
+          "party": "NEKA",
+          "pct": 3.24,
+          "votes": 4079,
+          "winner": false
+        },
+        {
+          "name": "Nora Pániková",
+          "party": "SZS",
+          "pct": 1.97,
+          "votes": 2477,
+          "winner": false
+        },
+        {
+          "name": "Igor Valko",
+          "party": "NP",
+          "pct": 1.01,
+          "votes": 1274,
+          "winner": false
+        }
+      ]
+    },
+    {
+      "code": "nitra",
+      "name": "Nitriansky kraj",
+      "winner": "Milan Belica",
+      "pct": 34.1,
+      "votes": 52184,
+      "candidates": [
+        {
+          "name": "Milan Belica",
+          "party": "SMER-SD, SNS, MOST - HÍD",
+          "pct": 34.1,
+          "votes": 52184,
+          "winner": true
+        },
+        {
+          "name": "Ján Greššo",
+          "party": "SaS, OBYČAJNÍ ĽUDIA a nezávislé osobnosti (OĽANO), KDH, ŠANCA, OKS, NOVA, Demokrati Slovenska",
+          "pct": 17.24,
+          "votes": 26382,
+          "winner": false
+        },
+        {
+          "name": "Milan Uhrík",
+          "party": "ĽS Naše Slovensko",
+          "pct": 15.36,
+          "votes": 23502,
+          "winner": false
+        },
+        {
+          "name": "Peter Oremus",
+          "party": "NEKA",
+          "pct": 14.92,
+          "votes": 22827,
+          "winner": false
+        },
+        {
+          "name": "Iván Farkas",
+          "party": "SMK-MKP",
+          "pct": 13.78,
+          "votes": 21084,
+          "winner": false
+        },
+        {
+          "name": "Renáta Kolenčíková",
+          "party": "NEKA",
+          "pct": 2.25,
+          "votes": 3456,
+          "winner": false
+        },
+        {
+          "name": "László Hajdu",
+          "party": "MKDA-MKDSZ",
+          "pct": 1.68,
+          "votes": 2571,
+          "winner": false
+        },
+        {
+          "name": "Ján Marko",
+          "party": "NP",
+          "pct": 0.64,
+          "votes": 987,
+          "winner": false
+        }
+      ]
+    },
+    {
+      "code": "zilina",
+      "name": "Žilinský kraj",
+      "winner": "Erika Jurinová",
+      "pct": 43.67,
+      "votes": 82034,
+      "candidates": [
+        {
+          "name": "Erika Jurinová",
+          "party": "OBYČAJNÍ ĽUDIA a nezávislé osobnosti (OĽANO), SaS, KDH, OKS, NOVA",
+          "pct": 43.67,
+          "votes": 82034,
+          "winner": true
+        },
+        {
+          "name": "Juraj Blanár",
+          "party": "SMER-SD",
+          "pct": 29.77,
+          "votes": 55931,
+          "winner": false
+        },
+        {
+          "name": "Marián Murín",
+          "party": "NEKA",
+          "pct": 10.34,
+          "votes": 19425,
+          "winner": false
+        },
+        {
+          "name": "Peter Sagan",
+          "party": "ĽS Naše Slovensko",
+          "pct": 7.62,
+          "votes": 14323,
+          "winner": false
+        },
+        {
+          "name": "Anton Martvoň",
+          "party": "NEKA",
+          "pct": 3.52,
+          "votes": 6615,
+          "winner": false
+        },
+        {
+          "name": "Ján Mikolaj",
+          "party": "SNS",
+          "pct": 2.66,
+          "votes": 5010,
+          "winner": false
+        },
+        {
+          "name": "Peter Cibulka",
+          "party": "NEKA",
+          "pct": 1.55,
+          "votes": 2921,
+          "winner": false
+        },
+        {
+          "name": "Stanislav Pirošík",
+          "party": "VZDOR, KSS",
+          "pct": 0.5,
+          "votes": 946,
+          "winner": false
+        },
+        {
+          "name": "Kristián Hoffmann",
+          "party": "SZS",
+          "pct": 0.32,
+          "votes": 615,
+          "winner": false
+        }
+      ]
+    },
+    {
+      "code": "banskabystrica",
+      "name": "Banskobystrický kraj",
+      "winner": "Ján Lunter",
+      "pct": 48.53,
+      "votes": 99169,
+      "candidates": [
+        {
+          "name": "Ján Lunter",
+          "party": "NEKA",
+          "pct": 48.53,
+          "votes": 99169,
+          "winner": true
+        },
+        {
+          "name": "Marian Kotleba",
+          "party": "ĽS Naše Slovensko",
+          "pct": 23.24,
+          "votes": 47502,
+          "winner": false
+        },
+        {
+          "name": "Igor Kašper",
+          "party": "NEKA",
+          "pct": 10.64,
+          "votes": 21741,
+          "winner": false
+        },
+        {
+          "name": "Martin Juhaniak",
+          "party": "NEKA",
+          "pct": 9.68,
+          "votes": 19785,
+          "winner": false
+        },
+        {
+          "name": "Milan Urbáni",
+          "party": "STRANA MODERNÉHO SLOVENSKA (SMS)",
+          "pct": 1.21,
+          "votes": 2478,
+          "winner": false
+        },
+        {
+          "name": "Pavel Greksa",
+          "party": "NEKA",
+          "pct": 1.11,
+          "votes": 2271,
+          "winner": false
+        },
+        {
+          "name": "Martin Klus",
+          "party": "SaS, OBYČAJNÍ ĽUDIA a nezávislé osobnosti (OĽANO), NOVA, KDH, OKS",
+          "pct": 0.91,
+          "votes": 1877,
+          "winner": false
+        },
+        {
+          "name": "Jozef Šimko",
+          "party": "NEKA",
+          "pct": 0.83,
+          "votes": 1698,
+          "winner": false
+        },
+        {
+          "name": "Miroslav Gálik",
+          "party": "NaS - ns",
+          "pct": 0.79,
+          "votes": 1632,
+          "winner": false
+        },
+        {
+          "name": "Vojtech Kökény",
+          "party": "SRK",
+          "pct": 0.76,
+          "votes": 1563,
+          "winner": false
+        },
+        {
+          "name": "Stanislav Mičev",
+          "party": "NEKA",
+          "pct": 0.55,
+          "votes": 1130,
+          "winner": false
+        },
+        {
+          "name": "Viliam Baňák",
+          "party": "JEDNOTA-ĽSS",
+          "pct": 0.48,
+          "votes": 997,
+          "winner": false
+        },
+        {
+          "name": "Michal Kantor",
+          "party": "SZS",
+          "pct": 0.35,
+          "votes": 725,
+          "winner": false
+        },
+        {
+          "name": "Ivan Saktor",
+          "party": "NEKA",
+          "pct": 0.28,
+          "votes": 589,
+          "winner": false
+        },
+        {
+          "name": "Alena Pivovarčiová",
+          "party": "NP",
+          "pct": 0.27,
+          "votes": 553,
+          "winner": false
+        },
+        {
+          "name": "Jozef Sásik",
+          "party": "Slovenská ľudová strana (SĽS)",
+          "pct": 0.19,
+          "votes": 392,
+          "winner": false
+        },
+        {
+          "name": "Zdenek Očovan",
+          "party": "NAJ",
+          "pct": 0.1,
+          "votes": 219,
+          "winner": false
+        }
+      ]
+    },
+    {
+      "code": "presov",
+      "name": "Prešovský kraj",
+      "winner": "Milan Majerský",
+      "pct": 40.36,
+      "votes": 72366,
+      "candidates": [
+        {
+          "name": "Milan Majerský",
+          "party": "KDH, SaS, OBYČAJNÍ ĽUDIA a nezávislé osobnosti (OĽANO), NOVA",
+          "pct": 40.36,
+          "votes": 72366,
+          "winner": true
+        },
+        {
+          "name": "Peter Chudík",
+          "party": "SMER-SD",
+          "pct": 30.62,
+          "votes": 54914,
+          "winner": false
+        },
+        {
+          "name": "Jozef Mihalčin",
+          "party": "ĽS Naše Slovensko",
+          "pct": 7.07,
+          "votes": 12688,
+          "winner": false
+        },
+        {
+          "name": "Ján Garaj",
+          "party": "NEKA",
+          "pct": 5.92,
+          "votes": 10615,
+          "winner": false
+        },
+        {
+          "name": "Andrej Gmitter",
+          "party": "NEKA",
+          "pct": 4.64,
+          "votes": 8335,
+          "winner": false
+        },
+        {
+          "name": "František Oľha",
+          "party": "ŠANCA",
+          "pct": 3.25,
+          "votes": 5832,
+          "winner": false
+        },
+        {
+          "name": "Pavol Gašper",
+          "party": "NEKA",
+          "pct": 2.32,
+          "votes": 4165,
+          "winner": false
+        },
+        {
+          "name": "Miroslav Škvarek",
+          "party": "SNS",
+          "pct": 2.18,
+          "votes": 3917,
+          "winner": false
+        },
+        {
+          "name": "František Bednár",
+          "party": "NAJ",
+          "pct": 1.44,
+          "votes": 2598,
+          "winner": false
+        },
+        {
+          "name": "Eduard Markovič",
+          "party": "NEKA",
+          "pct": 0.97,
+          "votes": 1749,
+          "winner": false
+        },
+        {
+          "name": "Milan Šteiner",
+          "party": "SZS",
+          "pct": 0.59,
+          "votes": 1073,
+          "winner": false
+        },
+        {
+          "name": "Jozef Šváč",
+          "party": "NP",
+          "pct": 0.57,
+          "votes": 1037,
+          "winner": false
+        }
+      ]
+    },
+    {
+      "code": "kosice",
+      "name": "Košický kraj",
+      "winner": "Rastislav Trnka",
+      "pct": 37.8,
+      "votes": 59599,
+      "candidates": [
+        {
+          "name": "Rastislav Trnka",
+          "party": "OBYČAJNÍ ĽUDIA a nezávislé osobnosti (OĽANO), SaS, KDH, NOVA, ŠANCA",
+          "pct": 37.8,
+          "votes": 59599,
+          "winner": true
+        },
+        {
+          "name": "Richard Raši",
+          "party": "SMER-SD, SMK-MKP, SZS, STAROSTOVIA A NEZÁVISLÍ KANDIDÁTI",
+          "pct": 37.24,
+          "votes": 58724,
+          "winner": false
+        },
+        {
+          "name": "Karol Pataky",
+          "party": "MOST - HÍD, SKOK - ELD",
+          "pct": 9.41,
+          "votes": 14843,
+          "winner": false
+        },
+        {
+          "name": "Štefan Surmánek",
+          "party": "ĽS Naše Slovensko",
+          "pct": 4.67,
+          "votes": 7375,
+          "winner": false
+        },
+        {
+          "name": "Róbert Bačinský",
+          "party": "NEKA",
+          "pct": 3.11,
+          "votes": 4903,
+          "winner": false
+        },
+        {
+          "name": "Jarmila Tkáčová",
+          "party": "SNS",
+          "pct": 2.3,
+          "votes": 3638,
+          "winner": false
+        },
+        {
+          "name": "Oliver Petrík",
+          "party": "JEDNOTA-ĽSS",
+          "pct": 1.09,
+          "votes": 1730,
+          "winner": false
+        },
+        {
+          "name": "Jozef Bobík",
+          "party": "NEKA",
+          "pct": 0.77,
+          "votes": 1222,
+          "winner": false
+        },
+        {
+          "name": "Lukáš Sisák",
+          "party": "KSS",
+          "pct": 0.74,
+          "votes": 1169,
+          "winner": false
+        },
+        {
+          "name": "Jozef Červeňák",
+          "party": "RIS",
+          "pct": 0.66,
+          "votes": 1049,
+          "winner": false
+        },
+        {
+          "name": "Jaroslav Džunko",
+          "party": "NEKA",
+          "pct": 0.64,
+          "votes": 1021,
+          "winner": false
+        },
+        {
+          "name": "Vladislav Stanko",
+          "party": "NEKA",
+          "pct": 0.47,
+          "votes": 753,
+          "winner": false
+        },
+        {
+          "name": "Adam Šepetka",
+          "party": "NAJ",
+          "pct": 0.41,
+          "votes": 655,
+          "winner": false
+        },
+        {
+          "name": "Rudolf Botka",
+          "party": "NP",
+          "pct": 0.35,
+          "votes": 564,
+          "winner": false
+        },
+        {
+          "name": "Ján Struk",
+          "party": "STRANA MODERNÉHO SLOVENSKA (SMS)",
+          "pct": 0.25,
+          "votes": 406,
+          "winner": false
+        }
+      ]
+    }
+  ],
+  "winner": {
+    "name": "",
+    "abbr": "",
+    "pct": 0
+  },
+  "source": "https://volby.statistics.sk/osk/osk2017/sk/volby_predsedu.html",
+  "generatedAt": "2026-07-12T07:49:53.095Z"
+}

@@ -51,11 +51,13 @@ export class ElectionsListPage {
     return s ? { valid: !!s.valid, turnout: s.turnout } : null;
   }
 
-  /** Personalizovaný lokálny víťaz (župan/starosta) — pri VÚC/komunálnych 2022. */
+  /** Personalizovaný lokálny víťaz (župan/starosta) — VÚC podľa výsledkov, komunálne 2022. */
   protected localWinner(e: Election): { role: string; name: string } | null {
     const set = this.settings.settings();
-    if (e.type === 'vuc' && e.date === '2022-10-29' && set.regionCode) {
-      const z = VUC_LEADERS[set.regionCode];
+    if (e.type === 'vuc' && set.regionCode) {
+      // Zvolený predseda vo vybranom kraji z výsledkov (2017, 2022); fallback na známych županov 2022.
+      const z = this.results.summary(e.id)?.regionWinners?.[set.regionCode]
+        ?? (e.date === '2022-10-29' ? VUC_LEADERS[set.regionCode] : undefined);
       return z ? { role: 'Váš župan', name: z } : null;
     }
     if (e.type === 'municipal' && e.date === '2022-10-29' && set.municipality) {

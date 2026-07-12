@@ -14,6 +14,7 @@ export interface ResultSummary {
   winnerName: string;
   winnerPct: number;
   valid?: boolean;
+  regionWinners?: Record<string, string>; // VÚC — kód kraja → zvolený predseda (pre kartu „Váš župan")
 }
 
 export interface ResultCandidate {
@@ -27,6 +28,15 @@ export interface PresidentialRound {
   candidates: ResultCandidate[];
 }
 
+/** Kandidát na predsedu (župana) v jednom kraji — voľby VÚC. */
+export interface RegionCandidate {
+  name: string; // meno a priezvisko
+  party: string; // navrhujúce strany / NEKA
+  pct: number;
+  votes: number;
+  winner: boolean; // zvolený predseda kraja
+}
+
 /** Zvolený predseda (župan) v jednom samosprávnom kraji — voľby VÚC. */
 export interface ResultRegion {
   code: string; // regionCode (zhodné s FCM topic vuc_<code>)
@@ -34,6 +44,7 @@ export interface ResultRegion {
   winner: string; // meno zvoleného župana
   pct: number; // podiel víťaza v kraji
   votes: number; // počet platných hlasov víťaza
+  candidates?: RegionCandidate[]; // všetci kandidáti na predsedu (zostupne podľa hlasov)
 }
 
 export interface ElectionResult {

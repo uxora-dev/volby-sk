@@ -282,10 +282,11 @@ async function fetchReferendumWiki(election) {
   };
 }
 
-// VÚC (župné) — zvolený predseda (župan) za každý kraj zo ŠÚSR (volby.statistics.sk/osk/osk{rok}).
-// `cards.json` obsahuje víťaza per kraj (meno, priezvisko, hlasy, %); `tab01.json` účasť.
+// VÚC (župné) — kandidáti na predsedu (župana) za každý kraj zo ŠÚSR (volby.statistics.sk/osk/osk{rok}).
+// `json/tab06b/{kraj}.json` = zoznam kandidátov v kraji (C02 meno, C03 priezvisko, C04 strany,
+// C05 hlasy, C06 %); víťaz = najviac hlasov. `tab01.json` účasť, `select/tab06/kraje.json` názvy.
 // Kód kraja (KRAJ 1–8) mapujeme na regionCode používaný v appke (zhodný s FCM topic vuc_<code>).
-// Dostupné len pre novší portál (2022+); staršie ročníky majú iný formát → zatiaľ vynechané.
+// Dostupné pre portál 2017+ (tab06b); staršie ročníky (2001–2013) nemajú JSON feed → vynechané.
 const VUC_KRAJ_TO_CODE = {
   1: "bratislava", 2: "trnava", 3: "trencin", 4: "nitra",
   5: "zilina", 6: "banskabystrica", 7: "presov", 8: "kosice",
@@ -295,31 +296,32 @@ async function fetchVucResult(election) {
   if (election.type !== "vuc") return null;
   const year = election.date.slice(0, 4);
   const base = `https://volby.statistics.sk/osk/osk${year}`;
-  const [cards, tab01, kraje] = await Promise.all([
-    getJson(`${base}/json/cards.json`),
+  const [tab01, kraje] = await Promise.all([
     getJson(`${base}/json/tab01.json`),
     getJson(`${base}/select/tab06/kraje.json`),
   ]);
-  if (!cards || !cards.length) return null;
-
   const nameByKraj = new Map((kraje || []).map((k) => [String(k.KRAJ), k.KRAJ_SK]));
-  const regions = cards
-    .map((c) => {
-      const kraj = Number(c.KRAJ);
-      const code = VUC_KRAJ_TO_CODE[kraj];
-      if (!code) return null;
-      return {
-        kraj,
-        code,
-        name: nameByKraj.get(String(kraj)) || code,
-        winner: [c.C02, c.C03].filter(Boolean).join(" ").trim(),
+
+  const regions = [];
+  for (let kraj = 1; kraj <= 8; kraj++) {
+    const code = VUC_KRAJ_TO_CODE[kraj];
+    const rows = await getJson(`${base}/json/tab06b/${kraj}.json`);
+    if (!rows || !rows.length) continue;
+    const candidates = rows
+      .map((c) => ({
+        name: [c.C02, c.C03].filter(Boolean).join(" ").trim(),
+        party: String(c.C04 || "").trim(),
         pct: num(c.C06),
         votes: Math.round(num(c.C05)) || 0,
-      };
-    })
-    .filter((r) => r && r.winner)
-    .sort((a, b) => a.kraj - b.kraj)
-    .map(({ kraj, ...r }) => r); // `kraj` slúžil len na zoradenie
+        winner: false,
+      }))
+      .filter((c) => c.name)
+      .sort((a, b) => b.votes - a.votes);
+    if (!candidates.length) continue;
+    candidates[0].winner = true;
+    const w = candidates[0];
+    regions.push({ code, name: nameByKraj.get(String(kraj)) || code, winner: w.name, pct: w.pct, votes: w.votes, candidates });
+  }
   if (!regions.length) return null;
 
   const t = (tab01 && tab01[0]) || {};
@@ -359,6 +361,7 @@ for (const e of past) {
       winnerName: res.winner.name,
       winnerPct: res.winner.pct,
       ...(res.referendum ? { valid: res.referendum.valid } : {}),
+      ...(res.regions ? { regionWinners: Object.fromEntries(res.regions.map((r) => [r.code, r.winner])) } : {}),
     };
     process.stderr.write(`✓ účasť ${res.turnout.pct}%, víťaz ${res.winner.abbr} ${res.winner.pct}%\n`);
   } else {
