@@ -1,0 +1,25 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" role="img">
+<title>Ikona Voľby SK</title>
+<desc>Písmeno V v bielo-červenom prevedení na modrom gradientovom pozadí, s odčleneným červeným akcentom vpravo hore.</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#2a5fc9"/>
+<stop offset="0.55" stop-color="#123a92"/>
+<stop offset="1" stop-color="#0a1c4e"/>
+</linearGradient>
+<radialGradient id="gloss" cx="0.5" cy="0.26" r="0.8">
+<stop offset="0" stop-color="#ffffff" stop-opacity="0.22"/>
+<stop offset="0.6" stop-color="#ffffff" stop-opacity="0"/>
+</radialGradient>
+<filter id="sh" x="-25%" y="-25%" width="150%" height="150%">
+<feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#050f2c" flood-opacity="0.45"/>
+</filter>
+</defs>
+<rect x="0" y="0" width="1024" height="1024" rx="228" fill="url(#bg)"/>
+<rect x="0" y="0" width="1024" height="1024" rx="228" fill="url(#gloss)"/>
+<g filter="url(#sh)">
+<polygon points="250,285 512,760 512,545 415,285" fill="#ffffff"/>
+<polygon points="564,405 708,405 512,760 512,545" fill="#ec1c2e"/>
+<polygon points="609,285 774,285 730,365 579,365" fill="#ec1c2e"/>
+</g>
+</svg>
