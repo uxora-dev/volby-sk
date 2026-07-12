@@ -33,14 +33,14 @@ export class OnboardingPage {
     },
     {
       icon: 'lock-closed-outline',
-      title: 'Tvoje súkromie je základ',
-      text: 'Žiadne prihlásenie, žiadna poloha. Kraj a obec si vyberáš ručne a ostávajú len na tvojom zariadení. Nezbierame osobné údaje.',
+      title: 'Vaše súkromie je základ',
+      text: 'Žiadne prihlásenie, žiadna poloha. Kraj a obec si vyberáte ručne a ostávajú len vo Vašom zariadení. Nezbierame osobné údaje.',
       accent: 'var(--type-european)',
     },
     {
       icon: 'notifications-outline',
-      title: 'Nezmeškaj žiadne voľby',
-      text: 'Zapni si upozornenia na termíny volieb, ktoré ťa zaujímajú. Kedykoľvek ich vypneš alebo doladíš v nastaveniach.',
+      title: 'Nezmeškajte žiadne voľby',
+      text: 'Zapnite si upozornenia na termíny volieb, ktoré Vás zaujímajú. Kedykoľvek ich vypnete alebo doladíte v nastaveniach.',
       accent: 'var(--type-referendum)',
     },
   ];
