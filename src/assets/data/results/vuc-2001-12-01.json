@@ -1,0 +1,77 @@
+{
+  "id": "vuc-2001-12-01",
+  "type": "vuc",
+  "date": "2001-12-01",
+  "turnout": {
+    "pct": null,
+    "eligible": null,
+    "voted": null
+  },
+  "parties": [],
+  "regions": [
+    {
+      "code": "bratislava",
+      "name": "Bratislavský kraj",
+      "winner": "Ľubo Roman",
+      "pct": null,
+      "votes": null
+    },
+    {
+      "code": "trnava",
+      "name": "Trnavský kraj",
+      "winner": "Peter Tomeček",
+      "pct": null,
+      "votes": null
+    },
+    {
+      "code": "trencin",
+      "name": "Trenčiansky kraj",
+      "winner": "Štefan Štefanec",
+      "pct": null,
+      "votes": null
+    },
+    {
+      "code": "nitra",
+      "name": "Nitriansky kraj",
+      "winner": "Milan Belica",
+      "pct": null,
+      "votes": null
+    },
+    {
+      "code": "zilina",
+      "name": "Žilinský kraj",
+      "winner": "Jozef Tarčák",
+      "pct": null,
+      "votes": null
+    },
+    {
+      "code": "banskabystrica",
+      "name": "Banskobystrický kraj",
+      "winner": "Milan Marčok",
+      "pct": null,
+      "votes": null
+    },
+    {
+      "code": "presov",
+      "name": "Prešovský kraj",
+      "winner": "Peter Chudík",
+      "pct": null,
+      "votes": null
+    },
+    {
+      "code": "kosice",
+      "name": "Košický kraj",
+      "winner": "Rudolf Bauer",
+      "pct": null,
+      "votes": null
+    }
+  ],
+  "winner": {
+    "name": "",
+    "abbr": "",
+    "pct": 0
+  },
+  "source": "https://sk.wikipedia.org/wiki/Samosprávny_kraj",
+  "sourceLabel": "Wikipédia",
+  "generatedAt": "2026-07-12T08:01:09.114Z"
+}

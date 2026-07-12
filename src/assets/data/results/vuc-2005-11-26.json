@@ -1,0 +1,77 @@
+{
+  "id": "vuc-2005-11-26",
+  "type": "vuc",
+  "date": "2005-11-26",
+  "turnout": {
+    "pct": null,
+    "eligible": null,
+    "voted": null
+  },
+  "parties": [],
+  "regions": [
+    {
+      "code": "bratislava",
+      "name": "Bratislavský kraj",
+      "winner": "Vladimír Bajan",
+      "pct": null,
+      "votes": null
+    },
+    {
+      "code": "trnava",
+      "name": "Trnavský kraj",
+      "winner": "Tibor Mikuš",
+      "pct": null,
+      "votes": null
+    },
+    {
+      "code": "trencin",
+      "name": "Trenčiansky kraj",
+      "winner": "Pavol Sedláček",
+      "pct": null,
+      "votes": null
+    },
+    {
+      "code": "nitra",
+      "name": "Nitriansky kraj",
+      "winner": "Milan Belica",
+      "pct": null,
+      "votes": null
+    },
+    {
+      "code": "zilina",
+      "name": "Žilinský kraj",
+      "winner": "Juraj Blanár",
+      "pct": null,
+      "votes": null
+    },
+    {
+      "code": "banskabystrica",
+      "name": "Banskobystrický kraj",
+      "winner": "Milan Murgaš",
+      "pct": null,
+      "votes": null
+    },
+    {
+      "code": "presov",
+      "name": "Prešovský kraj",
+      "winner": "Peter Chudík",
+      "pct": null,
+      "votes": null
+    },
+    {
+      "code": "kosice",
+      "name": "Košický kraj",
+      "winner": "Zdenko Trebuľa",
+      "pct": null,
+      "votes": null
+    }
+  ],
+  "winner": {
+    "name": "",
+    "abbr": "",
+    "pct": 0
+  },
+  "source": "https://sk.wikipedia.org/wiki/Samosprávny_kraj",
+  "sourceLabel": "Wikipédia",
+  "generatedAt": "2026-07-12T08:01:09.334Z"
+}

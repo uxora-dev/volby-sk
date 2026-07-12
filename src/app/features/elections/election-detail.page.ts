@@ -83,6 +83,11 @@ export class ElectionDetailPage {
 
   protected readonly myRegionCode = computed(() => this.settings.settings().regionCode);
 
+  /** Má vybraný kraj k dispozícii zoznam kandidátov (novšie ročníky), alebo len meno víťaza? */
+  protected readonly hasRegionCandidates = computed(() =>
+    !!this.regionResults().find((r) => r.code === this.myRegionCode())?.candidates?.length,
+  );
+
   /** Brand farba strany (z Wikidata mapy), fallback na farbu typu voľby. */
   protected color(p: ResultParty): string {
     return partyColor(p) ?? 'var(--type)';

@@ -42,8 +42,8 @@ export interface ResultRegion {
   code: string; // regionCode (zhodné s FCM topic vuc_<code>)
   name: string; // Bratislavský kraj
   winner: string; // meno zvoleného župana
-  pct: number; // podiel víťaza v kraji
-  votes: number; // počet platných hlasov víťaza
+  pct: number | null; // podiel víťaza v kraji (null = staršie ročníky, len meno víťaza)
+  votes: number | null; // počet platných hlasov víťaza
   candidates?: RegionCandidate[]; // všetci kandidáti na predsedu (zostupne podľa hlasov)
 }
 

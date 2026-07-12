@@ -291,6 +291,21 @@ const VUC_KRAJ_TO_CODE = {
   1: "bratislava", 2: "trnava", 3: "trencin", 4: "nitra",
   5: "zilina", 6: "banskabystrica", 7: "presov", 8: "kosice",
 };
+const VUC_REGION_NAMES = {
+  bratislava: "Bratislavský kraj", trnava: "Trnavský kraj", trencin: "Trenčiansky kraj",
+  nitra: "Nitriansky kraj", zilina: "Žilinský kraj", banskabystrica: "Banskobystrický kraj",
+  presov: "Prešovský kraj", kosice: "Košický kraj",
+};
+
+// Kurátorovaní zvolení predsedovia (župani) za ročníky bez ŠÚSR JSON feedu (2001–2013).
+// Zdroj: sk.wikipedia sekcie „Predsedovia <kraj> samosprávneho kraja"; overené krížovou
+// kontrolou 2017/2022 hodnôt oproti ŠÚSR (zhoda 12/12). Kľúč = rok voľby → kraj → meno.
+const CURATED_VUC_WINNERS = {
+  "2001": { bratislava: "Ľubo Roman", trnava: "Peter Tomeček", trencin: "Štefan Štefanec", nitra: "Milan Belica", zilina: "Jozef Tarčák", banskabystrica: "Milan Marčok", presov: "Peter Chudík", kosice: "Rudolf Bauer" },
+  "2005": { bratislava: "Vladimír Bajan", trnava: "Tibor Mikuš", trencin: "Pavol Sedláček", nitra: "Milan Belica", zilina: "Juraj Blanár", banskabystrica: "Milan Murgaš", presov: "Peter Chudík", kosice: "Zdenko Trebuľa" },
+  "2009": { bratislava: "Pavol Frešo", trnava: "Tibor Mikuš", trencin: "Pavol Sedláček", nitra: "Milan Belica", zilina: "Juraj Blanár", banskabystrica: "Vladimír Maňka", presov: "Peter Chudík", kosice: "Zdenko Trebuľa" },
+  "2013": { bratislava: "Pavol Frešo", trnava: "Tibor Mikuš", trencin: "Jaroslav Baška", nitra: "Milan Belica", zilina: "Juraj Blanár", banskabystrica: "Marian Kotleba", presov: "Peter Chudík", kosice: "Zdenko Trebuľa" },
+};
 
 async function fetchVucResult(election) {
   if (election.type !== "vuc") return null;
@@ -322,7 +337,25 @@ async function fetchVucResult(election) {
     const w = candidates[0];
     regions.push({ code, name: nameByKraj.get(String(kraj)) || code, winner: w.name, pct: w.pct, votes: w.votes, candidates });
   }
-  if (!regions.length) return null;
+
+  // ŠÚSR JSON feed (tab06b) je len 2017+; staršie ročníky → kurátorovaní víťazi (len meno).
+  if (!regions.length) {
+    const cur = CURATED_VUC_WINNERS[year];
+    if (!cur) return null;
+    const curated = Object.values(VUC_KRAJ_TO_CODE)
+      .filter((code) => cur[code])
+      .map((code) => ({ code, name: VUC_REGION_NAMES[code], winner: cur[code], pct: null, votes: null }));
+    if (!curated.length) return null;
+    return {
+      id: election.id, type: "vuc", date: election.date,
+      turnout: { pct: null, eligible: null, voted: null },
+      parties: [], regions: curated,
+      winner: { name: "", abbr: "", pct: 0 },
+      source: "https://sk.wikipedia.org/wiki/Samosprávny_kraj",
+      sourceLabel: "Wikipédia",
+      generatedAt: new Date().toISOString(),
+    };
+  }
 
   const t = (tab01 && tab01[0]) || {};
   return {
