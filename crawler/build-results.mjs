@@ -282,10 +282,61 @@ async function fetchReferendumWiki(election) {
   };
 }
 
+// VÚC (župné) — zvolený predseda (župan) za každý kraj zo ŠÚSR (volby.statistics.sk/osk/osk{rok}).
+// `cards.json` obsahuje víťaza per kraj (meno, priezvisko, hlasy, %); `tab01.json` účasť.
+// Kód kraja (KRAJ 1–8) mapujeme na regionCode používaný v appke (zhodný s FCM topic vuc_<code>).
+// Dostupné len pre novší portál (2022+); staršie ročníky majú iný formát → zatiaľ vynechané.
+const VUC_KRAJ_TO_CODE = {
+  1: "bratislava", 2: "trnava", 3: "trencin", 4: "nitra",
+  5: "zilina", 6: "banskabystrica", 7: "presov", 8: "kosice",
+};
+
+async function fetchVucResult(election) {
+  if (election.type !== "vuc") return null;
+  const year = election.date.slice(0, 4);
+  const base = `https://volby.statistics.sk/osk/osk${year}`;
+  const [cards, tab01, kraje] = await Promise.all([
+    getJson(`${base}/json/cards.json`),
+    getJson(`${base}/json/tab01.json`),
+    getJson(`${base}/select/tab06/kraje.json`),
+  ]);
+  if (!cards || !cards.length) return null;
+
+  const nameByKraj = new Map((kraje || []).map((k) => [String(k.KRAJ), k.KRAJ_SK]));
+  const regions = cards
+    .map((c) => {
+      const kraj = Number(c.KRAJ);
+      const code = VUC_KRAJ_TO_CODE[kraj];
+      if (!code) return null;
+      return {
+        kraj,
+        code,
+        name: nameByKraj.get(String(kraj)) || code,
+        winner: [c.C02, c.C03].filter(Boolean).join(" ").trim(),
+        pct: num(c.C06),
+        votes: Math.round(num(c.C05)) || 0,
+      };
+    })
+    .filter((r) => r && r.winner)
+    .sort((a, b) => a.kraj - b.kraj)
+    .map(({ kraj, ...r }) => r); // `kraj` slúžil len na zoradenie
+  if (!regions.length) return null;
+
+  const t = (tab01 && tab01[0]) || {};
+  return {
+    id: election.id, type: "vuc", date: election.date,
+    turnout: { pct: num(t.C07) || null, eligible: num(t.C05) || null, voted: num(t.C06) || null },
+    parties: [], regions,
+    winner: { name: "", abbr: "", pct: num(t.C07) || 0 }, // víťaz je per-kraj; súhrn nezobrazuje
+    source: `${base}/sk/volby_predsedu.html`,
+    generatedAt: new Date().toISOString(),
+  };
+}
+
 // --- main ---
 const { elections } = JSON.parse(fs.readFileSync(ELECTIONS, "utf8"));
 const today = new Date().toISOString().slice(0, 10);
-const RESULT_TYPES = new Set(["parliamentary", "european", "presidential", "referendum"]);
+const RESULT_TYPES = new Set(["parliamentary", "european", "presidential", "referendum", "vuc"]);
 const past = elections.filter((e) => !e.predicted && e.date < today && RESULT_TYPES.has(e.type));
 
 fs.mkdirSync(DIR, { recursive: true });
@@ -297,6 +348,7 @@ for (const e of past) {
   if (!res) res = await fetchResultWiki(e).catch(() => null); // parlamentné → Wikipédia
   if (!res) res = await fetchPresidentialWiki(e).catch(() => null); // prezidentské → Wikipédia
   if (!res) res = await fetchReferendumWiki(e).catch(() => null); // referendum → Wikipédia
+  if (!res) res = await fetchVucResult(e).catch(() => null); // VÚC → predseda za každý kraj
   if (res) {
     fs.writeFileSync(path.join(DIR, `${e.id}.json`), JSON.stringify(res, null, 2));
     generated.push(e.id);

@@ -93,6 +93,27 @@
               }
               <p class="ref-note">{{ ref.resultText }}</p>
             </div>
+          } @else if (r.regions) {
+            <div class="regions">
+              @for (reg of regionResults(); track reg.code) {
+                <div class="region-row" [class.region-row--mine]="reg.code === myRegionCode()">
+                  <div class="region-row__head">
+                    <span class="region-row__kraj">{{ reg.name }}</span>
+                    @if (reg.code === myRegionCode()) {
+                      <span class="region-row__tag">Váš kraj</span>
+                    }
+                  </div>
+                  <div class="region-row__winner">
+                    <span class="region-row__name">{{ reg.winner }}</span>
+                    <span class="region-row__pct">{{ reg.pct.toFixed(2).replace('.', ',') }} %</span>
+                  </div>
+                  <div class="bar-track">
+                    <div class="bar-fill" [style.width.%]="reg.pct"></div>
+                  </div>
+                </div>
+              }
+            </div>
+            <div class="results__legend">zvolený predseda (župan) za každý kraj · % = podiel víťaza v kraji</div>
           } @else if (r.rounds) {
             @for (rd of roundsDesc(); track rd.round) {
               <div class="round">

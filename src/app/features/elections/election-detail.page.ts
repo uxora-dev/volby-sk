@@ -73,6 +73,16 @@ export class ElectionDetailPage {
     return r ? [...r].sort((a, b) => b.round - a.round) : [];
   });
 
+  /** VÚC — zvolení predsedovia (župani) za kraje; váš kraj hore a zvýraznený. */
+  protected readonly regionResults = computed(() => {
+    const regions = this.resultData()?.regions;
+    if (!regions) return [];
+    const mine = this.settings.settings().regionCode;
+    return [...regions].sort((a, b) => (a.code === mine ? -1 : 0) - (b.code === mine ? -1 : 0));
+  });
+
+  protected readonly myRegionCode = computed(() => this.settings.settings().regionCode);
+
   /** Brand farba strany (z Wikidata mapy), fallback na farbu typu voľby. */
   protected color(p: ResultParty): string {
     return partyColor(p) ?? 'var(--type)';

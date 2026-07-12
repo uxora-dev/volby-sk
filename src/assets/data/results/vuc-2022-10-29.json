@@ -1,0 +1,76 @@
+{
+  "id": "vuc-2022-10-29",
+  "type": "vuc",
+  "date": "2022-10-29",
+  "turnout": {
+    "pct": 43.74,
+    "eligible": 4460697,
+    "voted": 1951522
+  },
+  "parties": [],
+  "regions": [
+    {
+      "code": "bratislava",
+      "name": "Bratislavský kraj",
+      "winner": "Juraj Droba",
+      "pct": 63.6,
+      "votes": 136983
+    },
+    {
+      "code": "trnava",
+      "name": "Trnavský kraj",
+      "winner": "Jozef Viskupič",
+      "pct": 38.56,
+      "votes": 69743
+    },
+    {
+      "code": "trencin",
+      "name": "Trenčiansky kraj",
+      "winner": "Jaroslav Baška",
+      "pct": 67.25,
+      "votes": 131705
+    },
+    {
+      "code": "nitra",
+      "name": "Nitriansky kraj",
+      "winner": "Branislav Becík",
+      "pct": 27.49,
+      "votes": 58765
+    },
+    {
+      "code": "zilina",
+      "name": "Žilinský kraj",
+      "winner": "Erika Jurinová",
+      "pct": 32.04,
+      "votes": 80049
+    },
+    {
+      "code": "banskabystrica",
+      "name": "Banskobystrický kraj",
+      "winner": "Ondrej Lunter",
+      "pct": 47.53,
+      "votes": 96438
+    },
+    {
+      "code": "presov",
+      "name": "Prešovský kraj",
+      "winner": "Milan Majerský",
+      "pct": 42.01,
+      "votes": 111343
+    },
+    {
+      "code": "kosice",
+      "name": "Košický kraj",
+      "winner": "Rastislav Trnka",
+      "pct": 51.31,
+      "votes": 110362
+    }
+  ],
+  "winner": {
+    "name": "",
+    "abbr": "",
+    "pct": 43.74
+  },
+  "source": "https://volby.statistics.sk/osk/osk2022/sk/volby_predsedu.html",
+  "generatedAt": "2026-07-12T07:34:20.397Z"
+}

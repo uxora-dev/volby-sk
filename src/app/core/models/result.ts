@@ -27,6 +27,15 @@ export interface PresidentialRound {
   candidates: ResultCandidate[];
 }
 
+/** Zvolený predseda (župan) v jednom samosprávnom kraji — voľby VÚC. */
+export interface ResultRegion {
+  code: string; // regionCode (zhodné s FCM topic vuc_<code>)
+  name: string; // Bratislavský kraj
+  winner: string; // meno zvoleného župana
+  pct: number; // podiel víťaza v kraji
+  votes: number; // počet platných hlasov víťaza
+}
+
 export interface ElectionResult {
   id: string;
   type: string;
@@ -34,6 +43,7 @@ export interface ElectionResult {
   turnout: { pct: number | null; eligible: number | null; voted: number | null };
   parties: ResultParty[];
   rounds?: PresidentialRound[]; // prezidentské — kolá s kandidátmi
+  regions?: ResultRegion[]; // VÚC — zvolený predseda (župan) za každý kraj
   referendum?: {
     topic: string | null;
     questionCount: number;
