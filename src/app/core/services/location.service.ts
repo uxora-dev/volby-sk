@@ -14,7 +14,7 @@ export class LocationService {
 
   private readonly _regions = signal<Region[]>([]);
   private readonly _municipalities = signal<Municipality[]>([]);
-  private readonly _mayors = signal<Record<string, string>>({});
+  private readonly _mayors = signal<Record<string, Record<string, string>>>({});
   private municipalitiesRequested = false;
   private mayorsRequested = false;
 
@@ -37,13 +37,18 @@ export class LocationService {
     if (this.mayorsRequested) return;
     this.mayorsRequested = true;
     this.http
-      .get<{ mayors: Record<string, string> }>('assets/data/mayors.json')
-      .subscribe((d) => this._mayors.set(d?.mayors ?? {}));
+      .get<{ byElection: Record<string, Record<string, string>> }>('assets/data/mayors.json')
+      .subscribe((d) => this._mayors.set(d?.byElection ?? {}));
   }
 
-  /** Zvolený starosta/primátor obce (komunálne 2022), alebo null. */
-  mayor(id: number): string | null {
-    return this._mayors()[id] ?? null;
+  /** Zvolený starosta/primátor obce v danej komunálnej voľbe (podľa id voľby), alebo null. */
+  mayorFor(electionId: string, obecId: number): string | null {
+    return this._mayors()[electionId]?.[obecId] ?? null;
+  }
+
+  /** Majú komunálne voľby (podľa id) k dispozícii dáta o zvolených starostoch? */
+  hasMayors(electionId: string): boolean {
+    return !!this._mayors()[electionId];
   }
 
   /** Filter obcí podľa kraja + textu, orezané na `limit` položiek. */

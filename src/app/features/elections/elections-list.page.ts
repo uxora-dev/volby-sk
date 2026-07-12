@@ -60,8 +60,8 @@ export class ElectionsListPage {
         ?? (e.date === '2022-10-29' ? VUC_LEADERS[set.regionCode] : undefined);
       return z ? { role: 'Váš župan', name: z } : null;
     }
-    if (e.type === 'municipal' && e.date === '2022-10-29' && set.municipality) {
-      const m = this.loc.mayor(set.municipality.id);
+    if (e.type === 'municipal' && set.municipality) {
+      const m = this.loc.mayorFor(e.id, set.municipality.id);
       return m ? { role: 'Váš starosta', name: m } : null;
     }
     return null;

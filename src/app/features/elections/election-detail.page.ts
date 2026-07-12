@@ -35,12 +35,12 @@ export class ElectionDetailPage {
     this.loc.loadMayors();
   }
 
-  /** Zvolený starosta/primátor vo vybranej obci — pri komunálnych voľbách 2022. */
+  /** Zvolený starosta/primátor vo vybranej obci — pri komunálnych voľbách s dátami (2018, 2022). */
   protected readonly obecMayor = computed(() => {
     const e = this.election();
     const m = this.settings.settings().municipality;
-    if (!e || e.type !== 'municipal' || e.date !== '2022-10-29' || !m) return null;
-    return this.loc.mayor(m.id);
+    if (!e || e.type !== 'municipal' || !m) return null;
+    return this.loc.mayorFor(e.id, m.id);
   });
 
   /** Naviazané z route parametra :id cez withComponentInputBinding(). */
