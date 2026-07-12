@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Voľby SK — Ochrana súkromia</title>
+<title>Voľby SK — Zásady ochrany súkromia</title>
 <style>
   :root { color-scheme: light dark; --bg:#f4f1e9; --fg:#1b1e26; --muted:#6b7180; --border:rgba(27,30,38,.12); --accent:#2f6db0; }
   @media (prefers-color-scheme: dark){ :root{ --bg:#0f1117; --fg:#eceef2; --muted:#9aa1ad; --border:rgba(255,255,255,.1); --accent:#5f96d8; } }
@@ -23,37 +23,49 @@
 <body>
 <main>
   <div class="kicker">Voľby SK</div>
-  <h1>Ochrana súkromia</h1>
+  <h1>Zásady ochrany súkromia</h1>
   <p class="eff">Účinné od 12. júla 2026</p>
 
-  <p class="intro">Voľby SK je navrhnutá tak, aby fungovala s minimom údajov. Nevyžaduje prihlásenie, nepristupuje k tvojej polohe a neukladá tvoje osobné údaje na našich serveroch.</p>
+  <p class="intro">Aplikácia Voľby SK je navrhnutá s dôrazom na minimalizáciu údajov. Nevyžaduje registráciu ani prihlásenie, nepristupuje k polohe zariadenia a neukladá osobné údaje na serveroch prevádzkovateľa. Väčšina údajov zostáva výhradne v zariadení používateľa.</p>
 
   <h2>Prevádzkovateľ</h2>
-  <p>Aplikáciu Voľby SK prevádzkuje Uxora s.r.o. Otázky k súkromiu posielaj na <a href="mailto:juraj.vanko@uxora.sk">juraj.vanko@uxora.sk</a>.</p>
+  <p>Prevádzkovateľom aplikácie Voľby SK a spracúvania osobných údajov je Uxora s.r.o., so sídlom Novomestská 1898/5, 940 02 Nové Zámky, Slovenská republika, IČO: 57345252, DIČ: 2122672145.</p>
+  <p>Kontakt vo veciach ochrany osobných údajov: <a href="mailto:juraj.vanko@uxora.sk">juraj.vanko@uxora.sk</a>.</p>
 
-  <h2>Čo spracúvame</h2>
-  <p>Nastavenia v aplikácii (vybrané typy volieb, kraj, obec, pripomienky) sú uložené len lokálne na tvojom zariadení. Neposielajú sa nám a neopúšťajú zariadenie.</p>
-  <p>Push notifikácie (Firebase Cloud Messaging od spoločnosti Google): na doručovanie upozornení sa tvoje zariadenie prihlasuje na „témy" (napr. typ voľby, kraj, obec). Na doručenie Google spracúva technický identifikátor zariadenia a zoznam tém. Nie sú prepojené s tvojím menom ani účtom — aplikácia žiadny účet nemá.</p>
-  <p>Poznámka: prihlásenie na tému konkrétneho kraja alebo obce technicky vidí poskytovateľ doručovania (Google), nie je však spojené s tvojou identitou. Upozornenia môžeš kedykoľvek vypnúť — vtedy sa z tém odhlásime.</p>
-  <p>Údaje o voľbách sa sťahujú ako statické súbory z GitHub Pages. Ide o jednosmerné čítanie; neposielame pri tom žiadne tvoje údaje.</p>
+  <h2>Aké údaje sa spracúvajú</h2>
+  <p><strong>Nastavenia aplikácie.</strong> Vybrané typy volieb, kraj, obec a pripomienky sa ukladajú výhradne lokálne v zariadení používateľa prostredníctvom lokálneho úložiska aplikácie (kľúče „volby-sk.settings" a „volby-sk.fcm-topics"). Tieto údaje sa neodosielajú prevádzkovateľovi a neopúšťajú zariadenie.</p>
+  <p><strong>Push notifikácie.</strong> Na doručovanie upozornení sa využíva služba Firebase Cloud Messaging spoločnosti Google. Na tento účel systém zariadenia vytvorí technický identifikátor (registračný token) a aplikácia prihlási zariadenie na „témy" zodpovedajúce zvoleným typom volieb, kraju alebo obci. Spoločnosť Google ako sprostredkovateľ spracúva registračný token a zoznam tém nevyhnutných na doručenie notifikácie. Tieto údaje nie sú prepojené s menom, e-mailovou adresou ani používateľským účtom, keďže aplikácia žiadny účet nevyužíva.</p>
+  <p>Upozornenie: prihlásenie na tému konkrétneho kraja alebo obce je technicky viditeľné pre poskytovateľa doručovania (Google), nie je však spojené s totožnosťou používateľa. Notifikácie možno kedykoľvek vypnúť; v takom prípade sa zariadenie z tém odhlási.</p>
+  <p><strong>Sťahovanie údajov o voľbách.</strong> Údaje o voľbách sa načítavajú ako statické súbory zo služby GitHub Pages. Ide o jednosmerné čítanie, pri ktorom sa neodosielajú žiadne osobné údaje používateľa. Poskytovateľ hostingu (GitHub) môže pri každej požiadavke spracúvať bežné technické logy, napríklad IP adresu, rovnako ako ktorýkoľvek webový server.</p>
 
-  <h2>Čo nespracúvame</h2>
-  <p>Žiadne prihlásenie ani používateľský účet. Žiadna poloha ani GPS — kraj a obec si vyberáš ručne. Žiadna analytika, reklama ani sledovanie správania. Žiadne meno, e-mail, telefón ani iné priamo identifikujúce údaje.</p>
+  <h2>Aké údaje sa nespracúvajú</h2>
+  <p>Aplikácia nepoužíva prihlásenie ani používateľský účet, nepristupuje k polohe (GPS), nevyužíva analytické, reklamné ani sledovacie nástroje a nezhromažďuje meno, e-mailovú adresu, telefónne číslo ani iné priamo identifikujúce údaje.</p>
 
-  <h2>Poskytovatelia</h2>
-  <p>Google (Firebase Cloud Messaging) — doručovanie push notifikácií; riadi sa zásadami spoločnosti Google.</p>
-  <p>GitHub (GitHub Pages) — hosting statických údajov o voľbách; pri sťahovaní spracúva bežné technické logy (napr. IP adresu) ako každý webový server.</p>
+  <h2>Právny základ spracúvania</h2>
+  <p>Poskytovanie funkcií aplikácie a lokálne nastavenia sa spracúvajú na základe plnenia funkcií požadovaných používateľom a oprávneného záujmu prevádzkovateľa na poskytovaní funkčnej aplikácie (čl. 6 ods. 1 písm. b) a f) GDPR).</p>
+  <p>Push notifikácie sa spracúvajú na základe súhlasu používateľa (čl. 6 ods. 1 písm. a) GDPR), ktorý sa udeľuje zapnutím notifikácií a povolením na úrovni systému zariadenia a ktorý možno kedykoľvek odvolať vypnutím notifikácií.</p>
 
-  <h2>Uchovávanie a tvoje práva</h2>
-  <p>Nastavenia zostávajú na tvojom zariadení, kým ich nezmeníš alebo aplikáciu neodinštaluješ; odinštalovaním sa vymažú.</p>
-  <p>Keďže na serveroch nespracúvame tvoje osobné údaje, väčšinu ochrany napĺňaš priamo — vypnutím notifikácií a vymazaním či odinštalovaním aplikácie. S otázkami podľa GDPR sa obráť na <a href="mailto:juraj.vanko@uxora.sk">juraj.vanko@uxora.sk</a>.</p>
+  <h2>Sprostredkovatelia a prenos do tretích krajín</h2>
+  <p>Na doručovanie notifikácií sa využíva Firebase Cloud Messaging (Google Ireland Limited, resp. Google LLC). V rámci tejto služby môže dochádzať k prenosu údajov do tretích krajín (napríklad USA); poskytovateľ uplatňuje príslušné záruky ochrany, napríklad štandardné zmluvné doložky.</p>
+  <p>Hosting statických údajov o voľbách zabezpečuje GitHub (GitHub, Inc.). Prevádzkovateľ odporúča oboznámiť sa aj so zásadami ochrany súkromia týchto poskytovateľov.</p>
 
-  <h2>Deti a zmeny</h2>
-  <p>Aplikácia nie je určená deťom a cielene od nich nezbiera údaje.</p>
-  <p>Tieto zásady môžeme aktualizovať; zmeny zverejníme s novým dátumom účinnosti.</p>
+  <h2>Doba uchovávania</h2>
+  <p>Lokálne nastavenia zostávajú v zariadení, kým ich používateľ nezmení alebo kým nevymaže dáta aplikácie, prípadne aplikáciu neodinštaluje; odinštalovaním sa vymažú.</p>
+  <p>Registračný token a prihlásenia na témy spravuje spoločnosť Google po dobu nevyhnutnú na doručovanie notifikácií, respektíve do odhlásenia.</p>
+
+  <h2>Práva dotknutej osoby</h2>
+  <p>V rozsahu, v akom dochádza k spracúvaniu osobných údajov, má používateľ podľa GDPR právo na prístup k údajom, ich opravu, vymazanie, obmedzenie spracúvania, namietanie proti spracúvaniu, prenosnosť údajov a právo odvolať súhlas.</p>
+  <p>Vzhľadom na to, že prevádzkovateľ neuchováva osobné údaje na svojich serveroch a nedokáže priradiť údaje ku konkrétnej osobe, väčšinu práv možno naplniť priamo v zariadení — vypnutím notifikácií a vymazaním alebo odinštalovaním aplikácie. Žiadosti a otázky možno smerovať na <a href="mailto:juraj.vanko@uxora.sk">juraj.vanko@uxora.sk</a>.</p>
+
+  <h2>Právo podať sťažnosť</h2>
+  <p>Používateľ má právo podať sťažnosť dozornému orgánu, ktorým je Úrad na ochranu osobných údajov Slovenskej republiky, Hraničná 12, 820 07 Bratislava 27 (<a href="https://www.dataprotection.gov.sk">www.dataprotection.gov.sk</a>).</p>
+
+  <h2>Deti a zmeny zásad</h2>
+  <p>Aplikácia nie je určená deťom a cielene od nich nezhromažďuje osobné údaje.</p>
+  <p>Prevádzkovateľ môže tieto zásady aktualizovať; aktuálne znenie bude zverejnené s uvedeným dátumom účinnosti.</p>
 
   <footer>
-    Uxora s.r.o. · <a href="mailto:juraj.vanko@uxora.sk">juraj.vanko@uxora.sk</a> · <a href="terms.html">Podmienky používania</a>
+    Uxora s.r.o., IČO 57345252 · <a href="mailto:juraj.vanko@uxora.sk">juraj.vanko@uxora.sk</a> · <a href="terms.html">Podmienky používania</a>
   </footer>
 </main>
 </body>

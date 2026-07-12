@@ -15,56 +15,77 @@ interface LegalDoc {
   sections: Section[];
 }
 
-const CONTACT = 'Uxora s.r.o., kontakt: juraj.vanko@uxora.sk';
+const OPERATOR =
+  'Uxora s.r.o., so sídlom Novomestská 1898/5, 940 02 Nové Zámky, Slovenská republika, IČO: 57345252, DIČ: 2122672145.';
 
 const DOCS: Record<Doc, LegalDoc> = {
   privacy: {
-    title: 'Ochrana súkromia',
+    title: 'Zásady ochrany súkromia',
     effective: 'Účinné od 12. júla 2026',
     intro:
-      'Voľby SK je navrhnutá tak, aby fungovala s minimom údajov. Nevyžaduje prihlásenie, nepristupuje k tvojej polohe a neukladá tvoje osobné údaje na našich serveroch.',
+      'Aplikácia Voľby SK je navrhnutá s dôrazom na minimalizáciu údajov. Nevyžaduje registráciu ani prihlásenie, nepristupuje k polohe zariadenia a neukladá osobné údaje na serveroch prevádzkovateľa. Väčšina údajov zostáva výhradne v zariadení používateľa.',
     sections: [
       {
         h: 'Prevádzkovateľ',
-        p: ['Aplikáciu Voľby SK prevádzkuje Uxora s.r.o. Otázky k súkromiu posielaj na juraj.vanko@uxora.sk.'],
-      },
-      {
-        h: 'Čo spracúvame',
         p: [
-          'Nastavenia v aplikácii (vybrané typy volieb, kraj, obec, pripomienky) sú uložené len lokálne na tvojom zariadení. Neposielajú sa nám a neopúšťajú zariadenie.',
-          'Push notifikácie (Firebase Cloud Messaging od spoločnosti Google): na doručovanie upozornení sa tvoje zariadenie prihlasuje na „témy" (napr. typ voľby, kraj, obec). Na doručenie Google spracúva technický identifikátor zariadenia a zoznam tém. Nie sú prepojené s tvojím menom ani účtom — aplikácia žiadny účet nemá.',
-          'Poznámka: prihlásenie na tému konkrétneho kraja alebo obce technicky vidí poskytovateľ doručovania (Google), nie je však spojené s tvojou identitou. Upozornenia môžeš kedykoľvek vypnúť — vtedy sa z tém odhlásime.',
-          'Údaje o voľbách sa sťahujú ako statické súbory z GitHub Pages. Ide o jednosmerné čítanie; neposielame pri tom žiadne tvoje údaje.',
+          'Prevádzkovateľom aplikácie Voľby SK a spracúvania osobných údajov je ' + OPERATOR,
+          'Kontakt vo veciach ochrany osobných údajov: juraj.vanko@uxora.sk.',
         ],
       },
       {
-        h: 'Čo nespracúvame',
+        h: 'Aké údaje sa spracúvajú',
         p: [
-          'Žiadne prihlásenie ani používateľský účet.',
-          'Žiadna poloha ani GPS — kraj a obec si vyberáš ručne.',
-          'Žiadna analytika, reklama ani sledovanie správania.',
-          'Žiadne meno, e-mail, telefón ani iné priamo identifikujúce údaje.',
+          'Nastavenia aplikácie. Vybrané typy volieb, kraj, obec a pripomienky sa ukladajú výhradne lokálne v zariadení používateľa prostredníctvom lokálneho úložiska aplikácie (kľúče „volby-sk.settings" a „volby-sk.fcm-topics"). Tieto údaje sa neodosielajú prevádzkovateľovi a neopúšťajú zariadenie.',
+          'Push notifikácie. Na doručovanie upozornení sa využíva služba Firebase Cloud Messaging spoločnosti Google. Na tento účel systém zariadenia vytvorí technický identifikátor (registračný token) a aplikácia prihlási zariadenie na „témy" zodpovedajúce zvoleným typom volieb, kraju alebo obci. Spoločnosť Google ako sprostredkovateľ spracúva registračný token a zoznam tém nevyhnutných na doručenie notifikácie. Tieto údaje nie sú prepojené s menom, e-mailovou adresou ani používateľským účtom, keďže aplikácia žiadny účet nevyužíva.',
+          'Upozornenie: prihlásenie na tému konkrétneho kraja alebo obce je technicky viditeľné pre poskytovateľa doručovania (Google), nie je však spojené s totožnosťou používateľa. Notifikácie možno kedykoľvek vypnúť; v takom prípade sa zariadenie z tém odhlási.',
+          'Sťahovanie údajov o voľbách. Údaje o voľbách sa načítavajú ako statické súbory zo služby GitHub Pages. Ide o jednosmerné čítanie, pri ktorom sa neodosielajú žiadne osobné údaje používateľa. Poskytovateľ hostingu (GitHub) môže pri každej požiadavke spracúvať bežné technické logy, napríklad IP adresu, rovnako ako ktorýkoľvek webový server.',
         ],
       },
       {
-        h: 'Poskytovatelia',
+        h: 'Aké údaje sa nespracúvajú',
         p: [
-          'Google (Firebase Cloud Messaging) — doručovanie push notifikácií; riadi sa zásadami spoločnosti Google.',
-          'GitHub (GitHub Pages) — hosting statických údajov o voľbách; pri sťahovaní spracúva bežné technické logy (napr. IP adresu) ako každý webový server.',
+          'Aplikácia nepoužíva prihlásenie ani používateľský účet, nepristupuje k polohe (GPS), nevyužíva analytické, reklamné ani sledovacie nástroje a nezhromažďuje meno, e-mailovú adresu, telefónne číslo ani iné priamo identifikujúce údaje.',
         ],
       },
       {
-        h: 'Uchovávanie a tvoje práva',
+        h: 'Právny základ spracúvania',
         p: [
-          'Nastavenia zostávajú na tvojom zariadení, kým ich nezmeníš alebo aplikáciu neodinštaluješ; odinštalovaním sa vymažú.',
-          'Keďže na serveroch nespracúvame tvoje osobné údaje, väčšinu ochrany napĺňaš priamo — vypnutím notifikácií a vymazaním či odinštalovaním aplikácie. S otázkami podľa GDPR sa obráť na juraj.vanko@uxora.sk.',
+          'Poskytovanie funkcií aplikácie a lokálne nastavenia sa spracúvajú na základe plnenia funkcií požadovaných používateľom a oprávneného záujmu prevádzkovateľa na poskytovaní funkčnej aplikácie (čl. 6 ods. 1 písm. b) a f) GDPR).',
+          'Push notifikácie sa spracúvajú na základe súhlasu používateľa (čl. 6 ods. 1 písm. a) GDPR), ktorý sa udeľuje zapnutím notifikácií a povolením na úrovni systému zariadenia a ktorý možno kedykoľvek odvolať vypnutím notifikácií.',
         ],
       },
       {
-        h: 'Deti a zmeny',
+        h: 'Sprostredkovatelia a prenos do tretích krajín',
         p: [
-          'Aplikácia nie je určená deťom a cielene od nich nezbiera údaje.',
-          'Tieto zásady môžeme aktualizovať; zmeny zverejníme s novým dátumom účinnosti.',
+          'Na doručovanie notifikácií sa využíva Firebase Cloud Messaging (Google Ireland Limited, resp. Google LLC). V rámci tejto služby môže dochádzať k prenosu údajov do tretích krajín (napríklad USA); poskytovateľ uplatňuje príslušné záruky ochrany, napríklad štandardné zmluvné doložky.',
+          'Hosting statických údajov o voľbách zabezpečuje GitHub (GitHub, Inc.). Prevádzkovateľ odporúča oboznámiť sa aj so zásadami ochrany súkromia týchto poskytovateľov.',
+        ],
+      },
+      {
+        h: 'Doba uchovávania',
+        p: [
+          'Lokálne nastavenia zostávajú v zariadení, kým ich používateľ nezmení alebo kým nevymaže dáta aplikácie, prípadne aplikáciu neodinštaluje; odinštalovaním sa vymažú.',
+          'Registračný token a prihlásenia na témy spravuje spoločnosť Google po dobu nevyhnutnú na doručovanie notifikácií, respektíve do odhlásenia.',
+        ],
+      },
+      {
+        h: 'Práva dotknutej osoby',
+        p: [
+          'V rozsahu, v akom dochádza k spracúvaniu osobných údajov, má používateľ podľa GDPR právo na prístup k údajom, ich opravu, vymazanie, obmedzenie spracúvania, namietanie proti spracúvaniu, prenosnosť údajov a právo odvolať súhlas.',
+          'Vzhľadom na to, že prevádzkovateľ neuchováva osobné údaje na svojich serveroch a nedokáže priradiť údaje ku konkrétnej osobe, väčšinu práv možno naplniť priamo v zariadení — vypnutím notifikácií a vymazaním alebo odinštalovaním aplikácie. Žiadosti a otázky možno smerovať na juraj.vanko@uxora.sk.',
+        ],
+      },
+      {
+        h: 'Právo podať sťažnosť',
+        p: [
+          'Používateľ má právo podať sťažnosť dozornému orgánu, ktorým je Úrad na ochranu osobných údajov Slovenskej republiky, Hraničná 12, 820 07 Bratislava 27 (www.dataprotection.gov.sk).',
+        ],
+      },
+      {
+        h: 'Deti a zmeny zásad',
+        p: [
+          'Aplikácia nie je určená deťom a cielene od nich nezhromažďuje osobné údaje.',
+          'Prevádzkovateľ môže tieto zásady aktualizovať; aktuálne znenie bude zverejnené s uvedeným dátumom účinnosti.',
         ],
       },
     ],
@@ -74,27 +95,33 @@ const DOCS: Record<Doc, LegalDoc> = {
     effective: 'Účinné od 12. júla 2026',
     sections: [
       {
-        h: 'O aplikácii',
-        p: ['Voľby SK poskytuje informatívny prehľad volieb a referend na Slovensku vrátane termínov, histórie a výsledkov.'],
+        h: 'Prevádzkovateľ',
+        p: ['Aplikáciu Voľby SK prevádzkuje ' + OPERATOR],
       },
       {
-        h: 'Zdroje a presnosť',
+        h: 'O aplikácii',
+        p: ['Aplikácia Voľby SK poskytuje informatívny prehľad volieb a referend na Slovensku vrátane termínov, histórie a výsledkov.'],
+      },
+      {
+        h: 'Zdroje a presnosť údajov',
         p: [
-          'Údaje pochádzajú z verejných zdrojov — Zbierka zákonov (Slov-lex), Štatistický úrad SR (volby.statistics.sk) a Wikipédia.',
-          'Snažíme sa o presnosť a aktuálnosť, ale nezaručujeme úplnosť ani bezchybnosť. Aplikácia nie je oficiálnym zdrojom. Záväzné informácie nájdeš na oficiálnych stránkach (minv.sk, volby.statistics.sk, slov-lex.sk).',
+          'Údaje pochádzajú z verejných zdrojov — Zbierka zákonov (Slov-lex), Štatistický úrad Slovenskej republiky (volby.statistics.sk) a Wikipédia.',
+          'Prevádzkovateľ vynakladá primerané úsilie na presnosť a aktuálnosť údajov, nezaručuje však ich úplnosť ani bezchybnosť. Aplikácia nie je oficiálnym zdrojom informácií. Záväzné informácie sú dostupné na oficiálnych stránkach (minv.sk, volby.statistics.sk, slov-lex.sk).',
         ],
       },
       {
         h: 'Predpokladané termíny',
-        p: ['Voľby označené ako „predpokladané" sú odhad z pravidelného volebného cyklu, nie oficiálne vyhlásený termín.'],
+        p: ['Voľby označené ako „predpokladané" predstavujú odhad vychádzajúci z pravidelného volebného cyklu, nie oficiálne vyhlásený termín.'],
       },
       {
-        h: 'Zodpovednosť',
-        p: ['Aplikácia sa poskytuje „tak ako je". Prevádzkovateľ nezodpovedá za rozhodnutia prijaté na základe zobrazených informácií.'],
+        h: 'Obmedzenie zodpovednosti',
+        p: [
+          'Aplikácia sa poskytuje „tak ako je". Prevádzkovateľ nezodpovedá za rozhodnutia prijaté na základe informácií zobrazených v aplikácii ani za prípadné škody vzniknuté ich použitím, a to v rozsahu povolenom právnymi predpismi.',
+        ],
       },
       {
-        h: 'Prevádzkovateľ',
-        p: [CONTACT + '.'],
+        h: 'Zmeny podmienok',
+        p: ['Prevádzkovateľ môže tieto podmienky aktualizovať; aktuálne znenie bude zverejnené s uvedeným dátumom účinnosti. Kontakt: juraj.vanko@uxora.sk.'],
       },
     ],
   },
