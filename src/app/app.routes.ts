@@ -1,11 +1,10 @@
 import { Routes } from '@angular/router';
 
-import { requireOnboarded, skipIfOnboarded } from './core/guards/onboarding.guard';
+import { skipIfOnboarded } from './core/guards/onboarding.guard';
 
 export const routes: Routes = [
   {
     path: '',
-    canMatch: [requireOnboarded],
     loadComponent: () =>
       import('./features/elections/elections-list.page').then((m) => m.ElectionsListPage),
   },
