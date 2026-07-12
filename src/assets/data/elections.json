@@ -1,9 +1,21 @@
 {
   "generatedAt": "2026-07-11T21:49:30.829Z",
-  "count": 127,
-  "official": 116,
+  "count": 128,
+  "official": 117,
   "predicted": 11,
   "elections": [
+    {
+      "id": "presidential-1993-02-15",
+      "type": "presidential",
+      "scope": "national",
+      "title": "Voľba prezidenta SR 1993",
+      "date": "1993-02-15",
+      "status": "past",
+      "predicted": false,
+      "indirect": true,
+      "legalRef": null,
+      "sourceUrl": "https://sk.wikipedia.org/wiki/Michal_Kov%C3%A1%C4%8D"
+    },
     {
       "id": "parliamentary-1994-10-01",
       "type": "parliamentary",

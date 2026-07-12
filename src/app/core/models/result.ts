@@ -62,6 +62,14 @@ export interface ElectionResult {
     yesPct: number | null;
     resultText: string;
   };
+  indirect?: {
+    electedBy: string; // orgán, ktorý prezidenta zvolil (Národná rada SR)
+    votes: number; // koľko poslancov hlasovalo za víťaza
+    total: number; // počet poslancov spolu
+    needed: number; // potrebná väčšina
+    term: string; // funkčné obdobie
+    note: string; // krátke faktické vysvetlenie
+  };
   winner: { name: string; abbr: string; pct: number };
   source: string;
   sourceLabel?: string;

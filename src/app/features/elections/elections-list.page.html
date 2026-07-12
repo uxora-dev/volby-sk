@@ -85,6 +85,7 @@
             <div class="vote-card__date">
               <ion-icon name="calendar-outline"></ion-icon>{{ e.date | skDate }}
               @if (e.predicted) { <span class="est-tag">≈ predpokladané</span> }
+              @if (e.indirect) { <span class="est-tag">nepriama voľba</span> }
               @if (e.subtype === 'byelection' && e.municipalityCount) {
                 <span class="muni-count">{{ e.municipalityCount }} obcí</span>
               }
@@ -92,9 +93,11 @@
 
             @if (winner(e); as w) {
               <div class="card-result">
-                <span class="card-result__k">Zvíťazil</span>
+                <span class="card-result__k">{{ e.indirect ? 'Zvolený' : 'Zvíťazil' }}</span>
                 <span class="card-result__v">{{ w.name }}</span>
-                <span class="card-result__pct">{{ w.pct.toFixed(2).replace('.', ',') }} %</span>
+                @if (!e.indirect) {
+                  <span class="card-result__pct">{{ w.pct.toFixed(2).replace('.', ',') }} %</span>
+                }
               </div>
             }
             @if (refInfo(e); as ri) {

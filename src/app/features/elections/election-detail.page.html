@@ -13,7 +13,12 @@
         <div class="detail-hero__badge">
           <ion-icon [name]="meta[e.type].icon"></ion-icon>
         </div>
-        <span class="type-pill">{{ meta[e.type].short }}</span>
+        <div class="detail-hero__pills">
+          <span class="type-pill">{{ meta[e.type].short }}</span>
+          @if (e.indirect) {
+            <span class="type-pill type-pill--indirect">Nepriama voľba</span>
+          }
+        </div>
         <h1 class="detail-hero__title">{{ e.title }}</h1>
         <div class="detail-hero__count">{{ e.date | relativeSk }}</div>
       </div>
@@ -92,6 +97,29 @@
                 </div>
               }
               <p class="ref-note">{{ ref.resultText }}</p>
+            </div>
+          } @else if (r.indirect; as ind) {
+            <div class="indirect">
+              <div class="indirect__winner">
+                <span class="info-row__k">Zvolený prezident</span>
+                <strong>{{ r.winner.name }}</strong>
+              </div>
+              <div class="indirect__grid">
+                <div class="indirect__stat">
+                  <span>Zvolil</span>
+                  <strong>{{ ind.electedBy }}</strong>
+                </div>
+                <div class="indirect__stat">
+                  <span>Hlasov</span>
+                  <strong>{{ ind.votes }} z {{ ind.total }}</strong>
+                  <span class="indirect__sub">potrebných {{ ind.needed }}</span>
+                </div>
+                <div class="indirect__stat">
+                  <span>Funkčné obdobie</span>
+                  <strong>{{ ind.term }}</strong>
+                </div>
+              </div>
+              <p class="ref-note">{{ ind.note }}</p>
             </div>
           } @else if (r.regions) {
             <div class="regions">
@@ -221,7 +249,7 @@
             </div>
           </div>
         }
-        @if (e.sourceUrl) {
+        @if (e.sourceUrl && !e.indirect) {
           <a class="info-row info-row--link" [href]="e.sourceUrl" target="_blank" rel="noopener">
             <ion-icon name="open-outline"></ion-icon>
             <div>

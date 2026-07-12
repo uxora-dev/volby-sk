@@ -33,6 +33,16 @@
 .detail-hero .type-pill {
   margin-bottom: 14px;
 }
+.detail-hero__pills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+.type-pill--indirect {
+  color: var(--app-muted);
+  background: color-mix(in srgb, var(--ion-text-color) 9%, transparent);
+}
 
 .detail-hero__title {
   font-size: 1.72rem;
@@ -406,6 +416,46 @@
 }
 .cand-row.is-winner .bar-fill {
   background: var(--type);
+}
+
+/* nepriama voľba prezidenta (1993) */
+.indirect__winner {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-bottom: 14px;
+}
+.indirect__winner strong {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--type);
+}
+.indirect__grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 24px;
+  margin-bottom: 12px;
+}
+.indirect__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+.indirect__stat > span:first-child {
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--app-muted);
+}
+.indirect__stat strong {
+  font-size: 1.02rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.indirect__sub {
+  font-size: 0.72rem;
+  color: var(--app-muted);
 }
 
 /* referendum */

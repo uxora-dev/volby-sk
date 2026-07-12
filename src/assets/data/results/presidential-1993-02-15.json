@@ -1,0 +1,27 @@
+{
+  "id": "presidential-1993-02-15",
+  "type": "presidential",
+  "date": "1993-02-15",
+  "turnout": {
+    "pct": null,
+    "eligible": null,
+    "voted": null
+  },
+  "parties": [],
+  "indirect": {
+    "electedBy": "Národná rada SR",
+    "votes": 106,
+    "total": 150,
+    "needed": 90,
+    "term": "2. 3. 1993 – 2. 3. 1998",
+    "note": "Prvého prezidenta SR zvolil parlament. Priamu voľbu občanmi zaviedla ústavná zmena až v roku 1999."
+  },
+  "winner": {
+    "name": "Michal Kováč",
+    "abbr": "Michal Kováč",
+    "pct": 0
+  },
+  "source": "https://sk.wikipedia.org/wiki/Michal_Kov%C3%A1%C4%8D",
+  "sourceLabel": "Wikipédia",
+  "generatedAt": "2026-07-12T12:54:22.948Z"
+}

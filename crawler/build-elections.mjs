@@ -263,7 +263,26 @@ for (const [date, decs] of munByDate) {
   }
 }
 
-const elections = [...nonMunEntries, ...munEntries]
+// Kurátorované historické voľby, ktoré nie sú v Zbierke zákonov ako „rozhodnutie o vyhlásení volieb".
+// 1993: prvého prezidenta SR (Michal Kováč) zvolila Národná rada SR — priama voľba bola zavedená
+// až 1999, preto ju crawler zo Slov-lexu nenájde. Označené `indirect`.
+const CURATED = [
+  {
+    id: "presidential-1993-02-15",
+    type: "presidential",
+    scope: "national",
+    title: "Voľba prezidenta SR 1993",
+    date: "1993-02-15",
+    status: "past",
+    predicted: false,
+    indirect: true,
+    legalRef: null,
+    sourceUrl: "https://sk.wikipedia.org/wiki/Michal_Kov%C3%A1%C4%8D",
+  },
+];
+
+const curatedNew = CURATED.filter((c) => !nonMunEntries.some((e) => e.id === c.id));
+const elections = [...nonMunEntries, ...munEntries, ...curatedNew]
   .sort((a, b) => a.date.localeCompare(b.date));
 
 // --- Predpokladané budúce voľby (z pravidelných cyklov, ~10 rokov dopredu) ---

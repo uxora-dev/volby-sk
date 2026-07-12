@@ -368,6 +368,33 @@ async function fetchVucResult(election) {
   };
 }
 
+// Nepriama voľba prezidenta parlamentom (pred zavedením priamej voľby 1999). Kurátorované
+// faktické údaje (sk.wikipedia „Michal Kováč"): NR SR, 15. 2. 1993, 106 z 150 hlasov (potreba 90).
+const CURATED_INDIRECT = {
+  "presidential-1993-02-15": {
+    winner: "Michal Kováč",
+    electedBy: "Národná rada SR",
+    votes: 106, total: 150, needed: 90,
+    term: "2. 3. 1993 – 2. 3. 1998",
+    note: "Prvého prezidenta SR zvolil parlament. Priamu voľbu občanmi zaviedla ústavná zmena až v roku 1999.",
+  },
+};
+
+function fetchIndirectResult(election) {
+  const c = CURATED_INDIRECT[election.id];
+  if (!c) return null;
+  return {
+    id: election.id, type: election.type, date: election.date,
+    turnout: { pct: null, eligible: null, voted: null },
+    parties: [],
+    indirect: { electedBy: c.electedBy, votes: c.votes, total: c.total, needed: c.needed, term: c.term, note: c.note },
+    winner: { name: c.winner, abbr: c.winner, pct: 0 },
+    source: "https://sk.wikipedia.org/wiki/Michal_Kov%C3%A1%C4%8D",
+    sourceLabel: "Wikipédia",
+    generatedAt: new Date().toISOString(),
+  };
+}
+
 // --- main ---
 const { elections } = JSON.parse(fs.readFileSync(ELECTIONS, "utf8"));
 const today = new Date().toISOString().slice(0, 10);
@@ -379,7 +406,8 @@ const generated = [];
 const summaries = {};
 for (const e of past) {
   process.stderr.write(`# ${e.id} ... `);
-  let res = await fetchResult(e).catch(() => null);
+  let res = fetchIndirectResult(e); // nepriama voľba prezidenta (1993) → kurátorované
+  if (!res) res = await fetchResult(e).catch(() => null);
   if (!res) res = await fetchResultWiki(e).catch(() => null); // parlamentné → Wikipédia
   if (!res) res = await fetchPresidentialWiki(e).catch(() => null); // prezidentské → Wikipédia
   if (!res) res = await fetchReferendumWiki(e).catch(() => null); // referendum → Wikipédia
