@@ -71,3 +71,4 @@ Thumbs.db
 
 # Firebase config (pridá používateľ lokálne)
 android/app/google-services.json
+ios/App/App/GoogleService-Info.plist
