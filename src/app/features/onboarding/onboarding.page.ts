@@ -26,7 +26,7 @@ export class OnboardingPage {
 
   protected readonly steps: Step[] = [
     {
-      icon: 'ballot-outline',
+      icon: 'newspaper-outline',
       title: 'Všetky voľby na jednom mieste',
       text: 'Parlamentné, prezidentské, referendá, eurovoľby, župné aj komunálne — s termínmi, históriou a výsledkami od vzniku Slovenska.',
       accent: 'var(--type-parliamentary)',
