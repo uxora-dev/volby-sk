@@ -193,11 +193,73 @@
       "inParliament": false
     }
   ],
+  "mps": [
+    {
+      "name": "Monika Beňová",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Ľuboš Blaha",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Veronika Cifrová Ostrihoňová",
+      "party": "PS"
+    },
+    {
+      "name": "Martin Hojsík",
+      "party": "PS"
+    },
+    {
+      "name": "Erik Kaliňák",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Ľubica Karvašová",
+      "party": "PS"
+    },
+    {
+      "name": "Judita Laššáková",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Miriam Lexmann",
+      "party": "KDH"
+    },
+    {
+      "name": "Milan Mazurek",
+      "party": "REPUBLIKA"
+    },
+    {
+      "name": "Ľudovít Ódor",
+      "party": "PS"
+    },
+    {
+      "name": "Branislav Ondruš",
+      "party": "HLAS - SD"
+    },
+    {
+      "name": "Katarína Roth Neveďalová",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Milan Uhrík",
+      "party": "REPUBLIKA"
+    },
+    {
+      "name": "Michal Wiezik",
+      "party": "PS"
+    },
+    {
+      "name": "Lucia Yar",
+      "party": "PS"
+    }
+  ],
   "winner": {
     "name": "Progresívne Slovensko",
     "abbr": "PS",
     "pct": 27.81
   },
   "source": "https://volby.statistics.sk/ep/ep2024/sk/",
-  "generatedAt": "2026-07-11T21:51:42.257Z"
+  "generatedAt": "2026-07-15T21:11:29.144Z"
 }

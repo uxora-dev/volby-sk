@@ -33,10 +33,11 @@ async function fetchResult(election) {
   if (!build) return null;
   const year = election.date.slice(0, 4);
   const base = `https://volby.statistics.sk/${build(year)}/json`;
-  const [tab01, graph, seatsGraph] = await Promise.all([
+  const [tab01, graph, seatsGraph, deputies] = await Promise.all([
     getJson(`${base}/tab01.json`),
     getJson(`${base}/graph01a.json`),
     getJson(`${base}/graph02a.json`), // mandáty (kreslá) — len strany v parlamente
+    getJson(`${base}/tab06.json`), // zvolení poslanci (meno, priezvisko, strana) — 2020+
   ]);
   if (!tab01 || !graph || !graph.length) return null;
 
@@ -60,12 +61,19 @@ async function fetchResult(election) {
     .sort((a, b) => b.pct - a.pct);
   if (!parties.length) return null;
 
+  // Zvolení poslanci: C02 meno, C03 priezvisko, C05 celý názov strany → skratka (na farbu/zoskupenie).
+  const abbrByName = new Map(parties.map((p) => [p.name, p.abbr]));
+  const mps = (deputies || [])
+    .map((d) => ({ name: `${d.C02 || ""} ${d.C03 || ""}`.trim(), party: abbrByName.get(d.C05) || d.C05 }))
+    .filter((d) => d.name);
+
   return {
     id: election.id,
     type: election.type,
     date: election.date,
     turnout: { pct: num(t.C07), eligible: num(t.C05), voted: num(t.C06) },
     parties,
+    ...(mps.length ? { mps } : {}),
     winner: { name: parties[0].name, abbr: parties[0].abbr, pct: parties[0].pct },
     source: `https://volby.statistics.sk/${build(year)}/sk/`,
     generatedAt: new Date().toISOString(),

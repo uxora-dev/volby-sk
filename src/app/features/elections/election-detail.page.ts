@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, input, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import {
   IonHeader, IonToolbar, IonContent, IonButtons, IonBackButton, IonIcon, IonNote, IonButton,
@@ -87,6 +87,22 @@ export class ElectionDetailPage {
   protected readonly hasRegionCandidates = computed(() =>
     !!this.regionResults().find((r) => r.code === this.myRegionCode())?.candidates?.length,
   );
+
+  /** Zvolení poslanci zoskupení podľa strany (v poradí podľa mandátov). */
+  protected readonly mpsByParty = computed(() => {
+    const r = this.resultData();
+    if (!r?.mps?.length) return [];
+    return r.parties
+      .map((p) => ({ party: p, names: r.mps!.filter((d) => d.party === p.abbr).map((d) => d.name) }))
+      .filter((g) => g.names.length);
+  });
+
+  protected readonly expandedParties = signal<Set<string>>(new Set());
+  protected toggleParty(abbr: string): void {
+    const s = new Set(this.expandedParties());
+    s.has(abbr) ? s.delete(abbr) : s.add(abbr);
+    this.expandedParties.set(s);
+  }
 
   /** Brand farba strany (z Wikidata mapy), fallback na farbu typu voľby. */
   protected color(p: ResultParty): string {

@@ -230,6 +230,32 @@
           }
           <a class="results__src" [href]="r.source" target="_blank" rel="noopener">Zdroj: {{ r.sourceLabel || 'Štatistický úrad SR' }}</a>
         </div>
+
+        @if (r.mps?.length) {
+          <div class="detail-info mps">
+            <div class="results__head">
+              <span class="info-row__k">Zvolení poslanci</span>
+              <span class="turnout">{{ r.mps?.length }}</span>
+            </div>
+            @for (g of mpsByParty(); track g.party.abbr) {
+              <div class="mp-group" [class.mp-group--open]="expandedParties().has(g.party.abbr)">
+                <button class="mp-group__head" type="button" (click)="toggleParty(g.party.abbr)">
+                  <i class="pdot" [style.background]="color(g.party)"></i>
+                  <span class="mp-group__abbr">{{ g.party.abbr || g.party.name }}</span>
+                  <span class="mp-group__count">{{ g.names.length }}</span>
+                  <ion-icon [name]="expandedParties().has(g.party.abbr) ? 'chevron-up' : 'chevron-down'"></ion-icon>
+                </button>
+                @if (expandedParties().has(g.party.abbr)) {
+                  <div class="mp-names">
+                    @for (n of g.names; track $index) {
+                      <span class="mp-name">{{ n }}</span>
+                    }
+                  </div>
+                }
+              </div>
+            }
+          </div>
+        }
       }
 
       <div class="detail-info">

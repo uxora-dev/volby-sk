@@ -257,11 +257,69 @@
       "inParliament": false
     }
   ],
+  "mps": [
+    {
+      "name": "Monika Beňová",
+      "party": "SMER-SD"
+    },
+    {
+      "name": "Vladimír Bilčík",
+      "party": "Koalícia PS a SPOLU"
+    },
+    {
+      "name": "Miroslav Číž",
+      "party": "SMER-SD"
+    },
+    {
+      "name": "Lucia Ďuriš Nicholsonová",
+      "party": "SaS"
+    },
+    {
+      "name": "Robert Hajšel",
+      "party": "SMER-SD"
+    },
+    {
+      "name": "Martin Hojsík",
+      "party": "Koalícia PS a SPOLU"
+    },
+    {
+      "name": "Eugen Jurzyca",
+      "party": "SaS"
+    },
+    {
+      "name": "Miriam Lexmann",
+      "party": "KDH"
+    },
+    {
+      "name": "Peter Pollák",
+      "party": "OĽANO"
+    },
+    {
+      "name": "Miroslav Radačovský",
+      "party": "ĽS Naše Slovensko"
+    },
+    {
+      "name": "Michal Šimečka",
+      "party": "Koalícia PS a SPOLU"
+    },
+    {
+      "name": "Ivan Štefanec",
+      "party": "KDH"
+    },
+    {
+      "name": "Milan Uhrík",
+      "party": "ĽS Naše Slovensko"
+    },
+    {
+      "name": "Michal Wiezik",
+      "party": "Koalícia PS a SPOLU"
+    }
+  ],
   "winner": {
     "name": "Koalícia Progresívne Slovensko a SPOLU - občianska demokracia",
     "abbr": "Koalícia PS a SPOLU",
     "pct": 20.11
   },
   "source": "https://volby.statistics.sk/ep/ep2019/sk/",
-  "generatedAt": "2026-07-11T21:51:41.329Z"
+  "generatedAt": "2026-07-15T21:11:28.731Z"
 }

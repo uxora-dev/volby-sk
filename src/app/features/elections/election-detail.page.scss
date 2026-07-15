@@ -517,3 +517,58 @@
 @keyframes barGrow {
   from { width: 0; }
 }
+
+/* zvolení poslanci (parlamentné/euro) */
+.mps .results__head {
+  margin-bottom: 4px;
+}
+.mp-group {
+  border-top: 1px solid var(--app-border);
+}
+.mp-group:first-of-type {
+  border-top: 0;
+}
+.mp-group__head {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 13px 2px;
+  background: none;
+  border: 0;
+  font: inherit;
+  cursor: pointer;
+  color: var(--ion-text-color);
+}
+.mp-group__abbr {
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+  font-size: 0.92rem;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.mp-group__count {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--app-muted);
+  font-variant-numeric: tabular-nums;
+}
+.mp-group__head ion-icon {
+  color: var(--app-muted);
+  font-size: 1.05rem;
+}
+.mp-names {
+  columns: 2;
+  column-gap: 18px;
+  padding: 0 2px 13px;
+}
+.mp-name {
+  display: block;
+  break-inside: avoid;
+  font-size: 0.86rem;
+  line-height: 1.5;
+  color: color-mix(in srgb, var(--ion-text-color) 82%, transparent);
+}

@@ -7,6 +7,12 @@ export interface ResultParty {
   inParliament: boolean;
 }
 
+/** Zvolený poslanec/poslankyňa (NR SR / europarlament). */
+export interface Deputy {
+  name: string; // meno a priezvisko
+  party: string; // skratka strany (na zoskupenie + brand farbu)
+}
+
 export interface ResultSummary {
   type: string;
   turnout: number | null;
@@ -53,6 +59,7 @@ export interface ElectionResult {
   date: string;
   turnout: { pct: number | null; eligible: number | null; voted: number | null };
   parties: ResultParty[];
+  mps?: Deputy[]; // zvolení poslanci (parlamentné/euro 2020+, zo ŠÚSR)
   rounds?: PresidentialRound[]; // prezidentské — kolá s kandidátmi
   regions?: ResultRegion[]; // VÚC — zvolený predseda (župan) za každý kraj
   referendum?: {

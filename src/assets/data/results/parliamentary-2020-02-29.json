@@ -201,11 +201,613 @@
       "inParliament": false
     }
   ],
+  "mps": [
+    {
+      "name": "Anna Andrejuvová",
+      "party": "OĽANO"
+    },
+    {
+      "name": "Vladimír Baláž",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Alojz Baránik",
+      "party": "SaS"
+    },
+    {
+      "name": "Jaroslav Baška",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Martin Beluský",
+      "party": "ĽSNS"
+    },
+    {
+      "name": "Ján Benčík",
+      "party": "ZA ĽUDÍ"
+    },
+    {
+      "name": "Ľuboš Blaha",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Juraj Blanár",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Ján Blcháč",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Martin Borguľa",
+      "party": "SME RODINA"
+    },
+    {
+      "name": "Martina Brisudová",
+      "party": "OĽANO"
+    },
+    {
+      "name": "Jozef Bubnár",
+      "party": "OĽANO"
+    },
+    {
+      "name": "Ján Budaj",
+      "party": "OĽANO"
+    },
+    {
+      "name": "Jana Cigániková",
+      "party": "SaS"
+    },
+    {
+      "name": "Peter Cmorej",
+      "party": "SaS"
+    },
+    {
+      "name": "Kristián Čekovský",
+      "party": "OĽANO"
+    },
+    {
+      "name": "Martin Čepček",
+      "party": "OĽANO"
+    },
+    {
+      "name": "Peter Dobeš",
+      "party": "OĽANO"
+    },
+    {
+      "name": "Ondrej Dostál",
+      "party": "SaS"
+    },
+    {
+      "name": "Lucia Drábiková",
+      "party": "OĽANO"
+    },
+    {
+      "name": "Dominik Drdul",
+      "party": "OĽANO"
+    },
+    {
+      "name": "Juraj Droba",
+      "party": "SaS"
+    },
+    {
+      "name": "Ondrej Ďurica",
+      "party": "ĽSNS"
+    },
+    {
+      "name": "Lucia Ďuriš Nicholsonová",
+      "party": "SaS"
+    },
+    {
+      "name": "Vladimír Faič",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Martin Fecko",
+      "party": "OĽANO"
+    },
+    {
+      "name": "Ján Ferenčák",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Robert Fico",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Dušan Galis",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Ľudovít Goga",
+      "party": "SME RODINA"
+    },
+    {
+      "name": "Gábor Grendel",
+      "party": "OĽANO"
+    },
+    {
+      "name": "Branislav Gröhling",
+      "party": "SaS"
+    },
+    {
+      "name": "Jozef Habánik",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Petra Hajšelová",
+      "party": "SME RODINA"
+    },
+    {
+      "name": "Róbert Halák",
+      "party": "OĽANO"
+    },
+    {
+      "name": "Katarína Hatráková",
+      "party": "OĽANO"
+    },
+    {
+      "name": "Marek Hattas",
+      "party": "ZA ĽUDÍ"
+    },
+    {
+      "name": "Eduard Heger",
+      "party": "OĽANO"
+    },
+    {
+      "name": "Ján Herák",
+      "party": "OĽANO"
+    },
+    {
+      "name": "Štefan Holý",
+      "party": "SME RODINA"
+    },
+    {
+      "name": "Eva Horváthová",
+      "party": "OĽANO"
+    },
+    {
+      "name": "Igor Hus",
+      "party": "OĽANO"
+    },
+    {
+      "name": "Dušan Jarjabek",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Ladislav Kamenický",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Jaroslav Karahuta",
+      "party": "SME RODINA"
+    },
+    {
+      "name": "Igor Kašper",
+      "party": "SME RODINA"
+    },
+    {
+      "name": "Monika Kavecká",
+      "party": "OĽANO"
+    },
+    {
+      "name": "Ján Kerekréti",
+      "party": "OĽANO"
+    },
+    {
+      "name": "Marián Kéry",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Andrej Kiska",
+      "party": "ZA ĽUDÍ"
+    },
+    {
+      "name": "Martin Klus",
+      "party": "SaS"
+    },
+    {
+      "name": "Peter Kmec",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Eduard Kočiš",
+      "party": "ĽSNS"
+    },
+    {
+      "name": "Mária Kolíková",
+      "party": "ZA ĽUDÍ"
+    },
+    {
+      "name": "Boris Kollár",
+      "party": "SME RODINA"
+    },
+    {
+      "name": "Miroslav Kollár",
+      "party": "ZA ĽUDÍ"
+    },
+    {
+      "name": "Maroš Kondrót",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Marek Kotleba",
+      "party": "ĽSNS"
+    },
+    {
+      "name": "Marian Kotleba",
+      "party": "ĽSNS"
+    },
+    {
+      "name": "Monika Kozelová",
+      "party": "OĽANO"
+    },
+    {
+      "name": "Marek Krajčí",
+      "party": "OĽANO"
+    },
+    {
+      "name": "Ľuboš Krajčír",
+      "party": "SME RODINA"
+    },
+    {
+      "name": "Milan Krajniak",
+      "party": "SME RODINA"
+    },
+    {
+      "name": "Peter Kremský",
+      "party": "OĽANO"
+    },
+    {
+      "name": "Petra Krištúfková",
+      "party": "SME RODINA"
+    },
+    {
+      "name": "Ján Krošlák",
+      "party": "OĽANO"
+    },
+    {
+      "name": "Peter Krupa",
+      "party": "ĽSNS"
+    },
+    {
+      "name": "Juraj Krúpa",
+      "party": "OĽANO"
+    },
+    {
+      "name": "Stanislav Kubánek",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Karol Kučera",
+      "party": "OĽANO"
+    },
+    {
+      "name": "Filip Kuffa",
+      "party": "ĽSNS"
+    },
+    {
+      "name": "Štefan Kuffa",
+      "party": "ĽSNS"
+    },
+    {
+      "name": "Milan Kuriak",
+      "party": "OĽANO"
+    },
+    {
+      "name": "Lukáš Kyselica",
+      "party": "OĽANO"
+    },
+    {
+      "name": "Ľubica Laššáková",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Vladimír Ledecký",
+      "party": "ZA ĽUDÍ"
+    },
+    {
+      "name": "Peter Liba",
+      "party": "OĽANO"
+    },
+    {
+      "name": "Patrick Linhart",
+      "party": "SME RODINA"
+    },
+    {
+      "name": "Michal Luciak",
+      "party": "ZA ĽUDÍ"
+    },
+    {
+      "name": "Jozef Lukáč",
+      "party": "SME RODINA"
+    },
+    {
+      "name": "Jana Majorová Garstková",
+      "party": "OĽANO"
+    },
+    {
+      "name": "Vladimíra Marcinková",
+      "party": "ZA ĽUDÍ"
+    },
+    {
+      "name": "Igor Matovič",
+      "party": "OĽANO"
+    },
+    {
+      "name": "Milan Mazurek",
+      "party": "ĽSNS"
+    },
+    {
+      "name": "Andrej Medvecký",
+      "party": "ĽSNS"
+    },
+    {
+      "name": "Ján Mičovský",
+      "party": "OĽANO"
+    },
+    {
+      "name": "Anna Mierna",
+      "party": "OĽANO"
+    },
+    {
+      "name": "Marcel Mihalik",
+      "party": "OĽANO"
+    },
+    {
+      "name": "Danica Mikovčáková",
+      "party": "ĽSNS"
+    },
+    {
+      "name": "Roman Mikulec",
+      "party": "OĽANO"
+    },
+    {
+      "name": "Stanislav Mizík",
+      "party": "ĽSNS"
+    },
+    {
+      "name": "Dušan Muňko",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Jaroslav Naď",
+      "party": "OĽANO"
+    },
+    {
+      "name": "Erik Ňarjaš",
+      "party": "OĽANO"
+    },
+    {
+      "name": "Martin Nemky",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Ján Oravec",
+      "party": "SaS"
+    },
+    {
+      "name": "Peter Osuský",
+      "party": "SaS"
+    },
+    {
+      "name": "Adriana Pčolinská",
+      "party": "SME RODINA"
+    },
+    {
+      "name": "Peter Pčolinský",
+      "party": "SME RODINA"
+    },
+    {
+      "name": "Peter Pellegrini",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Monika Péter",
+      "party": "SME RODINA"
+    },
+    {
+      "name": "Ľubomír Petrák",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Zita Pleštinská",
+      "party": "OĽANO"
+    },
+    {
+      "name": "Ján Podmanický",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Peter Pollák",
+      "party": "OĽANO"
+    },
+    {
+      "name": "Milan Potocký",
+      "party": "OĽANO"
+    },
+    {
+      "name": "Jozef Pročko",
+      "party": "OĽANO"
+    },
+    {
+      "name": "Róbert Puci",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Richard Raši",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Anna Remiášová",
+      "party": "OĽANO"
+    },
+    {
+      "name": "Veronika Remišová",
+      "party": "ZA ĽUDÍ"
+    },
+    {
+      "name": "Ján Richter",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Denisa Saková",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Marián Saloň",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Rastislav Schlosár",
+      "party": "ĽSNS"
+    },
+    {
+      "name": "Andrej Stančík",
+      "party": "OĽANO"
+    },
+    {
+      "name": "Anton Stredák",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Magdaléna Sulanová",
+      "party": "ĽSNS"
+    },
+    {
+      "name": "Richard Sulík",
+      "party": "SaS"
+    },
+    {
+      "name": "Boris Susko",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Miloš Svrček",
+      "party": "SME RODINA"
+    },
+    {
+      "name": "Ján Szőllős",
+      "party": "OĽANO"
+    },
+    {
+      "name": "Zuzana Šebová",
+      "party": "SME RODINA"
+    },
+    {
+      "name": "Juraj Šeliga",
+      "party": "ZA ĽUDÍ"
+    },
+    {
+      "name": "Jaromír Šíbl",
+      "party": "OĽANO"
+    },
+    {
+      "name": "Jozef Šimko",
+      "party": "ĽSNS"
+    },
+    {
+      "name": "Michal Šipoš",
+      "party": "OĽANO"
+    },
+    {
+      "name": "Mária Šofranko",
+      "party": "OĽANO"
+    },
+    {
+      "name": "Peter Šuca",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Tomáš Šudík",
+      "party": "OĽANO"
+    },
+    {
+      "name": "Matúš Šutaj Eštok",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Romana Tabák",
+      "party": "OĽANO"
+    },
+    {
+      "name": "Richard Takáč",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Tomáš Taraba",
+      "party": "ĽSNS"
+    },
+    {
+      "name": "Erik Tomáš",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Miroslav Urban",
+      "party": "ĽSNS"
+    },
+    {
+      "name": "Tomáš Valášek",
+      "party": "ZA ĽUDÍ"
+    },
+    {
+      "name": "Jozef Valocký",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Jana Vaľová",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Jarmila Vaňová",
+      "party": "OĽANO"
+    },
+    {
+      "name": "Richard Vašečka",
+      "party": "OĽANO"
+    },
+    {
+      "name": "Ľubomír Vážny",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Milan Vetrák",
+      "party": "OĽANO"
+    },
+    {
+      "name": "Marián Viskupič",
+      "party": "SaS"
+    },
+    {
+      "name": "Peter Vons",
+      "party": "OĽANO"
+    },
+    {
+      "name": "Anna Záborská",
+      "party": "OĽANO"
+    },
+    {
+      "name": "Viliam Zahorčák",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Anna Zemanová",
+      "party": "SaS"
+    },
+    {
+      "name": "Peter Žiga",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Jana Žitňanská",
+      "party": "ZA ĽUDÍ"
+    }
+  ],
   "winner": {
     "name": "OBYČAJNÍ ĽUDIA a nezávislé osobnosti (OĽANO), NOVA, Kresťanská únia (KÚ), ZMENA ZDOLA",
     "abbr": "OĽANO",
     "pct": 25.02
   },
   "source": "https://volby.statistics.sk/nrsr/nrsr2020/sk/",
-  "generatedAt": "2026-07-11T21:51:41.443Z"
+  "generatedAt": "2026-07-15T21:11:29.050Z"
 }

@@ -209,11 +209,613 @@
       "inParliament": false
     }
   ],
+  "mps": [
+    {
+      "name": "Vladimír Baláž",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Jaroslav Baška",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Branislav Becík",
+      "party": "HLAS - SD"
+    },
+    {
+      "name": "Irena Bihariová",
+      "party": "PS"
+    },
+    {
+      "name": "Jana Bittó Cigániková",
+      "party": "SaS"
+    },
+    {
+      "name": "Ľuboš Blaha",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Juraj Blanár",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Ján Blcháč",
+      "party": "HLAS - SD"
+    },
+    {
+      "name": "Lukáš Bužo",
+      "party": "OĽANO A PRIATELIA, KÚ a ZA ĽUDÍ"
+    },
+    {
+      "name": "Marián Čaučík",
+      "party": "KDH"
+    },
+    {
+      "name": "Marcela Čavojová",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Andrej Danko",
+      "party": "SNS"
+    },
+    {
+      "name": "Dávid Dej",
+      "party": "PS"
+    },
+    {
+      "name": "Zuzana Dolinková",
+      "party": "HLAS - SD"
+    },
+    {
+      "name": "Ondrej Dostál",
+      "party": "SaS"
+    },
+    {
+      "name": "Juraj Droba",
+      "party": "SaS"
+    },
+    {
+      "name": "Tomáš Drucker",
+      "party": "HLAS - SD"
+    },
+    {
+      "name": "Martin Dubéci",
+      "party": "PS"
+    },
+    {
+      "name": "Oskar Dvořák",
+      "party": "PS"
+    },
+    {
+      "name": "Richard Eliáš",
+      "party": "HLAS - SD"
+    },
+    {
+      "name": "Vladimír Faič",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Ján Ferenčák",
+      "party": "HLAS - SD"
+    },
+    {
+      "name": "Robert Fico",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Dušan Galis",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Ľubomír Galko",
+      "party": "OĽANO A PRIATELIA, KÚ a ZA ĽUDÍ"
+    },
+    {
+      "name": "Tibor Gašpar",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Tina Gažovičová",
+      "party": "PS"
+    },
+    {
+      "name": "Juraj Gedra",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Gábor Grendel",
+      "party": "OĽANO A PRIATELIA, KÚ a ZA ĽUDÍ"
+    },
+    {
+      "name": "Branislav Gröhling",
+      "party": "SaS"
+    },
+    {
+      "name": "Jozef Habánik",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Jozef Hajko",
+      "party": "KDH"
+    },
+    {
+      "name": "Augustín Hambálek",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Jana Hanuliaková",
+      "party": "PS"
+    },
+    {
+      "name": "Ján Hargaš",
+      "party": "PS"
+    },
+    {
+      "name": "Tomáš Hellebrandt",
+      "party": "PS"
+    },
+    {
+      "name": "Alojz Hlina",
+      "party": "SaS"
+    },
+    {
+      "name": "Martina Holečková",
+      "party": "KDH"
+    },
+    {
+      "name": "Ján Horecký",
+      "party": "KDH"
+    },
+    {
+      "name": "Rudolf Huliak",
+      "party": "SNS"
+    },
+    {
+      "name": "Igor Choma",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Karol Janas",
+      "party": "HLAS - SD"
+    },
+    {
+      "name": "Igor Janckulík",
+      "party": "KDH"
+    },
+    {
+      "name": "Dušan Jarjabek",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Zora Jaurová",
+      "party": "PS"
+    },
+    {
+      "name": "Jozef Ježík",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Beáta Jurík",
+      "party": "PS"
+    },
+    {
+      "name": "Erika Jurinová",
+      "party": "OĽANO A PRIATELIA, KÚ a ZA ĽUDÍ"
+    },
+    {
+      "name": "Erik Kaliňák",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Michal Kaliňák",
+      "party": "HLAS - SD"
+    },
+    {
+      "name": "Robert Kaliňák",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Peter Kalivoda",
+      "party": "HLAS - SD"
+    },
+    {
+      "name": "Viera Kalmárová",
+      "party": "PS"
+    },
+    {
+      "name": "Ladislav Kamenický",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Daniel Karas",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Marián Kéry",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Štefan Kišš",
+      "party": "PS"
+    },
+    {
+      "name": "Dana Kleinert",
+      "party": "PS"
+    },
+    {
+      "name": "Peter Kmec",
+      "party": "HLAS - SD"
+    },
+    {
+      "name": "Mária Kolíková",
+      "party": "SaS"
+    },
+    {
+      "name": "Ingrid Kosová",
+      "party": "PS"
+    },
+    {
+      "name": "Peter Kotlár",
+      "party": "SNS"
+    },
+    {
+      "name": "Marek Krajčí",
+      "party": "OĽANO A PRIATELIA, KÚ a ZA ĽUDÍ"
+    },
+    {
+      "name": "Stanislav Kubánek",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Filip Kuffa",
+      "party": "SNS"
+    },
+    {
+      "name": "Štefan Kuffa",
+      "party": "SNS"
+    },
+    {
+      "name": "Lucia Kurilovská",
+      "party": "HLAS - SD"
+    },
+    {
+      "name": "Ján Kvorka",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Ľubica Laššáková",
+      "party": "HLAS - SD"
+    },
+    {
+      "name": "Vladimír Ledecký",
+      "party": "SaS"
+    },
+    {
+      "name": "Pavel Ľupták",
+      "party": "SNS"
+    },
+    {
+      "name": "Darina Luščíková",
+      "party": "PS"
+    },
+    {
+      "name": "František Majerský",
+      "party": "KDH"
+    },
+    {
+      "name": "Milan Majerský",
+      "party": "KDH"
+    },
+    {
+      "name": "Roman Malatinec",
+      "party": "HLAS - SD"
+    },
+    {
+      "name": "Vladimíra Marcinková",
+      "party": "SaS"
+    },
+    {
+      "name": "Zuzana Matejičková",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Igor Matovič",
+      "party": "OĽANO A PRIATELIA, KÚ a ZA ĽUDÍ"
+    },
+    {
+      "name": "Ján Mažgút",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Igor Melicher",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Zuzana Mesterová",
+      "party": "PS"
+    },
+    {
+      "name": "Roman Michelko",
+      "party": "SNS"
+    },
+    {
+      "name": "František Mikloško",
+      "party": "KDH"
+    },
+    {
+      "name": "Roman Mikulec",
+      "party": "OĽANO A PRIATELIA, KÚ a ZA ĽUDÍ"
+    },
+    {
+      "name": "Michal Moško",
+      "party": "HLAS - SD"
+    },
+    {
+      "name": "Dušan Muňko",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Peter Náhlik",
+      "party": "HLAS - SD"
+    },
+    {
+      "name": "Martin Nemky",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Martin Pekár",
+      "party": "PS"
+    },
+    {
+      "name": "Peter Pellegrini",
+      "party": "HLAS - SD"
+    },
+    {
+      "name": "Simona Petrík",
+      "party": "PS"
+    },
+    {
+      "name": "František Petro",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Lucia Plaváková",
+      "party": "PS"
+    },
+    {
+      "name": "Ján Podmanický",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Peter Pollák",
+      "party": "OĽANO A PRIATELIA, KÚ a ZA ĽUDÍ"
+    },
+    {
+      "name": "Jozef Pročko",
+      "party": "OĽANO A PRIATELIA, KÚ a ZA ĽUDÍ"
+    },
+    {
+      "name": "Ondrej Prostredník",
+      "party": "PS"
+    },
+    {
+      "name": "Róbert Puci",
+      "party": "HLAS - SD"
+    },
+    {
+      "name": "Richard Raši",
+      "party": "HLAS - SD"
+    },
+    {
+      "name": "Veronika Remišová",
+      "party": "OĽANO A PRIATELIA, KÚ a ZA ĽUDÍ"
+    },
+    {
+      "name": "Ján Richter",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Michal Sabo",
+      "party": "PS"
+    },
+    {
+      "name": "Denisa Saková",
+      "party": "HLAS - SD"
+    },
+    {
+      "name": "Marián Saloň",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Justín Sedlák",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Jozef Smatana",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Jaroslav Spišiak",
+      "party": "PS"
+    },
+    {
+      "name": "Peter Stachura",
+      "party": "KDH"
+    },
+    {
+      "name": "Tamara Stohlová",
+      "party": "PS"
+    },
+    {
+      "name": "Anton Stredák",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Michal Stuška",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Richard Sulík",
+      "party": "SaS"
+    },
+    {
+      "name": "Boris Susko",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Tomáš Szalay",
+      "party": "SaS"
+    },
+    {
+      "name": "Radomír Šalitroš",
+      "party": "HLAS - SD"
+    },
+    {
+      "name": "Kamil Šaško",
+      "party": "HLAS - SD"
+    },
+    {
+      "name": "Ivan Ševčík",
+      "party": "SNS"
+    },
+    {
+      "name": "Michal Šimečka",
+      "party": "PS"
+    },
+    {
+      "name": "Igor Šimko",
+      "party": "HLAS - SD"
+    },
+    {
+      "name": "Martina Šimkovičová",
+      "party": "SNS"
+    },
+    {
+      "name": "Michal Šipoš",
+      "party": "OĽANO A PRIATELIA, KÚ a ZA ĽUDÍ"
+    },
+    {
+      "name": "Anežka Škopová",
+      "party": "OĽANO A PRIATELIA, KÚ a ZA ĽUDÍ"
+    },
+    {
+      "name": "Branislav Škripek",
+      "party": "KDH"
+    },
+    {
+      "name": "Martin Šmilňák",
+      "party": "KDH"
+    },
+    {
+      "name": "Veronika Šrobová",
+      "party": "PS"
+    },
+    {
+      "name": "Ivan Štefunko",
+      "party": "PS"
+    },
+    {
+      "name": "Zuzana Števulová",
+      "party": "PS"
+    },
+    {
+      "name": "Peter Šuca",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Matúš Šutaj Eštok",
+      "party": "HLAS - SD"
+    },
+    {
+      "name": "Richard Takáč",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Viliam Tankó",
+      "party": "OĽANO A PRIATELIA, KÚ a ZA ĽUDÍ"
+    },
+    {
+      "name": "Tomáš Taraba",
+      "party": "SNS"
+    },
+    {
+      "name": "Dušan Tittel",
+      "party": "HLAS - SD"
+    },
+    {
+      "name": "Erik Tomáš",
+      "party": "HLAS - SD"
+    },
+    {
+      "name": "Michal Truban",
+      "party": "PS"
+    },
+    {
+      "name": "Andrea Turčanová",
+      "party": "KDH"
+    },
+    {
+      "name": "Tomáš Valášek",
+      "party": "PS"
+    },
+    {
+      "name": "Jozef Valocký",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Jana Vaľová",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Branislav Vančo",
+      "party": "PS"
+    },
+    {
+      "name": "Richard Vašečka",
+      "party": "OĽANO A PRIATELIA, KÚ a ZA ĽUDÍ"
+    },
+    {
+      "name": "Ľubomír Vážny",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Veronika Veslárová",
+      "party": "PS"
+    },
+    {
+      "name": "Jozef Viskupič",
+      "party": "OĽANO A PRIATELIA, KÚ a ZA ĽUDÍ"
+    },
+    {
+      "name": "Marián Viskupič",
+      "party": "SaS"
+    },
+    {
+      "name": "Erik Vlček",
+      "party": "HLAS - SD"
+    },
+    {
+      "name": "Michal Wiezik",
+      "party": "PS"
+    },
+    {
+      "name": "Anna Záborská",
+      "party": "OĽANO A PRIATELIA, KÚ a ZA ĽUDÍ"
+    },
+    {
+      "name": "Viliam Zahorčák",
+      "party": "SMER - SD"
+    },
+    {
+      "name": "Peter Žiga",
+      "party": "HLAS - SD"
+    }
+  ],
   "winner": {
     "name": "SMER - sociálna demokracia",
     "abbr": "SMER - SD",
     "pct": 22.94
   },
   "source": "https://volby.statistics.sk/nrsr/nrsr2023/sk/",
-  "generatedAt": "2026-07-11T21:51:41.936Z"
+  "generatedAt": "2026-07-15T21:11:29.111Z"
 }
