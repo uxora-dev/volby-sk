@@ -8,6 +8,8 @@ import { ElectionsService } from '../../core/services/elections.service';
 import { SettingsService } from '../../core/services/settings.service';
 import { ResultsService } from '../../core/services/results.service';
 import { LocationService } from '../../core/services/location.service';
+import { MapDataService } from '../../core/services/map-data.service';
+import { RegionMapComponent } from './region-map.component';
 import { TYPE_META } from '../../core/models/election';
 import { ElectionResult, ResultParty } from '../../core/models/result';
 import { partyColor } from '../../core/models/party-brand';
@@ -20,7 +22,7 @@ const todayStr = () => new Date().toISOString().slice(0, 10);
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     RouterLink, IonHeader, IonToolbar, IonContent, IonButtons, IonBackButton,
-    IonIcon, IonNote, IonButton, RelativeSkPipe, SkDatePipe,
+    IonIcon, IonNote, IonButton, RelativeSkPipe, SkDatePipe, RegionMapComponent,
   ],
   templateUrl: './election-detail.page.html',
   styleUrl: './election-detail.page.scss',
@@ -30,10 +32,18 @@ export class ElectionDetailPage {
   protected readonly settings = inject(SettingsService);
   private readonly results = inject(ResultsService);
   private readonly loc = inject(LocationService);
+  private readonly mapData = inject(MapDataService);
 
   constructor() {
     this.loc.loadMayors();
   }
+
+  /** Má voľba okresnú mapu (parlamentné/euro s dátami)? */
+  protected readonly hasRegionMap = computed(() => {
+    const e = this.election();
+    if (!e || (e.type !== 'parliamentary' && e.type !== 'european')) return false;
+    return !!this.mapData.mapFor(e.id)();
+  });
 
   /** Zvolený starosta/primátor vo vybranej obci — pri komunálnych voľbách s dátami (2018, 2022). */
   protected readonly obecMayor = computed(() => {

@@ -231,6 +231,15 @@
           <a class="results__src" [href]="r.source" target="_blank" rel="noopener">Zdroj: {{ r.sourceLabel || 'Štatistický úrad SR' }}</a>
         </div>
 
+        @if (hasRegionMap()) {
+          <div class="detail-info">
+            <div class="results__head">
+              <span class="info-row__k">Kto vyhral v okrese</span>
+            </div>
+            <app-region-map [electionId]="id()"></app-region-map>
+          </div>
+        }
+
         @if (r.mps?.length) {
           <div class="detail-info mps">
             <div class="results__head">

@@ -1,0 +1,45 @@
+@if (okresPaths(); as p) {
+  @if (data(); as d) {
+    <div class="rmap">
+      <svg [attr.viewBox]="p.viewBox" preserveAspectRatio="xMidYMid meet" class="rmap__svg">
+        @for (o of okresy(); track o.code) {
+          <path
+            [attr.d]="o.d"
+            [attr.fill]="o.fill"
+            class="rmap__okres"
+            [class.is-sel]="o.code === selected()"
+            (click)="select(o.code)"
+          ></path>
+        }
+      </svg>
+
+      @if (selectedInfo(); as sel) {
+        <div class="rmap__panel">
+          <div class="rmap__panel-head">
+            <span class="rmap__panel-name">{{ sel.name }}</span>
+            <button class="rmap__close" type="button" (click)="select(null)" aria-label="Zavrieť">
+              <ion-icon name="close"></ion-icon>
+            </button>
+          </div>
+          <div class="rmap__bars">
+            @for (t of sel.top; track $index) {
+              <div class="rmap__bar-row" [class.is-winner]="$index === 0">
+                <span class="rmap__bar-name"><i class="pdot" [style.background]="t.color"></i>{{ t.abbr }}</span>
+                <div class="rmap__track"><div class="rmap__fill" [style.width.%]="(t.pct / sel.top[0].pct) * 100" [style.background]="t.color"></div></div>
+                <span class="rmap__bar-pct">{{ t.pct.toFixed(1).replace('.', ',') }} %</span>
+              </div>
+            }
+          </div>
+        </div>
+      } @else {
+        <div class="rmap__hint">Ťuknite na okres pre výsledky</div>
+      }
+
+      <div class="rmap__legend">
+        @for (l of legend(); track l.abbr) {
+          <span class="rmap__leg"><i [style.background]="l.color"></i>{{ l.abbr }} · {{ l.count }}</span>
+        }
+      </div>
+    </div>
+  }
+}
