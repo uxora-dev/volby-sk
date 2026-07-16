@@ -42,8 +42,10 @@ jobs:
       - name: Vygeneruj výsledky minulých volieb
         run: node crawler/build-results.mjs --elections public/elections.json --dir public/results
 
-      - name: Vygeneruj podklady pre okresnú mapu
-        run: node crawler/build-maps.mjs --elections public/elections.json --dir public
+      - name: Vygeneruj podklady pre krajskú mapu
+        run: |
+          cp src/assets/data/kraje-paths.json public/kraje-paths.json
+          node crawler/build-maps.mjs --elections public/elections.json --dir public
 
       - name: Detekuj zmeny a pošli FCM push
         env:
