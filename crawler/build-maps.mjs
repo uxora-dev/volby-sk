@@ -1,12 +1,15 @@
-// Generuje podklady pre okresnú mapu parlamentných/eurovolieb zo ŠÚSR:
-//  - okresy-paths.json: predpočítané SVG cesty okresov (raz, spoločné) z geojson/okresy.geo.json
-//  - maps/<id>.json: víťaz + top strany za každý okres (z json/map03d.json)
-// Vylučuje agregáty (kódy končiace "00": 100 Bratislava, 800 Košice) a 900 Cudzina.
+// Generuje podklady pre krajskú mapu parlamentných/eurovolieb zo ŠÚSR:
+//  - kraje-paths.json: predpočítané SVG cesty 8 krajov (okresy zlúčené = dissolve cez topojson)
+//  - maps/<id>.json: víťaz + top strany za každý kraj (agregované z okresných dát map03d)
+// Okresy sa zlučujú do krajov podľa kódu (1xx=Bratislavský … 8xx=Košický). Vylúčené agregáty
+// (kódy končiace "00": 100 Bratislava, 800 Košice) a 900 Cudzina.
 //
 // Použitie: node build-maps.mjs [--elections ../src/assets/data/elections.json] [--dir ../src/assets/data]
 
 import fs from "node:fs";
 import path from "node:path";
+import { topology } from "topojson-server";
+import { merge } from "topojson-client";
 
 const UA = "Mozilla/5.0 (VolbySK maps; kontakt: jur.vanko@gmail.com)";
 const args = process.argv.slice(2);
@@ -19,19 +22,35 @@ const num = (s) => parseFloat(String(s ?? "").replace(/[\s ]/g, "").replace(",",
 const getJson = async (url) => { const r = await fetch(url, { headers: { "User-Agent": UA } }).catch(() => null); return r && r.ok ? r.json().catch(() => null) : null; };
 const PORTAL = { parliamentary: (y) => `nrsr/nrsr${y}`, european: (y) => `ep/ep${y}` };
 const isAggregate = (code) => /00$/.test(String(code)); // 100/800 agregáty + 900 Cudzina
+const krajOf = (okres) => Math.floor(Number(okres) / 100); // 101 → 1, 702 → 7
+const KRAJ_NAMES = {
+  1: "Bratislavský kraj", 2: "Trnavský kraj", 3: "Trenčiansky kraj", 4: "Nitriansky kraj",
+  5: "Žilinský kraj", 6: "Banskobystrický kraj", 7: "Prešovský kraj", 8: "Košický kraj",
+};
 
-// --- predpočítané SVG cesty okresov (spoločné pre všetky voľby) ---
+// --- SVG cesty 8 krajov: okresy zlúčené cez topojson (odstráni vnútorné hranice) ---
 async function buildPaths() {
   const geo = await getJson("https://volby.statistics.sk/nrsr/nrsr2023/geojson/okresy.geo.json");
   if (!geo?.features) { process.stderr.write("# okresy.geo.json nedostupné\n"); return; }
   const features = geo.features.filter((f) => !isAggregate(f.properties.OKRES));
 
+  const krajByIndex = features.map((f) => krajOf(f.properties.OKRES)); // poradie == poradie geometrií
+  const topo = topology({ o: { type: "GeometryCollection", geometries: features.map((f) => ({ type: f.geometry.type, coordinates: f.geometry.coordinates })) } });
+  const geoms = topo.objects.o.geometries;
+  const kraje = [];
+  for (let k = 1; k <= 8; k++) {
+    const gs = geoms.filter((_, i) => krajByIndex[i] === k);
+    if (!gs.length) continue;
+    kraje.push({ code: String(k), name: KRAJ_NAMES[k], geom: merge(topo, gs) });
+  }
+
+  // bounds cez zlúčené geometrie
   let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
   const eachCoord = (geom, fn) => {
     const rings = geom.type === "Polygon" ? geom.coordinates : geom.type === "MultiPolygon" ? geom.coordinates.flat() : [];
     for (const ring of rings) for (const c of ring) fn(c);
   };
-  for (const f of features) eachCoord(f.geometry, ([x, y]) => { if (x < minX) minX = x; if (y < minY) minY = y; if (x > maxX) maxX = x; if (y > maxY) maxY = y; });
+  for (const kr of kraje) eachCoord(kr.geom, ([x, y]) => { if (x < minX) minX = x; if (y < minY) minY = y; if (x > maxX) maxX = x; if (y > maxY) maxY = y; });
 
   const W = 1000, scale = W / (maxX - minX), H = Math.round((maxY - minY) * scale);
   const px = (x) => Math.round((x - minX) * scale);
@@ -39,27 +58,42 @@ async function buildPaths() {
   const ringD = (r) => r.map((c, i) => (i ? "L" : "M") + px(c[0]) + " " + py(c[1])).join(" ") + "Z";
   const geomD = (g) => g.type === "Polygon" ? g.coordinates.map(ringD).join(" ") : g.type === "MultiPolygon" ? g.coordinates.flatMap((poly) => poly.map(ringD)).join(" ") : "";
 
-  const okresy = features.map((f) => ({ code: String(f.properties.OKRES), name: f.properties.OKRES_SK, d: geomD(f.geometry) })).filter((o) => o.d);
-  fs.writeFileSync(path.join(DIR, "okresy-paths.json"), JSON.stringify({ viewBox: `0 0 ${W} ${H}`, okresy }));
-  process.stderr.write(`✓ okresy-paths.json — ${okresy.length} okresov, viewBox 0 0 ${W} ${H}\n`);
+  const out = kraje.map((kr) => ({ code: kr.code, name: kr.name, d: geomD(kr.geom) })).filter((o) => o.d);
+  fs.writeFileSync(path.join(DIR, "kraje-paths.json"), JSON.stringify({ viewBox: `0 0 ${W} ${H}`, kraje: out }));
+  fs.rmSync(path.join(DIR, "okresy-paths.json"), { force: true }); // stará okresná verzia
+  process.stderr.write(`✓ kraje-paths.json — ${out.length} krajov, viewBox 0 0 ${W} ${H}\n`);
 }
 
-// --- víťaz + top strany za okres, per voľba ---
+// --- víťaz + top strany za kraj (agregované z okresných top-5 v map03d) ---
 async function buildElectionMap(e) {
   const year = e.date.slice(0, 4);
-  const d = await getJson(`https://volby.statistics.sk/${PORTAL[e.type](year)}/json/map03d.json`);
+  const [d, voters] = await Promise.all([
+    getJson(`https://volby.statistics.sk/${PORTAL[e.type](year)}/json/map03d.json`),
+    getJson(`https://volby.statistics.sk/${PORTAL[e.type](year)}/json/map01d.json`),
+  ]);
   if (!d || !d.length) return false;
-  const okresy = {};
+  const votersByKraj = {};
+  for (const r of voters || []) { if (!isAggregate(r.C01)) { const k = krajOf(r.C01); votersByKraj[k] = (votersByKraj[k] || 0) + (num(r.C02) || 0); } }
+
+  const tally = {}; // kraj → { party → hlasy }
   for (const r of d) {
     if (isAggregate(r.C01)) continue;
-    const top = [[r.C00, num(r.C03)], [r.C04, num(r.C06)], [r.C07, num(r.C09)], [r.C10, num(r.C12)], [r.C13, num(r.C15)]]
-      .filter(([a, p]) => a && Number.isFinite(p));
-    okresy[String(r.C01)] = { w: r.C00, t: top };
+    const k = krajOf(r.C01);
+    tally[k] ??= {};
+    const pairs = [[r.C00, r.C02], [r.C04, r.C05], [r.C07, r.C08], [r.C10, r.C11], [r.C13, r.C14]];
+    for (const [party, votes] of pairs) { if (party) tally[k][party] = (tally[k][party] || 0) + (num(votes) || 0); }
   }
-  if (!Object.keys(okresy).length) return false;
+
+  const kraje = {};
+  for (const [k, parties] of Object.entries(tally)) {
+    const total = votersByKraj[k] || Object.values(parties).reduce((a, b) => a + b, 0);
+    const sorted = Object.entries(parties).sort((a, b) => b[1] - a[1]).slice(0, 5);
+    kraje[k] = { w: sorted[0][0], t: sorted.map(([party, v]) => [party, Math.round((v / total) * 1000) / 10]) };
+  }
+  if (!Object.keys(kraje).length) return false;
   fs.mkdirSync(path.join(DIR, "maps"), { recursive: true });
-  fs.writeFileSync(path.join(DIR, "maps", `${e.id}.json`), JSON.stringify({ generatedAt: new Date().toISOString(), okresy }));
-  return Object.keys(okresy).length;
+  fs.writeFileSync(path.join(DIR, "maps", `${e.id}.json`), JSON.stringify({ generatedAt: new Date().toISOString(), kraje }));
+  return Object.keys(kraje).length;
 }
 
 // --- main ---
@@ -70,7 +104,7 @@ const targets = elections.filter((e) => !e.predicted && ["parliamentary", "europ
 let n = 0;
 for (const e of targets) {
   const count = await buildElectionMap(e).catch(() => false);
-  if (count) { process.stderr.write(`✓ maps/${e.id}.json — ${count} okresov\n`); n++; }
+  if (count) { process.stderr.write(`✓ maps/${e.id}.json — ${count} krajov\n`); n++; }
   else process.stderr.write(`— ${e.id} (bez map03d)\n`);
 }
 process.stderr.write(`\n✓ ${n} máp do ${path.join(DIR, "maps")}\n`);

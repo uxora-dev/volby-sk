@@ -1,12 +1,12 @@
-@if (okresPaths(); as p) {
+@if (regionPaths(); as p) {
   @if (data(); as d) {
     <div class="rmap">
       <svg [attr.viewBox]="p.viewBox" preserveAspectRatio="xMidYMid meet" class="rmap__svg">
-        @for (o of okresy(); track o.code) {
+        @for (o of regions(); track o.code) {
           <path
             [attr.d]="o.d"
             [attr.fill]="o.fill"
-            class="rmap__okres"
+            class="rmap__region"
             [class.is-sel]="o.code === selected()"
             (click)="select(o.code)"
           ></path>
@@ -32,7 +32,7 @@
           </div>
         </div>
       } @else {
-        <div class="rmap__hint">Ťuknite na okres pre výsledky</div>
+        <div class="rmap__hint">Ťuknite na kraj pre výsledky</div>
       }
 
       <div class="rmap__legend">

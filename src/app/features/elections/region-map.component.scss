@@ -1,12 +1,12 @@
 :host {
   display: block;
   --map-nodata: #e6e3d9;
-  --map-stroke: rgba(11, 13, 19, 0.32);
+  --map-stroke: rgba(11, 13, 19, 0.5);
 }
 @media (prefers-color-scheme: dark) {
   :host {
     --map-nodata: #2a2e39;
-    --map-stroke: rgba(255, 255, 255, 0.22);
+    --map-stroke: rgba(255, 255, 255, 0.4);
   }
 }
 
@@ -16,19 +16,19 @@
   height: auto;
   overflow: visible;
 }
-.rmap__okres {
+.rmap__region {
   stroke: var(--map-stroke);
-  stroke-width: 0.6;
+  stroke-width: 2;
   stroke-linejoin: round;
   cursor: pointer;
   transition: opacity 0.15s ease;
 }
-.rmap__okres:hover {
-  opacity: 0.82;
+.rmap__region:hover {
+  opacity: 0.85;
 }
-.rmap__okres.is-sel {
+.rmap__region.is-sel {
   stroke: var(--ion-text-color);
-  stroke-width: 2;
+  stroke-width: 3.5;
   paint-order: stroke;
 }
 

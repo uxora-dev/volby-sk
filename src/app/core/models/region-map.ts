@@ -1,20 +1,20 @@
-/** Predpočítané SVG cesty okresov (spoločné pre všetky voľby). */
-export interface OkresPath {
-  code: string; // kód okresu (join key)
-  name: string; // názov okresu
+/** Predpočítaná SVG cesta kraja (spoločné pre všetky voľby). */
+export interface RegionPath {
+  code: string; // kód kraja (1–8, join key)
+  name: string; // názov kraja
   d: string; // SVG path data
 }
-export interface OkresPaths {
+export interface RegionPaths {
   viewBox: string;
-  okresy: OkresPath[];
+  kraje: RegionPath[];
 }
 
-/** Výsledok v jednom okrese: víťaz + top strany. */
-export interface OkresResult {
+/** Výsledok v jednom kraji: víťaz + top strany. */
+export interface RegionResult {
   w: string; // skratka víťaznej strany
   t: [string, number][]; // top strany [skratka, %]
 }
 export interface RegionMapData {
   generatedAt?: string;
-  okresy: Record<string, OkresResult>; // kód okresu → výsledok
+  kraje: Record<string, RegionResult>; // kód kraja → výsledok
 }

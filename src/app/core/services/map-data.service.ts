@@ -2,7 +2,7 @@ import { Injectable, Signal, inject, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError, of } from 'rxjs';
 
-import { OkresPaths, RegionMapData } from '../models/region-map';
+import { RegionPaths, RegionMapData } from '../models/region-map';
 import { environment } from '../../../environments/environment';
 
 const BUNDLED = 'assets/data';
@@ -18,7 +18,7 @@ const BASE = environment.electionsUrl
 @Injectable({ providedIn: 'root' })
 export class MapDataService {
   private readonly http = inject(HttpClient);
-  private readonly _paths = signal<OkresPaths | null | undefined>(undefined);
+  private readonly _paths = signal<RegionPaths | null | undefined>(undefined);
   private pathsRequested = false;
   private readonly cache = new Map<string, ReturnType<typeof signal<RegionMapData | null | undefined>>>();
 
@@ -27,16 +27,16 @@ export class MapDataService {
     return BASE === BUNDLED ? bundled : this.http.get<T>(`${BASE}/${url}`).pipe(catchError(() => bundled));
   }
 
-  /** Cesty okresov (undefined = načítava, null = nedostupné, objekt = dáta). */
-  paths(): Signal<OkresPaths | null | undefined> {
+  /** Cesty krajov (undefined = načítava, null = nedostupné, objekt = dáta). */
+  paths(): Signal<RegionPaths | null | undefined> {
     if (!this.pathsRequested) {
       this.pathsRequested = true;
-      this.load<OkresPaths>('okresy-paths.json').subscribe((p) => this._paths.set(p ?? null));
+      this.load<RegionPaths>('kraje-paths.json').subscribe((p) => this._paths.set(p ?? null));
     }
     return this._paths.asReadonly();
   }
 
-  /** Okresné výsledky voľby (undefined = načítava, null = nie sú, objekt = dáta). */
+  /** Krajské výsledky voľby (undefined = načítava, null = nie sú, objekt = dáta). */
   mapFor(id: string): Signal<RegionMapData | null | undefined> {
     let sig = this.cache.get(id);
     if (!sig) {
