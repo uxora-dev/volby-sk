@@ -518,9 +518,24 @@
   from { width: 0; }
 }
 
+/* karty bez vlastného paddingu (mapa, poslanci) — obsah odsadíme po prvkoch, oddeľovače full-width */
+.mapcard > .results__head,
+.mps > .results__head {
+  margin: 0;
+  padding: 15px 17px 0;
+}
+
 /* zvolení poslanci (parlamentné/euro) */
-.mps .results__head {
-  margin-bottom: 4px;
+.mps__hint {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 5px 0 8px;
+  padding: 0 17px;
+  font-size: 0.8rem;
+  color: var(--app-muted);
+
+  ion-icon { font-size: 0.95rem; color: var(--type); }
 }
 .mp-group {
   border-top: 1px solid var(--app-border);
@@ -533,12 +548,17 @@
   display: flex;
   align-items: center;
   gap: 9px;
-  padding: 13px 2px;
+  padding: 13px 17px;
   background: none;
   border: 0;
   font: inherit;
   cursor: pointer;
   color: var(--ion-text-color);
+  transition: background 0.12s ease;
+}
+.mp-group__head:active,
+.mp-group--open .mp-group__head {
+  background: color-mix(in srgb, var(--type) 6%, transparent);
 }
 .mp-group__abbr {
   flex: 1;
@@ -557,13 +577,14 @@
   font-variant-numeric: tabular-nums;
 }
 .mp-group__head ion-icon {
-  color: var(--app-muted);
-  font-size: 1.05rem;
+  color: var(--type);
+  font-size: 1.2rem;
+  flex: 0 0 auto;
 }
 .mp-names {
   columns: 2;
   column-gap: 18px;
-  padding: 0 2px 13px;
+  padding: 0 17px 14px;
 }
 .mp-name {
   display: block;

@@ -232,9 +232,9 @@
         </div>
 
         @if (hasRegionMap()) {
-          <div class="detail-info">
+          <div class="detail-info mapcard">
             <div class="results__head">
-              <span class="info-row__k">Kto vyhral v okrese</span>
+              <span class="info-row__k">Kto vyhral v kraji</span>
             </div>
             <app-region-map [electionId]="id()"></app-region-map>
           </div>
@@ -246,6 +246,7 @@
               <span class="info-row__k">Zvolení poslanci</span>
               <span class="turnout">{{ r.mps?.length }}</span>
             </div>
+            <p class="mps__hint"><ion-icon name="hand-left-outline"></ion-icon> Ťuknite na stranu pre zoznam mien</p>
             @for (g of mpsByParty(); track g.party.abbr) {
               <div class="mp-group" [class.mp-group--open]="expandedParties().has(g.party.abbr)">
                 <button class="mp-group__head" type="button" (click)="toggleParty(g.party.abbr)">
