@@ -8,298 +8,301 @@
 
 <ion-content [fullscreen]="true">
   @if (election(); as e) {
-    <div class="detail" [style.--type]="meta[e.type].color">
-      <div class="detail-hero">
-        <div class="detail-hero__badge">
-          <ion-icon [name]="meta[e.type].icon"></ion-icon>
-        </div>
-        <div class="detail-hero__pills">
-          <span class="type-pill">{{ meta[e.type].short }}</span>
-          @if (e.indirect) {
-            <span class="type-pill type-pill--indirect">Nepriama voľba</span>
-          }
-        </div>
-        <h1 class="detail-hero__title">{{ e.title }}</h1>
-        <div class="detail-hero__count">{{ e.date | relativeSk }}</div>
+  <div class="detail" [style.--type]="meta[e.type].color">
+    <div class="detail-hero">
+      <div class="detail-hero__badge">
+        <ion-icon [name]="meta[e.type].icon"></ion-icon>
       </div>
+      <div class="detail-hero__pills">
+        <span class="type-pill">{{ meta[e.type].short }}</span>
+        @if (e.indirect) {
+        <span class="type-pill type-pill--indirect">Nepriama voľba</span>
+        }
+      </div>
+      <h1 class="detail-hero__title">{{ e.title }}</h1>
+      <div class="detail-hero__count">{{ e.date | relativeSk }}</div>
+    </div>
 
-      @if (e.predicted) {
-        <div class="detail-info detail-info--est">
-          <div class="info-row">
-            <ion-icon name="information-circle-outline"></ion-icon>
-            <div>
-              <span class="info-row__k">Predpokladaný termín</span>
-              <span class="info-row__v">Odhad z pravidelného volebného cyklu — oficiálne bude vyhlásené neskôr.</span>
-            </div>
-          </div>
+    @if (e.predicted) {
+    <div class="detail-info detail-info--est">
+      <div class="info-row">
+        <ion-icon name="information-circle-outline"></ion-icon>
+        <div>
+          <span class="info-row__k">Predpokladaný termín</span>
+          <span class="info-row__v">Odhad z pravidelného volebného cyklu — oficiálne bude vyhlásené neskôr.</span>
         </div>
-      }
+      </div>
+    </div>
+    }
 
-      @if (e.subtype === 'byelection') {
-        <div class="detail-info" [class.detail-info--mine]="affectsMyObec()">
-          <div class="info-row">
-            <ion-icon name="home"></ion-icon>
-            <div>
-              <span class="info-row__k">Doplňujúca voľba</span>
-              @if (affectsMyObec()) {
-                <span class="info-row__v">Vo vašej obci ({{ settings.settings().municipality?.name }}) sa konajú voľby.</span>
-              } @else {
-                <span class="info-row__v">Koná sa v {{ e.municipalityCount }} obciach.</span>
-              }
-            </div>
-          </div>
-        </div>
-      }
-
-      @if (obecMayor(); as mayor) {
-        <div class="detail-info detail-info--mine">
-          <div class="info-row">
-            <ion-icon name="person"></ion-icon>
-            <div>
-              <span class="info-row__k">Vo vašej obci ({{ settings.settings().municipality?.name }})</span>
-              <span class="info-row__v">Zvolený starosta / primátor: {{ mayor }}</span>
-            </div>
-          </div>
-        </div>
-      }
-
-      @if (resultData(); as r) {
-        <div class="detail-info results">
-          <div class="results__head">
-            <span class="info-row__k">Výsledky volieb</span>
-            @if (r.turnout.pct !== null && !r.rounds && !r.referendum) {
-              <span class="turnout">Účasť {{ r.turnout.pct.toFixed(2).replace('.', ',') }} %</span>
-            }
-          </div>
-
-          @if (r.referendum; as ref) {
-            <div class="ref">
-              <div class="ref-status" [class.ref-status--valid]="ref.valid">
-                {{ ref.valid ? 'PLATNÉ' : 'NEPLATNÉ' }}
-              </div>
-              @if (ref.topic) {
-                <div class="ref-topic">
-                  <span class="info-row__k">O čo šlo</span>
-                  <p>{{ ref.topic }}</p>
-                </div>
-              }
-              @if (r.turnout.pct !== null) {
-                <div class="ref-stat">
-                  <span>Účasť</span>
-                  <strong>{{ r.turnout.pct.toFixed(2).replace('.', ',') }} %</strong>
-                  <span class="ref-quorum">z potrebných 50 %</span>
-                </div>
-              }
-              @if (ref.valid && ref.yesPct !== null) {
-                <div class="ref-stat">
-                  <span>Hlasovalo ÁNO</span>
-                  <strong>{{ ref.yesPct.toFixed(2).replace('.', ',') }} %</strong>
-                </div>
-              }
-              <p class="ref-note">{{ ref.resultText }}</p>
-            </div>
-          } @else if (r.indirect; as ind) {
-            <div class="indirect">
-              <div class="indirect__winner">
-                <span class="info-row__k">Zvolený prezident</span>
-                <strong>{{ r.winner.name }}</strong>
-              </div>
-              <div class="indirect__grid">
-                <div class="indirect__stat">
-                  <span>Zvolil</span>
-                  <strong>{{ ind.electedBy }}</strong>
-                </div>
-                <div class="indirect__stat">
-                  <span>Hlasov</span>
-                  <strong>{{ ind.votes }} z {{ ind.total }}</strong>
-                  <span class="indirect__sub">potrebných {{ ind.needed }}</span>
-                </div>
-                <div class="indirect__stat">
-                  <span>Funkčné obdobie</span>
-                  <strong>{{ ind.term }}</strong>
-                </div>
-              </div>
-              <p class="ref-note">{{ ind.note }}</p>
-            </div>
-          } @else if (r.regions) {
-            <div class="regions">
-              @for (reg of regionResults(); track reg.code) {
-                @if (reg.code === myRegionCode() && reg.candidates; as cands) {
-                  <div class="region-row region-row--mine region-row--full">
-                    <div class="region-row__head">
-                      <span class="region-row__kraj">{{ reg.name }}</span>
-                      <span class="region-row__tag">Váš kraj</span>
-                    </div>
-                    <div class="cands">
-                      @for (c of cands; track $index) {
-                        <div class="cand-row" [class.is-winner]="c.winner">
-                          <div class="cand-row__id">
-                            <span class="cand-row__name">{{ c.name }}</span>
-                            @if (c.party) { <span class="cand-row__party">{{ c.party }}</span> }
-                          </div>
-                          <div class="bar-track">
-                            <div class="bar-fill" [style.width.%]="(c.pct / cands[0].pct) * 100"></div>
-                          </div>
-                          <span class="cand-row__pct">{{ c.pct.toFixed(2).replace('.', ',') }} %</span>
-                        </div>
-                      }
-                    </div>
-                  </div>
-                } @else {
-                  <div class="region-row" [class.region-row--mine]="reg.code === myRegionCode()">
-                    <div class="region-row__head">
-                      <span class="region-row__kraj">{{ reg.name }}</span>
-                      @if (reg.code === myRegionCode()) {
-                        <span class="region-row__tag">Váš kraj</span>
-                      }
-                    </div>
-                    <div class="region-row__winner">
-                      <span class="region-row__name">{{ reg.winner }}</span>
-                      @if (reg.pct !== null) {
-                        <span class="region-row__pct">{{ reg.pct.toFixed(2).replace('.', ',') }} %</span>
-                      }
-                    </div>
-                    @if (reg.pct !== null) {
-                      <div class="bar-track">
-                        <div class="bar-fill" [style.width.%]="reg.pct"></div>
-                      </div>
-                    }
-                  </div>
-                }
-              }
-            </div>
-            @if (myRegionCode() && hasRegionCandidates()) {
-              <div class="results__legend">váš kraj: všetci kandidáti na predsedu · ostatné kraje: zvolený predseda</div>
-            } @else if (myRegionCode()) {
-              <div class="results__legend">zvolený predseda (župan) za každý kraj</div>
-            } @else {
-              <div class="results__legend">zvolený predseda (župan) za každý kraj · vyberte si kraj v nastaveniach pre zoznam kandidátov</div>
-            }
-          } @else if (r.rounds) {
-            @for (rd of roundsDesc(); track rd.round) {
-              <div class="round">
-                <div class="round__head">
-                  <span class="round__label">{{ rd.round }}. kolo</span>
-                  @if (rd.turnout !== null) {
-                    <span class="turnout">Účasť {{ rd.turnout.toFixed(2).replace('.', ',') }} %</span>
-                  }
-                </div>
-                <div class="bars">
-                  @for (c of rd.candidates; track $index) {
-                    <div class="bar-row bar-row--cand" [class.is-winner]="c.name === r.winner.name">
-                      <span class="bar-row__name">{{ c.name }}</span>
-                      <div class="bar-track">
-                        <div class="bar-fill" [style.width.%]="(c.pct / rd.candidates[0].pct) * 100"></div>
-                      </div>
-                      <span class="bar-row__pct">{{ c.pct.toFixed(2).replace('.', ',') }} %</span>
-                    </div>
-                  }
-                </div>
-              </div>
-            }
+    @if (e.subtype === 'byelection') {
+    <div class="detail-info" [class.detail-info--mine]="affectsMyObec()">
+      <div class="info-row">
+        <ion-icon name="home"></ion-icon>
+        <div>
+          <span class="info-row__k">Doplňujúca voľba</span>
+          @if (affectsMyObec()) {
+          <span class="info-row__v">Vo vašej obci ({{ settings.settings().municipality?.name }}) sa konajú voľby.</span>
           } @else {
-            <div class="bars">
-              @for (p of inParliament(); track $index) {
-                <div class="bar-row bar-row--seated" [class.is-winner]="$index === 0" [style.--bar]="color(p)">
-                  <span class="bar-row__name"><i class="pdot" [style.background]="color(p)"></i>{{ p.abbr || p.name }}</span>
-                  <div class="bar-track">
-                    <div class="bar-fill" [style.width.%]="(p.pct / maxPct()) * 100"></div>
-                  </div>
-                  <span class="bar-row__seats">{{ p.seats }}</span>
-                  <span class="bar-row__pct">{{ p.pct.toFixed(2).replace('.', ',') }} %</span>
-                </div>
-              }
-            </div>
-
-            @if (outParliament().length) {
-              <div class="results__divider"><span>Nedostali sa do parlamentu</span></div>
-              <div class="bars bars--out">
-                @for (p of outParliament(); track $index) {
-                  <div class="bar-row">
-                    <span class="bar-row__name"><i class="pdot" [style.background]="color(p)"></i>{{ p.abbr || p.name }}</span>
-                    <div class="bar-track">
-                      <div class="bar-fill" [style.width.%]="(p.pct / maxPct()) * 100"></div>
-                    </div>
-                    <span class="bar-row__pct">{{ p.pct.toFixed(2).replace('.', ',') }} %</span>
-                  </div>
-                }
-              </div>
-            }
-
-            <div class="results__legend">číslo pri strane = počet kresiel (spolu 150)</div>
+          <span class="info-row__v">Koná sa v {{ e.municipalityCount }} obciach.</span>
           }
-          <a class="results__src" [href]="r.source" target="_blank" rel="noopener">Zdroj: {{ r.sourceLabel || 'Štatistický úrad SR' }}</a>
         </div>
-
-        @if (hasRegionMap()) {
-          <div class="detail-info mapcard">
-            <div class="results__head">
-              <span class="info-row__k">Kto vyhral v kraji</span>
-            </div>
-            <app-region-map [electionId]="id()"></app-region-map>
-          </div>
-        }
-
-        @if (r.mps?.length) {
-          <div class="detail-info mps">
-            <div class="results__head">
-              <span class="info-row__k">Zvolení poslanci</span>
-              <span class="turnout">{{ r.mps?.length }}</span>
-            </div>
-            @for (g of mpsByParty(); track g.party.abbr) {
-              <div class="mp-group" [class.mp-group--open]="expandedParties().has(g.party.abbr)">
-                <button class="mp-group__head" type="button" (click)="toggleParty(g.party.abbr)">
-                  <i class="pdot" [style.background]="color(g.party)"></i>
-                  <span class="mp-group__abbr">{{ g.party.abbr || g.party.name }}</span>
-                  <span class="mp-group__count">{{ g.names.length }}</span>
-                  <span class="mp-group__chev"><ion-icon [name]="expandedParties().has(g.party.abbr) ? 'chevron-up' : 'chevron-down'"></ion-icon></span>
-                </button>
-                @if (expandedParties().has(g.party.abbr)) {
-                  <div class="mp-names">
-                    @for (n of g.names; track $index) {
-                      <span class="mp-name">{{ n }}</span>
-                    }
-                  </div>
-                }
-              </div>
-            }
-          </div>
-        }
-      }
-
-      <div class="detail-info">
-        <div class="info-row">
-          <ion-icon name="calendar-outline"></ion-icon>
-          <div>
-            <span class="info-row__k">{{ e.predicted ? 'Predpokladaný termín' : 'Termín konania' }}</span>
-            <span class="info-row__v">{{ e.date | skDate }}</span>
-          </div>
-        </div>
-        @if (e.legalRef) {
-          <div class="info-row">
-            <ion-icon name="document-text-outline"></ion-icon>
-            <div>
-              <span class="info-row__k">Právny predpis</span>
-              <span class="info-row__v">{{ e.legalRef }}</span>
-            </div>
-          </div>
-        }
-        @if (e.sourceUrl && !e.indirect) {
-          <a class="info-row info-row--link" [href]="e.sourceUrl" target="_blank" rel="noopener">
-            <ion-icon name="open-outline"></ion-icon>
-            <div>
-              <span class="info-row__k">Zdroj — Zbierka zákonov</span>
-              <span class="info-row__v">Otvoriť znenie rozhodnutia</span>
-            </div>
-            <ion-icon class="chev" name="chevron-forward"></ion-icon>
-          </a>
-        }
       </div>
     </div>
-  } @else {
-    <div class="state">
-      <ion-note>Voľba sa nenašla.</ion-note>
-      <ion-button fill="clear" routerLink="/">Späť na zoznam</ion-button>
+    }
+
+    @if (obecMayor(); as mayor) {
+    <div class="detail-info detail-info--mine">
+      <div class="info-row">
+        <ion-icon name="person"></ion-icon>
+        <div>
+          <span class="info-row__k">Vo vašej obci ({{ settings.settings().municipality?.name }})</span>
+          <span class="info-row__v">Zvolený starosta / primátor: {{ mayor }}</span>
+        </div>
+      </div>
     </div>
+    }
+
+    @if (resultData(); as r) {
+    <div class="detail-info results">
+      <div class="results__head">
+        <span class="info-row__k">Výsledky volieb</span>
+        @if (r.turnout.pct !== null && !r.rounds && !r.referendum) {
+        <span class="turnout">Účasť {{ r.turnout.pct.toFixed(2).replace('.', ',') }} %</span>
+        }
+      </div>
+
+      @if (r.referendum; as ref) {
+      <div class="ref">
+        <div class="ref-status" [class.ref-status--valid]="ref.valid">
+          {{ ref.valid ? 'PLATNÉ' : 'NEPLATNÉ' }}
+        </div>
+        @if (ref.topic) {
+        <div class="ref-topic">
+          <span class="info-row__k">O čo šlo</span>
+          <p>{{ ref.topic }}</p>
+        </div>
+        }
+        @if (r.turnout.pct !== null) {
+        <div class="ref-stat">
+          <span>Účasť</span>
+          <strong>{{ r.turnout.pct.toFixed(2).replace('.', ',') }} %</strong>
+          <span class="ref-quorum">z potrebných 50 %</span>
+        </div>
+        }
+        @if (ref.valid && ref.yesPct !== null) {
+        <div class="ref-stat">
+          <span>Hlasovalo ÁNO</span>
+          <strong>{{ ref.yesPct.toFixed(2).replace('.', ',') }} %</strong>
+        </div>
+        }
+        <p class="ref-note">{{ ref.resultText }}</p>
+      </div>
+      } @else if (r.indirect; as ind) {
+      <div class="indirect">
+        <div class="indirect__winner">
+          <span class="info-row__k">Zvolený prezident</span>
+          <strong>{{ r.winner.name }}</strong>
+        </div>
+        <div class="indirect__grid">
+          <div class="indirect__stat">
+            <span>Zvolil</span>
+            <strong>{{ ind.electedBy }}</strong>
+          </div>
+          <div class="indirect__stat">
+            <span>Hlasov</span>
+            <strong>{{ ind.votes }} z {{ ind.total }}</strong>
+            <span class="indirect__sub">potrebných {{ ind.needed }}</span>
+          </div>
+          <div class="indirect__stat">
+            <span>Funkčné obdobie</span>
+            <strong>{{ ind.term }}</strong>
+          </div>
+        </div>
+        <p class="ref-note">{{ ind.note }}</p>
+      </div>
+      } @else if (r.regions) {
+      <div class="regions">
+        @for (reg of regionResults(); track reg.code) {
+        @if (reg.code === myRegionCode() && reg.candidates; as cands) {
+        <div class="region-row region-row--mine region-row--full">
+          <div class="region-row__head">
+            <span class="region-row__kraj">{{ reg.name }}</span>
+            <span class="region-row__tag">Váš kraj</span>
+          </div>
+          <div class="cands">
+            @for (c of cands; track $index) {
+            <div class="cand-row" [class.is-winner]="c.winner">
+              <div class="cand-row__id">
+                <span class="cand-row__name">{{ c.name }}</span>
+                @if (c.party) { <span class="cand-row__party">{{ c.party }}</span> }
+              </div>
+              <div class="bar-track">
+                <div class="bar-fill" [style.width.%]="(c.pct / cands[0].pct) * 100"></div>
+              </div>
+              <span class="cand-row__pct">{{ c.pct.toFixed(2).replace('.', ',') }} %</span>
+            </div>
+            }
+          </div>
+        </div>
+        } @else {
+        <div class="region-row" [class.region-row--mine]="reg.code === myRegionCode()">
+          <div class="region-row__head">
+            <span class="region-row__kraj">{{ reg.name }}</span>
+            @if (reg.code === myRegionCode()) {
+            <span class="region-row__tag">Váš kraj</span>
+            }
+          </div>
+          <div class="region-row__winner">
+            <span class="region-row__name">{{ reg.winner }}</span>
+            @if (reg.pct !== null) {
+            <span class="region-row__pct">{{ reg.pct.toFixed(2).replace('.', ',') }} %</span>
+            }
+          </div>
+          @if (reg.pct !== null) {
+          <div class="bar-track">
+            <div class="bar-fill" [style.width.%]="reg.pct"></div>
+          </div>
+          }
+        </div>
+        }
+        }
+      </div>
+      @if (myRegionCode() && hasRegionCandidates()) {
+      <div class="results__legend">váš kraj: všetci kandidáti na predsedu · ostatné kraje: zvolený predseda</div>
+      } @else if (myRegionCode()) {
+      <div class="results__legend">zvolený predseda (župan) za každý kraj</div>
+      } @else {
+      <div class="results__legend">zvolený predseda (župan) za každý kraj · vyberte si kraj v nastaveniach pre zoznam
+        kandidátov</div>
+      }
+      } @else if (r.rounds) {
+      @for (rd of roundsDesc(); track rd.round) {
+      <div class="round">
+        <div class="round__head">
+          <span class="round__label">{{ rd.round }}. kolo</span>
+          @if (rd.turnout !== null) {
+          <span class="turnout">Účasť {{ rd.turnout.toFixed(2).replace('.', ',') }} %</span>
+          }
+        </div>
+        <div class="bars">
+          @for (c of rd.candidates; track $index) {
+          <div class="bar-row bar-row--cand" [class.is-winner]="c.name === r.winner.name">
+            <span class="bar-row__name">{{ c.name }}</span>
+            <div class="bar-track">
+              <div class="bar-fill" [style.width.%]="(c.pct / rd.candidates[0].pct) * 100"></div>
+            </div>
+            <span class="bar-row__pct">{{ c.pct.toFixed(2).replace('.', ',') }} %</span>
+          </div>
+          }
+        </div>
+      </div>
+      }
+      } @else {
+      <div class="bars">
+        @for (p of inParliament(); track $index) {
+        <div class="bar-row bar-row--seated" [class.is-winner]="$index === 0" [style.--bar]="color(p)">
+          <span class="bar-row__name"><i class="pdot" [style.background]="color(p)"></i>{{ p.abbr || p.name }}</span>
+          <div class="bar-track">
+            <div class="bar-fill" [style.width.%]="(p.pct / maxPct()) * 100"></div>
+          </div>
+          <span class="bar-row__seats">{{ p.seats }}</span>
+          <span class="bar-row__pct">{{ p.pct.toFixed(2).replace('.', ',') }} %</span>
+        </div>
+        }
+      </div>
+
+      @if (outParliament().length) {
+      <div class="results__divider"><span>Nedostali sa do parlamentu</span></div>
+      <div class="bars bars--out">
+        @for (p of outParliament(); track $index) {
+        <div class="bar-row">
+          <span class="bar-row__name"><i class="pdot" [style.background]="color(p)"></i>{{ p.abbr || p.name }}</span>
+          <div class="bar-track">
+            <div class="bar-fill" [style.width.%]="(p.pct / maxPct()) * 100"></div>
+          </div>
+          <span class="bar-row__pct">{{ p.pct.toFixed(2).replace('.', ',') }} %</span>
+        </div>
+        }
+      </div>
+      }
+
+      <div class="results__legend">číslo pri strane = počet kresiel (spolu 150)</div>
+      }
+      <a class="results__src" [href]="r.source" target="_blank" rel="noopener">Zdroj: {{ r.sourceLabel || 'Štatistický
+        úrad SR' }}</a>
+    </div>
+
+    @if (hasRegionMap()) {
+    <div class="detail-info mapcard">
+      <div class="results__head">
+        <span class="info-row__k">Kto vyhral v kraji</span>
+      </div>
+      <app-region-map [electionId]="id()"></app-region-map>
+    </div>
+    }
+
+    @if (r.mps?.length) {
+    <div class="detail-info mps">
+      <div class="results__head">
+        <span class="info-row__k">Zvolení poslanci</span>
+        <span class="turnout">{{ r.mps?.length }}</span>
+      </div>
+      @for (g of mpsByParty(); track g.party.abbr) {
+      <div class="mp-group" [class.mp-group--open]="expandedParties().has(g.party.abbr)">
+        <button class="mp-group__head" type="button" (click)="toggleParty(g.party.abbr)">
+          <i class="pdot" [style.background]="color(g.party)"></i>
+          <span class="mp-group__abbr">{{ g.party.abbr || g.party.name }}</span>
+          <span class="mp-group__count">{{ g.names.length }}</span>
+          <span class="mp-group__chev"><ion-icon
+              [name]="expandedParties().has(g.party.abbr) ? 'chevron-up-outline' : 'chevron-down-outline'"></ion-icon></span>
+        </button>
+        @if (expandedParties().has(g.party.abbr)) {
+        <div class="mp-names">
+          @for (n of g.names; track $index) {
+          <span class="mp-name">{{ n }}</span>
+          }
+        </div>
+        }
+      </div>
+      }
+    </div>
+    }
+    }
+
+    <div class="detail-info">
+      <div class="info-row">
+        <ion-icon name="calendar-outline"></ion-icon>
+        <div>
+          <span class="info-row__k">{{ e.predicted ? 'Predpokladaný termín' : 'Termín konania' }}</span>
+          <span class="info-row__v">{{ e.date | skDate }}</span>
+        </div>
+      </div>
+      @if (e.legalRef) {
+      <div class="info-row">
+        <ion-icon name="document-text-outline"></ion-icon>
+        <div>
+          <span class="info-row__k">Právny predpis</span>
+          <span class="info-row__v">{{ e.legalRef }}</span>
+        </div>
+      </div>
+      }
+      @if (e.sourceUrl && !e.indirect) {
+      <a class="info-row info-row--link" [href]="e.sourceUrl" target="_blank" rel="noopener">
+        <ion-icon name="open-outline"></ion-icon>
+        <div>
+          <span class="info-row__k">Zdroj — Zbierka zákonov</span>
+          <span class="info-row__v">Otvoriť znenie rozhodnutia</span>
+        </div>
+        <ion-icon class="chev" name="chevron-forward-outline"></ion-icon>
+      </a>
+      }
+    </div>
+  </div>
+  } @else {
+  <div class="state">
+    <ion-note>Voľba sa nenašla.</ion-note>
+    <ion-button fill="clear" routerLink="/">Späť na zoznam</ion-button>
+  </div>
   }
 </ion-content>
