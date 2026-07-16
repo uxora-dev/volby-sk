@@ -16,7 +16,10 @@ const here = path.dirname(new URL(import.meta.url).pathname);
 const DIR = opt("--dir", path.join(here, "../src/assets/data"));
 
 const getJson = async (url) => { const r = await fetch(url, { headers: { "User-Agent": UA } }).catch(() => null); return r && r.ok ? r.json().catch(() => null) : null; };
-const isAggregate = (code) => /00$/.test(String(code)); // 100/800 agregáty + 900 Cudzina
+// Pre GEOMETRIU: mestá Bratislava/Košice použijeme ako agregát (100/800) na reálnej pozícii;
+// ich mestské okresy 101–105 / 802–805 sú v geojsone odtrhnuté insety → vynecháme. 900 = Cudzina.
+const CITY_INSETS = new Set(["101", "102", "103", "104", "105", "802", "803", "804", "805"]);
+const skipForShape = (code) => String(code) === "900" || CITY_INSETS.has(String(code));
 const krajOf = (okres) => Math.floor(Number(okres) / 100);
 const KRAJ_NAMES = {
   1: "Bratislavský kraj", 2: "Trnavský kraj", 3: "Trenčiansky kraj", 4: "Nitriansky kraj",
@@ -25,7 +28,7 @@ const KRAJ_NAMES = {
 
 const geo = await getJson("https://volby.statistics.sk/nrsr/nrsr2023/geojson/okresy.geo.json");
 if (!geo?.features) { process.stderr.write("# okresy.geo.json nedostupné\n"); process.exit(1); }
-const features = geo.features.filter((f) => !isAggregate(f.properties.OKRES));
+const features = geo.features.filter((f) => !skipForShape(f.properties.OKRES));
 
 const krajByIndex = features.map((f) => krajOf(f.properties.OKRES)); // poradie == poradie geometrií
 const topo = topology({ o: { type: "GeometryCollection", geometries: features.map((f) => ({ type: f.geometry.type, coordinates: f.geometry.coordinates })) } });

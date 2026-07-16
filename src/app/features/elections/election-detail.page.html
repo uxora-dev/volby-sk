@@ -246,14 +246,13 @@
               <span class="info-row__k">Zvolení poslanci</span>
               <span class="turnout">{{ r.mps?.length }}</span>
             </div>
-            <p class="mps__hint"><ion-icon name="hand-left-outline"></ion-icon> Ťuknite na stranu pre zoznam mien</p>
             @for (g of mpsByParty(); track g.party.abbr) {
               <div class="mp-group" [class.mp-group--open]="expandedParties().has(g.party.abbr)">
                 <button class="mp-group__head" type="button" (click)="toggleParty(g.party.abbr)">
                   <i class="pdot" [style.background]="color(g.party)"></i>
                   <span class="mp-group__abbr">{{ g.party.abbr || g.party.name }}</span>
                   <span class="mp-group__count">{{ g.names.length }}</span>
-                  <ion-icon [name]="expandedParties().has(g.party.abbr) ? 'chevron-up' : 'chevron-down'"></ion-icon>
+                  <span class="mp-group__chev"><ion-icon [name]="expandedParties().has(g.party.abbr) ? 'chevron-up' : 'chevron-down'"></ion-icon></span>
                 </button>
                 @if (expandedParties().has(g.party.abbr)) {
                   <div class="mp-names">
@@ -295,16 +294,6 @@
             <ion-icon class="chev" name="chevron-forward"></ion-icon>
           </a>
         }
-      </div>
-
-      <div class="detail-info detail-info--muted">
-        <div class="info-row">
-          <ion-icon name="notifications-outline"></ion-icon>
-          <div>
-            <span class="info-row__k">Pripomienka</span>
-            <span class="info-row__v">Notifikácie pribudnú v ďalšej fáze</span>
-          </div>
-        </div>
       </div>
     </div>
   } @else {

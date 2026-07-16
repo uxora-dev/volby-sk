@@ -526,16 +526,8 @@
 }
 
 /* zvolení poslanci (parlamentné/euro) */
-.mps__hint {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  margin: 5px 0 8px;
-  padding: 0 17px;
-  font-size: 0.8rem;
-  color: var(--app-muted);
-
-  ion-icon { font-size: 0.95rem; color: var(--type); }
+.mps > .results__head {
+  padding-bottom: 8px;
 }
 .mp-group {
   border-top: 1px solid var(--app-border);
@@ -576,10 +568,22 @@
   color: var(--app-muted);
   font-variant-numeric: tabular-nums;
 }
-.mp-group__head ion-icon {
-  color: var(--type);
-  font-size: 1.2rem;
+.mp-group__chev {
   flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--ion-text-color) 9%, transparent);
+  color: var(--app-muted);
+
+  ion-icon { font-size: 1.05rem; }
+}
+.mp-group--open .mp-group__chev {
+  background: color-mix(in srgb, var(--type) 20%, transparent);
+  color: var(--type);
 }
 .mp-names {
   columns: 2;
