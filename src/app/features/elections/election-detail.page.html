@@ -255,7 +255,7 @@
           <span class="mp-group__abbr">{{ g.party.abbr || g.party.name }}</span>
           <span class="mp-group__count">{{ g.names.length }}</span>
           <span class="mp-group__chev"><ion-icon
-              [name]="expandedParties().has(g.party.abbr) ? 'chevron-up-outline' : 'chevron-down-outline'"></ion-icon></span>
+              [name]="expandedParties().has(g.party.abbr) ? 'chevron-up' : 'chevron-down'"></ion-icon></span>
         </button>
         @if (expandedParties().has(g.party.abbr)) {
         <div class="mp-names">
@@ -294,7 +294,7 @@
           <span class="info-row__k">Zdroj — Zbierka zákonov</span>
           <span class="info-row__v">Otvoriť znenie rozhodnutia</span>
         </div>
-        <ion-icon class="chev" name="chevron-forward-outline"></ion-icon>
+        <ion-icon class="chev" name="chevron-forward"></ion-icon>
       </a>
       }
     </div>

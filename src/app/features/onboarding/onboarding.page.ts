@@ -1,17 +1,9 @@
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { IonContent, IonButton, IonIcon } from '@ionic/angular/standalone';
-import { addIcons } from 'ionicons';
-import {
-  newspaperOutline, lockClosedOutline, notificationsOutline, notifications,
-  checkmarkCircle, arrowForward,
-} from 'ionicons/icons';
 
 import { SettingsService } from '../../core/services/settings.service';
 import { NotificationsService } from '../../core/services/notifications.service';
-
-// Registruj ikony eagerly — inak sa lazy-loadom pri prvom vykreslení objavia prázdne.
-addIcons({ newspaperOutline, lockClosedOutline, notificationsOutline, notifications, checkmarkCircle, arrowForward });
 
 interface Step {
   icon: string;
