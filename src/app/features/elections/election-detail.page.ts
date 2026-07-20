@@ -1,7 +1,8 @@
-import { ChangeDetectionStrategy, Component, computed, inject, input, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, effect, inject, input, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import {
   IonHeader, IonToolbar, IonContent, IonButtons, IonBackButton, IonIcon, IonNote, IonButton,
+  IonSearchbar,
 } from '@ionic/angular/standalone';
 
 import { ElectionsService } from '../../core/services/elections.service';
@@ -22,7 +23,7 @@ const todayStr = () => new Date().toISOString().slice(0, 10);
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     RouterLink, IonHeader, IonToolbar, IonContent, IonButtons, IonBackButton,
-    IonIcon, IonNote, IonButton, RelativeSkPipe, SkDatePipe, RegionMapComponent,
+    IonIcon, IonNote, IonButton, IonSearchbar, RelativeSkPipe, SkDatePipe, RegionMapComponent,
   ],
   templateUrl: './election-detail.page.html',
   styleUrl: './election-detail.page.scss',
@@ -36,6 +37,10 @@ export class ElectionDetailPage {
 
   constructor() {
     this.loc.loadMayors();
+    // Číselník obcí načítaj len pri komunálnych voľbách (kvôli vyhľadávaniu obce v detaile).
+    effect(() => {
+      if (this.election()?.type === 'municipal') this.loc.loadMunicipalities();
+    });
   }
 
   /** Má voľba okresnú mapu (parlamentné/euro s dátami)? */
@@ -93,10 +98,40 @@ export class ElectionDetailPage {
 
   protected readonly myRegionCode = computed(() => this.settings.settings().regionCode);
 
-  /** Má vybraný kraj k dispozícii zoznam kandidátov (novšie ročníky), alebo len meno víťaza? */
-  protected readonly hasRegionCandidates = computed(() =>
-    !!this.regionResults().find((r) => r.code === this.myRegionCode())?.candidates?.length,
+  /** Ktorýkoľvek kraj má zoznam kandidátov (novšie ročníky 2017+)? */
+  protected readonly hasAnyRegionCandidates = computed(() =>
+    !!this.resultData()?.regions?.some((r) => r.candidates?.length),
   );
+
+  /** Rozbalený kraj v akordeóne — undefined = ešte neprepnuté (default = kraj z nastavení). */
+  private readonly regionOverride = signal<string | null | undefined>(undefined);
+  protected readonly expandedRegion = computed(() => {
+    const o = this.regionOverride();
+    return o !== undefined ? o : this.myRegionCode();
+  });
+  protected toggleRegion(code: string): void {
+    this.regionOverride.set(this.expandedRegion() === code ? null : code);
+  }
+
+  // --- Komunálne: vyhľadávanie obce priamo v detaile (bez preklikávania cez nastavenia) ---
+
+  /** Majú tieto komunálne voľby dáta o zvolených starostoch (2018, 2022)? */
+  protected readonly hasMayorData = computed(() => {
+    const e = this.election();
+    return !!e && e.type === 'municipal' && this.loc.hasMayors(e.id);
+  });
+
+  protected readonly obecQuery = signal('');
+
+  /** Obce zodpovedajúce hľadaniu spolu so zvoleným starostom v tejto voľbe. */
+  protected readonly obecResults = computed(() => {
+    const e = this.election();
+    if (!e || !this.loc.hasMayors(e.id)) return [];
+    if (this.obecQuery().trim().length < 2) return [];
+    return this.loc
+      .search(null, this.obecQuery(), 20)
+      .map((m) => ({ m, mayor: this.loc.mayorFor(e.id, m.id) }));
+  });
 
   /** Zvolení poslanci zoskupení podľa strany (v poradí podľa mandátov). */
   protected readonly mpsByParty = computed(() => {

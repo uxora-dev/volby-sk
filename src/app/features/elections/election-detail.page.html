@@ -63,6 +63,37 @@
     </div>
     }
 
+    @if (hasMayorData()) {
+    <div class="detail-info obec-search">
+      <div class="results__head">
+        <span class="info-row__k">Zvolený starosta / primátor</span>
+      </div>
+      <ion-searchbar class="obec-search__bar" placeholder="Hľadať obec alebo mesto…" [debounce]="120"
+        [value]="obecQuery()" (ionInput)="obecQuery.set($any($event).detail.value ?? '')"
+        (ionClear)="obecQuery.set('')"></ion-searchbar>
+
+      @if (obecQuery().trim().length >= 2) {
+        @if (obecResults().length) {
+        <div class="obec-list">
+          @for (row of obecResults(); track row.m.id) {
+          <div class="obec-item" [class.obec-item--mine]="row.m.id === settings.settings().municipality?.id">
+            <div class="obec-item__id">
+              <span class="obec-item__name">{{ row.m.name }}</span>
+              <span class="obec-item__district">okres {{ row.m.district }}</span>
+            </div>
+            <span class="obec-item__mayor">{{ row.mayor ?? '—' }}</span>
+          </div>
+          }
+        </div>
+        } @else {
+        <div class="results__legend">Žiadna obec nezodpovedá hľadaniu.</div>
+        }
+      } @else {
+      <div class="results__legend">Napíšte názov obce a zobrazí sa zvolený starosta / primátor.</div>
+      }
+    </div>
+    }
+
     @if (resultData(); as r) {
     <div class="detail-info results">
       <div class="results__head">
@@ -124,57 +155,51 @@
       } @else if (r.regions) {
       <div class="regions">
         @for (reg of regionResults(); track reg.code) {
-        @if (reg.code === myRegionCode() && reg.candidates; as cands) {
-        <div class="region-row region-row--mine region-row--full">
-          <div class="region-row__head">
-            <span class="region-row__kraj">{{ reg.name }}</span>
-            <span class="region-row__tag">Váš kraj</span>
-          </div>
+        @let expandable = !!reg.candidates?.length;
+        @let open = expandedRegion() === reg.code && expandable;
+        <div class="region-acc" [class.region-acc--mine]="reg.code === myRegionCode()"
+          [class.region-acc--open]="open">
+          <button class="region-acc__head" type="button" [disabled]="!expandable"
+            (click)="toggleRegion(reg.code)">
+            <div class="region-acc__id">
+              <span class="region-acc__kraj">{{ reg.name }}</span>
+              @if (reg.code === myRegionCode()) {
+              <span class="region-row__tag">Váš kraj</span>
+              }
+            </div>
+            <span class="region-acc__winner">{{ reg.winner }}</span>
+            @if (reg.pct !== null) {
+            <span class="region-acc__pct">{{ reg.pct.toFixed(2).replace('.', ',') }} %</span>
+            }
+            @if (expandable) {
+            <span class="region-acc__chev">
+              <ion-icon [name]="open ? 'chevron-up' : 'chevron-down'"></ion-icon>
+            </span>
+            }
+          </button>
+          @if (open) {
           <div class="cands">
-            @for (c of cands; track $index) {
+            @for (c of reg.candidates!; track $index) {
             <div class="cand-row" [class.is-winner]="c.winner">
               <div class="cand-row__id">
                 <span class="cand-row__name">{{ c.name }}</span>
                 @if (c.party) { <span class="cand-row__party">{{ c.party }}</span> }
               </div>
               <div class="bar-track">
-                <div class="bar-fill" [style.width.%]="(c.pct / cands[0].pct) * 100"></div>
+                <div class="bar-fill" [style.width.%]="(c.pct / reg.candidates![0].pct) * 100"></div>
               </div>
               <span class="cand-row__pct">{{ c.pct.toFixed(2).replace('.', ',') }} %</span>
             </div>
             }
           </div>
-        </div>
-        } @else {
-        <div class="region-row" [class.region-row--mine]="reg.code === myRegionCode()">
-          <div class="region-row__head">
-            <span class="region-row__kraj">{{ reg.name }}</span>
-            @if (reg.code === myRegionCode()) {
-            <span class="region-row__tag">Váš kraj</span>
-            }
-          </div>
-          <div class="region-row__winner">
-            <span class="region-row__name">{{ reg.winner }}</span>
-            @if (reg.pct !== null) {
-            <span class="region-row__pct">{{ reg.pct.toFixed(2).replace('.', ',') }} %</span>
-            }
-          </div>
-          @if (reg.pct !== null) {
-          <div class="bar-track">
-            <div class="bar-fill" [style.width.%]="reg.pct"></div>
-          </div>
           }
         </div>
         }
-        }
       </div>
-      @if (myRegionCode() && hasRegionCandidates()) {
-      <div class="results__legend">váš kraj: všetci kandidáti na predsedu · ostatné kraje: zvolený predseda</div>
-      } @else if (myRegionCode()) {
-      <div class="results__legend">zvolený predseda (župan) za každý kraj</div>
+      @if (hasAnyRegionCandidates()) {
+      <div class="results__legend">ťuknutím na kraj zobrazíte všetkých kandidátov na predsedu</div>
       } @else {
-      <div class="results__legend">zvolený predseda (župan) za každý kraj · vyberte si kraj v nastaveniach pre zoznam
-        kandidátov</div>
+      <div class="results__legend">zvolený predseda (župan) za každý kraj</div>
       }
       } @else if (r.rounds) {
       @for (rd of roundsDesc(); track rd.round) {
